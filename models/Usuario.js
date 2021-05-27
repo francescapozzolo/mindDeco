@@ -6,7 +6,10 @@ const usuarioSchema = new mongoose.Schema({
     email: {type: String, required: true},
     contraseña: {type: String, required: true},
     foto: {type: String, required: true},
-    provincia: {type: String, required: true}
+    provincia: {type: String, required: true},
+    admin: {type: Boolean, default: false},
+    google: {type: Boolean, default: false},
+
 })
      
 const Usuario = mongoose.model('user', usuarioSchema)
