@@ -12,7 +12,7 @@ const usuarioSchema = new mongoose.Schema({
         carrito: [{type: mongoose.Types.ObjectId, ref: 'product'}],
         favoritos: [{type: mongoose.Types.ObjectId, ref: 'product'}]
 })
-
+     
 const Usuario = mongoose.model('user', usuarioSchema)
 
 module.exports = Usuario
