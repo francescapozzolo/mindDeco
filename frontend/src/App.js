@@ -22,7 +22,7 @@ const App = ({userLogged, logInForced}) => {
 
       logInForced(userForced)
     }
-  },[])  
+  },[userLogged, logInForced])  
     return(
       <BrowserRouter>
         <Switch>
