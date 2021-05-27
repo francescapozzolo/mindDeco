@@ -7,7 +7,7 @@ import {useEffect, useState } from "react"
 import {connect} from "react-redux"
 import authActions from '../redux/actions/authActions'
 // import GoogleLogin from 'react-google-login'
-// import { ToastContainer, toast } from 'react-toastify'
+import { ToastContainer, toast } from 'react-toastify'
 // import 'react-toastify/dist/ReactToastify.css'
 import {NavLink} from 'react-router-dom'
 // import GoogleButton from 'react-google-button'
