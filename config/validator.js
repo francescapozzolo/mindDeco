@@ -45,7 +45,7 @@ const validator = (req, res, next) => {
             "string.empty": "Su provincia es un campo requerido",
             "any.required": "Su provincia es un campo requerido"
         }),
-        admin: joi.boolean(),
+        administrador: joi.boolean(),
         google: joi.boolean()
     })
     const validation = schema.validate(req.body, {abortEarly: false})
