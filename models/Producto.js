@@ -7,8 +7,8 @@ const productoSchema = new mongoose.Schema({
     subcategoria: [{type: String, required: true}],	
     precio: {type: Number, required: true},		
     stock: {type: Number, required: true}, 	
-    fotos:	[String],			
-    info_tecnica: {type: String, required: true}	
+    fotos: [String],
+    info_tecnica: {type: String, required: true}
 })
 
 const Producto = mongoose.model('product', productoSchema)
