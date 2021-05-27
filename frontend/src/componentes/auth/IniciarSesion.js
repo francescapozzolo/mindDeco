@@ -5,15 +5,15 @@
 // import Footer from '../components/Footer'
 import {useEffect, useState } from "react"
 import {connect} from "react-redux"
-import authActions from '../redux/actions/authActions'
-// import GoogleLogin from 'react-google-login'
-// import { ToastContainer, toast } from 'react-toastify'
-// import 'react-toastify/dist/ReactToastify.css'
+import authActions from '../../redux/actions/authActions'
+import GoogleLogin from 'react-google-login'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import {NavLink} from 'react-router-dom'
-// import GoogleButton from 'react-google-button'
+import GoogleButton from 'react-google-button'
 
 
-const SignIn = (props) => {
+const IniciarSesion = (props) => {
     const [user, setUser] = useState({email: '', contraseña: ''})
     // const [eye, setEye] = useState(false)
     useEffect (() =>{
@@ -41,11 +41,11 @@ const SignIn = (props) => {
         }
     }
     
-    // const responseGoogle = (response) => {
-    //     if(response.profileObj.email){
-    //         sendValueUser(null, {email: response.profileObj.email, password: 'a'+response.profileObj.googleId})
-    //     }
-    // }
+    const responseGoogle = (response) => {
+        if(response.profileObj.email){
+            sendValueUser(null, {email: response.profileObj.email, password: 'a'+response.profileObj.googleId})
+        }
+    }
 
     return(
         <>
@@ -64,7 +64,7 @@ const SignIn = (props) => {
                             {/* {eye ? <VisibilityOffOutlinedIcon className='eyeSignUp' onClick={()=>setEye(!eye)} /> : <VisibilityOutlinedIcon className='eyeSignUp' onClick={()=>setEye(!eye)}/>} */}
                         </div>
                         <button onClick={sendValueUser}>Sign in!</button>
-                        {/* <GoogleLogin
+                        <GoogleLogin
                             clientId="974935643152-qgv6foimg4iuj8fg4nl7r4id11516f3g.apps.googleusercontent.com"
                             render={renderProps => (
                                 <GoogleButton className='btn-google' onClick={renderProps.onClick} disabled={renderProps.disabled}>Sign in with Google</GoogleButton>
@@ -73,9 +73,9 @@ const SignIn = (props) => {
                             onSuccess={responseGoogle}
                             onFailure={responseGoogle}
                             cookiePolicy={'single_host_origin'}
-                        /> */}
+                        />
                     </form>
-                    {/* <ToastContainer /> */}
+                    <ToastContainer />
                     <p>Don't have an account?  <NavLink to='/registro'>Sign up here!</NavLink></p>
                 </div>
             </div>
@@ -88,4 +88,4 @@ const mapDispatchToProps = {
     logInUser: authActions.logInUser 
 }
 
-export default connect(null ,mapDispatchToProps)(SignIn)
+export default connect(null ,mapDispatchToProps)(IniciarSesion)
