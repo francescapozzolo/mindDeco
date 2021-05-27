@@ -8,7 +8,7 @@ const usuarioSchema = new mongoose.Schema({
     foto: {type: String, required: true},
     provincia: {type: String, required: true}
 })
-
+     
 const Usuario = mongoose.model('user', usuarioSchema)
 
 module.exports = Usuario
