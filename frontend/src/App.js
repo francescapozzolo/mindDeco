@@ -5,18 +5,24 @@ import Ingreso from './componentes/auth/Ingreso'
 import {connect} from "react-redux"
 import authActions from './redux/actions/authActions'
 
-const App = (props) => {
+import "./styles/stylebaez.css"
+import "./styles/stylecomes.css"
+import "./styles/styledomato.css"
+import "./styles/stylelorenzo.css"
+import "./styles/stylepozzolo.css"
+
+const App = ({userLogged, logInForced}) => {
   useEffect(()=>{
-    if (!props.userLogged && localStorage.getItem('token')) {
+    if (!userLogged && localStorage.getItem('token')) {
       const userData = JSON.parse(localStorage.getItem('userLogged'))
       const userForced = {
         token: localStorage.getItem('token'),
         ...userData
       }
 
-      props.logInForced(userForced)
+      logInForced(userForced)
     }
-  },[])  
+  },[userLogged, logInForced])  
     return(
       <BrowserRouter>
         <Switch>

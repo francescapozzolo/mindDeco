@@ -1,8 +1,14 @@
 :root {
     --negro: #191D1F;
     --mostaza: #C9B687;
-    --fontTexto: font-family: 'Montserrat', sans-serif;
-    --fontTitulos: font-family: 'Fjalla One', sans-serif;
+}
+
+.fontTexto {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.fontTitulos {
+    font-family: 'Fjalla One', sans-serif;
 }
 
 html, body, div, span, applet, object, iframe,
@@ -48,3 +54,4 @@ table {
 border-collapse: collapse;
 border-spacing: 0;
 }
+
