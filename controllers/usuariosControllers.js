@@ -1,11 +1,10 @@
 const Usuario = require('../models/Usuario')
 
 const usuariosControllers = {
-<<<<<<< HEAD
+
+
     registrarUsuario:async (req, res) => {
-=======
-    registrarUsuario: async(req, res) => {
->>>>>>> 14151e9d533562c363b29544e15e776eb9df7f71
+
         let {firstName, lastName, email, password, userImage, country, google, itinerariesLiked} = req.body
         const mailExist = await Usuario.findOne({email})
 
@@ -33,11 +32,9 @@ const usuariosControllers = {
         })       
     },
 
-<<<<<<< HEAD
+
     loguearUsuario: async (req, res) => {
-=======
-    loguearUsuario: async(req, res) => {
->>>>>>> 14151e9d533562c363b29544e15e776eb9df7f71
+
         const {email, password} = req.body
         
         let error;

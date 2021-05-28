@@ -53,4 +53,170 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+
 }
+
+/* HEADER */
+.c-navbarContainer {
+	height: 17vh;
+	background-color: var(--negro);
+	width: 100vw;
+	display: flex;
+	justify-content: space-between;
+}
+
+.c-innerNavbarContainer {
+	width: 90%;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.c-logoNavbar {
+	background-image: url('../assets/logo.png');
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
+	width: 325px;
+	height: 85px;
+}
+
+.c-iconsContainer {
+	height: 75px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 225px;
+	align-items: flex-end;
+	color: white;
+	padding-bottom: 20;
+}
+
+.c-headerContainer {
+	width: 100vw;
+	background-color: whitesmoke;
+	height: 8vh;
+	display: flex;
+	align-items: center;
+	box-shadow: 1px 1px 5px -1px rgba(0,0,0,0.3);
+	-webkit-box-shadow: 1px 1px 5px -1px rgba(0,0,0,0.3);
+	-moz-box-shadow: 1px 1px 5px -1px rgba(0,0,0,0.3);
+}
+
+.c-headerFiltroContainer {
+	width: 70vw;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.c-categoriaSpan {
+	color: gray;
+}
+
+.c-footerContainer {
+	height: 45vh;
+	background-color: var(--negro);
+}
+
+.c-footerTitlesContainer {
+	height: 5vh;
+	width: 95vw;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: bold;
+	padding-top: 4px;
+	color: rgb(235, 235, 235);
+	margin-bottom: 10px;
+}
+
+.c-footerMailContainer {
+	border: 1px solid gray;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.c-footerInfoContainer {
+	width: 95vw;
+	margin: 0 auto;
+	height: 30vh;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.c-footerTextareaContainer {
+	border: 1px solid gray;
+}
+
+#c-footerInputMail {
+	background-color: transparent;
+	color: white;
+	border: none;
+}
+
+#c-footerInputMail:focus {
+	outline: none;
+}
+
+.c-footerContactoContainer {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	height: 25vh;
+}
+
+#c-footerTextarea {
+	background-color: transparent;
+	color: white;
+	resize: none;
+	width: 100%;
+	border: 1px solid rgb(75, 75, 75);
+	border-radius: 2px;
+	height: 70%;
+	margin-top: 10px;
+	padding-left: 6px;
+	padding-top: 4px;
+}
+
+#c-footerInput {
+	background-color: transparent;
+	border: 1px solid rgb(75, 75, 75);
+	color: white;
+	padding-left: 6px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	border-radius: 2px;
+}
+
+#c-footerSubmit {
+	margin-top: 5px;
+	font-family: 'Montserrat', sans-serif;
+	color: rgb(240, 240, 240);
+	padding: 2px;
+	font-size: 12px;
+	cursor: pointer;
+}
+
+.c-footerMenu {
+	display: flex;
+	flex-direction: column;
+	color: rgb(175, 175, 175);
+	font-family: 'Montserrat', sans-serif;
+}
+
+.c-footerTitle {
+	color: rgb(230, 230, 230);
+	font-family: 'Montserrat', sans-serif;
+}
+
+
+
