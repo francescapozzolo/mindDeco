@@ -1,0 +1,334 @@
+:root {
+    --negro: #191D1F;
+    --mostaza: #C9B687;
+}
+
+.fontTexto {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.fontTitulos {
+    font-family: 'Fjalla One', sans-serif;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+margin: 0;
+padding: 0;
+border: 0;
+font-size: 100%;
+font: inherit;
+vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+display: block;
+}
+body {
+line-height: 1;
+}
+ol, ul {
+list-style: none;
+}
+blockquote, q {
+quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+content: '';
+content: none;
+}
+table {
+border-collapse: collapse;
+border-spacing: 0;
+}
+
+.l-headerDelDani {
+    width:100%;
+    height: 19vh;
+    background-color: grey;
+}
+
+.l-footerDelDani {
+    width: 100%;
+    height: 60vh;
+    background: black;
+    /* position: absolute; */
+    /*Borrar Despues*/
+    /* bottom: 0 */
+    /*Borrar Despues*/
+}
+
+.l-categorias-main-section {
+    min-height: 40vh;
+    width: 100%;
+    display: flex;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.l-contenedor-menu-lateral {
+    width: 29%;
+    height: 40vh;
+    /* background: green; */
+    display: flex;
+    justify-content: flex-end;
+}
+
+.l-menu-lateral {
+    width: 18vw;
+    height: 30vh;
+    /* background: lightcyan; */
+}
+
+.l-contenedor-titulo-menu {
+    width: 100%;
+    /* background: lightpink; */
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.l-titulo-menuLateral {
+    font-size: 20px;
+}
+
+.l-icono-roundMenu {
+    font-size: 24px;
+    color: rgb(114, 114, 114);
+}
+
+.l-contenedor-opcion-por-categoria{
+    /* background: lightskyblue; */
+}
+
+.l-contenedor-opcion-por-categoria:hover {
+    cursor: pointer;
+    /* background: rgb(248, 248, 248); */
+}
+
+.l-barra-horizontal-1 {
+    width: 100%;
+    height: 2px;
+    background: black;
+    margin-bottom: 1px;
+}
+
+.l-barra-horizontal-2 {
+    width: 100%;
+    height: 1px;
+    background: black;
+}
+
+.l-opcion-por-categoria {
+    padding: 15px;
+    border-top: 1px solid rgb(240, 240, 240);
+    /* background: white; */
+    /* margin-bottom: ; */
+}
+
+.l-contenedor-productos {
+    width: 60%;
+    /* height: 40vh; */
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+    /* background: lightblue; */
+}
+
+.l-productos-top-section {
+    width: 550px;
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+    /* background: green; */
+}
+
+.l-boton-comparar {
+    /* height: 25px; */
+    border: 2px solid rgb(88, 88, 88);
+    padding: 0px 15px;
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    /* justify-content: center; */
+    transition: all .3s ease;
+}
+
+.l-boton-comparar:hover {
+    cursor: pointer;
+    background: rgb(243, 243, 243);
+}
+
+.l-filtro-select {
+    height: 100%;
+    background: none;
+    outline: none;
+    padding: 0px 15px;
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 1px;
+    transition: all .3s ease;
+}
+
+.l-filtro-select:hover {
+    cursor: pointer;
+    background: rgb(243, 243, 243);
+}
+
+.l-iconos-grid-container {
+    display: flex;
+    width: 80px;
+    justify-content: space-between;
+    align-items: center;
+    /* background: lightskyblue; */
+}
+
+.l-contenedor-grid-icon {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 8px;
+    /* background: green; */
+    /* border: 1px solid rgb(209, 209, 209); */
+}
+
+.l-icono-con-borde {
+    border: 1px solid rgb(209, 209, 209);
+
+}
+
+.l-contenedor-grid-icon:hover{
+    cursor: pointer;
+}
+
+.l-grid-icon1{
+    font-size: 17px;
+    color: rgb(143, 143, 143);
+    /* margin: 20px; */
+}
+
+.l-grid-icon2{
+    color: rgb(143, 143, 143);
+    /* line-height: 5px; */
+    /* border: 1px solid black; */
+    /* padding: 6px; */
+    /* font-size: 16px; */
+    /* width: 20px; */
+}
+
+
+.l-productos-main-section {
+    /* width: 20%; */
+    /* height: 20%; */
+    /* background: red; */
+    /* border: 1px solid black; */
+    margin-top: 20px;
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: space-between; */
+}
+
+.l-card {
+    width: 250px;
+    height: 450px;
+    /* border: 1px solid black; */
+    margin-right: 30px;
+}
+
+.l-contenedor-foto {
+    width: 100%;
+    height: 75%;
+    /* background: red; */
+    /* border: 1px solid black; */
+    display: flex;
+    align-items: center;
+    background-color: rgb(250,250,250);
+}
+
+.l-contenedor-foto:hover{
+    cursor: pointer;
+}
+
+.l-foto-card {
+    width: 100%;
+    height: 72%;
+    background: red;
+    /* background: url('https://casachula.com.ar/2171-home_default/lampara-milan.jpg'); */
+    background: url('https://casachula.com.ar/2242-large_default/camino-de-mesa-olivia.jpg');
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* transition: all 1s ease; */
+}
+
+
+/* .image-icons {
+    display: flex;
+} */
+
+.l-contenedor-icono-de-imagen {
+    /* width: 40px; */
+    /* height: 40px; */
+    background: black;
+    margin-left: 15px;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.l-icono-de-imagen1 {
+    color: rgb(214, 214, 214);
+    font-size: 20px;
+    transition: all .2s ease;
+    padding: 13px;
+}
+
+.l-icono-de-imagen1:hover {
+    padding: 15px;
+    font-size: 22px;
+    /* margin-left: 10px; */
+}
+
+.l-icono-de-imagen2 {
+    color: rgb(214, 214, 214);
+    font-size: 25px;
+    transition: all .2s ease;
+    padding: 10px;
+}
+
+.l-icono-de-imagen2:hover {
+    padding: 12px;
+    font-size: 27px;
+}
+
+.l-nombre-y-precio {
+    /* background: red; */
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.l-nombre-producto {
+    cursor: pointer;
+}
+
+.l-precio-producto {
+    font-size: 14px;
+}
