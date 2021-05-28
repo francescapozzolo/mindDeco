@@ -4,6 +4,9 @@ import {BrowserRouter, Redirect, Route, Switch} from 'react-router-dom'
 import Ingreso from './componentes/auth/Ingreso'
 import {connect} from "react-redux"
 import authActions from './redux/actions/authActions'
+import Administrador from './pages/Administrador'
+import './styles/stylepozzolo.css';
+
 
 import "./styles/stylebaez.css"
 import "./styles/stylecomes.css"
@@ -28,6 +31,7 @@ const App = ({userLogged, logInForced}) => {
         <Switch>
           <Route exact path="/" component={Inicio} />
           <Route path="/ingreso" component={Ingreso}/>
+          <Route path="/administrador" component={Administrador} />
           <Redirect to='/'/>
         </Switch>
       </BrowserRouter>

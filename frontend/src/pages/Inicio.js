@@ -1,11 +1,11 @@
 import React from 'react'
-import IniciarSesion from '../componentes/auth/IniciarSesion'
+
+import HomeCarruselPrincipal from '../componentes/home/HomeCarruselPrincipal'
 
 const Inicio = () => {
     return (
-        <div>
-            <IniciarSesion />
-        </div>
+        <HomeCarruselPrincipal />
+
     )
 }
 export default Inicio
