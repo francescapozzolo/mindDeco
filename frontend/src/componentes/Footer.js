@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="c-footerContainer">
 
             <div className="c-footerInfoContainer">
-                <div className="c-footerContactoContainer">
+                <div className="c-footerMenu">
                     <span className="c-footerTitle">CONTACTO</span>
                     <div className="c-footerInnerInfoContainer">
                         <input id="c-footerInput" placeholder="Correo electronico"></input>

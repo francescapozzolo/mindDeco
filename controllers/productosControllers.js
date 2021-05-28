@@ -18,7 +18,7 @@ const productosControllers = {
         let nuevoProducto
 
         try{
-            nuevoProducto= new Producto({categoria, subcategoria, articulo, nombre, descripcion, precio, stock, dimensiones, fotos})
+            nuevoProducto = new Producto({categoria, subcategoria, articulo, nombre, descripcion, precio, stock, dimensiones, fotos})
             await nuevoProducto.save()
             
             console.log(nuevoProducto)
@@ -63,7 +63,17 @@ const productosControllers = {
         catch(error){
             res.json({success:false, respuesta: 'Algo salió mal, intente nuevamente'})}
     },
-}
 
+    obtenerProductosCategoria: async(req, res) => {
+        try {
+            const categoriaBuscada = req.params.categoria
+            const productosCategoria = await Producto.find({categoria: categoriaBuscada})
+            res.json({success:true, respuesta: productosCategoria}) 
+        } catch {
+            res.json({success:false, respuesta: 'Algo salió mal, intente nuevamente'})
+        }
+    },
+
+}
 
 module.exports = productosControllers

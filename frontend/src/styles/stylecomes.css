@@ -181,6 +181,7 @@ table {
 	margin-top: 10px;
 	padding-left: 6px;
 	padding-top: 4px;
+	width: 80%;
 }
 
 #c-footerInput {
@@ -191,6 +192,7 @@ table {
 	padding-top: 4px;
 	padding-bottom: 4px;
 	border-radius: 2px;
+	width: 80%;
 }
 
 #c-footerSubmit {

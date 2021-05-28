@@ -27,4 +27,7 @@ router.route("/producto/:id")
 .delete(productosControllers.eliminarProducto)
 .put(productosControllers.modificarProducto)
 
+router.route("/productos/:categoria")
+.get(productosControllers.obtenerProductosCategoria)
+
 module.exports = router
