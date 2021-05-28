@@ -50,7 +50,7 @@ const authActions = {
         
         return async (dispatch, getState) => {
             try {
-                const respuesta = await axios.get('https://kbaezmytinerary.herokuapp.com/api/user/loginForced', {
+                const respuesta = await axios.get('http://localhost:3000/', {
                     headers: {
                         'Authorization': 'Bearer '+user.token
                     }

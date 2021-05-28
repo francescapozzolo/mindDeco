@@ -1,10 +1,15 @@
 :root {
     --negro: #191D1F;
     --mostaza: #C9B687;
-    --fontTexto: font-family: 'Montserrat', sans-serif;
-    --fontTitulos: font-family: 'Fjalla One', sans-serif;
 }
 
+.fontTexto {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.fontTitulos {
+    font-family: 'Fjalla One', sans-serif;
+}
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
