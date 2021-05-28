@@ -1,14 +1,14 @@
 :root {
-    --negro: #191D1F;
-    --mostaza: #C9B687;
+	--negro: #191D1F;
+	--mostaza: #C9B687;
 }
 
 .fontTexto {
-    font-family: 'Montserrat', sans-serif;
+	font-family: 'Montserrat', sans-serif;
 }
 
 .fontTitulos {
-    font-family: 'Fjalla One', sans-serif;
+	font-family: 'Fjalla One', sans-serif;
 }
 
 html, body, div, span, applet, object, iframe,

@@ -5,7 +5,6 @@ import IniciarSesion from './IniciarSesion'
 const Ingreso = () => {
     return (
         <div>
-            <Registro />
             <IniciarSesion />
         </div>
     )
