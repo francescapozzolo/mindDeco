@@ -1,29 +1,32 @@
 import React, { useEffect } from 'react'
 import Inicio from './pages/Inicio'
 import {BrowserRouter, Redirect, Route, Switch} from 'react-router-dom'
-import Registro from './pages/Registro'
-import Logueo from './pages/Logueo'
+import Ingreso from './componentes/auth/Ingreso'
 import {connect} from "react-redux"
 import authActions from './redux/actions/authActions'
+import Registro from './componentes/auth/Registro'
 
-const App = () => {
+import "./styles/styledomato.css"
+
+
+const App = (props) => {
   useEffect(()=>{
-    if (!this.props.userLogged && localStorage.getItem('token')) {
+    if (!props.userLogged && localStorage.getItem('token')) {
       const userData = JSON.parse(localStorage.getItem('userLogged'))
       const userForced = {
         token: localStorage.getItem('token'),
         ...userData
       }
 
-      this.props.logInForced(userForced)
+      props.logInForced(userForced)
     }
   },[])  
     return(
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={Inicio} />
+          <Route path="/ingreso" component={Ingreso}/>
           <Route path="/registro" component={Registro}/>
-          <Route path="/logueo" component={Logueo}/>
           <Redirect to='/'/>
         </Switch>
       </BrowserRouter>

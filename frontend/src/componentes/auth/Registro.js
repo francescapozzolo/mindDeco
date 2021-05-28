@@ -2,9 +2,10 @@ import React from 'react'
 import { useState } from 'react'
 import  GoogleLogin  from 'react-google-login';
 import { connect } from 'react-redux'
-import userActions from '../redux/actions/userActions';
+import authActions from '../../redux/actions/authActions'
 
-const Registro = () => {
+
+const Registro = (props) => {
    
     const [nuevoUsuario,setNuevoUsuario] = useState ({nombre:"",apellido:"",email:"",contraseña:""})
     const [errores, setErrores] = useState ([])
@@ -14,14 +15,14 @@ const Registro = () => {
         const campo = e.target.name
         const valor = e.target.value
         setNuevoUsuario({
-            ...newUser,
+            ...nuevoUsuario,
             [campo]:valor
         })
     }
 
     const send = async (e = null , googleUser = null) => { 
         e && e.preventDefault()
-         var usuario = e ? newUser : googleUser
+         var usuario = e ? nuevoUsuario : googleUser
         const respuesta = await props.crearUsuario(usuario)
         if (respuesta){
             setErrores(respuesta)
@@ -37,23 +38,31 @@ const Registro = () => {
    
     return (
         <div>
-            <div  className="registro" style={{backgroundImage:`url()`}} >
-                <form className="formulario-signUp">
-                <h1 className="titulo-registro">Create una cuenta:</h1>
-                <input type="text" placeholder="Complete con su nombre" name="nombre" value={nuevoUsuario.nombre} onChange={readInput}/>
-                <input type="text" placeholder="Complete con su Apellido" name="apellido"  value={nuevoUsuario.apellido}  onChange={readInput}/>
-                <input type="email" placeholder="Direccion de correo electronico" name="email"  value={nuevoUsuario.email} onChange={readInput}/>
-                <input type="password" placeholder="Contraseña" name="contraseña"  value={nuevoUsuario.contraseña} onChange={readInput}/>
-                
-                <button onClick={send}>Enviar</button>
-                <GoogleLogin
-                    clientId="51994203609-6pfr06m9b9vn7tcr4lrad0nrgm1i42b8.apps.googleusercontent.com"
-                    buttonText="Sign Up with Google"
-                    onSuccess={responseGoogle}
-                    onFailure={responseGoogle}
-                    cookiePolicy={'single_host_origin'}
-                />,          
-            </form>
+            <div className="page-registro-c" >
+                <form  id="registro-c" >
+                    <h1 className="titulo-registro">Create una cuenta:</h1>
+                    <input type="text" placeholder="Complete con su nombre" name="nombre" value={nuevoUsuario.nombre} onChange={readInput} className="input-c"/>
+                    <input type="text" placeholder="Complete con su Apellido" name="apellido"  value={nuevoUsuario.apellido}  onChange={readInput} className="input-c"/>
+                    <input type="email" placeholder="Direccion de correo electronico" name="email"  value={nuevoUsuario.email} onChange={readInput} className="input-c"/>
+                    <input type="password" placeholder="Contraseña" name="contraseña"  value={nuevoUsuario.contraseña} onChange={readInput} className="input-c"/>
+                    
+                    <div className="botones-c">
+                        <button onClick={send} className="boton-c">Enviar formulario</button>
+                        <GoogleLogin
+                            clientId="687710738267-6envati0vqengfok9k0eqgbo9k5jf9j9.apps.googleusercontent.com"
+                            buttonText="Registrar con Google"
+                            onSuccess={responseGoogle}
+                            onFailure={responseGoogle}
+                            cookiePolicy={'single_host_origin'}
+                            className="boton-c"
+                        />,          
+                    </div>
+                  
+                </form>
+                <div>
+                    <img src="https://i.pinimg.com/originals/88/bb/b4/88bbb465eaa3069b572ef96a1134f9ed.jpg" alt=" " className="d-imagen"/>
+
+                </div>
             <div>
                 {errores.map(error => <h1>{error}</h1>)}
             </div>
@@ -66,7 +75,9 @@ const Registro = () => {
     )
 }
 const mapDispatchToProps ={
-    crearUsuario: userActions.crearUsuario
+ 
+    logInUser: authActions.logInUser 
+ 
    }
    
    

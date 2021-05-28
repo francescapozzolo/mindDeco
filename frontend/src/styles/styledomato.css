@@ -1,8 +1,14 @@
 :root {
     --negro: #191D1F;
     --mostaza: #C9B687;
-    --fontTexto: font-family: 'Montserrat', sans-serif;
-    --fontTitulos: font-family: 'Fjalla One', sans-serif;
+}
+
+.fontTexto {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.fontTitulos {
+    font-family: 'Fjalla One', sans-serif;
 }
 
 html, body, div, span, applet, object, iframe,
@@ -47,4 +53,40 @@ content: none;
 table {
 border-collapse: collapse;
 border-spacing: 0;
+}
+#registro-c{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center; 
+}
+.titulo-registro{
+    font-family: 'Fjalla One', sans-serif;
+}
+.input-c{
+    width: 35vw;
+    margin-top: 1vh;
+}
+.boton-c{
+    width: 15vw;
+    margin-top: 1vh;
+    background-color: var(--negro);
+    color: white;
+    margin:1vh;
+    font-family: 'Montserrat', sans-serif;
+}
+.botones-c{
+    display: flex;
+}
+.d-imagen{
+    width: 45vw;
+    height: 92vh;
+    background-image: cover;
+ 
+}
+.page-registro-c{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 5vh;
 }
