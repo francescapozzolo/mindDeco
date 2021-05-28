@@ -14,17 +14,20 @@ import "./styles/stylepozzolo.css"
 import Header from './componentes/Header'
 
 const App = (props) => {
+
+const App = ({userLogged, logInForced}) => {
+
   useEffect(()=>{
-    if (!props.userLogged && localStorage.getItem('token')) {
+    if (!userLogged && localStorage.getItem('token')) {
       const userData = JSON.parse(localStorage.getItem('userLogged'))
       const userForced = {
         token: localStorage.getItem('token'),
         ...userData
       }
 
-      props.logInForced(userForced)
+      logInForced(userForced)
     }
-  },[])  
+  },[userLogged, logInForced])  
     return(
       <BrowserRouter>
         <Switch>

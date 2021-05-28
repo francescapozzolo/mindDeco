@@ -6,7 +6,7 @@ const authActions = {
         return async (dispatch, getState) => {
             try{
 
-                const response = await axios.post('https://kbaezmytinerary.herokuapp.com/api/user/signup', user)
+                const response = await axios.post('http://localhost:3000/', user)
                 if(!response.data.success){
                     return response.data.errores
                 }
@@ -24,7 +24,7 @@ const authActions = {
         return async(dispatch, getState) => {
             try{
 
-                const response = await axios.post('https://kbaezmytinerary.herokuapp.com/api/user/signin', user)
+                const response = await axios.post('http://localhost:3000/', user)
                 if(!response.data.success){
                     return response.data.error
                 }
@@ -50,7 +50,7 @@ const authActions = {
         
         return async (dispatch, getState) => {
             try {
-                const respuesta = await axios.get('https://kbaezmytinerary.herokuapp.com/api/user/loginForced', {
+                const respuesta = await axios.get('http://localhost:3000/', {
                     headers: {
                         'Authorization': 'Bearer '+user.token
                     }
