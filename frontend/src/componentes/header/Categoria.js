@@ -1,13 +1,32 @@
 import React, { useState } from 'react'
+import { connect } from 'react-redux'
+
+import productosActions from '../../redux/actions/productosActions'
 
 const Categoria = (props) => {
     const [categoria, setCategoria] = useState(props.categoria)
 
-    console.log(categoria)
+    const obtenerProductosCategoria = (e) => {
+        let categoria = e.target.dataset.categoria.toLowerCase()
+        props.obtenerProductosPorCategoria(categoria)
+    }
+
     return (
         <div>
-            <span className="fontTexto c-categoriaSpan">{categoria}</span>
+            <span data-categoria={categoria} onClick={obtenerProductosCategoria} className="fontTexto c-categoriaSpan">{categoria}</span>
         </div>
     )
 }
-export default Categoria
+
+const mapStateToProps = state => {
+    return {
+        todosLosProductos: state.productosReducer.todosLosProductos,
+        productosCategoria: state.productosReducer.productosCategoria
+    }
+}
+
+const mapDispatchToProps = {
+    obtenerProductosPorCategoria: productosActions.obtenerProductosPorCategoria
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Categoria)

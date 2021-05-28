@@ -1,9 +1,15 @@
-import React from 'react'
+import {connect} from "react-redux"
+import React, { useEffect, useState } from 'react'
 import Categoria from './Categoria'
 
-const HeaderFiltro = () => {
+import productosActions from '../../redux/actions/productosActions'
 
-    const categorias = ['LIVING', 'COCINA & COMEDOR', 'DORMITORIO', 'BAÑOS', 'JARDIN']
+const HeaderFiltro = (props) => {
+    const categorias = ['LIVING', 'COCINA & COMEDOR', 'DORMITORIO', 'BAÑO', 'JARDIN']
+
+    useEffect(() => {
+        props.obtenerLosProductos()
+    }, [])
 
     return (
         <div className="c-headerContainer">
@@ -17,4 +23,15 @@ const HeaderFiltro = () => {
         </div>
     )
 }
-export default HeaderFiltro
+
+const mapStateToProps = state => {
+    return {
+        todosLosProductos: state.productosReducer.todosLosProductos
+    }
+}
+
+const mapDispatchToProps = {
+    obtenerLosProductos: productosActions.obtenerLosProductos
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(HeaderFiltro)

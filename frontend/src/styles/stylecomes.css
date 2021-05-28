@@ -53,14 +53,12 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
-
 }
 
 /* HEADER */
 .c-navbarContainer {
 	height: 17vh;
 	background-color: var(--negro);
-	width: 100vw;
 	display: flex;
 	justify-content: space-between;
 }
@@ -94,7 +92,6 @@ table {
 }
 
 .c-headerContainer {
-	width: 100vw;
 	background-color: whitesmoke;
 	height: 8vh;
 	display: flex;
@@ -118,7 +115,7 @@ table {
 }
 
 .c-footerContainer {
-	height: 45vh;
+	height: 60vh;
 	background-color: var(--negro);
 }
 
@@ -147,10 +144,10 @@ table {
 .c-footerInfoContainer {
 	width: 95vw;
 	margin: 0 auto;
-	height: 30vh;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
+	padding-top: 5vh;
+	height: 40vh;
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
 }
 
 .c-footerTextareaContainer {
@@ -172,16 +169,15 @@ table {
 	flex-direction: column;
 	justify-content: space-around;
 	height: 25vh;
+	width: 80%;
 }
 
 #c-footerTextarea {
 	background-color: transparent;
 	color: white;
 	resize: none;
-	width: 100%;
 	border: 1px solid rgb(75, 75, 75);
 	border-radius: 2px;
-	height: 70%;
 	margin-top: 10px;
 	padding-left: 6px;
 	padding-top: 4px;
@@ -200,9 +196,10 @@ table {
 #c-footerSubmit {
 	margin-top: 5px;
 	font-family: 'Montserrat', sans-serif;
-	color: rgb(240, 240, 240);
+	color: rgb(214, 214, 214);
 	padding: 2px;
-	font-size: 12px;
+	font-size: .9rem;
+	font-weight: bold;
 	cursor: pointer;
 }
 
@@ -218,5 +215,38 @@ table {
 	font-family: 'Montserrat', sans-serif;
 }
 
+.c-footerInnerInfoContainer {
+	display: flex;
+	flex-direction: column;
+	margin-top: 3vh;
+}
 
+.c-footerInnerInfoContainer>span {
+	margin-bottom: 3vh;
+	color: gray;
+	font-size: .9rem;
+}
 
+.c-footerFooterContainer {
+	height: 15vh;
+}
+
+.c-footerImageLogo {
+	width: 200px;
+	height: 75px;
+	background-image: url('../assets/logo.png');
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
+	margin-left: 3vw;
+}
+
+.c-footerContactContainer {
+	display: flex;
+	align-items: center;
+	margin-bottom: 1vh;
+}
+
+.c-footerContactContainer>span {
+	margin-left: 4px;
+}
