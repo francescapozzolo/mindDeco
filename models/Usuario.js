@@ -7,8 +7,8 @@ const usuarioSchema = new mongoose.Schema({
         contraseña: {type: String, required: true},
         foto: {type: String, required: true},
         provincia: {type: String, required: true},
-        administrador: {type: boolean, default: false},
-        google: {type: boolean, default: false},
+        administrador: {type: Boolean, default: false},
+        google: {type: Boolean, default: false},
         carrito: [{type: mongoose.Types.ObjectId, ref: 'product'}],
         favoritos: [{type: mongoose.Types.ObjectId, ref: 'product'}]
 })
