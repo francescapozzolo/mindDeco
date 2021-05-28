@@ -1,0 +1,118 @@
+:root {
+    --negro: #191D1F;
+    --mostaza: #C9B687;
+}
+
+.fontTexto {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.fontTitulos {
+    font-family: 'Fjalla One', sans-serif;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+margin: 0;
+padding: 0;
+border: 0;
+font-size: 100%;
+font: inherit;
+vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+display: block;
+}
+body {
+line-height: 1;
+}
+ol, ul {
+list-style: none;
+}
+blockquote, q {
+quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+content: '';
+content: none;
+}
+table {
+border-collapse: collapse;
+border-spacing: 0;
+}
+
+/*CREAR PRODUCTO*/
+#formularioCargaProducto{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+    border: 1px solid black;
+    padding: 20px;
+}
+
+
+#selectoresCategorias{
+    width: 65%;
+    display: flex;
+    flex-direction: row;
+    align-self: flex-end;
+    justify-content: space-between;
+}
+
+#selectoresCategorias >select{
+    width: 33%;
+    margin: 0 5px;
+    padding: 2px;
+}
+#contenedorInputsCargaProductos{
+    margin-top: 8px;
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#subcontenedorInputsCargaProductos{
+    width: 80%;
+}
+
+.inputCargaProductos{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2vh 0;
+}
+
+.inputCargaProductos > input{
+    width: 50%;
+    padding: 3px;
+}
+
+.p-portaFoto{
+    width: 15vw;
+    height: 15vh;
+    margin: 2vh 0;
+    border: 1px solid black;
+}
+
+.botonCargaArticulos{
+    padding: 5px;
+}
+
+
