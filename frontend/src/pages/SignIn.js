@@ -88,4 +88,5 @@ const mapDispatchToProps = {
     logInUser: authActions.logInUser 
 }
 
-export default connect(null ,mapDispatchToProps)(SignIn)
+// export default connect(null ,mapDispatchToProps)(SignIn)
+export default SignIn
