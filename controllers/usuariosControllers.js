@@ -1,7 +1,7 @@
 const Usuario = require('../models/Usuario')
 
 const usuariosControllers = {
-    registrarUsuario: async(req, res) => {
+    registrarUsuario:async (req, res) => {
         let {firstName, lastName, email, password, userImage, country, google, itinerariesLiked} = req.body
         const mailExist = await Usuario.findOne({email})
 
@@ -29,7 +29,7 @@ const usuariosControllers = {
         })       
     },
 
-    loguearUsuario: async(req, res) => {
+    loguearUsuario: async (req, res) => {
         const {email, password} = req.body
         
         let error;
