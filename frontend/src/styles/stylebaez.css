@@ -1,8 +1,15 @@
 :root {
     --negro: #191D1F;
     --mostaza: #C9B687;
-    --fontTexto: font-family: 'Montserrat', sans-serif;
-    --fontTitulos: font-family: 'Fjalla One', sans-serif;
+}
+
+.fontTexto {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.fontTitulos {
+    font-family: 'Fjalla One', sans-serif;
+
 }
 
 html, body, div, span, applet, object, iframe,
@@ -47,4 +54,94 @@ content: none;
 table {
 border-collapse: collapse;
 border-spacing: 0;
+}
+
+}
+
+.BContainerPrincipal, .BContainerContenido, .BContainerTitulos {
+    display: flex;
+}
+
+.BContainerContenido{
+    margin: 5vh 5vw;
+    padding-right: 5vw;
+}
+.BContainerContenido h2{
+    margin-bottom: 5vh;
+    font-size: 1.563em;
+    font-family: 'Fjalla One', sans-serif;
+    font-weight: 200;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+}
+.BContainerContenido > div p{
+    margin-bottom: 5vh;
+    padding-right: 2vw;
+    font-family: 'Monserrat', sans-serif;
+    font-size: 15px;
+    color: #777;
+    line-height: 20px;
+}
+.BContainerContenido form *:not(h2){
+    margin-bottom: 2vh!important;
+}
+.BContainerContenido form input{
+    background-clip: padding-box;
+    background-color: #fefefe;
+    background-image: none;
+    border-radius: 0;
+    border: 1px solid #d1d1d1;
+    color: #5f5f5f;
+    display: block;
+    font-size: .938em;
+    line-height: 1.25rem;
+    margin: 0;
+    padding: .938rem 1.25rem;
+    width: 100%;
+    letter-spacing: .03em;
+    margin-bottom: 5vh;
+    padding-left: 2.75rem;
+}
+.BContainerTitulos div, .BContainerContenido div, .BContainerContenido form{
+    width: 50%;
+}
+.BContainerPassword{
+    width: 100%!important;
+    position: relative;
+}
+.BButon{
+    cursor: pointer;
+    font-size: 12px;
+    font-family: 'Fjalla One', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1em;
+    text-transform: uppercase;
+    color: #fff;
+    letter-spacing: .1em;
+    padding: 1em 2em;
+    background-color: var(--negro);
+    border: 2px solid transparent;
+    border-color: var(--negro);
+}
+
+.BButon:hover{
+    background-color: #fff;
+    color: var(--negro);
+}
+
+.BMarginGoogle{
+    margin-top:3vh;
+}
+.BIcon, .BEyeSignUp{
+    position: absolute; 
+}
+.BEyeSignUp{
+    right: -50px;
+    top: 14px;
+    cursor: pointer;
+}
+.BIcon {
+    top: 14px;
+    left: 10px;
 }
