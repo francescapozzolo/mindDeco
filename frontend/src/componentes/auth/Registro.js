@@ -23,15 +23,16 @@ const Registro = (props) => {
     const send = async (e = null , googleUser = null) => { 
         e && e.preventDefault()
          var usuario = e ? nuevoUsuario : googleUser
-        const respuesta = await props.crearUsuario(usuario)
+        const respuesta = await props.createUser(usuario)
         if (respuesta){
-            setErrores(respuesta)
+            console.log(respuesta)
+            // setErrores(respuesta)
         }
        
     }
     const responseGoogle = (response) => {
        const {givenName,familyName,email,googleId} = response.profileObj
-       send({nombre: givenName, apellido: familyName , email: email ,contraseña: googleId }) 
+       send(null,{nombre: givenName, apellido: familyName , email: email ,password:'a'+googleId, google: true }) 
     }
 
    
@@ -64,7 +65,7 @@ const Registro = (props) => {
 
                 </div>
             <div>
-                {errores.map(error => <h1>{error}</h1>)}
+                {/* {errores.map(error => <h1>{error}</h1>)} */}
             </div>
             </div>
  
@@ -76,7 +77,7 @@ const Registro = (props) => {
 }
 const mapDispatchToProps ={
  
-    logInUser: authActions.logInUser 
+    createUser: authActions.createUser 
  
    }
    

@@ -69,7 +69,7 @@ const IniciarSesion = (props) => {
                             <VpnKeyIcon className='BIcon'/>
                             <input type= {eye ? "text" : "password"} placeholder="Contraseña"
                             onChange={readInputUser} value={user.contraseña} name="contraseña" />
-                            {eye ? <VisibilityOffOutlinedIcon className='BEyeSignUp' onClick={()=>setEye(!eye)} /> : <VisibilityOutlinedIcon className='BEyeSignUp' onClick={()=>setEye(!eye)}/>}
+                            {eye ? <VisibilityOffOutlinedIcon className='BEyeSignIn' onClick={()=>setEye(!eye)} /> : <VisibilityOutlinedIcon className='BEyeSignIn' onClick={()=>setEye(!eye)}/>}
                         </div>
                         <button className='BButon BMarginGoogle' onClick={sendValueUser}>INGRESAR</button>
                         <GoogleLogin

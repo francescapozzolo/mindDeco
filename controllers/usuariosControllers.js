@@ -1,11 +1,14 @@
 const Usuario = require('../models/Usuario')
+const bcryptjs = require("bcryptjs")
+const jwt = require("jsonwebtoken")
 
 const usuariosControllers = {
 
 
     registrarUsuario:async (req, res) => {
-
-        let {firstName, lastName, email, password, userImage, country, google, itinerariesLiked} = req.body
+        let {nombre, apellido, email, password, google} = req.body
+        let foto = 'dasdsa'
+        let provincia = 'adsadsads'
         const mailExist = await Usuario.findOne({email})
 
         let error;
@@ -13,22 +16,21 @@ const usuariosControllers = {
         password = bcryptjs.hashSync(password, 10)
         if(!mailExist){
             try{
-                var userToRecord = new Usuario({firstName, lastName, email, password, userImage, country, google, itinerariesLiked})       
+                var userToRecord = new Usuario({nombre, apellido, email, password, google, foto, provincia })       
                 await userToRecord.save()
-                var respuesta = jwt.sign({...userToRecord}, process.env.SECRET_OR_KEY)
-                respuesta = token  
+                var token = jwt.sign({...userToRecord}, process.env.SECRET_OR_KEY)
             }catch{
-                error = "There was an error in the user engraving. Retry"
+                error = "Ocurrio un problema, vuela a intentarlo mas tarde"
             }
         } else {
-            error = 'The mail is already in use'
+            error = 'El correo ya esta en uso'
         }
         if(error){
             return res.json({success: false, errores: {'controllers':error}})
         }
         res.json({
             success: true,
-            respuesta: {token: respuesta, userImage: userToRecord.userImage, firstName: userToRecord.firstName, lastName: userToRecord.lastName, itinerariesLiked: userToRecord.itinerariesLiked, email: userToRecord.email}
+            respuesta: {token , nombre: userToRecord.nombre, apellido: userToRecord.apellido, email: userToRecord.email}
         })       
     },
 

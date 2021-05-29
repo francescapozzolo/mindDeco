@@ -11,6 +11,7 @@
     font-family: 'Fjalla One', sans-serif;
 }
 
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -51,6 +52,181 @@ content: '';
 content: none;
 }
 table {
-border-collapse: collapse;
-border-spacing: 0;
+
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.BContainerPrincipal, .BContainerContenido, .BContainerTitulos, .BContainerCarrito, .BContainerProductos {
+    display: flex;
+}
+
+.BContainerContenido{
+    margin: 5vh 5vw;
+    padding-right: 5vw;
+}
+.BContainerCarrito{
+    margin: 5vh 3vw;
+    /* justify-content: space-between; */
+}    
+.BContainerContenido h2{
+    margin-bottom: 5vh;
+    font-size: 1.563em;
+    font-family: 'Fjalla One', sans-serif;
+    font-weight: 200;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+}
+.BContainerContenido > div p{
+    margin-bottom: 5vh;
+    padding-right: 2vw;
+    font-family: 'Monserrat', sans-serif;
+    font-size: 15px;
+    color: #777;
+    line-height: 20px;
+}
+.BContainerContenido form *:not(h2){
+    margin-bottom: 2vh!important;
+}
+.BContainerContenido form input{
+    background-clip: padding-box;
+    background-color: #fefefe;
+    background-image: none;
+    border-radius: 0;
+    border: 1px solid #d1d1d1;
+    color: #5f5f5f;
+    display: block;
+    font-size: .938em;
+    line-height: 1.25rem;
+    margin: 0;
+    padding: .938rem 1.25rem;
+    width: 100%;
+    letter-spacing: .03em;
+    margin-bottom: 5vh;
+    padding-left: 2.75rem;
+}
+.BContainerTitulos div, .BContainerContenido div, .BContainerContenido form{
+    width: 50%;
+}
+.BContainerPassword{
+    width: 100%!important;
+    position: relative;
+}
+.BButon{
+    cursor: pointer;
+    font-size: 12px;
+    font-family: 'Fjalla One', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1em;
+    text-transform: uppercase;
+    color: #fff;
+    letter-spacing: .1em;
+    padding: 1em 2em;
+    background-color: var(--negro);
+    border: 2px solid transparent;
+    border-color: var(--negro);
+}
+
+.BButon:hover{
+    background-color: #fff;
+    color: var(--negro);
+}
+
+.BMarginGoogle{
+    margin-top:3vh;
+}
+.BIcon, .BEyeSignIn{
+    position: absolute; 
+}
+.BEyeSignIn{
+    right: 10px;
+    top: 14px;
+    cursor: pointer;
+}
+.BIcon {
+    top: 14px;
+    left: 10px;
+}
+.BInputCantidad{
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 0;
+    color: #636363;
+    background-color: #fff;
+    padding: 0 .5rem;
+    width: 4rem;
+    text-align: center;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.BImagenProducto{
+    width: 150px;
+    height: 180px;
+    background-size: cover;
+    background-position: center;
+    margin: 5vh 2vw;
+}
+
+.BIconUp{
+    position: absolute;
+    top: -4px;
+    right: 0px;
+    cursor: pointer;
+    /* border: 1px solid rgba(0,0,0,.15); */
+
+}
+
+.BIconDown{
+    position: absolute;
+    bottom: -4px;
+    right: 0px;
+    cursor: pointer;
+    border-top: 1px solid rgba(0,0,0,.15);
+}
+
+.BNum{
+    /* margin-left: 5px; */
+    width: 68%;
+    text-align: center;
+    border-right: 1px solid rgba(0,0,0,.15);
+    height: 100%;
+    padding-top: 10px;
+    padding-right: 10px;
+}
+
+.BTableroCarrito{
+    width: 30%;
+    border: 1px solid rgba(0,0,0,.15);
+    background-color: rgb(248,248,248);
+}
+
+.BContenidoCarrito {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+}
+
+.BContainerProductos{
+    width: 70%;
+    /* height: auto; */
+}
+
+.BContainerProducto{
+    display: flex;
+    width: 100%;
+    height: 40vh;
+    justify-content: space-between;
+    padding: 2vh 0vw;
+    margin-right: 4vw;
+}
+
+.BInputNumeric{
+    height: 40px;
+    border: #fff;
+
 }

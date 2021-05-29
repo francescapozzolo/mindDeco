@@ -6,13 +6,13 @@ import { useState } from 'react';
 import searchOutlined from '@iconify-icons/ant-design/search-outlined';
 // import cartIcon from '@iconify-icons/topcoat/cart';
 import shoppingCart from '@iconify-icons/la/shopping-cart'; 
-
+import CarroCompras from './CarroCompras'
 
 const Categoria = ()=>{
 
    const [mouseIsOnCard, setMouseIsOnCard] = useState(false)
-
-   mouseIsOnCard ?console.log('esta encima'): console.log('bajó')
+   const [carro, setCarro] = useState(false)
+   // mouseIsOnCard ?console.log('esta encima'): console.log('bajó')
 
    return (
       <>
@@ -79,10 +79,11 @@ const Categoria = ()=>{
                                     <Icon icon={searchOutlined} className="l-icono-de-imagen1"/>
                                  </div>
                                  <div className="l-contenedor-icono-de-imagen">
-                                    <Icon icon={shoppingCart} className="l-icono-de-imagen2" />
+                                    <Icon icon={shoppingCart} onClick={()=> setCarro(!carro)} className="l-icono-de-imagen2" />
                                  </div>
                               </>
                            }
+                           {carro && <CarroCompras />}
                         </div>
                      </div>
                      <div className="l-nombre-y-precio">
