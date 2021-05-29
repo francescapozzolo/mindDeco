@@ -7,6 +7,7 @@ const authActions = {
             try{
 
                 const response = await axios.post('http://localhost:3000/api/user/signup', user)
+
                 if(!response.data.success){
                     return response.data.errores
                 }
@@ -23,7 +24,6 @@ const authActions = {
     logInUser: (user) => {
         return async(dispatch, getState) => {
             try{
-
                 const response = await axios.post('http://localhost:3000/api/user/signin', user)
                 if(!response.data.success){
                     return response.data.error
