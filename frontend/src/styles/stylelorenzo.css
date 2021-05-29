@@ -77,6 +77,7 @@ border-spacing: 0;
     display: flex;
     margin-top: 50px;
     margin-bottom: 50px;
+    /* background: green; */
 }
 
 .l-contenedor-menu-lateral {
@@ -90,7 +91,6 @@ border-spacing: 0;
 .l-menu-lateral {
     width: 18vw;
     height: 30vh;
-    /* background: lightcyan; */
 }
 
 .l-contenedor-titulo-menu {
@@ -111,6 +111,17 @@ border-spacing: 0;
     color: rgb(114, 114, 114);
 }
 
+<<<<<<< HEAD
+=======
+.l-icono-roundMenu:hover {
+    cursor: pointer;
+}
+
+/* .l-contenedor-opcion-por-categoria{ */
+    /* background: lightskyblue; */
+/* } */
+
+>>>>>>> matu
 .l-contenedor-opcion-por-categoria:hover {
     cursor: pointer;
     /* background: rgb(248, 248, 248); */
@@ -137,12 +148,12 @@ border-spacing: 0;
 }
 
 .l-contenedor-productos {
-    width: 60%;
+    width: 64%;
     /* height: 40vh; */
     display: flex;
     flex-direction: column;
     margin-left: 30px;
-    /* background: lightblue; */
+    /* background: red; */
 }
 
 .l-productos-top-section {
@@ -151,22 +162,6 @@ border-spacing: 0;
     display: flex;
     justify-content: space-between;
     /* background: green; */
-}
-
-.l-boton-comparar {
-    /* height: 25px; */
-    border: 2px solid rgb(88, 88, 88);
-    padding: 0px 15px;
-    display: flex;
-    align-items: center;
-    font-size: 12px;
-    /* justify-content: center; */
-    transition: all .3s ease;
-}
-
-.l-boton-comparar:hover {
-    cursor: pointer;
-    background: rgb(243, 243, 243);
 }
 
 .l-filtro-select {
@@ -184,29 +179,80 @@ border-spacing: 0;
     background: rgb(243, 243, 243);
 }
 
+/* .select-filtro-item {
+    cursor: pointer;
+} */
+
+/* .select-filtro-item:hover {
+    cursor: pointer;
+} */
+
 .l-iconos-grid-container {
     display: flex;
     width: 80px;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: center;
     /* background: lightskyblue; */
 }
 
-.l-contenedor-grid-icon {
+
+.contenedor-grid-icon1 {
+    /* background: yellow; */
     height: 100%;
+    width: 50%;
+}
+
+.contenedor-grid-icon2 {
+    /* background: lightblue; */
+    height: 100%;
+    width: 50%;
+}
+
+.l-subContenedor-grid-icon1 {
+    height: 100%;
+    width: 32px;
     display: flex;
     align-items: center;
-    padding: 0 8px;
-    /* background: green; */
-    /* border: 1px solid rgb(209, 209, 209); */
+    justify-content: center;
+    transition: all .5s ease;
+    border: 1px solid rgb(255, 255, 255);
+
+    
+    /* margin-right: 20px; */
+    /* background: red; */
+}
+
+.l-subContenedor-grid-icon2 {
+    height: 100%;
+    width: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .5s ease;
+    border: 1px solid rgb(255, 255, 255);
+    /* background: red; */
+    /* padding: 0 8px; */
+    /* margin-right: 20px; */
+}
+
+.l-subContenedor-grid-icon1:hover {
+    border: 1px solid rgb(209, 209, 209);
+}
+
+.l-subContenedor-grid-icon2:hover {
+    border: 1px solid rgb(209, 209, 209);
 }
 
 .l-icono-con-borde {
+    transition: all .5s ease;
     border: 1px solid rgb(209, 209, 209);
-
 }
 
-.l-contenedor-grid-icon:hover{
+.l-subContenedor-grid-icon1:hover{
+    cursor: pointer;
+}
+
+.l-subContenedor-grid-icon2:hover{
     cursor: pointer;
 }
 
@@ -225,25 +271,35 @@ border-spacing: 0;
     /* width: 20px; */
 }
 
-
 .l-productos-main-section {
-    /* width: 20%; */
-    /* height: 20%; */
-    /* background: red; */
-    /* border: 1px solid black; */
     margin-top: 20px;
     flex: 1;
     display: flex;
     flex-wrap: wrap;
-    /* justify-content: space-between; */
+    opacity: 0;
+    transition: all 1.1s ease;
+    /* transition: all 1s ease; */
+    /* background: lightcyan; */
+}
+
+.contenedor-activo {
+    opacity: 1;
+    transition: all 1.1s ease;
 }
 
 .l-card {
     width: 250px;
     height: 450px;
+    margin-right: 40px;
+    /* transition:  all 1s ease; */
+    /* opacity: 0; */
     /* border: 1px solid black; */
-    margin-right: 30px;
 }
+
+/* .l-card-activa {
+    transition: all 1s ease;
+    opacity: 1;
+} */
 
 .l-contenedor-foto {
     width: 100%;
@@ -253,6 +309,7 @@ border-spacing: 0;
     display: flex;
     align-items: center;
     background-color: rgb(250,250,250);
+    position: relative;
 }
 
 .l-contenedor-foto:hover{
@@ -260,19 +317,32 @@ border-spacing: 0;
 }
 
 .l-foto-card {
-    width: 100%;
+    /* width: 100%;
     height: 72%;
-    background: red;
-    /* background: url('https://casachula.com.ar/2171-home_default/lampara-milan.jpg'); */
-    background: url('https://casachula.com.ar/2242-large_default/camino-de-mesa-olivia.jpg');
     background-position: center;
     background-size: cover;
     display: flex;
     align-items: center;
-    justify-content: center;
-    /* transition: all 1s ease; */
+    justify-content: center; */
+    transition-duration: .7s ease;
+    opacity: 0;
+    /* display: none; */
 }
 
+.grid-card-active {
+    position: absolute;
+    width: 100%;
+    height: 72%;
+    background-position:center;
+    background-size: cover;
+    /* background-repeat: no-repeat; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transition: all .7s ease;
+    /* display: flex; */
+}
 
 /* .image-icons {
     display: flex;. 
@@ -280,41 +350,70 @@ border-spacing: 0;
     hola
 } */
 
-.l-contenedor-icono-de-imagen {
-    /* width: 40px; */
-    /* height: 40px; */
+.contenedor-iconosDeImagen {
+    width: 100px;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    /* background: red; */
+}
+
+.l-contenedor-icono-de-imagen-1 {
+    /* background: lightblue; */
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.l-contenedor-icono-de-imagen-2 {
+    /* background: blue; */
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.l-subContenedor-icono-de-imagen {
     background: black;
-    margin-left: 15px;
     border-radius: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 40px;
+    width: 40px;
+    transition: all .2s ease;
+    /* justify-content: center; */
+}
+
+.l-subContenedor-icono-de-imagen:hover{
+    height: 45px;
+    width: 45px;
+    font-size: 30px;
 }
 
 .l-icono-de-imagen1 {
     color: rgb(214, 214, 214);
     font-size: 20px;
     transition: all .2s ease;
-    padding: 13px;
+    /* padding: 13px; */
 }
 
-.l-icono-de-imagen1:hover {
-    padding: 15px;
-    font-size: 22px;
+/* .l-icono-de-imagen1:hover { */
+    /* padding: 15px; */
+    /* font-size: 50px; */
     /* margin-left: 10px; */
-}
+/* } */
 
 .l-icono-de-imagen2 {
     color: rgb(214, 214, 214);
     font-size: 25px;
     transition: all .2s ease;
-    padding: 10px;
+    /* padding: 10px; */
 }
 
-.l-icono-de-imagen2:hover {
+/* .l-icono-de-imagen2:hover {
     padding: 12px;
-    font-size: 27px;
-}
+    font-size: 50px;
+} */
 
 .l-nombre-y-precio {
     /* background: red; */
@@ -330,3 +429,107 @@ border-spacing: 0;
 .l-precio-producto {
     font-size: 14px;
 }
+
+
+
+/* List Products */
+
+.list-card {
+    width: 100%;
+    height: 320px;
+    /* border: 1px solid black; */
+    display: flex;
+    margin-bottom: 40px;
+    /* opacity: 0; */
+    /* transition: all 1s ease; */
+}
+
+/* .list-card-activa {
+    opacity: 1;
+    transition: all 1s ease;
+} */
+
+
+.contenedor-foto-listCard {
+    height: 100%;
+    width: 240px;
+    /* background: red; */
+    /* border: 1px solid black; */
+    background-color: rgb(250,250,250);
+    display: flex;
+    align-items: center;
+}
+
+.contenedor-foto-listCard:hover {
+    cursor: pointer;
+}
+
+.foto-listCard {
+    width: 100%;
+    height: 75%;
+    /* background: url('https://casachula.com.ar/2242-large_default/camino-de-mesa-olivia.jpg'); */
+    background-position: center;
+    background-size: cover;
+    /* background: red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.contenedor-info-listCard {
+    /* width: 20%; */
+    flex: 1;
+    margin-left: 40px;
+    height: 100%;
+    /* border:1px solid black; */
+}
+
+.nombre-producto-listCard {
+    font-size: 22px;
+    margin-top: 40px;
+    text-decoration: underline;
+}
+
+.nombre-producto-listCard:hover {
+    cursor: pointer;
+}
+
+.contenedor-descripcion {
+    margin-top: 20px;
+}
+
+.titulo-descripcion {
+    font-size: 19px;
+    font-weight: bold;
+    /* font-style: italic; */
+}
+
+.texto-descripcion {
+    font-size: 16px;
+    /* font-style: italic; */
+}
+
+.contenedor-infoTecnica {
+    margin-top: 10px;
+}
+
+.texto-infoTecnica {
+    font-size: 16px;
+}
+
+.titulo-infoTecnica {
+    font-size: 19px;
+    font-weight: bold;
+    /* font-style: italic; */
+}
+
+.precio-producto{
+    font-size: 20px;
+    font-weight: bold;
+    font-style: italic;
+    margin-top: 20px;
+}
+
+
+

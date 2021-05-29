@@ -21,7 +21,6 @@ import Footer from './componentes/Footer'
 
 
 const App = ({userLogged, logInForced}) => {
-
   useEffect(()=>{
     if (!userLogged && localStorage.getItem('token')) {
       const userData = JSON.parse(localStorage.getItem('userLogged'))
