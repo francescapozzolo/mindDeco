@@ -11,6 +11,10 @@
     font-family: 'Fjalla One', sans-serif;
 }
 
+.fontCursive {
+    font-family: 'Kristi', cursive;
+}
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -113,5 +117,137 @@ border-spacing: 0;
 
 .botonCargaArticulos{
     padding: 5px;
+}
+
+/*PAGINA INICIO*/
+
+
+/*CONTENEDOR GRILLA CATEGORIAS*/
+#p-ContenedorHomeGrillaCategorias{
+    margin-bottom: 30vh;
+    margin-top: 15vh;
+    width: 100%;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+}
+
+.p-titGrillaCategoriaHome{
+    font-size: 1.5rem;
+}
+
+#p-contenedorFotosCategorias{
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 5vh;
+}
+
+.p-FotoCategoria{
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-decoration: none;
+    padding: 6vh;
+    box-shadow: 2px 2px 9px -2px rgba(25,29,31,0.5);
+    -webkit-box-shadow: 2px 2px 9px -2px rgba(25,29,31,0.5);
+    -moz-box-shadow: 2px 2px 9px -2px rgba(25,29,31,0.5);
+    transition: transform 2s, filter 1.5s ease-in-out;
+    transform-origin: center center;
+    filter: brightness(70%);  
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.p-contenedorImg{
+    overflow: hidden;
+    width: 23%;
+    height: 70vh;
+}
+.p-FotoCategoria:hover{
+    filter: brightness(100%);
+    transform: scale(1.05);
+
+}
+
+#p-muebles {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+#p-vajilla{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#p-vajilla p{
+    margin-bottom: 8vh;
+}
+
+#p-decoracion{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+#p-decoracion p{
+    margin-top: 15vh;
+}
+
+.p-FotoCategoria p{
+    color: white;
+    font-size: 3rem;
+}
+
+.p-FotoCategoria p:hover{
+    color: #C9B687;
+}
+
+/*PARALLAX*/
+#p-parallax{
+    margin: 60vh 0 10vh 0;
+    width: 100%;
+    height: 70vh;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#p-parallax h2{
+    font-size: 6rem;
+    font-family: 'Julius Sans One';
+}
+
+/*HOME FILTRO GRILLA*/
+#p-contenedorFiltroGrilla{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#p-contenedorTitFiltroGrilla{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 70vw;
+}
+
+#p-contenedorTitFiltroGrilla h2{
+    font-size: 1.5rem;
+    padding: 3vh;
+    border-bottom: 1px solid #191D1F;
+    margin-bottom: 6vh;
+    color: #191D1F;
+    cursor: pointer;
 }
 

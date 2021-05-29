@@ -111,10 +111,6 @@ border-spacing: 0;
     color: rgb(114, 114, 114);
 }
 
-.l-contenedor-opcion-por-categoria{
-    /* background: lightskyblue; */
-}
-
 .l-contenedor-opcion-por-categoria:hover {
     cursor: pointer;
     /* background: rgb(248, 248, 248); */

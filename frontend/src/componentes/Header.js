@@ -10,7 +10,6 @@ const Header = () => {
             <HeaderCarrusel />
             <Navbar />
             <HeaderFiltro />
-            <Footer />
         </>
     )
 }
