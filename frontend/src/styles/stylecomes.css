@@ -60,7 +60,6 @@ table {
 .c-navbarContainer {
 	height: 17vh;
 	background-color: var(--negro);
-	width: 100vw;
 	display: flex;
 	justify-content: space-between;
 }
@@ -94,7 +93,6 @@ table {
 }
 
 .c-headerContainer {
-	width: 100vw;
 	background-color: whitesmoke;
 	height: 8vh;
 	display: flex;

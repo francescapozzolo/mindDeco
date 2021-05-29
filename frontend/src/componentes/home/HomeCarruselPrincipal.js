@@ -6,7 +6,7 @@ const HomeCarruselPrincipal = () => {
 
     const contentStyle = {
         height: '70vh',
-        width: '100%',
+        width: '110vw',
         color: '#fff',
         textAlign: 'center',
         background: '#C9B687',
@@ -16,19 +16,18 @@ const HomeCarruselPrincipal = () => {
         fontWeight: '500',
         fontFamily: 'Montserrat, sans-serif',
         verticalSwiping: false,
-        vertical: true
     }
 
     return (
-        <Carousel autoplay >
-            <div className="p-containerTextSlider" styles={{backgroundImage: 'url("/assets/foto-portada-1.jpg")', width: '100px', height: '100'}}>
-                <div styles={{backgroundImage: 'url("./assets/foto-portada-1.jpg")', width: '100px', height: '100'}} style={contentStyle} ></div>
+        <Carousel autoplay  id="pCarruselPrincipal">
+            <div className="p-containerTextSlider">
+                <div style={contentStyle, {backgroundImage: 'url("./assets/foto-portada-1.jpg")', width: "110vw", height: "70vh", backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover'}} ></div>
             </div>
             <div className="p-containerTextSlider">
-                <span style={contentStyle}>-20% TRANSFERENCIA</span>
+                <div style={contentStyle, {backgroundImage: 'url("./assets/foto-portada-2.jpg")', width: "110vw", height: "70vh", backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover'}}></div>
             </div>
             <div className="p-containerTextSlider">
-                <span style={contentStyle}>ENVÍO GRATIS A TODO EL TERRITORIO NACIONAL</span>
+                <div style={contentStyle, {backgroundImage: 'url("./assets/foto-portada-1.jpg")', width: "110vw", height: "70vh", backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover'}}></div>
             </div>
         </Carousel>
     )
