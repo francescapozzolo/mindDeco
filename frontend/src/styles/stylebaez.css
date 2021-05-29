@@ -57,7 +57,7 @@ table {
     border-spacing: 0;
 }
 
-.BContainerPrincipal, .BContainerContenido, .BContainerTitulos {
+.BContainerPrincipal, .BContainerContenido, .BContainerTitulos, .BContainerCarrito, .BContainerProductos {
     display: flex;
 }
 
@@ -65,6 +65,10 @@ table {
     margin: 5vh 5vw;
     padding-right: 5vw;
 }
+.BContainerCarrito{
+    margin: 5vh 3vw;
+    /* justify-content: space-between; */
+}    
 .BContainerContenido h2{
     margin-bottom: 5vh;
     font-size: 1.563em;
@@ -132,15 +136,97 @@ table {
 .BMarginGoogle{
     margin-top:3vh;
 }
-.BIcon, .BEyeSignUp{
+.BIcon, .BEyeSignIn{
     position: absolute; 
 }
-.BEyeSignUp{
-    right: -50px;
+.BEyeSignIn{
+    right: 10px;
     top: 14px;
     cursor: pointer;
 }
 .BIcon {
     top: 14px;
     left: 10px;
+}
+.BInputCantidad{
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 0;
+    color: #636363;
+    background-color: #fff;
+    padding: 0 .5rem;
+    width: 4rem;
+    text-align: center;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.BImagenProducto{
+    width: 150px;
+    height: 180px;
+    background-size: cover;
+    background-position: center;
+    margin: 5vh 2vw;
+}
+
+.BIconUp{
+    position: absolute;
+    top: -4px;
+    right: 0px;
+    cursor: pointer;
+    /* border: 1px solid rgba(0,0,0,.15); */
+
+}
+
+.BIconDown{
+    position: absolute;
+    bottom: -4px;
+    right: 0px;
+    cursor: pointer;
+    border-top: 1px solid rgba(0,0,0,.15);
+}
+
+.BNum{
+    /* margin-left: 5px; */
+    width: 68%;
+    text-align: center;
+    border-right: 1px solid rgba(0,0,0,.15);
+    height: 100%;
+    padding-top: 10px;
+    padding-right: 10px;
+}
+
+.BTableroCarrito{
+    width: 30%;
+    border: 1px solid rgba(0,0,0,.15);
+    background-color: rgb(248,248,248);
+}
+
+.BContenidoCarrito {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+}
+
+.BContainerProductos{
+    width: 70%;
+    /* height: auto; */
+}
+
+.BContainerProducto{
+    display: flex;
+    width: 100%;
+    height: 40vh;
+    justify-content: space-between;
+    padding: 2vh 0vw;
+    margin-right: 4vw;
+}
+
+.BInputNumeric{
+    height: 40px;
+    border: #fff;
+
 }

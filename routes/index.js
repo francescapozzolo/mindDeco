@@ -4,7 +4,7 @@ const validator = require ('../config/validator')
 const passport = require ('passport')
 const usuariosControllers = require ('../controllers/usuariosControllers')
 const productosControllers = require ('../controllers/productosControllers')
-
+const carritoControllers = require('../controllers/carritoControllers')
 
 //RUTAS USUARIOS 
 router.route("/usuario/registrarse")
@@ -16,7 +16,12 @@ router.route("/usuario/loguearse")
 router.route("/usuario/loginforzado")
 .get(/*passport.authenticate('jwt', {session: false}),*/ usuariosControllers.loginForzado)
 
+//RUTAS CARRITO
+router.route("/modificarCantidadProducto")
+.put(passport.authenticate('jwt', {session: false}),carritoControllers.modificarProducto)
 
+router.route("/carrito")
+.put(passport.authenticate('jwt', {session: false}),carritoControllers.agregarProductosAlCarrito)
 //RUTAS PRODUCTOS 
 router.route("/productos")
 .get(productosControllers.obtenerTodosLosProductos)

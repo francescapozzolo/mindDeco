@@ -3,11 +3,12 @@ import Inicio from './pages/Inicio'
 
 import {BrowserRouter, Redirect, Route, Switch} from 'react-router-dom'
 // import Registro from './pages/Registro'
+import Header from './componentes/Header'
 import Ingreso from './componentes/auth/Ingreso'
 import {connect} from "react-redux"
 import authActions from './redux/actions/authActions'
 import Categoria from './pages/Categoria'
-
+import Carrito from './componentes/carrito/Carrito'
 import Administrador from './pages/Administrador'
 import Registro from './componentes/auth/Registro'
 
@@ -16,8 +17,6 @@ import "./styles/stylecomes.css"
 import "./styles/styledomato.css"
 import "./styles/stylelorenzo.css" 
 import "./styles/stylepozzolo.css"
-
-import Header from './componentes/Header'
 
 const App = ({userLogged, logInForced}) => {
 
@@ -40,6 +39,7 @@ const App = ({userLogged, logInForced}) => {
           <Route path="/categoria" component={Categoria}/>
           <Route path="/administrador" component={Administrador} />
           <Route path="/registro" component={Registro}/>
+          <Route path="/carrito" component={Carrito}/>
           <Redirect to='/'/>
         </Switch>
       </BrowserRouter>
