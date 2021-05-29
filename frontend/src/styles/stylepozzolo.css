@@ -218,6 +218,7 @@ border-spacing: 0;
     height: 70vh;
     background-position: center;
     background-attachment: fixed;
+    background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;

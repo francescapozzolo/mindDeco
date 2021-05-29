@@ -55,6 +55,19 @@ table {
 	border-spacing: 0;
 }
 
+a {
+	color: gray;
+	font-family: 'Montserrat', sans-serif !important;
+}
+
+a:visited {
+	text-decoration: none;
+}
+
+a:hover {
+	color: gray;
+}
+
 /* HEADER */
 .c-navbarContainer {
 	height: 17vh;
@@ -262,3 +275,10 @@ table {
 	margin-bottom: 8px;
 	margin-left: 8px;
 }
+
+.c-inputHeader {
+	min-width: 100px;
+	display: flex;
+	justify-content: center;
+}
+

@@ -16,6 +16,8 @@ import "./styles/stylecomes.css"
 import "./styles/styledomato.css"
 import "./styles/stylelorenzo.css" 
 import "./styles/stylepozzolo.css"
+import "antd/dist/antd.css";
+
 import Header from './componentes/Header'
 import Footer from './componentes/Footer'
 

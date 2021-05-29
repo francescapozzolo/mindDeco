@@ -1,6 +1,5 @@
 import React from 'react'
 import { Carousel } from 'antd';
-import 'antd/dist/antd.css';
 
 const HeaderCarrusel = () => {
     const contentStyle = {
