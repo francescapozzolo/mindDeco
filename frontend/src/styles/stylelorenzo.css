@@ -111,8 +111,6 @@ border-spacing: 0;
     color: rgb(114, 114, 114);
 }
 
-<<<<<<< HEAD
-=======
 .l-icono-roundMenu:hover {
     cursor: pointer;
 }
@@ -121,7 +119,6 @@ border-spacing: 0;
     /* background: lightskyblue; */
 /* } */
 
->>>>>>> matu
 .l-contenedor-opcion-por-categoria:hover {
     cursor: pointer;
     /* background: rgb(248, 248, 248); */
@@ -531,5 +528,102 @@ border-spacing: 0;
     margin-top: 20px;
 }
 
+/* Componente de producto Individual */
 
+.contenedorPrincipal-productoIndividual{
+    width: 100%;
+    height: 100vh;
+    background-color: lightcyan;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
 
+.productoIndividual-mainSection {
+    width: 1500px;
+    height: 90%;
+    /* background: lightgray; */
+    background: white;
+    border: 1px solid green;
+    display: flex;
+}
+
+.contenedor-carruselVertical {
+    width: 200px;
+    height: 100%;
+    border: 1px solid black;
+}
+
+.contenedor-productoMostrado {
+    height: 100%;
+    width: 600px;
+    border: 1px solid black;
+    /* background: rgb(250,250,250); */
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.producto-mostrado {
+    width: 85%;
+    height: 60%;
+    border: 1px solid black;
+    background-position: center;
+    background-size: cover;
+    background-color: grey;
+}
+
+.contenedor-infoDeProductoMostrado {
+    flex: 1;
+    border: 1px solid red;
+    margin-left: 40px;
+    margin-top: 90px;
+    /* background: white; */
+}
+
+.nombreProducto-CompIndividual {
+    font-size: 24px;
+    color: rgb(201, 182, 135);
+}
+
+.contenedor-valoracionDeProducto {
+    margin-top: 20px;
+    display: flex;
+}
+
+.barrita-divisora {
+    margin-left: 7px;
+    margin-right: 7px;
+    color: black;
+}
+
+.opcion-AgregarOpinion {
+    font-size: 16px;
+    color: grey;
+}
+
+.precioProducto-componenteIndividual {
+    margin-top: 50px;
+    /* margin-bottom: 20px; */
+    font-size: 19px;
+}
+
+.descripcion-componenteIndividual{
+    margin-top: 30px;
+    font-size: 18px;
+}
+
+.tituloDescripcion-CompIndividual{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.textoInfoTecnica-compIndividual {
+    margin-top: 20px;
+    font-size: 18px;   
+}
+
+.tituloInfoTecnica-compIndividual {
+    font-size: 20px;
+    font-weight: bold;
+}

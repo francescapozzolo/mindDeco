@@ -10,6 +10,7 @@ import Categoria from './pages/Categoria'
 import Carrito from './componentes/carrito/Carrito'
 import Administrador from './pages/Administrador'
 import Registro from './componentes/auth/Registro'
+import Producto from './pages/Producto'
 
 import "./styles/stylebaez.css"
 import "./styles/stylecomes.css"
@@ -42,6 +43,7 @@ const App = ({userLogged, logInForced}) => {
           <Route path="/administrador" component={Administrador} />
           <Route path="/registro" component={Registro}/>
           <Route path="/carrito" component={Carrito}/>
+          <Route path="/producto/:id" component={Producto} />
           <Redirect to='/'/>
         </Switch>
         <Footer />

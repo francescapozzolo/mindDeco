@@ -9,11 +9,11 @@ import shoppingCart from '@iconify-icons/la/shopping-cart';
 import CarroCompras from './CarroCompras'
 import ProductosEnGrilla from '../componentes/categoria/ProductosEnGrilla'
 import ProductosEnFila from '../componentes/categoria/ProductosEnFila'
+import {NavLink} from 'react-router-dom'
 
 
-
-   const [mouseIsOnCard, setMouseIsOnCard] = useState(false)
-   const [carro, setCarro] = useState(false)
+   // const [mouseIsOnCard, setMouseIsOnCard] = useState(false)
+   // const [carro, setCarro] = useState(false)
    // mouseIsOnCard ?console.log('esta encima'): console.log('bajó')
 
 const Categoria = ()=>{
@@ -163,9 +163,7 @@ const Categoria = ()=>{
 
    console.log(rightIconIsClicked)
    return (
-      <>
-         <header className="l-headerDelDani"></header>
-         
+      <>         
          <section className="l-categorias-main-section">
             
             {/* Menu lateral */}
@@ -226,10 +224,16 @@ const Categoria = ()=>{
                   {leftIconIsClicked && <ProductosEnGrilla infoImportante={{productosAMostrar, leftIconIsClicked, rightIconIsClicked}}/> }
                </div>
                
+               {/* <div className="l-productos-main-section contenedor-activo">
+                  {leftIconIsClicked 
+                     ? <ProductosEnGrilla infoImportante={{productosAMostrar, leftIconIsClicked, rightIconIsClicked}}/>
+                     : <ProductosEnFila infoImportante={{productosAMostrar, rightIconIsClicked, leftIconIsClicked}}/>
+                  }
+               </div> */}
+               
+
             </div>
-         </section>
-         
-         <footer className="l-footerDelDani" ></footer>
+         </section>         
       </>
    )
 }
