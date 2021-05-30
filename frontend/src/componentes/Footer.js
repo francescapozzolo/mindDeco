@@ -49,7 +49,6 @@ const Footer = () => {
                         <div className="c-footerContactContainer">
                             <MailOutlineIcon />
                             <span>info@minddeco.com.ar</span>
-
                         </div>
                         <div className="c-footerContactContainer">
                             <PhoneOutlinedIcon />
