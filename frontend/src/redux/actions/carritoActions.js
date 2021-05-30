@@ -13,7 +13,7 @@ const carritoActions = {
                 console.log('ln: 13', response.data.respuesta )
                 dispatch({
                     type: 'LOG_USER',
-                    payload: response.data.success ? response.data.respuesta : null
+                    payload: response.data.success ? {...response.data.respuesta, token: user.token} : null
                 })
             }catch(error){
                 console.log(error)
@@ -28,7 +28,11 @@ const carritoActions = {
                         'Authorization': 'Bearer '+user.token
                     }
                 })
-                
+                dispatch({
+                    type: 'LOG_USER',
+                    payload: response.data.success ? {...response.data.respuesta, token: user.token} : null
+                })
+                return response.data.respuesta                
             }catch(error){
                 console.log(error)
             }
@@ -49,6 +53,26 @@ const carritoActions = {
                 console.log(error)
             }
         }        
+    },
+    borrarProducto:(user, producto) => {
+        return async (dispatch, getState) => {
+            try{
+                console.log('user',user)
+                const response = await axios.put('http://localhost:4000/api/borrarProducto',{producto},{
+                    headers: {
+                        'Authorization': 'Bearer '+user.token
+                    }
+                })
+                console.log('ln: 13', response.data.respuesta )
+                dispatch({
+                    type: 'LOG_USER',
+                    payload: response.data.success ? {...response.data.respuesta, token: user.token} : null
+                })
+                return response.data.respuesta
+            }catch(error){
+                console.log(error)
+            }
+        }       
     }
 }
 

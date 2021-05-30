@@ -26,6 +26,9 @@ router.route("/carrito")
 router.route("/obtenerProductos")
 .get(passport.authenticate('jwt', {session: false}),carritoControllers.obtenerProductos)
 
+router.route("/borrarProducto")
+.put(passport.authenticate('jwt', {session: false}),carritoControllers.borrarProducto)
+
 //RUTAS PRODUCTOS 
 router.route("/productos")
 .get(productosControllers.obtenerTodosLosProductos)

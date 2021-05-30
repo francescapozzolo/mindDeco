@@ -12,25 +12,27 @@ const Producto = (props) => {
         <div className='BContainerProducto'>
             <div className='BImagenProducto' style={{backgroundImage:`url('${props.producto.idProducto.fotos[0]}')`}}></div>
             <div className='BProductoContenido'>
-                <h3>{props.producto.idProducto.nombre.replace(/\b\w/g, l => l.toUpperCase())}</h3>
                 <div>
-                    <NumericInput className="BInputNumeric" 
-                                value={ props.producto.cantidad } 
-                                min={ 0 } 
-                                max={ props.producto.idProducto.stock } 
-                                step={ 1 } 
-                                precision={ 0 } 
-                                size={ 5 } 
-                                onChange={(e)=>console.log(e)}
-                                />
-
+                    <h3>{props.producto.idProducto.nombre.replace(/\b\w/g, l => l.toUpperCase())}</h3>
+                    <h4>{props.producto.idProducto.precio + ' ARS'}</h4>
+                    <h5>{props.producto.idProducto.dimensiones && 'Dimensión: '+ props.producto.idProducto.dimensiones }</h5>
                 </div>
-                <h3>{props.producto.idProducto.precio + ' ARS'} </h3>
-                <CloseIcon />
+                <div>
+                    <NumericInput 
+                        className="BInputNumeric" 
+                        value={ props.producto.cantidad } 
+                        min={ 0 } 
+                        max={ props.producto.idProducto.stock } 
+                        step={ 1 } 
+                        precision={ 0 } 
+                        size={ 5 } 
+                        onChange={ (e) => props.modificaProducto(props.producto, e) } 
+                    />
+                </div>
+                <h3>{props.producto.cantidad*props.producto.idProducto.precio + ' ARS'} </h3>
+                <CloseIcon className="BIconoClose" onClick={()=>props.borrarProducto(props.producto)}/>
             </div>
-            
         </div>
-        
     )
 }
 
