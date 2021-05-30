@@ -5,6 +5,7 @@ const passport = require ('passport')
 const usuariosControllers = require ('../controllers/usuariosControllers')
 const productosControllers = require ('../controllers/productosControllers')
 const carritoControllers = require('../controllers/carritoControllers')
+const mailControllers = require('../controllers/mailControllers')
 
 //RUTAS USUARIOS 
 router.route("/usuario/registrarse")
@@ -35,4 +36,10 @@ router.route("/producto/:id")
 router.route("/productos/:categoria")
 .get(productosControllers.obtenerProductosCategoria)
 
+router.route("/productosSubcategoria/:subcategoria")
+.get(productosControllers.obtenerProductosSubcategoria)
+//RUTAS MAIL
+
+router.route("/mensaje")
+.post(mailControllers.enviarMail)
 module.exports = router

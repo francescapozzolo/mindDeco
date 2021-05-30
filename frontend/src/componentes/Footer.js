@@ -1,8 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import PhoneOutlinedIcon from '@material-ui/icons/PhoneOutlined';
+import { connect } from 'react-redux';
+import mailActions from '../redux/actions/mailActions';
 
-const Footer = () => {
+const Footer = (props) => {
+
+    const [mail, setMail] = useState({destinatario: '', cuerpo: ''})
+
+    const leerInput = (e, campo) => {
+        setMail({
+            ...mail, 
+            [campo]: e.target.value
+        })
+    }
+
+    const enviarMail = (e) => {
+        e.preventDefault()
+        props.mandarMail(mail)
+    }
+
     return (
         <div className="c-footerContainer">
 
@@ -10,9 +27,9 @@ const Footer = () => {
                 <div className="c-footerMenu">
                     <span className="c-footerTitle">CONTACTO</span>
                     <div className="c-footerInnerInfoContainer">
-                        <input id="c-footerInput" placeholder="Correo electronico"></input>
-                        <textarea id="c-footerTextarea" placeholder="Mensaje" />
-                        <span id="c-footerSubmit">ENVIAR</span>
+                        <input id="c-footerInput" name="destinatario" value={mail.destinatario} placeholder="Correo electronico" onChange={(e)=>leerInput(e, 'destinatario')}></input>
+                        <textarea id="c-footerTextarea" name="cuerpo" value={mail.cuerpo} placeholder="Mensaje" onChange={(e)=>leerInput(e, 'cuerpo')}/>
+                        <span id="c-footerSubmit" onClick={enviarMail}>ENVIAR</span>
                     </div>
                 </div>
                 <div className="c-footerMenu">
@@ -64,4 +81,8 @@ const Footer = () => {
         </div>
     )
 }
-export default Footer
+
+const mapDispatchToProps = {
+    mandarMail: mailActions.mandarMail
+}
+export default connect(null, mapDispatchToProps)(Footer)

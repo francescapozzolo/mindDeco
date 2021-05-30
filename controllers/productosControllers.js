@@ -11,6 +11,7 @@ const productosControllers = {
     },
 
     cargarProductos: async (req, res) => {
+        console.log(req.body)
         let  {categoria, subcategoria, articulo, nombre, descripcion, precio, stock, dimensiones, fotos} = req.body
 
         let respuesta
@@ -21,7 +22,6 @@ const productosControllers = {
             nuevoProducto = new Producto({categoria, subcategoria, articulo, nombre, descripcion, precio, stock, dimensiones, fotos})
             await nuevoProducto.save()
             
-            console.log(nuevoProducto)
             respuesta = nuevoProducto
         }
         catch(error) {
@@ -69,6 +69,16 @@ const productosControllers = {
             const categoriaBuscada = req.params.categoria
             const productosCategoria = await Producto.find({categoria: categoriaBuscada})
             res.json({success:true, respuesta: productosCategoria}) 
+        } catch {
+            res.json({success:false, respuesta: 'Algo salió mal, intente nuevamente'})
+        }
+    },
+
+    obtenerProductosSubcategoria: async(req, res) => {
+        try {
+            const subcategoriaBuscada = req.params.subcategoria
+            const productosSubcategoria = await Producto.find({subcategoria: subcategoriaBuscada})
+            res.json({success:true, respuesta: productosSubcategoria}) 
         } catch {
             res.json({success:false, respuesta: 'Algo salió mal, intente nuevamente'})
         }
