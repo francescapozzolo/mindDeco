@@ -76,13 +76,19 @@ table {
     letter-spacing: .1em;
     text-transform: uppercase;
 }
-.BContainerContenido > div p{
+.BContainerContenido > div p, h4.BPrecioProducto, h5.BDescripcionProducto{
     margin-bottom: 5vh;
     padding-right: 2vw;
     font-family: 'Monserrat', sans-serif;
     font-size: 15px;
     color: #777;
     line-height: 20px;
+}
+.BTituloProducto{
+    font-family: 'Monserrat', sans-serif;
+}
+h4.BPrecioProducto, h5.BDescripcionProducto{
+    margin-bottom: 0;
 }
 .BContainerContenido form *:not(h2){
     margin-bottom: 2vh!important;
@@ -248,7 +254,14 @@ table {
     height: 40px;
     border: #fff;
 }
-
+.BContainerNumeric{
+    /* width: 50%; */
+    display: flex;
+    justify-content: center;
+}
 .BIconoClose{
     cursor: pointer;
+}
+.BContainerTituloProducto, .BTotalProducto{
+    width: 30%;
 }

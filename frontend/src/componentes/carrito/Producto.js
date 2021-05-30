@@ -12,12 +12,12 @@ const Producto = (props) => {
         <div className='BContainerProducto'>
             <div className='BImagenProducto' style={{backgroundImage:`url('${props.producto.idProducto.fotos[0]}')`}}></div>
             <div className='BProductoContenido'>
-                <div>
-                    <h3>{props.producto.idProducto.nombre.replace(/\b\w/g, l => l.toUpperCase())}</h3>
-                    <h4>{props.producto.idProducto.precio + ' ARS'}</h4>
-                    <h5>{props.producto.idProducto.dimensiones && 'Dimensión: '+ props.producto.idProducto.dimensiones }</h5>
+                <div className='BContainerTituloProducto'>
+                    <h3 className='BTituloProducto'>{props.producto.idProducto.nombre.replace(/\b\w/g, l => l.toUpperCase())}</h3>
+                    <h4 className='BPrecioProducto'>{props.producto.idProducto.precio + ' ARS'}</h4>
+                    <h5 className='BDescripcionProducto'>{'Dimensión: '+ props.producto.idProducto.dimensiones }</h5>
                 </div>
-                <div>
+                <div className='BContainerNumeric'>
                     <NumericInput 
                         className="BInputNumeric" 
                         value={ props.producto.cantidad } 
@@ -29,7 +29,7 @@ const Producto = (props) => {
                         onChange={ (e) => props.modificaProducto(props.producto, e) } 
                     />
                 </div>
-                <h3>{props.producto.cantidad*props.producto.idProducto.precio + ' ARS'} </h3>
+                <h3 className='BTotalProducto'>{props.producto.cantidad*props.producto.idProducto.precio + ' ARS'} </h3>
                 <CloseIcon className="BIconoClose" onClick={()=>props.borrarProducto(props.producto)}/>
             </div>
         </div>
