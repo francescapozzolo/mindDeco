@@ -1,6 +1,9 @@
 import React from 'react'
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import PhoneOutlinedIcon from '@material-ui/icons/PhoneOutlined';
+import FacebookIcon from '@material-ui/icons/Facebook';
+import InstagramIcon from '@material-ui/icons/Instagram';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
@@ -51,16 +54,20 @@ const Footer = () => {
                         <div className="c-footerContactContainer">
                             <PhoneOutlinedIcon />
                             <span>+54 11 4055 8500</span>
-
+                        </div>
+                        <div style={{marginTop: 20}} className="c-footerContactContainer">
+                            <FacebookIcon style={{fontSize: 32}} />
+                            <InstagramIcon style={{fontSize: 32, marginLeft: 10}} />
                         </div>
                     </div>
                 </div>
             </div>
-
+            
             <div className="c-footerFooterContainer">
                 <div className="c-footerImageLogo">
                 </div>
             </div>
+            
         </div>
     )
 }

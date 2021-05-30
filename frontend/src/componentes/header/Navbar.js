@@ -49,8 +49,9 @@ const Navbar = (props) => {
     return (
         <div className="c-navbarContainer">
             <div className="c-innerNavbarContainer">
-
-                <div className="c-logoNavbar"></div>
+                <Link to="/">
+                  <div className="c-logoNavbar"></div>
+                </Link>
 
                 <div className="c-iconsContainer">
                     <Dropdown overlay={MenuOrdenes} placement="bottomCenter" arrow>
@@ -59,8 +60,9 @@ const Navbar = (props) => {
                     <Dropdown overlay={MenuAccount} placement="bottomCenter" arrow>
                         <PersonIcon style={{fontSize: 32}} />
                     </Dropdown>
-                    <div>
+                    <div className="relative">
                         <Link to='/carrito' style={{color: 'white'}}><ShoppingCartRoundedIcon style={{fontSize: 30}} /></Link>                         
+                        <div className="c-cantidadesCarrito">4</div>
                     </div>
                 </div>
 

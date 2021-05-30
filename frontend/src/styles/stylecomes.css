@@ -68,9 +68,14 @@ a:hover {
 	color: gray;
 }
 
+.relative {
+	position: relative;
+}
+
+
 /* HEADER */
 .c-navbarContainer {
-	height: 17vh;
+	height: 15vh;
 	background-color: var(--negro);
 	display: flex;
 	justify-content: space-between;
@@ -91,6 +96,7 @@ a:hover {
 	background-repeat: no-repeat;
 	width: 325px;
 	height: 85px;
+	cursor: pointer;
 }
 
 .c-iconsContainer {
@@ -106,7 +112,7 @@ a:hover {
 
 .c-headerContainer {
 	background-color: whitesmoke;
-	height: 8vh;
+	height: 6vh;
 	display: flex;
 	align-items: center;
 	box-shadow: 1px 1px 5px -1px rgba(0,0,0,0.3);
@@ -282,3 +288,8 @@ a:hover {
 	justify-content: center;
 }
 
+.c-cantidadesCarrito {
+	position: absolute;
+	left: 32px;
+	top: 6px;
+}
