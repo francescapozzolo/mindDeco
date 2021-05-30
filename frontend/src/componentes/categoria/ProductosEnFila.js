@@ -7,8 +7,13 @@ import { useState } from 'react';
 import searchOutlined from '@iconify-icons/ant-design/search-outlined';
 // import cartIcon from '@iconify-icons/topcoat/cart';
 import shoppingCart from '@iconify-icons/la/shopping-cart'; 
+<<<<<<< HEAD
 import {connect} from "react-redux"
 import carritoActions from '../../redux/actions/carritoActions'
+=======
+import {NavLink} from 'react-router-dom'
+
+>>>>>>> matu
 
 const ProductosEnFila = (props)=>{
 
@@ -26,8 +31,8 @@ const ProductosEnFila = (props)=>{
             return(
                // <div key={producto._id} className={props.infoImportante.rightIconIsClicked ? "list-card list-card-activa" : "list-card" }>
                <div key={producto._id} className="list-card" onMouseOver={(e)=>mostrarIconos(producto._id)} onMouseLeave={()=>setMouseIsOnCard(false)} >
-                  <div className="contenedor-foto-listCard">
-                     <div className="foto-listCard" style={{backgroundImage: `url('${producto.fotos[0]}')`}}>
+                  <NavLink to={`/producto/${producto._id}`} className="contenedor-foto-listCard">
+                     <div className="foto-listCard" style={{backgroundImage: `url('${mouseIsOnCard & (targetaHoveada === producto._id) ? producto.fotos[0] : producto.fotos[1]}')`}}>
                      {(mouseIsOnCard & targetaHoveada === producto._id) && 
                         <div className="contenedor-iconosDeImagen"> 
                               <div className="l-contenedor-icono-de-imagen-1">
@@ -39,7 +44,7 @@ const ProductosEnFila = (props)=>{
                         </div>
                      }
                      </div>
-                  </div>
+                  </NavLink>
                   <div className="contenedor-info-listCard">
                      <h4 className="nombre-producto-listCard fontTitulos">{producto.nombre}</h4>
                      <div className="contenedor-descripcion">
@@ -47,7 +52,7 @@ const ProductosEnFila = (props)=>{
                      </div>
 
                      <div className="contenedor-infoTecnica">
-                        <p className="texto-infoTecnica fontTexto"><span className="titulo-infoTecnica fontTitulos">Dimensiones: </span>{producto.dimensiones}</p>
+                        <p className="texto-infoTecnica fontTexto"><span className="tituloInfoTecnica-compIndividual fontTitulos">Dimensiones: </span>{producto.dimensiones}</p>
                      </div>
                      <p className="precio-producto fontTexto">{producto.precio} ARS</p>
                   </div>

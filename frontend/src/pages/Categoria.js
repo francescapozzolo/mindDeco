@@ -10,8 +10,7 @@ import CarroCompras from './CarroCompras'
 import ProductosEnGrilla from '../componentes/categoria/ProductosEnGrilla'
 import ProductosEnFila from '../componentes/categoria/ProductosEnFila'
 import {connect} from "react-redux"
-
-
+import {NavLink} from 'react-router-dom'
 
 
 const Categoria = (props)=>{
@@ -228,6 +227,14 @@ const Categoria = (props)=>{
                   {leftIconIsClicked && <ProductosEnGrilla infoImportante={{productosAMostrar, leftIconIsClicked, rightIconIsClicked}}/> }
                </div>
                
+               {/* <div className="l-productos-main-section contenedor-activo">
+                  {leftIconIsClicked 
+                     ? <ProductosEnGrilla infoImportante={{productosAMostrar, leftIconIsClicked, rightIconIsClicked}}/>
+                     : <ProductosEnFila infoImportante={{productosAMostrar, rightIconIsClicked, leftIconIsClicked}}/>
+                  }
+               </div> */}
+               
+
             </div>
          </section>
          
