@@ -16,6 +16,8 @@ import {connect} from "react-redux"
 
 const Categoria = (props)=>{
    const [carro, setCarro] = useState(false)
+   // const [mouseIsOnCard, setMouseIsOnCard] = useState(false)
+   // const [carro, setCarro] = useState(false)
    // mouseIsOnCard ?console.log('esta encima'): console.log('bajó')
 
 
