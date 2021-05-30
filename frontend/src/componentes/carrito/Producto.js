@@ -6,29 +6,33 @@ import CloseIcon from '@material-ui/icons/Close';
 import NumericInput from 'react-numeric-input'
 
 const Producto = (props) => {
-    
+    console.log('ln: 9', props.producto)
 
     return (
         <div className='BContainerProducto'>
-            <div className='BImagenProducto' style={{backgroundImage:'url("https://casachula.com.ar/69-cart_default/mesa-auxiliar-capri.jpg")'}}></div>
-            <h3>Titulo</h3>
-            <div>
-                <NumericInput className="BInputNumeric" 
-                            // props.producto.cantidad
-                            value={ 1 } 
-                            min={ 0 } 
-                            max={ 100 } 
-                            step={ 1 } 
-                            precision={ 0 } 
-                            size={ 5 } 
-                            onChange={(e)=>console.log(e)}
-                            />
-
+            <div className='BImagenProducto' style={{backgroundImage:`url('${props.producto.idProducto.fotos[0]}')`}}></div>
+            <div className='BProductoContenido'>
+                <div className='BContainerTituloProducto'>
+                    <h3 className='BTituloProducto'>{props.producto.idProducto.nombre.replace(/\b\w/g, l => l.toUpperCase())}</h3>
+                    <h4 className='BPrecioProducto'>{props.producto.idProducto.precio + ' ARS'}</h4>
+                    <h5 className='BDescripcionProducto'>{'Dimensión: '+ props.producto.idProducto.dimensiones }</h5>
+                </div>
+                <div className='BContainerNumeric'>
+                    <NumericInput 
+                        className="BInputNumeric" 
+                        value={ props.producto.cantidad } 
+                        min={ 0 } 
+                        max={ props.producto.idProducto.stock } 
+                        step={ 1 } 
+                        precision={ 0 } 
+                        size={ 5 } 
+                        onChange={ (e) => props.modificaProducto(props.producto, e) } 
+                    />
+                </div>
+                <h3 className='BTotalProducto'>{props.producto.cantidad*props.producto.idProducto.precio + ' ARS'} </h3>
+                <CloseIcon className="BIconoClose" onClick={()=>props.borrarProducto(props.producto)}/>
             </div>
-            <h3>precio</h3>
-            <CloseIcon />
         </div>
-        
     )
 }
 

@@ -30,7 +30,7 @@ const App = ({userLogged, logInForced}) => {
         token: localStorage.getItem('token'),
         ...userData
       }
-
+      console.log(userForced)
       logInForced(userForced)
     }
   },[userLogged, logInForced])  

@@ -27,6 +27,7 @@ const authActions = {
                 if(!response.data.success){
                     return response.data.error
                 }
+                console.log(response.data.respuesta)
                 dispatch({
                     type:'LOG_USER',
                     payload: response.data.success ? response.data.respuesta : null
@@ -49,7 +50,8 @@ const authActions = {
         
         return async (dispatch, getState) => {
             try {
-                const respuesta = await axios.get('http://localhost:4000/usuario/loginforzado', {
+                console.log(user.token)
+                const respuesta = await axios.get('http://localhost:4000/api/usuario/loginforzado', {
                     headers: {
                         'Authorization': 'Bearer '+user.token
                     }
