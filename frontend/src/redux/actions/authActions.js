@@ -5,13 +5,7 @@ const authActions = {
     createUser: (user) => {
         return async (dispatch, getState) => {
             try{
-<<<<<<< HEAD
-
-                const response = await axios.post('http://localhost:3000/api/user/signup', user)
-
-=======
                 const response = await axios.post('http://localhost:4000/api/usuario/registrarse', user)
->>>>>>> kalen
                 if(!response.data.success){
                     return response.data.errores
                 }
@@ -28,12 +22,8 @@ const authActions = {
     logInUser: (user) => {
         return async(dispatch, getState) => {
             try{
-<<<<<<< HEAD
-                const response = await axios.post('http://localhost:3000/api/user/signin', user)
-=======
 
                 const response = await axios.post('http://localhost:4000/api/usuario/loguearse', user)
->>>>>>> kalen
                 if(!response.data.success){
                     return response.data.error
                 }
@@ -59,7 +49,8 @@ const authActions = {
         
         return async (dispatch, getState) => {
             try {
-                const respuesta = await axios.get('http://localhost:4000/usuario/loginforzado', {
+                console.log(user)
+                const respuesta = await axios.get('http://localhost:4000/api/usuario/loginforzado', {
                     headers: {
                         'Authorization': 'Bearer '+user.token
                     }

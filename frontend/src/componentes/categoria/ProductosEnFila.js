@@ -7,7 +7,8 @@ import { useState } from 'react';
 import searchOutlined from '@iconify-icons/ant-design/search-outlined';
 // import cartIcon from '@iconify-icons/topcoat/cart';
 import shoppingCart from '@iconify-icons/la/shopping-cart'; 
-
+import {connect} from "react-redux"
+import carritoActions from '../../redux/actions/carritoActions'
 
 const ProductosEnFila = (props)=>{
 
@@ -33,7 +34,7 @@ const ProductosEnFila = (props)=>{
                                  <div className="l-subContenedor-icono-de-imagen"><Icon icon={searchOutlined} className="l-icono-de-imagen1"/></div>
                               </div>
                               <div className="l-contenedor-icono-de-imagen-2">
-                                 <div className="l-subContenedor-icono-de-imagen"><Icon icon={shoppingCart} className="l-icono-de-imagen2" /></div>
+                                 <div className="l-subContenedor-icono-de-imagen" onClick={()=>props.agregarProductoAlCarrito(props.userLogged, producto)}><Icon icon={shoppingCart} className="l-icono-de-imagen2" /></div>
                               </div>
                         </div>
                      }
@@ -91,4 +92,12 @@ const ProductosEnFila = (props)=>{
    )
 }
 
-export default ProductosEnFila
+const mapStateToProps = state => {
+   return {
+      userLogged: state.authReducer.userLogged
+   }
+}
+const mapDispatchToProps = {
+   agregarProductoAlCarrito: carritoActions.agregarProductoAlCarrito
+}
+export default connect(mapStateToProps, mapDispatchToProps)(ProductosEnFila)

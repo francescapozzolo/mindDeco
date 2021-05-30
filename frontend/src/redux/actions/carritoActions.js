@@ -4,12 +4,17 @@ const carritoActions = {
     agregarProductoAlCarrito: (user, producto) => {
         return async (dispatch, getState) => {
             try{
+                console.log('user',user)
                 const response = await axios.put('http://localhost:4000/api/carrito',{producto},{
                     headers: {
                         'Authorization': 'Bearer '+user.token
                     }
                 })
-                
+                console.log('ln: 13', response.data.respuesta )
+                dispatch({
+                    type: 'LOG_USER',
+                    payload: response.data.success ? response.data.respuesta : null
+                })
             }catch(error){
                 console.log(error)
             }
@@ -28,6 +33,22 @@ const carritoActions = {
                 console.log(error)
             }
         }    
+    },
+    obtenerProductos: (user) => {
+        return async (dispatch, getState) => {
+            try{
+                // console.log(user)
+                const response = await axios.get('http://localhost:4000/api/obtenerProductos',{
+                    headers: {
+                        'Authorization': 'Bearer '+user.token
+                    }
+                })
+                console.log('ln: 13', response.data.respuesta )
+                return response.data.respuesta
+            }catch(error){
+                console.log(error)
+            }
+        }        
     }
 }
 

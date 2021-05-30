@@ -6,20 +6,33 @@ import Producto from './Producto';
 
 const Carrito = (props) => {
     const [num, setNum] = useState(0)
-
-    // useEffect(()=>{
-
-    // },[])
+    const [carrito, setCarrito] = useState([])
     
+    useEffect(() => {
+        productos()
+    }, [])
     
-
+    const productos = async () => {
+        if(props.userLogged){
+            const array = await props.obtenerProductos(props.userLogged)
+            console.log('ln:15',array)
+            setCarrito(array.carrito)
+        }else{
+            console.log(props)
+            props.history.push('/')
+        }
+    }
+    // console.log(props)
+    
+    // productos()
+    
     return (
         <div className='BContainerCarrito'>
             <div className='BContainerProductos'>
                 {
-                    // props.userLogged.carrito.map(producto => <Producto producto={producto} />)
+                    carrito.map(producto => <Producto producto={producto} />)
                 }
-                <Producto />
+                {/* <Producto /> */}
             </div>
             <div className='BTableroCarrito'>
             </div>          
@@ -34,7 +47,7 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = {
-    logInUser: carritoActions.logInUser,
+    obtenerProductos: carritoActions.obtenerProductos,
 }
 
 export default connect(mapStateToProps ,mapDispatchToProps)(Carrito)
