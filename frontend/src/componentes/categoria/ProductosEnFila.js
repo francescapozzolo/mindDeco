@@ -7,13 +7,10 @@ import { useState } from 'react';
 import searchOutlined from '@iconify-icons/ant-design/search-outlined';
 // import cartIcon from '@iconify-icons/topcoat/cart';
 import shoppingCart from '@iconify-icons/la/shopping-cart'; 
-<<<<<<< HEAD
 import {connect} from "react-redux"
 import carritoActions from '../../redux/actions/carritoActions'
-=======
 import {NavLink} from 'react-router-dom'
 
->>>>>>> matu
 
 const ProductosEnFila = (props)=>{
 

@@ -3,7 +3,8 @@ import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import PhoneOutlinedIcon from '@material-ui/icons/PhoneOutlined';
 import { connect } from 'react-redux';
 import mailActions from '../redux/actions/mailActions';
-
+import FacebookIcon from '@material-ui/icons/Facebook';
+import InstagramIcon from '@material-ui/icons/Instagram';
 const Footer = (props) => {
 
     const [mail, setMail] = useState({destinatario: '', cuerpo: ''})

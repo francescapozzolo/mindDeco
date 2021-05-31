@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -8,6 +8,8 @@ import PersonIcon from '@material-ui/icons/Person';
 
 import { Menu, Dropdown } from "antd";
 
+import authActions from '../../redux/actions/authActions'
+
 const Navbar = (props) => {
 
     const itemsCarrito = [
@@ -15,17 +17,17 @@ const Navbar = (props) => {
       {articulo: 'Mesa Rectangular', precio: 29000, cantidad: 1},
       {articulo: 'Lampara de Baño', precio: 22000, cantidad: 1}
     ]
-
+    
     const MenuAccount = (
         <Menu>
           <Menu.Item>
             <div className="c-inputHeader">
-              <Link to='/ingreso'>INICIAR SESION</Link>
+              {props.userLogged ? <Link to='/' onClick={()=>props.logOutUser()}>CERRAR SESION</Link> : <Link to='/ingreso'>INICIAR SESION</Link>}
             </div>
           </Menu.Item>
           <Menu.Item>
             <div className="c-inputHeader">
-              <Link to='/registro'>REGISTRARSE</Link>
+            {props.userLogged ? null : <Link to='/registro'>REGISTRARSE</Link>}
             </div>
           </Menu.Item>
         </Menu>
@@ -62,7 +64,7 @@ const Navbar = (props) => {
                     </Dropdown>
                     <div className="relative">
                         <Link to='/carrito' style={{color: 'white'}}><ShoppingCartRoundedIcon style={{fontSize: 30}} /></Link>                         
-                        <div className="c-cantidadesCarrito">4</div>
+                        <div className="c-cantidadesCarrito">{cantidades}</div>
                     </div>
                 </div>
 
@@ -73,12 +75,12 @@ const Navbar = (props) => {
 
 const mapStateToProps = state => {
   return {
-
+    userLogged: state.authReducer.userLogged
   }
 }
 
 const mapDispatchToProps = {
-
+  logOutUser: authActions.logOutUser
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navbar)

@@ -3,7 +3,6 @@ const joi = require('joi')
 const validator = (req, res, next) => {
     
     const schema = joi.object({
-        
         nombre: joi.string().trim().min(2).max(20).required().pattern(new RegExp('[a-zA-Z]$')).messages({
             "string.base": "Tu nombre solo tiene que contener letras",
             "string.empty": "Tu nombre es un campo requerido",
@@ -30,16 +29,11 @@ const validator = (req, res, next) => {
             "string.trim": "Tu email contiene espacios inecesarios"
         }),
         // "/(?=.*[a-z])(?=.*[A-Z])(?=.*d)(?=.*[$@$!#.])[A-Za-zd$@$!%*?&.]{8,20}/" full password (in regexp)
-        contraseña: joi.string().min(5).trim().required().pattern(/(?=.*\d)(?=.*[A-z])/).messages({
+        password: joi.string().min(5).trim().required().pattern(/(?=.*\d)(?=.*[A-z])/).messages({
             "string.empty": "Tu contraseña es un campo requerido",
             "string.pattern.base": "Tu contraseña debe contener letras y numeros",
             "string.min": "Tu contraseña debe contener al menos 5 caracteres",
             "any.required": "Tu contraseña es un campo requerido",
-        }),
-        foto: joi.string().required().trim().messages({
-            "string.empty": "La dirección de tu imagen es requerida",
-            "any.required": "La dirección de tu imagen es requerida",
-            "string.trim": "La dirección de tu imagen contiene espacios inecesarios"
         }),
         provincia: joi.string().required().trim().messages({
             "string.empty": "Su provincia es un campo requerido",
