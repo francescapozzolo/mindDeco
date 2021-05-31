@@ -64,8 +64,7 @@ border-spacing: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 60%;
-    border: 1px solid black;
+    width: 100%;
     padding: 20px;
 }
 
@@ -110,9 +109,12 @@ border-spacing: 0;
 
 .p-portaFoto{
     width: 15vw;
-    height: 15vh;
+    height: 20vh;
     margin: 2vh 0;
     border: 1px solid black;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .botonCargaArticulos{
@@ -207,10 +209,6 @@ border-spacing: 0;
     font-size: 3rem;
 }
 
-.p-FotoCategoria p:hover{
-    color: #C9B687;
-}
-
 /*PARALLAX*/
 #p-parallax{
     margin: 60vh 0 10vh 0;
@@ -219,6 +217,7 @@ border-spacing: 0;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -250,5 +249,31 @@ border-spacing: 0;
     margin-bottom: 6vh;
     color: #191D1F;
     cursor: pointer;
+}
+
+#p-contenedorProdFiltrados{
+    display: flex;
+    margin: 3vh;
+    width: 90%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.p-fotoProdFiltrado{
+    width: 18%;
+    height: 50vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 180%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.p-fotoProdFiltrado h3{
+    color: #C9B687;
+    font-size: 2rem;
+    text-align: center;
+    padding: 3vh;
 }
 

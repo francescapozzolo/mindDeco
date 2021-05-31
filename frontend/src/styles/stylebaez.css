@@ -56,7 +56,7 @@ table {
     border-spacing: 0;
 }
 
-.BContainerPrincipal, .BContainerContenido, .BContainerTitulos, .BContainerCarrito, .BContainerProductos {
+.BContainerPrincipal, .BContainerContenido, .BContainerTitulos, .BContainerCarrito, .BContainerProductos, .BProductoContenido {
     display: flex;
 }
 
@@ -76,13 +76,19 @@ table {
     letter-spacing: .1em;
     text-transform: uppercase;
 }
-.BContainerContenido > div p{
+.BContainerContenido > div p, h4.BPrecioProducto, h5.BDescripcionProducto{
     margin-bottom: 5vh;
     padding-right: 2vw;
     font-family: 'Monserrat', sans-serif;
     font-size: 15px;
     color: #777;
     line-height: 20px;
+}
+.BTituloProducto{
+    font-family: 'Monserrat', sans-serif;
+}
+h4.BPrecioProducto, h5.BDescripcionProducto{
+    margin-bottom: 0;
 }
 .BContainerContenido form *:not(h2){
     margin-bottom: 2vh!important;
@@ -162,11 +168,12 @@ table {
 }
 
 .BImagenProducto{
-    width: 150px;
-    height: 180px;
+    width: 180px;
+    height: 200px;
     background-size: cover;
     background-position: center;
-    margin: 5vh 2vw;
+    margin-right: 5vw;
+    /* margin: 5vh 2vw; */
 }
 
 .BIconUp{
@@ -198,10 +205,17 @@ table {
 
 .BTableroCarrito{
     width: 30%;
-    border: 1px solid rgba(0,0,0,.15);
-    background-color: rgb(248,248,248);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
-
+.BTableroContenido{
+    width: 100%;
+    background-color: rgb(248,248,248);
+    min-height: 50vh;
+    border: 1px solid rgba(0,0,0,.15);
+    margin-bottom: 2vh;
+}
 .BContenidoCarrito {
     width: 100%;
     display: flex;
@@ -212,6 +226,8 @@ table {
 
 .BContainerProductos{
     width: 70%;
+    flex-wrap: wrap;
+
     /* height: auto; */
 }
 
@@ -224,8 +240,28 @@ table {
     margin-right: 4vw;
 }
 
+.BContainerProducto h3{
+    /* font-family: 'Fjalla One', sans-serif; */
+    font-family: 'Monserrat', sans-serif;
+}
+.BProductoContenido{
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 50px;
+}
 .BInputNumeric{
     height: 40px;
     border: #fff;
-
+}
+.BContainerNumeric{
+    /* width: 50%; */
+    display: flex;
+    justify-content: center;
+}
+.BIconoClose{
+    cursor: pointer;
+}
+.BContainerTituloProducto, .BTotalProducto{
+    width: 30%;
 }

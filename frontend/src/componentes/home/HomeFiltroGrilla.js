@@ -1,17 +1,56 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import {useState} from 'react'
+import { connect } from 'react-redux'
 
-const HomeFiltroGrilla = () => {
+const HomeFiltroGrilla = (props) => {
+
+    const [array, setArray] = useState([])
+
+    const filtrarProd = (tipoArray) => {
+        switch(tipoArray){
+            case 'todos':
+                setArray(props.todosLosProductos)
+                break
+            case 'destacados':
+                setArray(props.todosLosProductos.filter(producto => producto.descuento !== 0))
+            case 'ultimos':
+                setArray(props.todosLosProductos.filter(producto => producto.stock <= 5))
+                break
+            case 'masVendidos':
+                setArray(props.todosLosProductos.sort((a,b)=> a.unidadesVendidas - b.unidadesVendidas))
+            default :
+                return null
+        }
+    }
+
+    console.log(array)
+
     return (
         <div id="p-contenedorFiltroGrilla">
             <div id="p-contenedorTitFiltroGrilla" className="fontTitulos">
-                <h2>TODOS</h2>
-                <h2>DESTACADOS</h2>
-                <h2>ESPECIALES</h2>
-                <h2>ULTIMOS</h2>
-                <h2>MÁS VENDIDOS</h2>
+                <h2 onClick={()=>filtrarProd('todos')}>TODOS</h2>
+                <h2 onClick={()=>filtrarProd('destacados')}>DESTACADOS</h2>
+                <h2 onClick={()=>filtrarProd('ultimos')}>ULTIMOS</h2>
+                <h2 onClick={()=>filtrarProd('masVendidos')}>MÁS VENDIDOS</h2>
             </div>
-            
+            <div id="p-contenedorProdFiltrados">
+                {array.slice(0,5).map(item => {
+                    return(
+                        <>
+                            <div className="p-fotoProdFiltrado" style={{backgroundImage: `url(${item.fotos[0]})`}}>
+                                <h3 className="fontCursive">{item.nombre.charAt(0).toUpperCase() + item.nombre.slice(1, item.nombre.legth)}</h3>
+                            </div>
+                        </>
+                    )
+                })}
+            </div>
         </div>
     )
 }
-export default HomeFiltroGrilla
+
+const mapStateToProps = state => {
+    return {
+        todosLosProductos: state.productosReducer.todosLosProductos
+    }
+}
+export default connect(mapStateToProps)(HomeFiltroGrilla) 

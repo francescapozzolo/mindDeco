@@ -9,7 +9,9 @@ const productoSchema = new mongoose.Schema({
     precio: {type: Number, required: true},		
     stock: {type: Number, required: true}, 	
     fotos: [String],
-    dimensiones: {type: String}
+    dimensiones: {type: String},
+    descuento: {type: Number, default: 0},
+    unidadesVendidas: {type: Number, default: 0}
 })
 
 const Producto = mongoose.model('product', productoSchema)

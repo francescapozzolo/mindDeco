@@ -6,22 +6,56 @@ import Producto from './Producto';
 
 const Carrito = (props) => {
     const [num, setNum] = useState(0)
-
-    // useEffect(()=>{
-
-    // },[])
+    const [carrito, setCarrito] = useState([])
+    const [loading, setLoading] = useState(true)
+    let precioTotal = 0
+    let articulosTotales = 0
+    useEffect(() => {
+        productos()
+    }, [])
     
+    const productos = async () => {
+        if(props.userLogged){
+            const array = await props.obtenerProductos(props.userLogged)
+            console.log('ln:15',array)
+            setCarrito(array.carrito)
+        }else{
+            console.log(props)
+            props.history.push('/')
+        }
+    }
     
+    const modificaProducto = async (producto, cantidad) => {
+        if(!cantidad) return borrarProducto(producto)
+        const response = await props.modificarProducto(props.userLogged, producto, cantidad)
+        setCarrito(response.carrito)
+    }
 
+    const borrarProducto = async (producto) => {
+        const response = await props.borrarProducto(props.userLogged, producto)
+        console.log(response)
+        setCarrito(response.carrito)
+    } 
     return (
         <div className='BContainerCarrito'>
             <div className='BContainerProductos'>
                 {
-                    // props.userLogged.carrito.map(producto => <Producto producto={producto} />)
+                    carrito.map(producto => {
+                    
+                        precioTotal +=  producto.cantidad*producto.idProducto.precio
+                        articulosTotales += producto.cantidad
+                        return <Producto producto={producto} borrarProducto={borrarProducto} modificaProducto={modificaProducto}/>
+                        
+                })
                 }
-                <Producto />
+                {/* <Producto /> */}
             </div>
             <div className='BTableroCarrito'>
+                <div className='BTableroContenido'>
+                    <h3>{articulosTotales+' artículos'}</h3>
+                    <h3>{precioTotal}</h3>
+                </div>
+                <button className='BButon'>COMPRAR</button>
             </div>          
         </div>
     )
@@ -34,7 +68,9 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = {
-    logInUser: carritoActions.logInUser,
+    obtenerProductos: carritoActions.obtenerProductos,
+    modificarProducto: carritoActions.modificarProducto,
+    borrarProducto: carritoActions.borrarProducto
 }
 
 export default connect(mapStateToProps ,mapDispatchToProps)(Carrito)

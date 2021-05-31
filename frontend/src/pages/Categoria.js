@@ -9,16 +9,12 @@ import shoppingCart from '@iconify-icons/la/shopping-cart';
 import CarroCompras from './CarroCompras'
 import ProductosEnGrilla from '../componentes/categoria/ProductosEnGrilla'
 import ProductosEnFila from '../componentes/categoria/ProductosEnFila'
+import {connect} from "react-redux"
 import {NavLink} from 'react-router-dom'
 
 
-   // const [mouseIsOnCard, setMouseIsOnCard] = useState(false)
-   // const [carro, setCarro] = useState(false)
-   // mouseIsOnCard ?console.log('esta encima'): console.log('bajó')
-
-const Categoria = ()=>{
-
-
+const Categoria = (props)=>{
+   const [carro, setCarro] = useState(false)
    const [mouseIsOnCard, setMouseIsOnCard] = useState(false)
    const [rightIconIsClicked, setRightIconIsClicked] = useState(false) 
    const [leftIconIsClicked, setLeftIconIsClicked] = useState(true)
@@ -26,90 +22,22 @@ const Categoria = ()=>{
    const [productosAMostrar, setProductosAMostrar] = useState([])
    
    useEffect(()=>{
-      const productos = [
-         {
-            articulo: "almohadon", 
-            nombre: "Banco Noruega",
-            descripcion: " Fabricados en madera maciza, su exclusivo diseño aporta calidez y confort a tus espacios, cómodo y moderno, ideal para #enchular tu galeria o terraza y disfrutar de lindos momentos en familia. fabricado en madera maciza, encastrada, encolada y atornillada. Asiento realizado",		
-            categoria: "Living", 		
-            subcategoria: ["Textil", "Decoracion"],	
-            precio: 1200,		
-            stock: 20, 	
-            fotos: ["https://casachula.com.ar/2327-home_default/sillon-puff.jpg", "https://casachula.com.ar/2322-home_default/sillon-bari-modular.jpg"],
-            dimensiones: "110cm X 110cm X 80cm/h.",
-            _id: 1
-         },
-         {
-            articulo: "almohadon", 
-            nombre: "Servilleta Paris",
-            descripcion: "El camino de mesa Olivia es el detalle que hace la diferencia en tu comedor. Enchulá tu mesa, mientras no está armada para que siga siendo protagonista de tu espacio.",		
-            categoria: "Living", 		
-            subcategoria: ["Textil", "Decoracion"],	
-            precio: 1423,		
-            stock: 20, 	
-            fotos: ["https://casachula.com.ar/1952-home_default/sillon-niza.jpg", "https://casachula.com.ar/1928-home_default/bancos-noruega.jpg "],
-            dimensiones: "110cm X 110cm X 80cm/h.",
-            _id: 2
-         },
-         {
-            articulo: "almohadon", 
-            nombre: "Alfombra",
-            descripcion: "El camino de mesa Olivia es el detalle que hace la diferencia en tu comedor. Enchulá tu mesa, mientras no está armada para que siga siendo protagonista de tu espacio.",		
-            categoria: "Living", 		
-            subcategoria: ["Textil", "Decoracion"],	
-            precio: 1233,		
-            stock: 20, 	
-            fotos: ["https://casachula.com.ar/182-home_default/sillon-malaga.jpg", "https://casachula.com.ar/1952-home_default/sillon-niza.jpg"],
-            dimensiones: "110cm X 110cm X 80cm/h.",
-            _id: 3
-         },
-         {
-            articulo: "almohadon", 
-            nombre: "Mesada",
-            descripcion: "El camino de mesa Olivia es el detalle que hace la diferencia en tu comedor. Enchulá tu mesa, mientras no está armada para que siga siendo protagonista de tu espacio.",		
-            categoria: "Living", 		
-            subcategoria: ["Textil", "Decoracion"],	
-            precio: 5434,		
-            stock: 20, 	
-            fotos: ["https://casachula.com.ar/69-home_default/mesa-auxiliar-capri.jpg", "https://casachula.com.ar/1928-home_default/bancos-noruega.jpg"],
-            dimensiones: "110cm X 110cm X 80cm/h.",
-            _id: 4
-         },{
-            articulo: "almohadon", 
-            nombre: "Cuadro",
-            descripcion: "El camino de mesa Olivia es el detalle que hace la diferencia en tu comedor. Enchulá tu mesa, mientras no está armada para que siga siendo protagonista de tu espacio.",		
-            categoria: "Living", 		
-            subcategoria: ["Textil", "Decoracion"],	
-            precio: 20000,		
-            stock: 20, 	
-            fotos: ["https://casachula.com.ar/1033-home_default/cuadro-pach-negro.jpg", "https://casachula.com.ar/1044-home_default/sillon-bari-con-puff.jpg"],
-            dimensiones: "Medidas Producto 5.",
-            _id: 5
-         },{
-            articulo: "almohadon", 
-            nombre: "Sillon",
-            descripcion: "El camino de mesa Olivia es el detalle que hace la diferencia en tu comedor. Enchulá tu mesa, mientras no está armada para que siga siendo protagonista de tu espacio.",		
-            categoria: "Living", 		
-            subcategoria: ["Textil", "Decoracion"],	
-            precio: 7000,		
-            stock: 20, 	
-            fotos: ["https://casachula.com.ar/1043-home_default/sillon-bari-con-puff.jpg", "https://casachula.com.ar/196-home_default/sillon-montpellier.jpg"],
-            dimensiones: "Medidas Producto 6.",
-            _id: 6
-         },
-      ]
-      setTodosLosProductos(productos)
-      setProductosAMostrar(productos)
-   },[])
-
-
+      const categoriaSeleccionada = props.match.params.categoria
+      console.log(categoriaSeleccionada)
+      const productosPorCategoria = props.todosLosProductos.filter(producto => producto.categoria === categoriaSeleccionada)
+      setTodosLosProductos(productosPorCategoria)
+      setProductosAMostrar(productosPorCategoria)
+   },[props.match.params.categoria])
+   
+   console.log(todosLosProductos)
+   console.log(props.todosLosProductos)
 
    const productosFiltradosAaZ = todosLosProductos.filter(function (producto, index) {
       return todosLosProductos.indexOf(producto) === index;
     }).sort((a, b) => {
       if (a.nombre < b.nombre) return -1;
       else if (a.nombre > b.nombre) return 1;
-      return 0;
+      // return 0;
    });
 
    const productosFiltradosZaA = todosLosProductos.filter(function (producto, index) {
@@ -117,7 +45,7 @@ const Categoria = ()=>{
     }).sort((a, b) => {
       if (a.nombre < b.nombre) return 1;
       else if (a.nombre > b.nombre) return -1;
-      return 0;
+      // return 0;
    });
 
    const productosFiltradosMenosPrecioAMas = todosLosProductos.filter(function (producto, index) {
@@ -125,7 +53,7 @@ const Categoria = ()=>{
     }).sort((a, b) => {
       if (a.precio < b.precio) return -1;
       else if (a.precio > b.precio) return 1;
-      return 0;
+      // return 0;
    });
 
    const productosFiltradosMasPrecioAMenos = todosLosProductos.filter(function (producto, index) {
@@ -133,7 +61,7 @@ const Categoria = ()=>{
     }).sort((a, b) => {
       if (a.precio < b.precio) return 1;
       else if (a.precio > b.precio) return -1;
-      return 0;
+      // return 0;
    });
 
 
@@ -161,9 +89,9 @@ const Categoria = ()=>{
       setLeftIconIsClicked(true)
    }
 
-   console.log(rightIconIsClicked)
    return (
-      <>         
+      <>
+         
          <section className="l-categorias-main-section">
             
             {/* Menu lateral */}
@@ -233,9 +161,15 @@ const Categoria = ()=>{
                
 
             </div>
-         </section>         
+         </section>
       </>
    )
 }
 
-export default Categoria
+const mapStateToProps = state => {
+   return {
+      todosLosProductos: state.productosReducer.todosLosProductos
+   }
+}
+
+export default connect(mapStateToProps)(Categoria)

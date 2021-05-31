@@ -4,7 +4,6 @@ const jwt = require("jsonwebtoken")
 
 const usuariosControllers = {
 
-
     registrarUsuario:async (req, res) => {
         let {nombre, apellido, email, password, google} = req.body
         let foto = 'dasdsa'
@@ -48,22 +47,22 @@ const usuariosControllers = {
             if(passwordEqual){
                 var respuesta = jwt.sign({...userExist}, process.env.SECRET_OR_KEY)
             }else{
-                error = userExist.google ? 'You have to login with google' : 'Incorrect username and/or password'                
+                error = userExist.google ? 'Usted tiene que iniciar seción con google' : 'Correo y/o contraseña incorrecta'                
             }
         } else {
-            error = 'Incorrect username and/or password'
+            error = 'Correo y/o contraseña incorrecta'
         }
 
         res.json({
             success: !error ? true : false,
-            respuesta: !error && {token: respuesta, userImage: userExist.userImage, firstName: userExist.firstName, lastName: userExist.lastName, itinerariesLiked: userExist.itinerariesLiked, email: userExist.email},
+            respuesta: !error && {token: respuesta, nombre: userExist.nombre, apellido: userExist.apellido, email: userExist.email},
             error: error
         })
       
     },
 
     loginForzado: async (req, res) => {
-        res.json({success: true, respuesta: {userImage: req.user.userImage, firstName: req.user.firstName, lastName: req.user.lastName, itinerariesLiked: req.user.itinerariesLiked, email: req.user.email}})
+        res.json({success: true, respuesta: { nombre: req.user.nombre, apellido: req.user.apellido, email: req.user.email}})
     }
 }
 

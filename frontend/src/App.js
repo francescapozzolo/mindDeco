@@ -17,6 +17,8 @@ import "./styles/stylecomes.css"
 import "./styles/styledomato.css"
 import "./styles/stylelorenzo.css" 
 import "./styles/stylepozzolo.css"
+import "antd/dist/antd.css";
+
 import Header from './componentes/Header'
 import Footer from './componentes/Footer'
 
@@ -29,7 +31,7 @@ const App = ({userLogged, logInForced}) => {
         token: localStorage.getItem('token'),
         ...userData
       }
-
+      console.log(userForced)
       logInForced(userForced)
     }
   },[userLogged, logInForced])  
@@ -39,7 +41,7 @@ const App = ({userLogged, logInForced}) => {
         <Switch>
           <Route path="/ingreso" component={Ingreso}/>
           <Route exact path="/" component={Inicio}/>
-          <Route path="/categoria" component={Categoria}/>
+          <Route path="/categoria/:categoria" component={Categoria}/>
           <Route path="/administrador" component={Administrador} />
           <Route path="/registro" component={Registro}/>
           <Route path="/carrito" component={Carrito}/>

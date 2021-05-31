@@ -1,11 +1,12 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import {connect} from "react-redux"
+import productosActions from '../../redux/actions/productosActions'
 
 const HomeGrillaCategorias = (props) => {
 
     const filtrarSubcategorias = (subcategoria) => {
-        // props.fetchearSubcategorias(subcategoria) 
+        props.fetchearSubcategorias(subcategoria) 
     }
 
     return (
@@ -30,7 +31,7 @@ const HomeGrillaCategorias = (props) => {
 }
 
 const mapDispatchToProps = {
-    // fetchearSubcategorias: productosActions.fetchearSubcategorias
+    fetchearSubcategorias: productosActions.obtenerProductosPorSubcategoria
 }
 
 export default connect(null, mapDispatchToProps)(HomeGrillaCategorias) 

@@ -36,7 +36,7 @@ const IniciarSesion = (props) => {
             toast.error(response)
         }else{
             toast.success('Welcome')
-            setTimeout(function(){ props.history.push('/') }, 5000);       
+            // setTimeout(function(){ props.history.push('/') }, 5000);       
         }
     }
     

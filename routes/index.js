@@ -5,6 +5,7 @@ const passport = require ('passport')
 const usuariosControllers = require ('../controllers/usuariosControllers')
 const productosControllers = require ('../controllers/productosControllers')
 const carritoControllers = require('../controllers/carritoControllers')
+const mailControllers = require('../controllers/mailControllers')
 
 //RUTAS USUARIOS 
 router.route("/usuario/registrarse")
@@ -14,7 +15,7 @@ router.route("/usuario/loguearse")
 .post(usuariosControllers.loguearUsuario)
 
 router.route("/usuario/loginforzado")
-.get(/*passport.authenticate('jwt', {session: false}),*/ usuariosControllers.loginForzado)
+.get(passport.authenticate('jwt', {session: false}), usuariosControllers.loginForzado)
 
 //RUTAS CARRITO
 router.route("/modificarCantidadProducto")
@@ -22,6 +23,13 @@ router.route("/modificarCantidadProducto")
 
 router.route("/carrito")
 .put(passport.authenticate('jwt', {session: false}),carritoControllers.agregarProductosAlCarrito)
+
+router.route("/obtenerProductos")
+.get(passport.authenticate('jwt', {session: false}),carritoControllers.obtenerProductos)
+
+router.route("/borrarProducto")
+.put(passport.authenticate('jwt', {session: false}),carritoControllers.borrarProducto)
+
 //RUTAS PRODUCTOS 
 router.route("/productos")
 .get(productosControllers.obtenerTodosLosProductos)
@@ -35,4 +43,10 @@ router.route("/producto/:id")
 router.route("/productos/:categoria")
 .get(productosControllers.obtenerProductosCategoria)
 
+router.route("/productosSubcategoria/:subcategoria")
+.get(productosControllers.obtenerProductosSubcategoria)
+//RUTAS MAIL
+
+router.route("/mensaje")
+.post(mailControllers.enviarMail)
 module.exports = router

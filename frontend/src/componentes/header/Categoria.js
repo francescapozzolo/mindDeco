@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 import productosActions from '../../redux/actions/productosActions'
 
@@ -12,9 +13,9 @@ const Categoria = (props) => {
     }
 
     return (
-        <div>
+        <Link to={`/categoria/${categoria.toLowerCase()}`}>
             <span data-categoria={categoria} onClick={obtenerProductosCategoria} className="fontTexto c-categoriaSpan">{categoria}</span>
-        </div>
+        </Link>
     )
 }
 
