@@ -26,7 +26,7 @@ const ProductosEnGrilla = (props) => {
                         <NavLink to={`/producto/${producto._id}`} className="l-contenedor-foto">
                             {/* <div className="l-foto-card" style={{backgroundImage: `url('${(mouseIsOnCard & (targetaHoveada === producto._id)) ? producto.fotos[1] : producto.fotos[0] }')`}}> */}
                             <div className={!(mouseIsOnCard & targetaHoveada === producto._id) ? "l-foto-card grid-card-active" : "l-foto-card"} style={{backgroundImage: `url('${producto.fotos[0]}')`}}>
-                                {(mouseIsOnCard & (targetaHoveada === producto._id)) && 
+                                {(mouseIsOnCard & (targetaHoveada === producto._id)) ?
                                     <div className="contenedor-iconosDeImagen"> 
                                         <div className="l-contenedor-icono-de-imagen-1">
                                             <div className="l-subContenedor-icono-de-imagen"><Icon icon={searchOutlined} className="l-icono-de-imagen1"/></div>
@@ -35,11 +35,12 @@ const ProductosEnGrilla = (props) => {
                                             <div className="l-subContenedor-icono-de-imagen"><Icon icon={shoppingCart} className="l-icono-de-imagen2" /></div>
                                         </div>
                                     </div>
+                                    : null
                                 }
                             </div>
                             <div className={(mouseIsOnCard & targetaHoveada === producto._id) ? "l-foto-card grid-card-active" : "l-foto-card"}
                             style={{backgroundImage: `url('${producto.fotos[1]}')`}}>
-                                {(mouseIsOnCard & (targetaHoveada === producto._id)) && 
+                                {(mouseIsOnCard & (targetaHoveada === producto._id)) ?
                                     <div className="contenedor-iconosDeImagen"> 
                                         <div className="l-contenedor-icono-de-imagen-1">
                                             <div className="l-subContenedor-icono-de-imagen"><Icon icon={searchOutlined} className="l-icono-de-imagen1"/></div>
@@ -48,6 +49,7 @@ const ProductosEnGrilla = (props) => {
                                             <div className="l-subContenedor-icono-de-imagen"><Icon icon={shoppingCart} className="l-icono-de-imagen2" /></div>
                                         </div>
                                     </div>
+                                    : null
                                 }
                             </div>
                         </NavLink>
