@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import PhoneOutlinedIcon from '@material-ui/icons/PhoneOutlined';
+import FacebookIcon from '@material-ui/icons/Facebook';
+import InstagramIcon from '@material-ui/icons/Instagram';
 import { connect } from 'react-redux';
 import mailActions from '../redux/actions/mailActions';
 
