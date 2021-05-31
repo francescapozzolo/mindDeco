@@ -12,13 +12,13 @@ import ProductosEnFila from '../componentes/categoria/ProductosEnFila'
 
 
 
-   const [mouseIsOnCard, setMouseIsOnCard] = useState(false)
-   const [carro, setCarro] = useState(false)
+  
+   
    // mouseIsOnCard ?console.log('esta encima'): console.log('bajó')
 
 const Categoria = ()=>{
 
-
+   const [carro, setCarro] = useState(false)
    const [mouseIsOnCard, setMouseIsOnCard] = useState(false)
    const [rightIconIsClicked, setRightIconIsClicked] = useState(false) 
    const [leftIconIsClicked, setLeftIconIsClicked] = useState(true)
