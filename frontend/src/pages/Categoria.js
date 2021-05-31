@@ -13,7 +13,17 @@ import {connect} from "react-redux"
 import {NavLink} from 'react-router-dom'
 
 
+<<<<<<< HEAD
 const Categoria = (props)=>{
+=======
+
+  
+   
+   // mouseIsOnCard ?console.log('esta encima'): console.log('bajó')
+
+const Categoria = ()=>{
+
+>>>>>>> 4758c21cd087fa9daae4f6fdd8cb9d98fc7e9808
    const [carro, setCarro] = useState(false)
    const [mouseIsOnCard, setMouseIsOnCard] = useState(false)
    const [rightIconIsClicked, setRightIconIsClicked] = useState(false) 
