@@ -6,7 +6,9 @@ const router = require("./routes/index")
 require('./config/database')
 const app = express()
 require('./config/passport')
+
 // const path = require ('path')
+
 
 app.use(cors())
 app.use(express.json())

@@ -5,11 +5,12 @@ import FacebookIcon from '@material-ui/icons/Facebook';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import { connect } from 'react-redux';
 import mailActions from '../redux/actions/mailActions';
-import FacebookIcon from '@material-ui/icons/Facebook'
-import InstagramIcon from '@material-ui//icons/Instagram'
+import FacebookIcon from '@material-ui/icons/Facebook';
+import InstagramIcon from '@material-ui/icons/Instagram';
 
 const Footer = (props) => {
-    const [mail, setMail] = useState({destinatario: '', cuerpo: ''})
+
+    const [mail, setMail] = useState({destinatario: '', asunto: '', cuerpo: ''})
 
     const leerInput = (e, campo) => {
         setMail({
@@ -21,6 +22,7 @@ const Footer = (props) => {
     const enviarMail = (e) => {
         e.preventDefault()
         props.mandarMail(mail)
+        setMail({destinatario: '', cuerpo: '', asunto: ''})
     }
 
     return (
@@ -31,6 +33,7 @@ const Footer = (props) => {
                     <span className="c-footerTitle">CONTACTO</span>
                     <div className="c-footerInnerInfoContainer">
                         <input id="c-footerInput" name="destinatario" value={mail.destinatario} placeholder="Correo electronico" onChange={(e)=>leerInput(e, 'destinatario')}></input>
+                        <input id="c-footerInput" name="asunto" value={mail.asunto} placeholder="asunto" onChange={(e)=>leerInput(e, 'asunto')}></input>
                         <textarea id="c-footerTextarea" name="cuerpo" value={mail.cuerpo} placeholder="Mensaje" onChange={(e)=>leerInput(e, 'cuerpo')}/>
                         <span id="c-footerSubmit" onClick={enviarMail}>ENVIAR</span>
                     </div>
