@@ -1,6 +1,8 @@
+import { connect } from "react-redux"
 
 
-const Producto = ()=>{
+const Producto = (props)=>{
+   console.log(props)
    return (
       <>
          <div className="contenedorPrincipal-productoIndividual">
@@ -25,4 +27,11 @@ const Producto = ()=>{
    )
 }
 
-export default Producto
+const mapStateToProps = (state)=>{
+   return {
+      todosLosProductos: state.productosReducer
+   }
+}
+
+
+export default connect(mapStateToProps)(Producto)

@@ -28,9 +28,10 @@ const ProductosEnFila = (props)=>{
             return(
                // <div key={producto._id} className={props.infoImportante.rightIconIsClicked ? "list-card list-card-activa" : "list-card" }>
                <div key={producto._id} className="list-card" onMouseOver={(e)=>mostrarIconos(producto._id)} onMouseLeave={()=>setMouseIsOnCard(false)} >
-                  <NavLink to={`/producto/${producto._id}`} className="contenedor-foto-listCard">
-                     <div className="foto-listCard" style={{backgroundImage: `url('${mouseIsOnCard & (targetaHoveada === producto._id) ? producto.fotos[0] : producto.fotos[1]}')`}}>
-                     {(mouseIsOnCard & targetaHoveada === producto._id) && 
+                  <div className="contenedor-foto-listCard">
+                     <NavLink to={`/producto/${producto._id}`} className="foto-listCard" style={{backgroundImage: `url('${mouseIsOnCard & (targetaHoveada === producto._id) ? producto.fotos[0] : producto.fotos[1]}')`}}>
+                     </NavLink>
+                     {(mouseIsOnCard & targetaHoveada === producto._id) ?
                         <div className="contenedor-iconosDeImagen"> 
                               <div className="l-contenedor-icono-de-imagen-1">
                                  <div className="l-subContenedor-icono-de-imagen"><Icon icon={searchOutlined} className="l-icono-de-imagen1"/></div>
@@ -39,9 +40,9 @@ const ProductosEnFila = (props)=>{
                                  <div className="l-subContenedor-icono-de-imagen" onClick={()=>props.agregarProductoAlCarrito(props.userLogged, producto)}><Icon icon={shoppingCart} className="l-icono-de-imagen2" /></div>
                               </div>
                         </div>
+                        : null
                      }
-                     </div>
-                  </NavLink>
+                  </div>
                   <div className="contenedor-info-listCard">
                      <h4 className="nombre-producto-listCard fontTitulos">{producto.nombre}</h4>
                      <div className="contenedor-descripcion">
