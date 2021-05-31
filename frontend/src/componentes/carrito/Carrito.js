@@ -19,7 +19,6 @@ const Carrito = (props) => {
             const array = await props.obtenerProductos(props.userLogged)
             setCarrito(array.carrito)
         }else{
-            console.log(props)
             props.history.push('/')
         }
     }
@@ -32,7 +31,6 @@ const Carrito = (props) => {
 
     const borrarProducto = async (producto) => {
         const response = await props.borrarProducto(props.userLogged, producto)
-        console.log(response)
         setCarrito(response.carrito)
     } 
     return (
