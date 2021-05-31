@@ -9,7 +9,6 @@ const usuariosControllers = {
         const mailExist = await Usuario.findOne({email})
         
         let error;
-        console.log(req.body)
         password = bcryptjs.hashSync(password, 10)
         if(!mailExist){
             try{
@@ -27,7 +26,7 @@ const usuariosControllers = {
         }
         res.json({
             success: true,
-            respuesta: {token , nombre: userToRecord.nombre, apellido: userToRecord.apellido, email: userToRecord.email}
+            respuesta: {token , nombre: userToRecord.nombre, apellido: userToRecord.apellido, email: userToRecord.email, carrito: userToRecord.carrito}
         })       
     },
 
@@ -53,14 +52,14 @@ const usuariosControllers = {
 
         res.json({
             success: !error ? true : false,
-            respuesta: !error && {token: respuesta, nombre: userExist.nombre, apellido: userExist.apellido, email: userExist.email},
+            respuesta: !error && {token: respuesta, nombre: userExist.nombre, apellido: userExist.apellido, email: userExist.email, carrito: userExist.carrito},
             error: error
         })
       
     },
 
     loginForzado: async (req, res) => {
-        res.json({success: true, respuesta: { nombre: req.user.nombre, apellido: req.user.apellido, email: req.user.email}})
+        res.json({success: true, respuesta: { nombre: req.user.nombre, apellido: req.user.apellido, email: req.user.email, carrito: req.user.carrito}})
     }
 }
 

@@ -41,13 +41,11 @@ const carritoActions = {
     obtenerProductos: (user) => {
         return async (dispatch, getState) => {
             try{
-                // console.log(user)
                 const response = await axios.get('http://localhost:4000/api/obtenerProductos',{
                     headers: {
                         'Authorization': 'Bearer '+user.token
                     }
                 })
-                console.log('ln: 13', response.data.respuesta )
                 return response.data.respuesta
             }catch(error){
                 console.log(error)

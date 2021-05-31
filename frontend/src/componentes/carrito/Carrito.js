@@ -17,7 +17,6 @@ const Carrito = (props) => {
     const productos = async () => {
         if(props.userLogged){
             const array = await props.obtenerProductos(props.userLogged)
-            console.log('ln:15',array)
             setCarrito(array.carrito)
         }else{
             console.log(props)

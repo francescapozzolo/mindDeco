@@ -4,11 +4,12 @@ import HeaderCarrusel from './header/HeaderCarrusel'
 import HeaderFiltro from './header/HeaderFiltro'
 import Navbar from './header/Navbar'
 
-const Header = () => {
+const Header = ({carrito}) => {
+
     return (
         <>
             <HeaderCarrusel />
-            <Navbar />
+            <Navbar carrito={carrito}/>
             <HeaderFiltro />
         </>
     )

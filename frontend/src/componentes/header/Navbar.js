@@ -11,12 +11,22 @@ import { Menu, Dropdown } from "antd";
 import authActions from '../../redux/actions/authActions'
 
 const Navbar = (props) => {
+  let articulosTotales = 0
+  // useEffect(()=>{
+  //   console.log(props.userLogged)
+  //   if (props.carrito != null) props.carrito.map(producto => articulosTotales += producto.cantidad)
+  //   else 
+  //   } 
+  // },[])
 
-    const itemsCarrito = [
-      {articulo: 'Mesa de Roble', precio: 22000, cantidad: 1},
-      {articulo: 'Mesa Rectangular', precio: 29000, cantidad: 1},
-      {articulo: 'Lampara de Baño', precio: 22000, cantidad: 1}
-    ]
+  // if (props.userLogged.carrito != null){ 
+  //   articulosTotales = 0
+  //   props.userLogged.carrito.map(producto => articulosTotales += producto.cantidad)}
+    // const itemsCarrito = [
+    //   {articulo: 'Mesa de Roble', precio: 22000, cantidad: 1},
+    //   {articulo: 'Mesa Rectangular', precio: 29000, cantidad: 1},
+    //   {articulo: 'Lampara de Baño', precio: 22000, cantidad: 1}
+    // ]
     
     const MenuAccount = (
         <Menu>
@@ -64,7 +74,7 @@ const Navbar = (props) => {
                     </Dropdown>
                     <div className="relative">
                         <Link to='/carrito' style={{color: 'white'}}><ShoppingCartRoundedIcon style={{fontSize: 30}} /></Link>                         
-                        <div className="c-cantidadesCarrito">{cantidades}</div>
+                        <div className="c-cantidadesCarrito">{articulosTotales}</div>
                     </div>
                 </div>
 
