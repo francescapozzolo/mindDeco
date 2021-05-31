@@ -5,17 +5,14 @@ const jwt = require("jsonwebtoken")
 const usuariosControllers = {
 
     registrarUsuario:async (req, res) => {
-        let {nombre, apellido, email, password, google} = req.body
-        let foto = 'dasdsa'
-        let provincia = 'adsadsads'
+        let {nombre, apellido, email, password, google, provincia} = req.body
         const mailExist = await Usuario.findOne({email})
-
-        let error;
         
+        let error;
         password = bcryptjs.hashSync(password, 10)
         if(!mailExist){
             try{
-                var userToRecord = new Usuario({nombre, apellido, email, password, google, foto, provincia })       
+                var userToRecord = new Usuario({nombre, apellido, email, password, google, provincia })       
                 await userToRecord.save()
                 var token = jwt.sign({...userToRecord}, process.env.SECRET_OR_KEY)
             }catch{
@@ -29,7 +26,7 @@ const usuariosControllers = {
         }
         res.json({
             success: true,
-            respuesta: {token , nombre: userToRecord.nombre, apellido: userToRecord.apellido, email: userToRecord.email}
+            respuesta: {token , nombre: userToRecord.nombre, apellido: userToRecord.apellido, email: userToRecord.email, carrito: userToRecord.carrito}
         })       
     },
 
@@ -55,14 +52,14 @@ const usuariosControllers = {
 
         res.json({
             success: !error ? true : false,
-            respuesta: !error && {token: respuesta, nombre: userExist.nombre, apellido: userExist.apellido, email: userExist.email},
+            respuesta: !error && {token: respuesta, nombre: userExist.nombre, apellido: userExist.apellido, email: userExist.email, carrito: userExist.carrito},
             error: error
         })
       
     },
 
     loginForzado: async (req, res) => {
-        res.json({success: true, respuesta: { nombre: req.user.nombre, apellido: req.user.apellido, email: req.user.email}})
+        res.json({success: true, respuesta: { nombre: req.user.nombre, apellido: req.user.apellido, email: req.user.email, carrito: req.user.carrito}})
     }
 }
 

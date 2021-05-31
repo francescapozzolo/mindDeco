@@ -56,10 +56,12 @@ table {
     border-spacing: 0;
 }
 
-.BContainerPrincipal, .BContainerContenido, .BContainerTitulos, .BContainerCarrito, .BContainerProductos, .BProductoContenido {
+.BContainerPrincipal,.BContainerIniciar, .BContainerContenido, .BContainerTitulos, .BContainerCarrito, .BContainerProductos, .BProductoContenido {
     display: flex;
 }
-
+.BContainerPrincipal{
+    margin: 10vh 0px;
+}
 .BContainerContenido{
     margin: 5vh 5vw;
     padding-right: 5vw;
@@ -93,7 +95,7 @@ h4.BPrecioProducto, h5.BDescripcionProducto{
 .BContainerContenido form *:not(h2){
     margin-bottom: 2vh!important;
 }
-.BContainerContenido form input{
+.BContainerContenido form input, .BSelect{
     background-clip: padding-box;
     background-color: #fefefe;
     background-image: none;
@@ -109,6 +111,8 @@ h4.BPrecioProducto, h5.BDescripcionProducto{
     letter-spacing: .03em;
     margin-bottom: 5vh;
     padding-left: 2.75rem;
+    font-family: 'Monserrat', sans-serif;
+
 }
 .BContainerTitulos div, .BContainerContenido div, .BContainerContenido form{
     width: 50%;
@@ -141,10 +145,10 @@ h4.BPrecioProducto, h5.BDescripcionProducto{
 .BMarginGoogle{
     margin-top:3vh;
 }
-.BIcon, .BEyeSignIn{
+.BIcon, .BEye{
     position: absolute; 
 }
-.BEyeSignIn{
+.BEye{
     right: 10px;
     top: 14px;
     cursor: pointer;
@@ -264,4 +268,34 @@ h4.BPrecioProducto, h5.BDescripcionProducto{
 }
 .BContainerTituloProducto, .BTotalProducto{
     width: 30%;
+}
+
+.BImagenRegistro{
+    width: 40%!important;
+    height:90vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.BContainerRegistro{
+    justify-content: space-between;
+}
+
+.BContainerIniciar{
+    align-items: center;
+    width: 40%;
+}
+
+.BContainerIniciar h6{
+    width: 20vw;
+    font-family: 'Monserrat', sans-serif;
+}
+
+.BGoogle, .BErrores{
+    font-family: 'Monserrat', sans-serif;
+}
+
+.BErrores{
+    color: rgb(207, 42, 42);
 }

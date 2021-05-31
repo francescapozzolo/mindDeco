@@ -49,7 +49,6 @@ const authActions = {
         
         return async (dispatch, getState) => {
             try {
-                console.log(user.token)
                 const respuesta = await axios.get('http://localhost:4000/api/usuario/loginforzado', {
                     headers: {
                         'Authorization': 'Bearer '+user.token

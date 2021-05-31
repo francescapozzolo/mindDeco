@@ -9,7 +9,7 @@ const mailControllers = require('../controllers/mailControllers')
 
 //RUTAS USUARIOS 
 router.route("/usuario/registrarse")
-.post(/*validator,*/ usuariosControllers.registrarUsuario)
+.post(validator, usuariosControllers.registrarUsuario)
 
 router.route("/usuario/loguearse")
 .post(usuariosControllers.loguearUsuario)

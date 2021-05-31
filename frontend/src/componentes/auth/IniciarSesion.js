@@ -69,18 +69,14 @@ const IniciarSesion = (props) => {
                             <VpnKeyIcon className='BIcon'/>
                             <input type= {eye ? "text" : "password"} placeholder="Contraseña"
                             onChange={readInputUser} value={user.contraseña} name="contraseña" />
-                            {eye ? <VisibilityOffOutlinedIcon className='BEyeSignIn' onClick={()=>setEye(!eye)} /> : <VisibilityOutlinedIcon className='BEyeSignIn' onClick={()=>setEye(!eye)}/>}
+                            {eye ? <VisibilityOffOutlinedIcon className='BEye' onClick={()=>setEye(!eye)} /> : <VisibilityOutlinedIcon className='BEye' onClick={()=>setEye(!eye)}/>}
                         </div>
                         <button className='BButon BMarginGoogle' onClick={sendValueUser}>INGRESAR</button>
                         <GoogleLogin
                             clientId="687710738267-6envati0vqengfok9k0eqgbo9k5jf9j9.apps.googleusercontent.com"
                             render={renderProps => (
                                 <GoogleButton buttonText="Ingresa con google" className='btn-google' onClick={renderProps.onClick} disabled={renderProps.disabled} label="Ingresa con Google">Ingresa con Google</GoogleButton>
-                            )
-                            
-                                
-                                
-                              }
+                            )}
                             buttonText="Ingresa con Google"
                             onSuccess={responseGoogle}
                             onFailure={responseGoogle}

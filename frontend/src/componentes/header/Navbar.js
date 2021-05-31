@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -8,24 +8,36 @@ import PersonIcon from '@material-ui/icons/Person';
 
 import { Menu, Dropdown } from "antd";
 
+import authActions from '../../redux/actions/authActions'
+
 const Navbar = (props) => {
+  let articulosTotales = 0
+  // useEffect(()=>{
+  //   console.log(props.userLogged)
+  //   if (props.carrito != null) props.carrito.map(producto => articulosTotales += producto.cantidad)
+  //   else 
+  //   } 
+  // },[])
 
-    const itemsCarrito = [
-      {articulo: 'Mesa de Roble', precio: 22000, cantidad: 1},
-      {articulo: 'Mesa Rectangular', precio: 29000, cantidad: 1},
-      {articulo: 'Lampara de Baño', precio: 22000, cantidad: 1}
-    ]
-
+  // if (props.userLogged.carrito != null){ 
+  //   articulosTotales = 0
+  //   props.userLogged.carrito.map(producto => articulosTotales += producto.cantidad)}
+    // const itemsCarrito = [
+    //   {articulo: 'Mesa de Roble', precio: 22000, cantidad: 1},
+    //   {articulo: 'Mesa Rectangular', precio: 29000, cantidad: 1},
+    //   {articulo: 'Lampara de Baño', precio: 22000, cantidad: 1}
+    // ]
+    
     const MenuAccount = (
         <Menu>
           <Menu.Item>
             <div className="c-inputHeader">
-              <Link to='/ingreso'>INICIAR SESION</Link>
+              {props.userLogged ? <Link to='/' onClick={()=>props.logOutUser()}>CERRAR SESION</Link> : <Link to='/ingreso'>INICIAR SESION</Link>}
             </div>
           </Menu.Item>
           <Menu.Item>
             <div className="c-inputHeader">
-              <Link to='/registro'>REGISTRARSE</Link>
+            {props.userLogged ? null : <Link to='/registro'>REGISTRARSE</Link>}
             </div>
           </Menu.Item>
         </Menu>
@@ -62,7 +74,7 @@ const Navbar = (props) => {
                     </Dropdown>
                     <div className="relative">
                         <Link to='/carrito' style={{color: 'white'}}><ShoppingCartRoundedIcon style={{fontSize: 30}} /></Link>                         
-                        <div className="c-cantidadesCarrito">4</div>
+                        <div className="c-cantidadesCarrito">{articulosTotales}</div>
                     </div>
                 </div>
 
@@ -73,12 +85,12 @@ const Navbar = (props) => {
 
 const mapStateToProps = state => {
   return {
-
+    userLogged: state.authReducer.userLogged
   }
 }
 
 const mapDispatchToProps = {
-
+  logOutUser: authActions.logOutUser
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navbar)
