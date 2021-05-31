@@ -50,7 +50,7 @@ const App = ({userLogged, logInForced, obtenerProductos}) => {
         <Switch>
           <Route path="/ingreso" component={Ingreso}/>
           <Route exact path="/" component={Inicio}/>
-          <Route path="/categoria" component={Categoria}/>
+          <Route path="/categoria/:categoria" component={Categoria}/>
           <Route path="/administrador" component={Administrador} />
           <Route path="/registro" component={Registro}/>
           <Route path="/carrito" component={Carrito}/>
