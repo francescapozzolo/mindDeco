@@ -92,6 +92,9 @@ table {
 h4.BPrecioProducto, h5.BDescripcionProducto{
     margin-bottom: 0;
 }
+.BPrecioProducto{
+    font-weight: bold;
+}
 .BContainerContenido form *:not(h2){
     margin-bottom: 2vh!important;
 }
@@ -303,7 +306,9 @@ h4.BPrecioProducto, h5.BDescripcionProducto{
 .BContainerTituloProducto, .BTotalProducto{
     width: 30%;
 }
-
+.BTotalProducto{
+    font-weight: bold;
+}
 .BImagenRegistro{
     width: 40%!important;
     height:90vh;
@@ -340,4 +345,33 @@ h4.BPrecioProducto, h5.BDescripcionProducto{
 
 .BCodigoPromocional{
     cursor: pointer;
+}
+
+.BTableroFondo{
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.BContainerTableroFondo{
+    margin-top: 50px;
+}
+
+.BPaddingTablero{
+    padding-left: 40px;
+}
+
+.BIconTablero{
+    margin-right: 10px;
+}
+
+.BCirculoRojo{
+    background-color: red;
+    border-radius: 100%;
+    border-width: 1px;
+    width: 1.1rem;
+    text-align: center;
+    font-weight: bold;
+    padding: 0.01rem;
 }

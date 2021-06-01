@@ -53,7 +53,7 @@ const ProductosEnFila = (props)=>{
                      }
                   </div>
                   <div className="contenedor-info-listCard">
-                     <h4 className="nombre-producto-listCard fontTitulos">{producto.nombre}</h4>
+                     <h4 className="nombre-producto-listCard fontTitulos">{producto.nombre.replace(/\b\w/g, l => l.toUpperCase())}</h4>
                      <div className="contenedor-descripcion">
                         <p className="texto-descripcion fontTexto"><span className="titulo-descripcion fontTitulos">Descripcion: </span>{producto.descripcion} </p>
                      </div>

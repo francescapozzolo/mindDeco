@@ -69,7 +69,7 @@ const ProductosEnGrilla = (props) => {
                             </div>
                         </div>
                         <div className="l-nombre-y-precio">
-                            <p className="l-nombre-producto fontTexto">{producto.nombre}</p>
+                            <p className="l-nombre-producto fontTexto">{producto.nombre.replace(/\b\w/g, l => l.toUpperCase())}</p>
                             <p className="l-precio-producto fontTexto">{producto.precio}</p>
                         </div>
                     </div>

@@ -74,7 +74,7 @@ const Navbar = (props) => {
                     </Dropdown>
                     <div className="relative">
                         <Link to='/carrito' style={{color: 'white'}}><ShoppingCartRoundedIcon style={{fontSize: 30}} /></Link>                         
-                        <div className="c-cantidadesCarrito">{articulosTotales ? articulosTotales : null}</div>
+                        <div className="c-cantidadesCarrito BCirculoRojo">{articulosTotales ? articulosTotales : null}</div>
                     </div>
                 </div>
 

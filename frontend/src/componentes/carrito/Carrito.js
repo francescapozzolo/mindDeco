@@ -5,6 +5,7 @@ import authActions from "../../redux/actions/authActions"
 import Producto from './Producto';
 import LocalShippingIcon from '@material-ui/icons/LocalShipping';
 import ForumIcon from '@material-ui/icons/Forum';
+import RedeemIcon from '@material-ui/icons/Redeem';
 const Carrito = (props) => {
     const [carrito, setCarrito] = useState([])
     const [open, setOpen] = useState(false)
@@ -72,16 +73,16 @@ const Carrito = (props) => {
                 </div>
                 <button className='BButon'>COMPRAR</button>
                 <div>
-                    <div>
-                     <h3><LocalShippingIcon /> Política de Envío</h3>
-                     <h3>El envío está a cargo del comprador</h3>
+                    <div className="BContainerTableroFondo">
+                     <h3 className='BTableroFondo'><LocalShippingIcon className='BIconTablero'/> Política de Envío</h3>
+                     <h3 className='BPaddingTablero'>El envío está a cargo del comprador</h3>
                     </div>
-                    <div>
-                        <h3>Cambios y Devoluciones</h3>
+                    <div className="BContainerTableroFondo">
+                        <h3 className='BTableroFondo'><RedeemIcon className='BIconTablero'/>Cambios y Devoluciones</h3>
                     </div>
-                    <div>
-                        <h3><ForumIcon /> Dudas? Te ayudamos?</h3>
-                        <h3>Comunicate con nosotros por whatsapp!</h3>
+                    <div className="BContainerTableroFondo">
+                        <h3 className='BTableroFondo'><ForumIcon className='BIconTablero'/> Dudas? Te ayudamos?</h3>
+                        <h3 className='BPaddingTablero'>Comunicate con nosotros por whatsapp!</h3>
                     </div>
                 </div>
             </div>          
