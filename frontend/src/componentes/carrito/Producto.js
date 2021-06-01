@@ -15,7 +15,7 @@ const Producto = (props) => {
                 <div className='BContainerTituloProducto'>
                     <h3 className='BTituloProducto'>{props.producto.idProducto.nombre.replace(/\b\w/g, l => l.toUpperCase())}</h3>
                     <h4 className='BPrecioProducto'>{props.producto.idProducto.precio + ' ARS'}</h4>
-                    <h5 className='BDescripcionProducto'>{'Dimensión: '+ props.producto.idProducto.dimensiones }</h5>
+                    <h5 className='BDescripcionProducto'>{props.producto.idProducto.dimensiones ? 'Dimensión: '+ props.producto.idProducto.dimensiones : null}</h5>
                 </div>
                 <div className='BContainerNumeric'>
                     <NumericInput 

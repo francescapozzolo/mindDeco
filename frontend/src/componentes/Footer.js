@@ -21,7 +21,8 @@ const Footer = (props) => {
         props.mandarMail(mail)
         setMail({destinatario: '', cuerpo: '', asunto: ''})
     }
-
+    var urlF = "https://www.facebook.com/MindDeco-101996075438128"
+    var urlI= "https://www.instagram.com/mind_deco_home/?utm_medium=copy_link"
     return (
         <div className="c-footerContainer">
 
@@ -72,8 +73,14 @@ const Footer = (props) => {
                             <span>+54 11 4055 8500</span>
                         </div>
                         <div style={{marginTop: 20}} className="c-footerContactContainer">
+                            
+                        <a href={urlF} target="_blank">      
                             <FacebookIcon style={{fontSize: 32}} />
+                        </a> 
+                        <a href={urlI} target="_blank">      
                             <InstagramIcon style={{fontSize: 32, marginLeft: 10}} />
+                        </a> 
+                           
                         </div>
                     </div>
                 </div>
@@ -92,3 +99,4 @@ const mapDispatchToProps = {
     mandarMail: mailActions.mandarMail
 }
 export default connect(null, mapDispatchToProps)(Footer)
+

@@ -4,17 +4,16 @@ const carritoActions = {
     agregarProductoAlCarrito: (user, producto) => {
         return async (dispatch, getState) => {
             try{
-                console.log('user',user)
                 const response = await axios.put('http://localhost:4000/api/carrito',{producto},{
                     headers: {
                         'Authorization': 'Bearer '+user.token
                     }
                 })
-                console.log('ln: 13', response.data.respuesta )
                 dispatch({
                     type: 'LOG_USER',
-                    payload: response.data.success ? {...response.data.respuesta, token: user.token} : null
+                    payload: {...response.data.respuesta, token: user.token}
                 })
+                return response.data
             }catch(error){
                 console.log(error)
             }

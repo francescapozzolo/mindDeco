@@ -8,6 +8,10 @@ import searchOutlined from '@iconify-icons/ant-design/search-outlined';
 // import cartIcon from '@iconify-icons/topcoat/cart';
 import shoppingCart from '@iconify-icons/la/shopping-cart'; 
 import {NavLink} from 'react-router-dom'
+import {connect} from "react-redux"
+import carritoActions from '../../redux/actions/carritoActions'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 const ProductosEnGrilla = (props) => {
     const [mouseIsOnCard, setMouseIsOnCard] = useState(false)
@@ -18,21 +22,31 @@ const ProductosEnGrilla = (props) => {
         setTargetaHoveada(elementoHoveado)
     }
 
+    const agregandoProducto = async (producto) => {
+        const response = await props.agregarProductoAlCarrito(props.userLogged, producto)
+        if(response.success) {
+            return toast.success('Se agrego al carrito')
+        }else{
+           return toast.success('Este producto ya esta en el carrito')
+        }
+    }
     return (
         <>    
             {props.infoImportante.productosAMostrar.map(producto =>{
                 return(
                     <div key={producto._id} className="l-card" onMouseOver={(e)=>mostrarIconos(producto._id)} onMouseLeave={()=>setMouseIsOnCard(false)}>
-                        <NavLink to={`/producto/${producto._id}`} className="l-contenedor-foto">
+                        <div className="l-contenedor-foto">
                             {/* <div className="l-foto-card" style={{backgroundImage: `url('${(mouseIsOnCard & (targetaHoveada === producto._id)) ? producto.fotos[1] : producto.fotos[0] }')`}}> */}
                             <div className={!(mouseIsOnCard & targetaHoveada === producto._id) ? "l-foto-card grid-card-active" : "l-foto-card"} style={{backgroundImage: `url('${producto.fotos[0]}')`}}>
                                 {(mouseIsOnCard & (targetaHoveada === producto._id)) ?
                                     <div className="contenedor-iconosDeImagen"> 
                                         <div className="l-contenedor-icono-de-imagen-1">
-                                            <div className="l-subContenedor-icono-de-imagen"><Icon icon={searchOutlined} className="l-icono-de-imagen1"/></div>
+                                            {/* <div className="l-subContenedor-icono-de-imagen"><Icon icon={searchOutlined} className="l-icono-de-imagen1"/></div> */}
+                                            <NavLink to={`/producto/${producto._id}`} className="l-subContenedor-icono-de-imagen"><Icon icon={searchOutlined} className="l-icono-de-imagen1"/></NavLink>
+
                                         </div>
                                         <div className="l-contenedor-icono-de-imagen-2">
-                                            <div className="l-subContenedor-icono-de-imagen"><Icon icon={shoppingCart} className="l-icono-de-imagen2" /></div>
+                                            <div className="l-subContenedor-icono-de-imagen" onClick={()=>agregandoProducto(producto)}><Icon icon={shoppingCart} className="l-icono-de-imagen2" /></div>
                                         </div>
                                     </div>
                                     : null
@@ -43,18 +57,19 @@ const ProductosEnGrilla = (props) => {
                                 {(mouseIsOnCard & (targetaHoveada === producto._id)) ?
                                     <div className="contenedor-iconosDeImagen"> 
                                         <div className="l-contenedor-icono-de-imagen-1">
-                                            <div className="l-subContenedor-icono-de-imagen"><Icon icon={searchOutlined} className="l-icono-de-imagen1"/></div>
+                                            {/* <div className="l-subContenedor-icono-de-imagen"><Icon icon={searchOutlined} className="l-icono-de-imagen1"/></div> */}
+                                            <NavLink to={`/producto/${producto._id}`} className="l-subContenedor-icono-de-imagen"><Icon icon={searchOutlined} className="l-icono-de-imagen1"/></NavLink>
                                         </div>
                                         <div className="l-contenedor-icono-de-imagen-2">
-                                            <div className="l-subContenedor-icono-de-imagen"><Icon icon={shoppingCart} className="l-icono-de-imagen2" /></div>
+                                            <div className="l-subContenedor-icono-de-imagen" onClick={()=>agregandoProducto(producto)}><Icon icon={shoppingCart} className="l-icono-de-imagen2" /></div>
                                         </div>
                                     </div>
                                     : null
                                 }
                             </div>
-                        </NavLink>
+                        </div>
                         <div className="l-nombre-y-precio">
-                            <p className="l-nombre-producto fontTexto">{producto.nombre}</p>
+                            <p className="l-nombre-producto fontTexto">{producto.nombre.replace(/\b\w/g, l => l.toUpperCase())}</p>
                             <p className="l-precio-producto fontTexto">{producto.precio}</p>
                         </div>
                     </div>
@@ -85,8 +100,16 @@ const ProductosEnGrilla = (props) => {
                 </div>
                 )})} */}
 
-                
+            <ToastContainer />
         </>
     )
 }
-export default ProductosEnGrilla
+const mapStateToProps = state => {
+    return {
+       userLogged: state.authReducer.userLogged
+    }
+ }
+const mapDispatchToProps = {
+    agregarProductoAlCarrito: carritoActions.agregarProductoAlCarrito
+ }
+ export default connect(mapStateToProps, mapDispatchToProps)(ProductosEnGrilla)

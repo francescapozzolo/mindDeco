@@ -36,6 +36,22 @@ let newsletter = `
     <div>
 </div>
 `
+let respuestaConsulta= `
+<div style="background-image: url('https://i.imgur.com/hhQ2eHh.jpg'); background-position: center; background-repeat: no-repeat; padding: 3rem">
+    <p style="font-family: 'Kristi', cursive; font-size: 6rem; padding: 1rem; margin-bottom: 0;" >Bienvenidos al sector consulta </p>
+    <h2 style="font-family: 'Montserrat', sans-serif; padding: 1rem; margin-left: 2rem; border-bottom: 1px solid black;">Gracias por escribirnos.</h2>
+    <p>En breve nos estaremos comunicando para responderte de manera personalizada. </p>
+        <div style="border: 15px solid white; padding: 1rem; width: 40vw">
+            <h4></h4>
+            <p>"Estamos a disposicion de manera virtual con nuestro clientes , para que lleven la mejor atencion y productos"</p>
+        </div>
+        <div style="border: 15px solid white; padding: 1rem; width: 40vw">
+            <h4>MindDeco</h4>
+          
+        </div>
+    <div>
+</div>
+`
 
 const mailControllers = {
 
@@ -58,3 +74,4 @@ const mailControllers = {
 
 
 module.exports = mailControllers
+
