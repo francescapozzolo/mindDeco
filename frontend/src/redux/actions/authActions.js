@@ -24,13 +24,13 @@ const authActions = {
             try{
                 const response = await axios.post('http://localhost:4000/api/usuario/loguearse', user)
                 if(!response.data.success){
-                    return response.data.error
+                    return response.data
                 }
-                console.log(response.data.respuesta)
                 dispatch({
                     type:'LOG_USER',
                     payload: response.data.success ? response.data.respuesta : null
                 })
+                return response.data
             }catch(error){
                 console.log(error)
             }
