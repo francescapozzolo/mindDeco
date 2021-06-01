@@ -33,10 +33,7 @@ let newsletter = `
             <h4>Verde saludable</h4>
             <p>En 2021, las plantas, complemento innegociable de la decoración de un tiempo a esta parte, continuarán prevalenciendo en interiores. Especialmente, ahora que apreciamos más que nunca la limpieza y pureza del aire. "Los espacios son diseñados para ser vividos; por ello, se llenarán de vida con plantas y flores que aporten frescura y vitalidad", apuntan desde SinMas Studio, que nos recuerdan sus múltiples beneficios para la salud, e incluso señalan que, colocadas en espacios de trabajo, aumentan el rendimiento. "El ficus lyrata y la monstera son de fácil mantenimiento y muy decorativas, mientras que los cactus son una apuesta segura", culmina la pareja de interioristas.</p>
         </div>
-<<<<<<< HEAD
     <div>
-=======
->>>>>>> 1b353add52a8af5f97851115e528e0b5015ae8a2
 </div>
 `
 
