@@ -26,24 +26,24 @@ import Footer from './componentes/Footer'
 
 const App = ({userLogged, logInForced, obtenerProductos}) => {
   const [carrito, setCarrito] = useState(null)
-  useEffect(()=>{
-    if(userLogged){
-      obtenerCarrito(userLogged)
-    }
-    if (!userLogged && localStorage.getItem('token')) {
-      const userData = JSON.parse(localStorage.getItem('userLogged'))
-      const userForced = {
-        token: localStorage.getItem('token'),
-        ...userData
-      }
-      obtenerCarrito(userForced)
-      logInForced(userForced)
-    }
-  },[userLogged, logInForced]) 
-  const obtenerCarrito = async (token) => {
-    const usuario = await obtenerProductos(token)
-    setCarrito(usuario.carrito)
-  } 
+  // useEffect(()=>{
+  //   if(userLogged){
+  //     obtenerCarrito(userLogged)
+  //   }
+  //   if (!userLogged && localStorage.getItem('token')) {
+  //     const userData = JSON.parse(localStorage.getItem('userLogged'))
+  //     const userForced = {
+  //       token: localStorage.getItem('token'),
+  //       ...userData
+  //     }
+  //     obtenerCarrito(userForced)
+  //     logInForced(userForced)
+  //   }
+  // },[userLogged, logInForced]) 
+  // const obtenerCarrito = async (token) => {
+  //   const usuario = await obtenerProductos(token)
+  //   setCarrito(usuario.carrito)
+  // } 
     return(
       <BrowserRouter>
       <Header carrito={carrito}/>
