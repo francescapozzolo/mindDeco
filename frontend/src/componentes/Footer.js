@@ -6,7 +6,6 @@ import InstagramIcon from '@material-ui/icons/Instagram';
 import { connect } from 'react-redux';
 import mailActions from '../redux/actions/mailActions';
 
-
 const Footer = (props) => {
     const [mail, setMail] = useState({destinatario: '', asunto: '', cuerpo: ''})
 
