@@ -22,10 +22,6 @@ const authActions = {
     logInUser: (user) => {
         return async(dispatch, getState) => {
             try{
-<<<<<<< HEAD
-=======
-
->>>>>>> 4758c21cd087fa9daae4f6fdd8cb9d98fc7e9808
                 const response = await axios.post('http://localhost:4000/api/usuario/loguearse', user)
                 if(!response.data.success){
                     return response.data.error

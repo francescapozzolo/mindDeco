@@ -630,3 +630,223 @@ border-spacing: 0;
     font-size: 20px;
     font-weight: bold;
 }
+
+
+/* Pasarela de Pago */
+
+.contenedorGeneral-pagina-pasarelaDePago {
+    height: 350vh;
+    width: 80%;
+    margin: 5vh auto;
+    /* background-color: lightblue; */
+    display: flex;
+}
+
+.contenedorDeFormularios {
+    width: 62%;
+    height: 100vh;
+    /* border:1px solid red; */
+}
+
+.contenedorLateral {
+    width: 32%;
+    height: 100vh;
+    background-color: rgb(247, 247, 247);
+    /* border: 1px solid blue; */
+}
+
+.tituloDirecciones-pasarelaDePago {
+    font-size: 27px;
+}
+
+.barraHorizontal-Pasarela {
+    width: 100%;
+    height: 1px;
+    background-color: rgb(235, 233, 233);
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.contenedor-descripcionDeDirecciones {
+    display: inline-block;
+}
+
+.descripcionDirecciones {
+    /* background-color: red; */
+    display: inline-block;
+}
+
+.direccionesFormContainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    /* padding-left: 30px; */
+    width: 90%;
+    margin: 0 auto;
+}
+
+.contenedor-input-direcciones {
+    /* background-color: lightgray; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* border: 1px solid black; */
+    margin-top: 30px;
+    /* margin-right: 80px; */
+    margin-bottom: 20px;
+}
+
+.input-direcciones {
+    width: 600px;
+    height: 50px;
+    border: 1px solid rgb(192, 192, 192);
+    outline: none;
+    border-radius: 2px;
+    /* transition: all .1s ease; */
+    /* margin-bottom: 20px; */
+    /* background-color: red; */
+}
+
+.input-direcciones:focus{
+    border: 2px solid grey;
+}
+
+.boton-continuar {
+    margin-top: 20px;
+    align-self: flex-end;
+    width: 150px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    color: white;
+    font-size: 17px;
+    letter-spacing: 1px;
+}
+
+.boton-continuar:hover {
+    cursor: pointer;
+}
+
+.tituloMetodoEnvio-pasarelaDePago {
+    margin-top: 70px;
+    font-size: 27px;
+}
+
+.contenedorMetodosDeEnvio {
+    display: flex;
+    flex-direction: column;
+    /* background-color: red; */
+    height: 60px;
+    margin-left: 30px;
+    justify-content: space-between;
+}
+
+.contenedorUnMetodo {
+    width: 500px;
+    height: 80px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    background-color: rgb(240, 240, 240);
+    margin-bottom: 20px;
+    margin-left: 30px;
+    box-shadow: 1px 4px 4px 0px rgba(104, 104, 104, 0.2);
+    border-left: 6px solid black;
+}
+
+.metodoDeEnvio{
+    font-size: 20px;
+    margin-left: 30px;
+    margin-top: 20px;
+    display: inline-block;
+    /* padding: 30px 270px 30px 40px; */
+    width: 500px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+    border-radius: 5px;
+    box-shadow: 1px 4px 4px 0px rgba(104, 104, 104, 0.2);
+    background-color: rgb(240, 240, 240);
+}
+
+.metodoDeEnvio:hover {
+    cursor: pointer;
+}
+
+.metodoSeleccionado {
+    border-left: 6px solid black;
+    padding-left: 24px;
+    background-color: rgb(230, 230, 230);
+}
+
+.metodoDePagoLabel {
+    font-size: 20px;
+    margin-left: 30px;
+    /* background-color: red; */
+}
+
+.metodoDePagoOption {
+    margin-right: 20px;
+    /* color: black; */
+    /* background-color: black !; */
+}
+
+.metodoDePagoOption:after {
+    background-color: black;
+}
+
+.tituloEnvio-pasarelaDePago {
+    margin-top: 70px;
+    font-size: 27px;
+}
+
+.botonDeMetodoDeEnvio {
+    margin-top: 50px !important;
+}
+
+
+/* Metodo de pago posta */
+
+.metodoDePago {
+    font-size: 20px;
+    margin-left: 30px;
+    /* margin-top: 20px; */
+    display: inline-block;
+    width: 500px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+    /* border-radius: 5px; */
+    box-shadow: 1px 4px 4px 0px rgba(104, 104, 104, 0.2);
+    background-color: rgb(240, 240, 240);
+    border-bottom: 1px solid rgb(180, 180, 180);
+}
+
+.metodoDePago:hover {
+    cursor: pointer;
+}
+
+.credito {
+    border: none;
+}
+
+.efectivo {
+    margin-top: 40px;
+    border: none;
+}
+
+.pagoSeleccionado {
+    border-left: 5px solid black;
+    padding-left: 25px;
+    background-color: rgb(230, 230, 230);
+    /* border-radius: 5px 0px 0px 5px; */
+}
+
+.botonDeMetodoDePago {
+    margin-top: 50px;
+    margin-left: 30px;
+}
