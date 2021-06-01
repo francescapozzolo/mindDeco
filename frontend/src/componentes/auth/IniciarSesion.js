@@ -36,7 +36,7 @@ const IniciarSesion = (props) => {
             toast.error(response)
         }else{
             toast.success('Welcome')
-            // setTimeout(function(){ props.history.push('/') }, 5000);       
+            setTimeout(function(){ props.history.push('/') }, 5000);       
         }
     }
     
@@ -47,8 +47,7 @@ const IniciarSesion = (props) => {
     }
 
     return(
-        <>
-            {/* <Header /> */}
+        
             <div className='BContainerPrincipal'>
                 <div className='BContainerContenido'>
                     <div>
@@ -85,9 +84,9 @@ const IniciarSesion = (props) => {
                         />
                     </form>
                 </div>
+                <ToastContainer />
             </div>
-            {/* <Footer /> */}
-        </>
+        
     )
 }
 

@@ -21,13 +21,13 @@ const Navbar = (props) => {
 
   // if (props.userLogged.carrito != null){ 
   //   articulosTotales = 0
-  //   props.userLogged.carrito.map(producto => articulosTotales += producto.cantidad)}
-    // const itemsCarrito = [
-    //   {articulo: 'Mesa de Roble', precio: 22000, cantidad: 1},
-    //   {articulo: 'Mesa Rectangular', precio: 29000, cantidad: 1},
-    //   {articulo: 'Lampara de Baño', precio: 22000, cantidad: 1}
-    // ]
+  //   props.userLogged.carrito.map(producto => articulosTotales += producto.cantidad)
+  // }
     
+    if(props.userLogged){
+      console.log(props.userLogged.carrito)
+      props.userLogged.carrito.map(producto => articulosTotales += producto.cantidad)
+    }
     const MenuAccount = (
         <Menu>
           <Menu.Item>
@@ -74,7 +74,7 @@ const Navbar = (props) => {
                     </Dropdown>
                     <div className="relative">
                         <Link to='/carrito' style={{color: 'white'}}><ShoppingCartRoundedIcon style={{fontSize: 30}} /></Link>                         
-                        <div className="c-cantidadesCarrito">{articulosTotales}</div>
+                        <div className="c-cantidadesCarrito BCirculoRojo">{articulosTotales ? articulosTotales : null}</div>
                     </div>
                 </div>
 

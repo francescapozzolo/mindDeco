@@ -3,11 +3,18 @@ const Usuario = require('../models/Usuario')
 const carritoControllers = {
     agregarProductosAlCarrito: async (req, res) => {
         try{
-            //console.log(req.user) // usuario
-            //console.log(req.body) // el producto
-            const usuario = await Usuario.findOneAndUpdate({_id:req.user._id},{$push: { 'carrito': {idProducto: req.body.producto._id} }}, {new: true}).populate({ path:"carrito", populate:{ path:"idProducto" } })
-            //console.log('ln: 9', usuario)
-            res.json({success:true, respuesta: usuario})
+            let usuario = null
+            let success = null
+            const producto = req.user.carrito.find(producto => String(producto.idProducto) === String(req.body.producto._id))
+            if(producto){
+                usuario = req.user
+                success = false
+            }else{
+                usuario = await Usuario.findOneAndUpdate({_id:req.user._id},{$push: { 'carrito': {idProducto: req.body.producto._id} }}, {new: true}).populate({ path:"carrito", populate:{ path:"idProducto" } })
+                success = true
+            }
+
+            res.json({success, respuesta: usuario})
         }
         catch(error){
             console.log(error)
