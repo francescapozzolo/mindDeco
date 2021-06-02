@@ -345,6 +345,8 @@ border-spacing: 0;
 }
 
 
+
+
 #p-contenedorGrid :nth-child(2){
     grid-row: 1/4;
     grid-column: 2/3;

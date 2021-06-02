@@ -2,7 +2,7 @@ import VisibilityOffOutlinedIcon from '@material-ui/icons/VisibilityOffOutlined'
 import VisibilityOutlinedIcon from '@material-ui/icons/VisibilityOutlined'
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import VpnKeyIcon from '@material-ui/icons/VpnKey';
-import {useEffect, useState } from "react"
+import React,{useEffect, useState } from "react"
 import {connect} from "react-redux"
 import authActions from '../../redux/actions/authActions'
 import GoogleLogin from 'react-google-login'
@@ -10,7 +10,7 @@ import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import {NavLink} from 'react-router-dom'
 import GoogleButton from 'react-google-button'
-
+import { withRouter } from 'react-router-dom';
 
 const IniciarSesion = (props) => {
     const [user, setUser] = useState({email: '', contraseña: ''})
@@ -32,11 +32,12 @@ const IniciarSesion = (props) => {
             return toast.error('Fill in the fields')
         }
         const response = await props.logInUser(userGen)
-        if(response){
-            toast.error(response)
+        if(response.error){
+            toast.error(response.error)
         }else{
-            toast.success('Welcome')
-            setTimeout(function(){ props.history.push('/') }, 5000);       
+            toast.success(`Bienvenida/o ${response.respuesta.nombre}`)
+            console.log(props)
+            setTimeout(function(){ props.history.push('/') }, 3000);       
         }
     }
     
@@ -94,4 +95,4 @@ const mapDispatchToProps = {
     logInUser: authActions.logInUser 
 }
 
-export default connect(null ,mapDispatchToProps)(IniciarSesion)
+export default withRouter(connect(null ,mapDispatchToProps)(IniciarSesion))
