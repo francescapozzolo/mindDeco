@@ -1,119 +1,112 @@
 import React, { useState } from 'react'
-import CreditCard from '../componentes/CreditCard'
+import { connect } from 'react-redux'
+import CreditCard from '../componentes/pasarela de pago/CreditCard'
+import TextField from "@material-ui/core/TextField";
+import SeccionDirecciones from '../componentes/pasarela de pago/SeccionDirecciones'
+import SeccionMetodoDeEnvio from '../componentes/pasarela de pago/SeccionMetodoDeEnvio'
+import SeccionMetodoDePago from '../componentes/pasarela de pago/SeccionMetodoDePago'
 
-const PasarelaDePago = ()=>{
-   
-   const [metodoSeleccionado, setMetodoSeleccionado] = useState("")
+
+const PasarelaDePago = (props)=>{
+   console.log(props)
+   // const [metodoSeleccionado, setMetodoSeleccionado] = useState("")
+   const [pasoDeCompra, setPasoDeCompra] = useState('paso1-direcciones')
    const [metodoDePago, setMetodoDePago] = useState("")
+   const [datosDeTarjetaFueronPuestos, setDatosDeTarjetaFueronPuestos] = useState(false)
 
    return( 
       <div className="contenedorGeneral-pagina-pasarelaDePago">
          <div className="contenedorDeFormularios">
+
             <p className="tituloDirecciones-pasarelaDePago fontTitulos" >1. Direcciones</p>
-            
-            <div className="contenedor-descripcionDeDirecciones">
-               <div className="barraHorizontal-Pasarela"></div>
-               <p className="descripcionDirecciones fontTexto">La dirección seleccionada se utilizará como su dirección personal (para la factura) y como su dirección de entrega.</p>
-            </div>
-            <form className="direccionesFormContainer">
-               
-               <div className="contenedor-input-direcciones">
-                  <label className="texto-direcciones fontTexto">Nombre:</label>
-                  <input className="input-direcciones" type="text" />
-               </div>
-               
-               <div className="contenedor-input-direcciones">
-                  <label className="texto-direcciones fontTexto">Apellidos:</label>
-                  <input className="input-direcciones" type="text" />
-               </div>
-               
-               <div className="contenedor-input-direcciones">
-                  <label className="texto-direcciones fontTexto">Empresa:</label>
-                  <input className="input-direcciones" type="text" />
-               </div>
-               
-               <div className="contenedor-input-direcciones">
-                  <label className="texto-direcciones fontTexto">Numero de IVA:</label>
-                  <input className="input-direcciones" type="text" />
-               </div>
-               
-               <div className="contenedor-input-direcciones">
-                  <label className="texto-direcciones fontTexto">Dirección:</label>
-                  <input className="input-direcciones" type="text" />
-               </div>
-               
-               <div className="contenedor-input-direcciones">
-                  <label className="texto-direcciones fontTexto">Dirección Complementaria:</label>
-                  <input className="input-direcciones" type="text" />
-               </div>
-
-               <div className="contenedor-input-direcciones">
-                  <label className="texto-direcciones fontTexto">Código postal/Zip:</label>
-                  <input className="input-direcciones" type="text" />
-               </div>
-               
-               <div className="contenedor-input-direcciones">
-                  <label className="texto-direcciones fontTexto">Ciudad:</label>
-                  <input className="input-direcciones" type="text" />
-               </div>
-               
-               <div className="contenedor-input-direcciones">
-                  <label className="texto-direcciones fontTexto">Provincia:</label>
-                  <input className="input-direcciones" type="text" />
-               </div>
-               
-               <div className="contenedor-input-direcciones">
-                  <label className="texto-direcciones fontTexto">País:</label>
-                  <input className="input-direcciones" type="text" />
-               </div>
-               
-               <div className="contenedor-input-direcciones">
-                  <label className="texto-direcciones fontTexto">Teléfono:</label>
-                  <input className="input-direcciones" type="text" />
-               </div>
-               
-               <div className="contenedor-input-direcciones">
-                  <label className="texto-direcciones fontTexto">DNI:</label>
-                  <input className="input-direcciones" type="text" />
-               </div>
-            <p className="boton-continuar fontTitulos">Continuar</p>
-            </form>
-
+            <div className="barraHorizontal-Pasarela"></div>
+            {pasoDeCompra === "paso1-direcciones" && <SeccionDirecciones setPasoDeCompra={setPasoDeCompra}/> }            
 
             <p className="tituloMetodoEnvio-pasarelaDePago fontTitulos" >2. Metodo de Envio</p>
             <div className="barraHorizontal-Pasarela"></div>
-               
-               
-            <label for="1" className={metodoSeleccionado === "envioOpcion1" ? "metodoDeEnvio metodoSeleccionado fontTexto" : "metodoDeEnvio fontTexto"} onClick={()=>setMetodoSeleccionado("envioOpcion1")}><input type="radio" id="1" className="metodoDePagoOption" name="metodoDeEnvio" value="recibirCompra"/>Recibir Compra</label>
-            
-            <label for="2" className={metodoSeleccionado === "envioOpcion2" ? "metodoDeEnvio metodoSeleccionado fontTexto" : "metodoDeEnvio fontTexto"} onClick={()=>setMetodoSeleccionado("envioOpcion2")}><input type="radio" id="2" className="metodoDePagoOption" name="metodoDeEnvio" value="retiroEnDepo"/>Retiro en Deposito mas cercano</label>
-
-            <label for="3" className={metodoSeleccionado === "envioOpcion3" ? "metodoDeEnvio metodoSeleccionado fontTexto" : "metodoDeEnvio fontTexto"} onClick={()=>setMetodoSeleccionado("envioOpcion3")}><input type="radio" id="3" className="metodoDePagoOption" name="metodoDeEnvio" value="retiroEnCorreo"/>Retiro en Correo</label>
-
-            <p className="boton-continuar botonDeMetodoDeEnvio fontTitulos">Continuar</p>
-
+            {pasoDeCompra === "paso2-metodoDeEnvio" && <SeccionMetodoDeEnvio setPasoDeCompra={setPasoDeCompra} />}
 
             <p className="tituloEnvio-pasarelaDePago fontTitulos" >3. Metodo de Pago</p>
             <div className="barraHorizontal-Pasarela"></div>
+            {pasoDeCompra === "paso3-metodoDePago" && <SeccionMetodoDePago statesDelPadre={{metodoDePago, setMetodoDePago, datosDeTarjetaFueronPuestos, setPasoDeCompra}} />}
 
-            <label className={metodoDePago === "pagoOpcion1" ? "metodoDePago pagoSeleccionado fontTexto" : "metodoDePago fontTexto"} onClick={()=>setMetodoDePago("pagoOpcion1")}><input type="radio"  className="metodoDePagoOption" name="metodoDePago" value="mercadoPago"/>Mercado Pago</label>
+            {pasoDeCompra === "pasoOpcional-cargarDatosDeTargeta" && <CreditCard/>}
 
-            <label className={metodoDePago === "pagoOpcion2" ? "metodoDePago pagoSeleccionado fontTexto" : "metodoDePago fontTexto"} onClick={()=>setMetodoDePago("pagoOpcion2")}><input type="radio" className="metodoDePagoOption" name="metodoDePago" value="targetaDeDebito"/>Tarjeta de Debito</label>
-            
-            <label className={metodoDePago === "pagoOpcion3" ? "metodoDePago credito pagoSeleccionado fontTexto" : "metodoDePago credito fontTexto"} onClick={()=>setMetodoDePago("pagoOpcion3")} ><input type="radio" className="metodoDePagoOption" name="metodoDePago" value="targetaDeCredito"/>Tarjeta de Credito</label>
-
-            <label className={metodoDePago === "pagoOpcion4" ? "metodoDePago efectivo pagoSeleccionado fontTexto" : "metodoDePago efectivo  fontTexto"} onClick={()=>setMetodoDePago("pagoOpcion4")}><input type="radio" className="metodoDePagoOption" name="metodoDePago" value="efectivo"/>Efectivo en puntos de pago</label>
-
-            <p className="boton-continuar botonDeMetodoDePago fontTitulos">Continuar</p>
-
-            <CreditCard/>
 
          </div>
 
-         <div className="contenedorLateral"></div>
+         <div className="contenedorLateral">
+            <div className="subcontenedorLateral">
+
+               <p className="estasComprando-text fontTitulos">Estas Comprando:</p>
+               <div className="productoAComprar">
+                  <div className="fotoDeProductoAComprar" style={{backgroundImage: "url('https://casachula.com.ar/2224-large_default/portamaceta-lima.jpg')"}}></div>
+                  <div className="infoProductoAComprar">
+                     <p className="nombre-productoAComprar fontTitulos"> Sillon Bar con Puff </p>
+                     <div className="contenedor-UnidadesyPrecio">
+                        <div className="contenedor-infoDeProducto">
+                           <p className="unidades-productoAComprar fontTexto"> Unidades: </p>
+                           <p className="fontTexto fontSize20">3</p>
+                        </div>
+                        <div className="contenedor-infoDeProducto">
+                           <p className="fontSize20 fontTexto"> Valor por Unidad: </p>
+                           <p className="fontTexto fontSize20">5000 ARS</p>
+                        </div>
+                        <div className="contenedor-infoDeProducto">
+                           <p className="subtotal-productoAComprar fontNegrita fontTexto"> Subtotal:</p>
+                           <p className="fontTexto fontNegrita fontSize20">15000 ARS</p> 
+                        </div>
+                     </div>
+                  </div>
+               </div>
+
+               <div className="barra-horizonta-aside"></div>
+
+               <div className="productoAComprar">
+                  <div className="fotoDeProductoAComprar" style={{backgroundImage: "url('https://casachula.com.ar/70-home_default/mesa-auxiliar-capri.jpg')"}}></div>
+                  <div className="infoProductoAComprar">
+                     <p className="nombre-productoAComprar fontTitulos"> Sillon Bar con Puff </p>
+                     <div className="contenedor-UnidadesyPrecio">
+                     <div className="contenedor-infoDeProducto">
+                           <p className="fontSize20 fontTexto"> Unidades: </p>
+                           <p className="fontTexto fontSize20">1</p>
+                        </div>
+                        <div className="contenedor-infoDeProducto">
+                           <p className="fontSize20 fontTexto"> Valor por Unidad: </p>
+                           <p className="fontTexto fontSize20">10000 ARS</p>
+                        </div>
+                        <div className="contenedor-infoDeProducto">
+                           <p className="fontSize20 fontNegrita fontTexto"> Subtotal:</p>
+                           <p className="fontTexto fontNegrita fontSize20">10000 ARS</p> 
+                        </div>
+                     </div>
+                  </div>
+               </div>
+
+               <div className="barra-horizonta-aside"></div>
+
+               <div className="contenedor-envioYTotal">
+                  <div className="subcontenedor-envioYTotal">
+                     <p className="fontSize25 fontTexto">Envio:</p>
+                     <p className="fontSize25 fontTexto">Gratis</p>
+                  </div>
+                  <div className="subcontenedor-envioYTotal">
+                     <p className="fontSize25 fontTexto">Total:</p>
+                     <p className="fontSize25 fontTexto">50000 ARS</p>
+                  </div>
+               </div>
+
+            </div>
+         </div>
          
       </div>
    )
 }
 
-export default PasarelaDePago
+const mapStateToProps = (state)=>{
+   return {
+      usuario: state
+   }
+}
+
+export default connect(mapStateToProps)(PasarelaDePago)
