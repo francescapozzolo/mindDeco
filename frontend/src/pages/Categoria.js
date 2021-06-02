@@ -20,17 +20,21 @@ const Categoria = (props)=>{
    const [leftIconIsClicked, setLeftIconIsClicked] = useState(true)
    const [todosLosProductos, setTodosLosProductos] = useState([])
    const [productosAMostrar, setProductosAMostrar] = useState([])
-   
+   const [subCategorias, setSubCategorias] = useState([])
    useEffect(()=>{
       const categoriaSeleccionada = props.match.params.categoria
       console.log(categoriaSeleccionada)
       const productosPorCategoria = props.todosLosProductos.filter(producto => producto.categoria === categoriaSeleccionada)
+      let hash = {};
+      let subsNoRep = productosPorCategoria.filter(o => hash[o.subcategoria] ? false : hash[o.subcategoria] = true);
+      setSubCategorias(subsNoRep)
       setTodosLosProductos(productosPorCategoria)
       setProductosAMostrar(productosPorCategoria)
    },[props.match.params.categoria])
    
-   console.log(todosLosProductos)
-   console.log(props.todosLosProductos)
+   console.log('Categoria.js ln:32')
+   // console.log(todosLosProductos)
+   // console.log(props.todosLosProductos)
 
    const productosFiltradosAaZ = todosLosProductos.filter(function (producto, index) {
       return todosLosProductos.indexOf(producto) === index;
@@ -89,6 +93,9 @@ const Categoria = (props)=>{
       setLeftIconIsClicked(true)
    }
 
+   const filtroSubCategoria = () =>{
+      
+   }
    return (
       <>
          
@@ -105,11 +112,13 @@ const Categoria = (props)=>{
                   <div className="l-contenedor-opcion-por-categoria">
                      <div className="l-barra-horizontal-1"></div>
                      <div className="l-barra-horizontal-2"></div>
-                     
-                     <p className="l-opcion-por-categoria fontTitulos">Almohadones</p>
+                     {
+                        subCategorias.map(subCategoria =><p onClick={() => console.log(subCategoria.subcategoria)} className="l-opcion-por-categoria fontTitulos">{subCategoria.subcategoria.replace(/\b\w/g, l => l.toUpperCase())}</p>)
+                     }
+                     {/* <p className="l-opcion-por-categoria fontTitulos">Almohadones</p>
                      <p className="l-opcion-por-categoria fontTitulos">Puff</p>
                      <p className="l-opcion-por-categoria fontTitulos">Mantas</p>
-                     <p className="l-opcion-por-categoria fontTitulos">Alfombras</p>
+                     <p className="l-opcion-por-categoria fontTitulos">Alfombras</p> */}
                   </div>
                </div>
             </div>   
