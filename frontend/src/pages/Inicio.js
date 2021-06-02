@@ -1,4 +1,5 @@
 import React from 'react'
+import GridFrases from '../componentes/home/GridFrases'
 import HomeCarruselPrincipal from '../componentes/home/HomeCarruselPrincipal'
 import HomeFiltroGrilla from '../componentes/home/HomeFiltroGrilla'
 import HomeGrillaCategorias from '../componentes/home/HomeGrillaCategorias'
@@ -22,6 +23,7 @@ const Inicio = () => {
                 <h2>12 CUOTAS SIN INTERÉS</h2>
             </div>
             <HomeFiltroGrilla />
+            <GridFrases />
         </div>
     )
 }
