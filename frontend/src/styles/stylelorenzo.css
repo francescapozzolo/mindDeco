@@ -589,7 +589,7 @@ border-spacing: 0;
 }
 
 .nombreProducto-CompIndividual {
-    font-size: 24px;
+    font-size: 2.5rem;
     color: rgb(201, 182, 135);
 }
 
@@ -607,17 +607,20 @@ border-spacing: 0;
 .opcion-AgregarOpinion {
     font-size: 16px;
     color: grey;
+    cursor: pointer;
 }
 
 .precioProducto-componenteIndividual {
     margin-top: 50px;
     /* margin-bottom: 20px; */
     font-size: 19px;
+    font-style: italic;
 }
 
 .descripcion-componenteIndividual{
     margin-top: 30px;
     font-size: 18px;
+    line-height: 1.8rem;
 }
 
 .tituloDescripcion-CompIndividual{
