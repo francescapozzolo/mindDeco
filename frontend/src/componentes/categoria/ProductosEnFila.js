@@ -30,6 +30,7 @@ const ProductosEnFila = (props)=>{
          return toast.success('Este producto ya esta en el carrito')
       }
   }
+  console.log(props)
    return(
       <>
          {props.infoImportante.productosAMostrar.map(producto => {
@@ -68,34 +69,16 @@ const ProductosEnFila = (props)=>{
                               : null
                            }
                      </div>
-
-                    
-
-
-                     {/* <div className="foto-listCard" style={{backgroundImage: `url('${mouseIsOnCard & (targetaHoveada === producto._id) ? producto.fotos[0] : producto.fotos[1]}')`}}> */}
-                     {/* </div> */}
-                     {/* {(mouseIsOnCard & targetaHoveada === producto._id) ? */}
-                        {/* <div className="contenedor-iconosDeImagen">  */}
-                              {/* <div className="l-contenedor-icono-de-imagen-1"> */}
-                                 {/* <div className="l-subContenedor-icono-de-imagen"><Icon icon={searchOutlined} className="l-icono-de-imagen1"/></div> */}
-                                 {/* <NavLink to={`/producto/${producto._id}`} className="l-subContenedor-icono-de-imagen" ><Icon icon={searchOutlined} className="l-icono-de-imagen1"/></NavLink> */}
-                              {/* </div> */}
-                              {/* <div className="l-contenedor-icono-de-imagen-2"> */}
-                                 {/* <div className="l-subContenedor-icono-de-imagen" onClick={()=>agregandoProducto(producto)}><Icon icon={shoppingCart} className="l-icono-de-imagen2" /></div> */}
-                              {/* </div> */}
-                        {/* </div> */}
-                        {/* // : null} */}
-
                   </div>
                   <div className="contenedor-info-listCard">
-                     <h4 className="nombre-producto-listCard fontTitulos">{producto.nombre.replace(/\b\w/g, l => l.toUpperCase())}</h4>
+                     <h4 className="nombre-producto-listCard fontTitulos"> {producto.nombre.replace(/\b\w/g, l => l.toUpperCase())}</h4>
                      <div className="contenedor-descripcion">
                         <p className="texto-descripcion fontTexto"><span className="titulo-descripcion fontTitulos">Descripcion: </span>{producto.descripcion} </p>
                      </div>
-
+                     {producto.dimensiones !== " " && 
                      <div className="contenedor-infoTecnica">
                         <p className="texto-infoTecnica fontTexto"><span className="tituloInfoTecnica-compIndividual fontTitulos">Dimensiones: </span>{producto.dimensiones}</p>
-                     </div>
+                     </div>}
                      <p className="precio-producto fontTexto">{producto.precio} ARS</p>
                   </div>
                </div>

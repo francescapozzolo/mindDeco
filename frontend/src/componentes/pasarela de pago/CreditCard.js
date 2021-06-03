@@ -35,6 +35,13 @@ export default class PaymentForm extends React.Component {
      return (
        <>
           <div id="PaymentForm">
+            <Cards className="creditCard-example"
+              cvc={this.state.cvc}
+              expiry={this.state.expiry}
+              focused={this.state.focus}
+              name={this.state.name}
+              number={this.state.number}
+              />
             <form className="creditCard-form">
                 <input type="tel" className="creditCard-input fontTexto" name="number" placeholder="Numero de Tarjeta" onChange={this.handleInputChange} onFocus={this.handleInputFocus} />
                 <input type="tel" className="creditCard-input fontTexto" name="name" placeholder="Nombre y Apellido" onChange={this.handleInputChange} onFocus={this.handleInputFocus} />
@@ -46,13 +53,6 @@ export default class PaymentForm extends React.Component {
                 
                 <input type="text" className="creditCard-input fontTexto" placeholder="DNI del Titular de la tarjeta" onFocus={this.handleInputFocus} />
             </form>
-            <Cards className="creditCard-example"
-              cvc={this.state.cvc}
-              expiry={this.state.expiry}
-              focused={this.state.focus}
-              name={this.state.name}
-              number={this.state.number}
-              />
           </div>
           <p className="boton-continuar botonDeMetodoDePago fontTitulos" onClick={()=>this.funcionContinuar()} >Continuar</p>   
         </>

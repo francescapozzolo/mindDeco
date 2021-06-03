@@ -18,12 +18,13 @@ const SeccionDirecciones = (props)=>{
       console.log(infoDelUsuario)
       infoDelUsuario.nombreyapellidos === "" ? setInputsIncompletos({...inputsIncompletos, nombreyapellidos: true})
          : infoDelUsuario.direccion === "" ? setInputsIncompletos({...inputsIncompletos, direccion: true})
-         : infoDelUsuario.codigoPostal === "" ? setInputsIncompletos({...inputsIncompletos, codigoPostal: true})
          : infoDelUsuario.ciudad === "" ? setInputsIncompletos({...inputsIncompletos, ciudad: true})
+         : infoDelUsuario.codigoPostal === "" ? setInputsIncompletos({...inputsIncompletos, codigoPostal: true})
          : infoDelUsuario.provincia === "" ? setInputsIncompletos({...inputsIncompletos, provincia: true})
-         : infoDelUsuario.telefono === "" && setInputsIncompletos({...inputsIncompletos, telefono: true})
-      console.log(inputsIncompletos)
-   //       : props.setPasoDeCompra('paso2-metodoDeEnvio')
+         : infoDelUsuario.telefono === "" ? setInputsIncompletos({...inputsIncompletos, telefono: true})
+         : props.setPasoDeCompra('paso2-metodoDeEnvio')
+
+         console.log(inputsIncompletos)
    }
    // const continuar = () => {
       // infoDelUsuario.nombreyapellidos == "" ? setInputsIncompletos({...inputsIncompletos, nombreyapellidos: true}) : setInputsIncompletos({...inputsIncompletos}) 
@@ -51,27 +52,27 @@ const SeccionDirecciones = (props)=>{
                   ? <TextField error helperText="Complete este campo para continuar." id="textField1" onChange={(e)=>leerInput("nombreyapellidos", e.target.value)} name="nombreyapellidos" id="standard-error-helper-text" className="inputNombreNuevo" label="Nombre y Apellidos"  />
                   : <TextField id="standard-error-helper-text" className="inputNombreNuevo" onChange={(e)=>leerInput("nombreyapellidos", e.target.value)} name="nombreyapellidos" label="Nombre y Apellidos" />
                }
-               {inputsIncompletos.nombreyapellidos 
+               {inputsIncompletos.direccion 
                   ? <TextField error helperText="Complete este campo para continuar." id="textField1" onChange={(e)=>leerInput("direccion", e.target.value)} name="direccion" id="standard-error-helper-text" className="inputNombreNuevo" label="Direccion"  />
                   : <TextField id="standard-error-helper-text" className="inputNombreNuevo" onChange={(e)=>leerInput("direccion", e.target.value)} name="direccion" label="Direccion" />
                }
             </div>
             <div className="contenedor-input-nombreyDireccion">
-               {inputsIncompletos.nombreyapellidos 
+               {inputsIncompletos.ciudad 
                   ? <TextField error helperText="Complete este campo para continuar." id="textField1" onChange={(e)=>leerInput("ciudad", e.target.value)} name="ciudad" id="standard-error-helper-text" className="inputNombreNuevo" label="Ciudad"  />
                   : <TextField id="standard-error-helper-text" className="inputNombreNuevo" onChange={(e)=>leerInput("ciudad", e.target.value)} name="ciudad" label="Ciudad" />
                }
-               {inputsIncompletos.nombreyapellidos 
+               {inputsIncompletos.codigoPostal 
                   ? <TextField error helperText="Complete este campo para continuar." id="textField1" onChange={(e)=>leerInput("codigoPostal", e.target.value)} name="codigoPostal" id="standard-error-helper-text" className="inputNombreNuevo" label="Codigo Postal"  />
                   : <TextField id="standard-error-helper-text" className="inputNombreNuevo" onChange={(e)=>leerInput("codigoPostal", e.target.value)} name="ciudad" label="Codigo Postal" />
                }
             </div>
             <div className="contenedor-input-nombreyDireccion">
-               {inputsIncompletos.nombreyapellidos 
-                  ? <TextField error helperText="Complete este campo para continuar." id="textField1" onChange={(e)=>leerInput("Provincia", e.target.value)} name="provincia" id="standard-error-helper-text" className="inputNombreNuevo" label="Provincia"  />
-                  : <TextField id="standard-error-helper-text" className="inputNombreNuevo" onChange={(e)=>leerInput("Provincia", e.target.value)} name="ciudad" label="Provincia" />
+               {inputsIncompletos.provincia 
+                  ? <TextField error helperText="Complete este campo para continuar." id="textField1" onChange={(e)=>leerInput("provincia", e.target.value)} name="provincia" id="standard-error-helper-text" className="inputNombreNuevo" label="Provincia"  />
+                  : <TextField id="standard-error-helper-text" className="inputNombreNuevo" onChange={(e)=>leerInput("provincia", e.target.value)} name="ciudad" label="Provincia" />
                }
-               {inputsIncompletos.nombreyapellidos 
+               {inputsIncompletos.telefono 
                   ? <TextField error helperText="Complete este campo para continuar." id="textField1" onChange={(e)=>leerInput("telefono", e.target.value)} name="telefono" id="standard-error-helper-text" className="inputNombreNuevo" label="Telefono de Contacto"  />
                   : <TextField id="standard-error-helper-text" className="inputNombreNuevo" onChange={(e)=>leerInput("telefono", e.target.value)} name="telefono" label="Telefono de Contacto" />
                }
