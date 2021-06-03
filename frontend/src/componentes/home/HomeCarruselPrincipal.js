@@ -5,7 +5,7 @@ import 'antd/dist/antd.css';
 const HomeCarruselPrincipal = () => {
 
     const contentStyle = {
-        height: '70vh',
+        height: '80vh',
         width: '110vw',
         color: '#fff',
         textAlign: 'center',
@@ -21,13 +21,13 @@ const HomeCarruselPrincipal = () => {
     return (
         <Carousel autoplay  id="pCarruselPrincipal">
             <div className="p-containerTextSlider">
-                <div style={contentStyle, {backgroundImage: 'url("./assets/foto-portada-1.jpg")', width: "110vw", height: "70vh", backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover'}} ></div>
+                <div style={contentStyle, {backgroundImage: 'url("./assets/foto-portada-1.jpg")', width: "110vw", height: "80vh", backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover'}} ></div>
             </div>
             <div className="p-containerTextSlider">
-                <div style={contentStyle, {backgroundImage: 'url("./assets/foto-portada-2.jpg")', width: "110vw", height: "70vh", backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover'}}></div>
+                <div style={contentStyle, {backgroundImage: 'url("./assets/foto-portada-2.jpg")', width: "110vw", height: "80vh", backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover'}}></div>
             </div>
             <div className="p-containerTextSlider">
-                <div style={contentStyle, {backgroundImage: 'url("./assets/foto-portada-1.jpg")', width: "110vw", height: "70vh", backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover'}}></div>
+                <div style={contentStyle, {backgroundImage: 'url("./assets/foto-portada-1.jpg")', width: "110vw", height: "80vh", backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover'}}></div>
             </div>
         </Carousel>
     )

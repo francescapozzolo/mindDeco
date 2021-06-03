@@ -25,7 +25,6 @@ const Navbar = (props) => {
   // }
     
     if(props.userLogged){
-      console.log(props.userLogged.carrito)
       props.userLogged.carrito.map(producto => articulosTotales += producto.cantidad)
     }
     const MenuAccount = (
@@ -74,7 +73,7 @@ const Navbar = (props) => {
                     </Dropdown>
                     <div className="relative">
                         <Link to='/carrito' style={{color: 'white'}}><ShoppingCartRoundedIcon style={{fontSize: 30}} /></Link>                         
-                        <div className="c-cantidadesCarrito BCirculoRojo">{articulosTotales ? articulosTotales : null}</div>
+                        <div className={`${ articulosTotales ? "c-cantidadesCarrito BCirculoRojo" : "" }`}>{articulosTotales ? articulosTotales : null}</div>
                     </div>
                 </div>
 

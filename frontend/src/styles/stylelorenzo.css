@@ -11,6 +11,10 @@
     font-family: 'Fjalla One', sans-serif;
 }
 
+.fontNegrita {
+    font-weight: bold;
+}
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -144,7 +148,7 @@ border-spacing: 0;
     /* margin-bottom: ; */
 }
 
-.l-contenedor-productos {
+.l-contenedor-As {
     width: 64%;
     /* height: 40vh; */
     display: flex;
@@ -635,8 +639,9 @@ border-spacing: 0;
 /* Pasarela de Pago */
 
 .contenedorGeneral-pagina-pasarelaDePago {
-    height: 350vh;
-    width: 80%;
+    /* height: 350vh; */
+    /* width: 90%; */
+    width: 100%;
     margin: 5vh auto;
     /* background-color: lightblue; */
     display: flex;
@@ -644,16 +649,136 @@ border-spacing: 0;
 
 .contenedorDeFormularios {
     width: 62%;
-    height: 100vh;
+    margin-left: 5%;
+    /* height: 100vh; */
+    /* background-color: lightsteelblue; */
     /* border:1px solid red; */
 }
 
 .contenedorLateral {
-    width: 32%;
-    height: 100vh;
-    background-color: rgb(247, 247, 247);
-    /* border: 1px solid blue; */
+    margin-right: 5%;
+    width: 35%;
+    display: flex;
+    align-items: flex-start;
+    /* background-color: rgb(247, 247, 247); */
+    /* height: auto; */
+    /* height: 100vh; */
+    /* min-height: 20vh; */
 }
+
+.subcontenedorLateral {
+    background-color: rgb(247, 247, 247);
+    width: 100%;
+}
+
+.estasComprando-text {
+    font-size: 30px;
+    margin-left: 30px;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    text-decoration: underline;
+}
+
+.productoAComprar {
+    width: 90%;
+    height: 150px;
+    /* border: 1px solid lightgreen; */
+    /* background-color: lightgreen; */
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+}
+
+.fotoDeProductoAComprar {
+    width: 140px;
+    height: 100%;
+    /* border: 1px solid black; */
+    background-size: cover;
+    background-position: center;
+
+}
+
+.infoProductoAComprar {
+    margin-left: 25px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    height: 100%;
+    justify-content: space-between;
+    /* border: 1px solid lightgrey; */
+}
+
+
+
+.nombre-productoAComprar {
+    font-size: 22px;
+    margin-top: 10px;
+    /* margin-bottom: 40px; */
+    text-decoration: underline;
+}
+.contenedor-UnidadesyPrecio {
+    /* background-color: lightseagreen; */
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.contenedor-infoDeProducto {
+    /* margin-top: 40px ; */
+    width: 340px;
+    /* background-color: lightpink; */
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.unidades-productoAComprar {
+    /* margin-top: 40px; */
+    font-size: 20px;
+}
+
+.subtotal-productoAComprar {
+    /* margin-top: 15px; */
+    font-size: 20px;
+    /* background-color: red; */
+}
+
+.fontSize20{
+    font-size: 20px;
+}
+
+.barra-horizonta-aside {
+    width: 60%;
+    height: 1px;
+    background-color: rgb(179, 179, 179);
+    margin: 50px auto;
+}
+
+.contenedor-envioYTotal {
+    width: 55%;
+    height: 60px;
+    /* border: 1px solid black; */
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.subcontenedor-envioYTotal {
+    /* background-color: red; */
+    display: flex;
+    justify-content: space-between;
+}
+
+.fontSize25 {
+    font-size: 22px;
+}
+
+
+
+
 
 .tituloDirecciones-pasarelaDePago {
     font-size: 27px;
@@ -669,6 +794,8 @@ border-spacing: 0;
 
 .contenedor-descripcionDeDirecciones {
     display: inline-block;
+    /* background-color: lightyellow; */
+    width: 95%;
 }
 
 .descripcionDirecciones {
@@ -682,7 +809,7 @@ border-spacing: 0;
     margin-top: 20px;
     /* padding-left: 30px; */
     width: 90%;
-    margin: 0 auto;
+    margin: 40px auto;
 }
 
 .contenedor-input-direcciones {
@@ -696,25 +823,52 @@ border-spacing: 0;
     /* margin-right: 80px; */
 }
 
+/* .contenedor-inputDirecciones {
+    width: ;
+} */
+
+.inputNombre {
+    width: 50%;
+    color: black !important;
+    border-color: black !important;
+    /* background-color:; */
+}
+
+.inputNombre:focus {
+    border: 1px solid red !important;
+    background-color: green !important;
+}
+
 .texto-direcciones {
     /* background-color: green; */
     width: 160px;
 }
 
+.subcontenedor-inputDirecciones {
+    /* background: lightyellow; */
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
 .input-direcciones {
     /* width: 600px; */
-    width: 70%;
+    width: 100%;
     height: 50px;
     border: 1px solid rgb(192, 192, 192);
     outline: none;
     border-radius: 2px;
-    /* transition: all .1s ease; */
-    /* margin-bottom: 20px; */
-    /* background-color: red; */
+    margin-bottom: 10px;
+    padding-left: 20px;
 }
 
 .input-direcciones:focus{
     border: 2px solid grey;
+}
+
+.alertaCompletarCampo {
+    color: red;
 }
 
 .boton-continuar {
@@ -729,10 +883,12 @@ border-spacing: 0;
     color: white;
     font-size: 17px;
     letter-spacing: 1px;
+    transition: all .2s ease;
 }
 
 .boton-continuar:hover {
     cursor: pointer;
+    background: rgb(68, 68, 68);
 }
 
 .tituloMetodoEnvio-pasarelaDePago {
@@ -805,7 +961,7 @@ border-spacing: 0;
 }
 
 .tituloEnvio-pasarelaDePago {
-    margin-top: 70px;
+    margin-top: 50px;
     font-size: 27px;
 }
 
@@ -871,8 +1027,8 @@ border-spacing: 0;
 .creditCard-form {
     display: flex;
     flex-direction: column;
-    margin-left: 40px;
-    margin-right: 40px;
+    /* margin-left: 40px; */
+    /* margin-right: 40px; */
     /* background-color: lightgreen; */
     width: 600px;
 }
@@ -897,11 +1053,4 @@ border-spacing: 0;
 .cvcInput {
     margin-left: 20px;
 }
-
-/* .creditCard-example {
-    background-color: green !important;
-} */
-
-
-
 

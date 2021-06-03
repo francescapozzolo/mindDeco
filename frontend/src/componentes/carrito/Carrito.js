@@ -9,6 +9,7 @@ import RedeemIcon from '@material-ui/icons/Redeem';
 const Carrito = (props) => {
     const [carrito, setCarrito] = useState([])
     const [open, setOpen] = useState(false)
+    const [loading, setLoading] = useState(true)
     let precioTotal = 0
     let articulosTotales = 0
     useEffect(() => {
@@ -25,9 +26,10 @@ const Carrito = (props) => {
     }
     
     const modificaProducto = async (producto, cantidad) => {
-        if(!cantidad) return borrarProducto(producto)
+        setLoading(false)
         const response = await props.modificarProducto(props.userLogged, producto, cantidad)
         setCarrito(response.carrito)
+        setLoading(true)
     }
 
     const borrarProducto = async (producto) => {
@@ -42,7 +44,7 @@ const Carrito = (props) => {
                     
                         precioTotal +=  producto.cantidad*producto.idProducto.precio
                         articulosTotales += producto.cantidad
-                        return <Producto producto={producto} borrarProducto={borrarProducto} modificaProducto={modificaProducto}/>
+                        return <Producto producto={producto} borrarProducto={borrarProducto} modificaProducto={modificaProducto} loading={loading}/>
                         
                 })
                 }
