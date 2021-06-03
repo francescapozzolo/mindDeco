@@ -128,7 +128,7 @@ const Categoria = (props)=>{
                      <p onClick={() => filtroSubCategoria('todo')} className="l-opcion-por-categoria fontTitulos">Todas las categorias</p>
                      {
                         
-                        subCategorias.map(subCategoria =><p onClick={() => filtroSubCategoria(subCategoria.subcategoria)} className="l-opcion-por-categoria fontTitulos">{subCategoria.subcategoria.replace(/\b\w/g, l => l.toUpperCase())}</p>)
+                        subCategorias.map(subCategoria =><p onClick={() => filtroSubCategoria(subCategoria.subcategoria)} className="l-opcion-por-categoria fontTitulos">{ subCategoria.subcategoria.charAt(0).toUpperCase() + subCategoria.subcategoria.slice(1, subCategoria.subcategoria.legth) }</p>)
                      }
                      {/* <p className="l-opcion-por-categoria fontTitulos">Almohadones</p>
                      <p className="l-opcion-por-categoria fontTitulos">Puff</p>
