@@ -6,6 +6,10 @@ import Producto from './Producto';
 import LocalShippingIcon from '@material-ui/icons/LocalShipping';
 import ForumIcon from '@material-ui/icons/Forum';
 import RedeemIcon from '@material-ui/icons/Redeem';
+import { NavLink } from 'react-router-dom';
+
+
+
 const Carrito = (props) => {
     const [carrito, setCarrito] = useState([])
     const [open, setOpen] = useState(false)
@@ -18,6 +22,7 @@ const Carrito = (props) => {
     const productos = async () => {
         if(props.userLogged){
             const array = await props.obtenerProductos(props.userLogged)
+            console.log(array)
             setCarrito(array.carrito)
         }else{
             props.history.push('/')
@@ -71,7 +76,11 @@ const Carrito = (props) => {
                         <h3 className='BBold'>{precioTotal + ' ARS'}</h3>
                     </div>
                 </div>
-                <button className='BButon'>COMPRAR</button>
+                    
+                <NavLink to="/comprar" >
+                    <button className='BButon'>COMPRAR</button>
+                </NavLink>
+
                 <div>
                     <div className="BContainerTableroFondo">
                      <h3 className='BTableroFondo'><LocalShippingIcon className='BIconTablero'/> Política de Envío</h3>

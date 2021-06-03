@@ -34,10 +34,11 @@ const IniciarSesion = (props) => {
         const response = await props.logInUser(userGen)
         if(response){
             toast.error(response)
-        }else{
-            toast.success('Welcome')
-            setTimeout(function(){ props.history.push('/') }, 5000);       
         }
+        // else{
+        //     toast.success('Welcome')
+        //     setTimeout(function(){ props.history.push('/') }, 5000);       
+        // }
     }
     
     const responseGoogle = (response) => {
