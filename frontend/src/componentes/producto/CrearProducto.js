@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-
+import { toast } from 'react-toastify'
 import productosActions from '../../redux/actions/productosActions'
 
 const CrearProducto = (props) => {
@@ -14,13 +14,14 @@ const CrearProducto = (props) => {
         precio: '',
         stock: '',
         dimensiones: '',
-        fotos: '',
+        // fotos: '',
     })
-    const [foto, setFoto] = useState()
+    // const [foto, setFoto] = useState()
     const [arraySubcategorias, setArraySubcategorias] = useState([])
     const [arrayArticulos, setArrayArticulos] = useState([])
     const [habilitarSubcategoria, setHabilitarSubcategoria] = useState(false)
     const [habilitarArticulos, setHabilitarArticulos] = useState(false)
+    const [fotos, setFotos] = useState({fotos: ''})
     
     const categorias = [
         {categoria: 'living', subcategorias: [
@@ -80,26 +81,48 @@ const CrearProducto = (props) => {
         setHabilitarArticulos(true)
     }
 
-    const leerInputFoto = (e) => {
-        setFoto(e.target.value)
-    }
+    // const leerInputFoto = (e) => {
+    //     setFoto(e.target.value)
+    // }
 
-    const agregarFoto = (event) => {
-        event.preventDefault()
-        if(foto) {setNuevoProducto({
-            ...nuevoProducto,
-            fotos: [...nuevoProducto.fotos,foto]
-        })  
-        setFoto('')
-        }
-    }
+    // const agregarFoto = (event) => {
+    //     event.preventDefault()
+    //     if(foto) {setNuevoProducto({
+    //         ...nuevoProducto,
+    //         fotos: [...nuevoProducto.fotos,foto]
+    //     })  
+    //     setFoto('')
+    //     }
+    // }
 
     const cargarProducto = (event) => {
         event.preventDefault()
-        props.cargarNuevoProducto(nuevoProducto)
+        if(Object.values(nuevoProducto).some(value => value === "")){
+            toast.info('Debes completar todos los campos')
+        } else {
+        const formData = new FormData()
+        formData.append('categoria', nuevoProducto.categoria) 
+        formData.append('subcategoria', nuevoProducto.subcategoria)
+        formData.append('articulo', nuevoProducto.articulo)
+        formData.append('nombre', nuevoProducto.nombre)
+        formData.append('descripcion', nuevoProducto.descripcion)
+        formData.append('precio', nuevoProducto.precio)
+        formData.append('stock', nuevoProducto.stock)
+        formData.append('dimensiones', nuevoProducto.dimensiones)
+        formData.append('fotos', fotos.fotos)
+        console.log(fotos.fotos)
+        props.cargarNuevoProducto(formData)
+            toast.info('Se ha cargado el nuevo producto')
+        }
     }
 
-    console.log(nuevoProducto)
+    const cargarFoto = (e) => {
+        setFotos({
+            fotos: [
+            ...fotos.fotos,
+            e.target.files[0]
+            ]})
+    }
 
     return (
         <form id='formularioCargaProducto'>
@@ -109,7 +132,7 @@ const CrearProducto = (props) => {
                     {categorias.map(categoria => {
                         return(
                             <>
-                                <option key={categoria.categoria} value={categoria.categoria}>{categoria.categoria}</option>
+                                <option key={categoria.categoria} value={categoria.categoria}>{categoria.categoria.charAt(0).toUpperCase() + categoria.categoria.slice(1, categoria.categoria.legth)}</option>
                             </>
                         )
                     })}
@@ -119,7 +142,7 @@ const CrearProducto = (props) => {
                     {arraySubcategorias.map(subcategoria => {
                         return ( 
                             <>
-                                <option value={subcategoria.subcategoria} name={'subcategoria'}>{subcategoria.subcategoria}</option>
+                                <option value={subcategoria.subcategoria} name={'subcategoria'}>{subcategoria.subcategoria.charAt(0).toUpperCase() + subcategoria.subcategoria.slice(1, subcategoria.subcategoria.legth)}</option>
                             </>
                         )
                     })
@@ -130,7 +153,7 @@ const CrearProducto = (props) => {
                     {arrayArticulos.map(articulo => {
                         return ( 
                             <>
-                                <option value={articulo} name={'subcategoria'}>{articulo}</option>
+                                <option value={articulo} name={'subcategoria'}>{articulo.charAt(0).toUpperCase() + articulo.slice(1, articulo.legth)}</option>
                             </>
                         )
                     })
@@ -141,41 +164,41 @@ const CrearProducto = (props) => {
                 <div id="subcontenedorInputsCargaProductos">
                     <div className="inputCargaProductos fontTitulos">
                         <label for='nombre'>NOMBRE PRODUCTO</label>
-                        <input id='nombre' value={nuevoProducto.nombre} name='nombre' onChange={leerInput}></input>
+                        <input className="fontTexto" type="text" id='nombre' value={nuevoProducto.nombre} name='nombre' onChange={leerInput} placeholder="Ingresá el nombre del producto"></input>
                     </div>
                     <div className="inputCargaProductos fontTitulos">
                         <label for='descripcion'>DESCRIPCIÓN PRODUCTO</label>
-                        <input id='descripcion' value={nuevoProducto.descripcion} name='descripcion' onChange={leerInput}></input>
+                        <input className="fontTexto" type="text" id='descripcion' value={nuevoProducto.descripcion} name='descripcion' onChange={leerInput} placeholder="Ingresá una descripción"></input>
                     </div>
                     <div className="inputCargaProductos fontTitulos">
                         <label for='precio'>PRECIO</label>
-                        <input id='precio' value={nuevoProducto.precio} name='precio' onChange={leerInput}></input>
+                        <input className="fontTexto" type="number" id='precio' value={nuevoProducto.precio} name='precio' onChange={leerInput} placeholder="Ingresá el precio del prodcuto"></input>
                     </div>
                     <div className="inputCargaProductos fontTitulos">
                         <label for='stock'>UNIDADES EN STOCK</label>
-                        <input id='stock' value={nuevoProducto.stock} name='stock' onChange={leerInput}></input>
+                        <input className="fontTexto" type="number" id='stock' value={nuevoProducto.stock} name='stock' onChange={leerInput} placeholder="Ingresá la cantidad de stock"></input>
                     </div>
                     <div className="inputCargaProductos fontTitulos">
                         <label for='dimensiones'>DIMENSIONES</label>
-                        <input id='dimensiones' value={nuevoProducto.dimensiones} name='dimensiones' onChange={leerInput}></input>
+                        <input className="fontTexto" type="text" id='dimensiones' value={nuevoProducto.dimensiones} name='dimensiones' onChange={leerInput} placeholder="Ingresá las dimensiones del producto"></input>
                     </div>
                     <div className="inputCargaProductos fontTitulos">
                         <label for='descuento'>PORCENTAJE DE DESCUENTO</label>
-                        <input id='descuento' value={nuevoProducto.unidadesStock} name='descuento' onChange={leerInput}></input>
+                        <input className="fontTexto" type="number" id='descuento' value={nuevoProducto.unidadesStock} name='descuento' onChange={leerInput} placeholder="Ingresá el porcentaje de descuento"></input>
                     </div> 
                     <div className="inputCargaProductos fontTitulos">
                         <label for='fotos'>FOTOS</label>
                         <div>
-                            <input id='fotos' value={foto} name='fotos' onChange={leerInputFoto} ></input>
-                            <button onClick={agregarFoto}>AGREGAR FOTO</button>
+                            <input type="file" accept="image/*" id='fotos'  name='file' onChange={cargarFoto} ></input>
+                            {/* <button onClick={agregarFoto}>AGREGAR FOTO</button> */}
                         </div>
                     </div>
                     
                 </div>
                 <div>
-                    <div className="p-portaFoto" style={{backgroundImage: `url(${nuevoProducto.fotos[0]})`}}></div>
-                    <div className="p-portaFoto" style={{backgroundImage: `url(${nuevoProducto.fotos[1]})`}}></div>
-                    <div className="p-portaFoto" style={{backgroundImage: `url(${nuevoProducto.fotos[2]})`}}></div>
+                    <div className="p-portaFoto" /*style={{backgroundImage: `url(${nuevoProducto.fotos[0]})`}}*/></div>
+                    <div className="p-portaFoto" /*style={{backgroundImage: `url(${nuevoProducto.fotos[1]})`}}*/></div>
+                    <div className="p-portaFoto" /*style={{backgroundImage: `url(${nuevoProducto.fotos[2]})`}}*/></div>
                 </div>
             </div>
             <button className="fontTitulos botonCargaArticulos" onClick={cargarProducto}>CARGAR NUEVO PRODUCTO</button>

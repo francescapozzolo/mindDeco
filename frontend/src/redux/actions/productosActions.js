@@ -58,10 +58,15 @@ const productosActions = {
         }
     },
 
-    cargarNuevoProducto: (nuevoProducto) => {
+    cargarNuevoProducto: (formData) => {
+        console.log(formData)
         return async (dispatch, getState) => {
             try {
-                const respuesta = await axios.post(`http://localhost:4000/api/productos`, nuevoProducto)
+                const respuesta = await axios.post(`http://localhost:4000/api/productos`, formData, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    } 
+                })
             }
             catch(error){
                 console.log(error)
