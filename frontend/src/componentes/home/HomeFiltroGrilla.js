@@ -6,13 +6,16 @@ import shoppingCart from '@iconify-icons/la/shopping-cart';
 import { Icon } from '@iconify/react';
 import { NavLink } from 'react-router-dom';
 
+import productosActions from '../../redux/actions/productosActions'
+
 const HomeFiltroGrilla = (props) => {
 
     const [array, setArray] = useState([])
 
     useEffect(() => {
+        props.obtenerLosProductos()
         setArray(props.todosLosProductos)
-    }, [])
+    }, [props.todosLosProductos])
 
     const filtrarProd = (tipoArray) => {
         switch(tipoArray){
@@ -31,6 +34,7 @@ const HomeFiltroGrilla = (props) => {
         }
     }
 
+   
     return (
         <div id="p-contenedorFiltroGrilla">
             <div id="p-contenedorTitFiltroGrilla" className="fontTitulos">
@@ -67,4 +71,9 @@ const mapStateToProps = state => {
         todosLosProductos: state.productosReducer.todosLosProductos
     }
 }
-export default connect(mapStateToProps)(HomeFiltroGrilla) 
+
+const mapDispatchToProps = {
+    obtenerLosProductos: productosActions.obtenerLosProductos
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomeFiltroGrilla) 
