@@ -24,8 +24,8 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
 margin: 0;
@@ -36,7 +36,7 @@ font: inherit;
 vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 display: block;
 }
@@ -123,6 +123,7 @@ border-spacing: 0;
 
 /*PAGINA INICIO*/
 
+
 /*MODAL NEWSLETTER*/
 .p-inputNewsletter{
     background-color: rgba(255, 255, 255, 0.7);
@@ -133,6 +134,20 @@ border-spacing: 0;
     margin-top: 1vh;
 }
 
+/*CARRUSEL PRINCIPAL*/
+.p-containerTextSlider{
+    width: 98vw;
+    height: 75vh;
+}
+
+.p-fotoSlider{
+    width: 110vw;
+    height: 80vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 /*CONTENEDOR GRILLA CATEGORIAS*/
 #p-ContenedorHomeGrillaCategorias{
     margin-bottom: 30vh;
@@ -141,7 +156,7 @@ border-spacing: 0;
     height: 40vh;
     display: flex;
     flex-direction: column;
-    align-items: center;  
+    align-items: center;
 }
 
 .p-titGrillaCategoriaHome{
@@ -170,7 +185,7 @@ border-spacing: 0;
     -moz-box-shadow: 2px 2px 9px -2px rgba(25,29,31,0.5);
     transition: transform 2s, filter 1.5s ease-in-out;
     transform-origin: center center;
-    filter: brightness(70%);  
+    filter: brightness(70%);
     width: 100%;
     height: 100%;
     position: relative;
@@ -313,6 +328,21 @@ border-spacing: 0;
 }
 
 /*CONTENEDOR GRID FRASES*/
+#p-granContenedorGridFrases{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5rem;
+    margin-bottom: 4vh;
+}
+
+#p-granContenedorGridFrases > h2{
+    font-size: 7rem;
+    color: var(--mostaza);
+    letter-spacing: 1rem;
+    font-weight: bold;
+}
+
 #p-contenedorGrid{
     display: grid;
     grid-template-columns: 3;
@@ -320,7 +350,7 @@ border-spacing: 0;
     width: 80%;
     height: 90vh;
     gap: 1rem;
-    margin: 5rem auto;
+    margin: 1rem auto;
 }
 
 #p-contenedorGrid >div{
@@ -342,9 +372,8 @@ border-spacing: 0;
     text-align: center;
     justify-content: flex-start;
     font-size: 2rem;
+    padding-top: 3rem;
 }
-
-
 
 
 #p-contenedorGrid :nth-child(2){
@@ -356,11 +385,17 @@ border-spacing: 0;
     grid-row: 1/2;
     grid-column: 3/4;
     display: flex;
+    padding: 1rem;
 }
 
 #p-contenedorGrid :nth-child(4){
     grid-row: 2/4;
     grid-column: 3/4;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    font-size: 3em;
+    padding: 0.25em;
 }
 
 /*PAGINA PROD IND*/
@@ -378,6 +413,7 @@ border-spacing: 0;
 
 .p-seccionImpar{
     display: flex;
+    border-bottom: 1px solid white;
 }
 
 #p-seccion2{
@@ -391,7 +427,7 @@ border-spacing: 0;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
+    text-align:justify;
     margin: 0 5vw;
 }
 
@@ -415,9 +451,10 @@ border-spacing: 0;
 
 .p-contenedorDescripcionProd button{
     padding: 10px;
-    background-color: var(--mostaza);
+    background-color: white;
     border: none;
     border: 5px;
+    border-radius: 8px;
 }
 
 #p-contenedorFotosChicas{
@@ -440,3 +477,34 @@ border-spacing: 0;
     border: 0;
 }
 
+.p-descripcionDivision{
+    font-size: 1em;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+.p-contenedorIconosAcciones{
+    width: 16%;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.p-iconoCarrito{
+    max-height: 1rem;
+}
+
+.p-formProdInd{
+    background-color: var(--negro);
+}
+
+.p-formProdInd :first-child{
+    display: flex;
+    align-self: flex-start;
+}
+
+.p-formProdInd  h2{
+    color: white;
+    font-size: 2em;
+    margin-left: 1.5rem;
+}

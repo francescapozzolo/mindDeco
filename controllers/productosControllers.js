@@ -11,7 +11,7 @@ const productosControllers = {
     },
 
     cargarProductos: async (req, res) => {
-        console.log(req.body)
+        console.log(req.files)
         let  {categoria, subcategoria, articulo, nombre, descripcion, precio, stock, dimensiones, fotos} = req.body
 
         let respuesta
