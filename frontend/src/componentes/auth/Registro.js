@@ -61,7 +61,7 @@ const Registro = (props) => {
         }
     }
     const responseGoogle = (response) => {
-        console.log(response.profileObj)
+        
         const {givenName, familyName, email, googleId} = response.profileObj
         enviarFormulario(null, {nombre: givenName, apellido: familyName , email, password: "a"+googleId,  provincia: 'google', google: true, administrador: false})
     }
@@ -123,7 +123,6 @@ const Registro = (props) => {
                     cookiePolicy={'single_host_origin'}
                 />   
                 
-            <ToastContainer /> 
             </form>
             <div className='BImagenRegistro' style={{backgroundImage:'url("https://i.pinimg.com/originals/88/bb/b4/88bbb465eaa3069b572ef96a1134f9ed.jpg")'}}>  
             </div>

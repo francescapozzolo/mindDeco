@@ -100,18 +100,18 @@ const CrearProducto = (props) => {
         if(Object.values(nuevoProducto).some(value => value === "")){
             toast.info('Debes completar todos los campos')
         } else {
-        const formData = new FormData()
-        formData.append('categoria', nuevoProducto.categoria) 
-        formData.append('subcategoria', nuevoProducto.subcategoria)
-        formData.append('articulo', nuevoProducto.articulo)
-        formData.append('nombre', nuevoProducto.nombre)
-        formData.append('descripcion', nuevoProducto.descripcion)
-        formData.append('precio', nuevoProducto.precio)
-        formData.append('stock', nuevoProducto.stock)
-        formData.append('dimensiones', nuevoProducto.dimensiones)
-        formData.append('fotos', fotos.fotos)
-        console.log(fotos)
-        props.cargarNuevoProducto(formData)
+            const formData = new FormData()
+            formData.append('categoria', nuevoProducto.categoria) 
+            formData.append('subcategoria', nuevoProducto.subcategoria)
+            formData.append('articulo', nuevoProducto.articulo)
+            formData.append('nombre', nuevoProducto.nombre)
+            formData.append('descripcion', nuevoProducto.descripcion)
+            formData.append('precio', nuevoProducto.precio)
+            formData.append('stock', nuevoProducto.stock)
+            formData.append('dimensiones', nuevoProducto.dimensiones)
+            formData.append('fotos', fotos.fotos)
+            console.log(fotos)
+            props.cargarNuevoProducto(formData)
             toast.info('Se ha cargado el nuevo producto')
         }
     }
@@ -187,19 +187,20 @@ const CrearProducto = (props) => {
                         <div>
                             <input type="file" accept="image/*" id='fotos'  name='file' onChange={cargarFoto} ></input>
                         </div>
-                        <div>
+                        {/* <div>
                             <input type="file" accept="image/*" id='fotos'  name='file' onChange={cargarFoto} ></input>
                         </div>
                         <div>
                             <input type="file" accept="image/*" id='fotos'  name='file' onChange={cargarFoto} ></input>
-                        </div>
+                        </div> */}
                     </div>
                     
                 </div>
                 <div>
-                    <div className="p-portaFoto" /*style={{backgroundImage: `url(${nuevoProducto.fotos[0]})`}}*/></div>
-                    <div className="p-portaFoto" /*style={{backgroundImage: `url(${nuevoProducto.fotos[1]})`}}*/></div>
-                    <div className="p-portaFoto" /*style={{backgroundImage: `url(${nuevoProducto.fotos[2]})`}}*/></div>
+                    {/* <div className="p-portaFoto" style={{backgroundImage: `url(${nuevoProducto.fotos[1]})`}}></div>
+                    <div className="p-portaFoto" style={{backgroundImage: `url(${nuevoProducto.fotos[2]})`}}></div>
+                    <div className="p-portaFoto" style={{backgroundImage: `url(${nuevoProducto.fotos[0]})`}}></div> */}
+                    
                 </div>
             </div>
             <button className="fontTitulos botonCargaArticulos" onClick={cargarProducto}>CARGAR NUEVO PRODUCTO</button>

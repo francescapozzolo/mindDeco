@@ -36,7 +36,7 @@ const ProductosEnGrilla = (props) => {
                 return(
                     <div key={producto._id} className="l-card" onMouseOver={(e)=>mostrarIconos(producto._id)} onMouseLeave={()=>setMouseIsOnCard(false)}>
                         <div className="l-contenedor-foto">
-                            {/* <div className="l-foto-card" style={{backgroundImage: `url('${(mouseIsOnCard & (targetaHoveada === producto._id)) ? producto.fotos[1] : producto.fotos[0] }')`}}> */}
+                            {console.log(producto)}
                             <div className={!(mouseIsOnCard & targetaHoveada === producto._id) ? "l-foto-card grid-card-active" : "l-foto-card"} style={{backgroundImage: `url('${producto.fotos[0]}')`}}>
                                 {(mouseIsOnCard & (targetaHoveada === producto._id)) ?
                                     <div className="contenedor-iconosDeImagen"> 
