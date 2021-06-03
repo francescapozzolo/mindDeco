@@ -44,9 +44,7 @@ const Registro = (props) => {
         if(Object.values(usuarioGenerico).some(value => value === "")){
             return toast.error('Hay campos vacios')
         }
-        console.log(usuarioGenerico)
         const response = await props.createUser(usuarioGenerico)
-        console.log(response)
         if(response){
             if(response.controllers){
                 if(response.controllers === "There was an error in the user engraving. Retry"){

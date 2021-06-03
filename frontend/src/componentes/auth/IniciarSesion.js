@@ -13,7 +13,7 @@ import GoogleButton from 'react-google-button'
 import { withRouter } from 'react-router-dom';
 
 const IniciarSesion = (props) => {
-    const [user, setUser] = useState({email: '', contraseña: ''})
+    const [user, setUser] = useState({email: '', password: ''})
     const [eye, setEye] = useState(false)
     useEffect (() =>{
         window.scrollTo(0,0)
@@ -29,7 +29,7 @@ const IniciarSesion = (props) => {
         e && e.preventDefault()
         let userGen = e ? user : googleUser
         if(Object.values(userGen).some(value => value === "")){
-            return toast.error('Fill in the fields')
+            return toast.error('Hay campos vacios')
         }
         const response = await props.logInUser(userGen)
         if(response.error){
@@ -68,7 +68,7 @@ const IniciarSesion = (props) => {
                         <div className='BContainerPassword'>
                             <VpnKeyIcon className='BIcon'/>
                             <input type= {eye ? "text" : "password"} placeholder="Contraseña"
-                            onChange={readInputUser} value={user.contraseña} name="contraseña" />
+                            onChange={readInputUser} value={user.password} name="password" />
                             {eye ? <VisibilityOffOutlinedIcon className='BEye' onClick={()=>setEye(!eye)} /> : <VisibilityOutlinedIcon className='BEye' onClick={()=>setEye(!eye)}/>}
                         </div>
                         <button className='BButon BMarginGoogle' onClick={sendValueUser}>INGRESAR</button>

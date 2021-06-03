@@ -56,7 +56,6 @@ const usuariosControllers = {
 
 
     loguearUsuario: async (req, res) => {
-
         const {email, password} = req.body
         
         let error;

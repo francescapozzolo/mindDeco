@@ -27,7 +27,7 @@ const ProductosEnFila = (props)=>{
       if(response.success) {
          return toast.success('Se agrego al carrito')
       }else{
-         return toast.success('Este producto ya esta en el carrito')
+         return toast.warning('Este producto ya esta en el carrito')
       }
   }
    return(
