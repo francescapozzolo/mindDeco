@@ -21,9 +21,10 @@ const Categoria = (props)=>{
    const [todosLosProductos, setTodosLosProductos] = useState([])
    const [productosAMostrar, setProductosAMostrar] = useState([])
    const [subCategorias, setSubCategorias] = useState([])
+
    useEffect(()=>{
+      // console.log(categoriaSeleccionada)
       const categoriaSeleccionada = props.match.params.categoria
-      console.log(categoriaSeleccionada)
       const productosPorCategoria = props.todosLosProductos.filter(producto => producto.categoria === categoriaSeleccionada)
       let hash = {};
       let subsNoRep = productosPorCategoria.filter(o => hash[o.subcategoria] ? false : hash[o.subcategoria] = true);
@@ -38,6 +39,7 @@ const Categoria = (props)=>{
 
    const filtroSubCategoria = (subcategoria) =>{
       let productosPorSubCategoria = null
+
       if(subcategoria === 'todo'){
          setProductosAMostrar(todosLosProductos)
          return null
@@ -82,7 +84,6 @@ const Categoria = (props)=>{
 
 
    const filtroSelect = (valorDelFiltro)=> {
-      console.log(valorDelFiltro)
       valorDelFiltro === "NombreAaZ" 
          ? setProductosAMostrar(productosFiltradosAaZ)
       : valorDelFiltro === "NombreZaA"
@@ -95,6 +96,8 @@ const Categoria = (props)=>{
          && setProductosAMostrar(todosLosProductos)
    }
 
+
+
    const activarGridEnFila = () => {
       setLeftIconIsClicked(false)
       setRightIconIsClicked(true)
@@ -104,6 +107,7 @@ const Categoria = (props)=>{
       setRightIconIsClicked(false)
       setLeftIconIsClicked(true)
    }
+
 
    return (
       <>
