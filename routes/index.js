@@ -17,6 +17,9 @@ router.route("/usuario/loguearse")
 router.route("/usuario/loginforzado")
 .get(passport.authenticate('jwt', {session: false}), usuariosControllers.loginForzado)
 
+router.route("/usuario/botonGoogle")
+.post(usuariosControllers.botonGoogle) //Ruta unicamente para el boton de google de native
+
 //RUTAS CARRITO
 router.route("/modificarCantidadProducto")
 .put(passport.authenticate('jwt', {session: false}),carritoControllers.modificarProducto)

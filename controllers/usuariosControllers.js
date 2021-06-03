@@ -3,7 +3,31 @@ const bcryptjs = require("bcryptjs")
 const jwt = require("jsonwebtoken")
 
 const usuariosControllers = {
-
+    botonGoogle: async (req, res) => {
+        console.log('usuarios controllers ln:7', req.body)
+        let {nombre, apellido, email, password, google, provincia} = req.body
+        const mailExist = await Usuario.findOne({email})
+        var token 
+        if(!mailExist){
+            password = bcryptjs.hashSync(password, 10)
+            try{
+                var userToRecord = new Usuario({nombre, apellido, email, password, google, provincia})       
+                await userToRecord.save()
+                token = jwt.sign({...userToRecord}, process.env.SECRET_OR_KEY)
+            }catch(error){
+                console.log(error)
+            }
+        }else{
+            const passwordEqual = bcryptjs.compareSync(password, mailExist.password)
+            if(passwordEqual){
+                token = jwt.sign({...mailExist}, process.env.SECRET_OR_KEY)
+            }
+        }
+        res.json({
+            success: true,
+            respuesta: {token , nombre, apellido, email, carrito: mailExist ? mailExist.carrito : []}
+        })   
+    },
     registrarUsuario:async (req, res) => {
         let {nombre, apellido, email, password, google, provincia} = req.body
         const mailExist = await Usuario.findOne({email})
@@ -12,7 +36,7 @@ const usuariosControllers = {
         password = bcryptjs.hashSync(password, 10)
         if(!mailExist){
             try{
-                var userToRecord = new Usuario({nombre, apellido, email, password, google, provincia })       
+                var userToRecord = new Usuario({nombre, apellido, email, password, google, provincia})       
                 await userToRecord.save()
                 var token = jwt.sign({...userToRecord}, process.env.SECRET_OR_KEY)
             }catch{
