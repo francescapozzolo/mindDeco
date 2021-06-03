@@ -46,7 +46,7 @@ const ProductosEnFila = (props)=>{
                                  <NavLink to={`/producto/${producto._id}`} className="l-subContenedor-icono-de-imagen" ><Icon icon={searchOutlined} className="l-icono-de-imagen1"/></NavLink>
                               </div>
                               <div className="l-contenedor-icono-de-imagen-2">
-                                 <div className="l-subContenedor-icono-de-imagen" onClick={()=>agregandoProducto(producto)}><Icon icon={shoppingCart} className="l-icono-de-imagen2" /></div>
+                                 <div className="l-subContenedor-icono-de-imagen" onClick={()=> props.userLogged ? agregandoProducto(producto) : toast.warning("Inicie sesión para comprar")}><Icon icon={shoppingCart} className="l-icono-de-imagen2" /></div>
                               </div>
                         </div>
                         : null
