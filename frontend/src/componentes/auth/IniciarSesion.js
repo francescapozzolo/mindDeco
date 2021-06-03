@@ -13,7 +13,7 @@ import GoogleButton from 'react-google-button'
 
 
 const IniciarSesion = (props) => {
-    const [user, setUser] = useState({email: '', contraseña: ''})
+    const [user, setUser] = useState({email: '', password: ''})
     const [eye, setEye] = useState(false)
     useEffect (() =>{
         window.scrollTo(0,0)
@@ -67,7 +67,7 @@ const IniciarSesion = (props) => {
                         <div className='BContainerPassword'>
                             <VpnKeyIcon className='BIcon'/>
                             <input type= {eye ? "text" : "password"} placeholder="Contraseña"
-                            onChange={readInputUser} value={user.contraseña} name="contraseña" />
+                            onChange={readInputUser} value={user.password} name="password" />
                             {eye ? <VisibilityOffOutlinedIcon className='BEye' onClick={()=>setEye(!eye)} /> : <VisibilityOutlinedIcon className='BEye' onClick={()=>setEye(!eye)}/>}
                         </div>
                         <button className='BButon BMarginGoogle' onClick={sendValueUser}>INGRESAR</button>

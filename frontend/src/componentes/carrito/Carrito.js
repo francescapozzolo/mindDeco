@@ -33,7 +33,7 @@ const Carrito = (props) => {
     const borrarProducto = async (producto) => {
         const response = await props.borrarProducto(props.userLogged, producto)
         setCarrito(response.carrito)
-    } 
+    }
     return (
         <div className='BContainerCarrito'>
             <div className='BContainerProductos'>
