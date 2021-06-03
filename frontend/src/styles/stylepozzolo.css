@@ -484,7 +484,7 @@ border-spacing: 0;
 }
 
 .p-contenedorIconosAcciones{
-    width: 16%;
+    width: 50%;
     display: flex;
     justify-content: space-between;
     cursor: pointer;

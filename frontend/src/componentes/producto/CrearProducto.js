@@ -110,18 +110,14 @@ const CrearProducto = (props) => {
         formData.append('stock', nuevoProducto.stock)
         formData.append('dimensiones', nuevoProducto.dimensiones)
         formData.append('fotos', fotos.fotos)
-        console.log(fotos.fotos)
+        console.log(fotos)
         props.cargarNuevoProducto(formData)
             toast.info('Se ha cargado el nuevo producto')
         }
     }
 
     const cargarFoto = (e) => {
-        setFotos({
-            fotos: [
-            ...fotos.fotos,
-            e.target.files[0]
-            ]})
+        setFotos({fotos: e.target.files[0]})
     }
 
     return (
@@ -190,7 +186,12 @@ const CrearProducto = (props) => {
                         <label for='fotos'>FOTOS</label>
                         <div>
                             <input type="file" accept="image/*" id='fotos'  name='file' onChange={cargarFoto} ></input>
-                            {/* <button onClick={agregarFoto}>AGREGAR FOTO</button> */}
+                        </div>
+                        <div>
+                            <input type="file" accept="image/*" id='fotos'  name='file' onChange={cargarFoto} ></input>
+                        </div>
+                        <div>
+                            <input type="file" accept="image/*" id='fotos'  name='file' onChange={cargarFoto} ></input>
                         </div>
                     </div>
                     
