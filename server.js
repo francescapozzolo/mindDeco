@@ -9,7 +9,7 @@ require('./config/passport')
 const fileUpload = require('express-fileupload')
 
 // const path = require ('path')
-
+app.use(express.static('fotos'))
 
 app.use(cors())
 app.use(fileUpload())

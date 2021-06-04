@@ -59,7 +59,7 @@ const productosActions = {
     },
 
     cargarNuevoProducto: (formData) => {
-        console.log(formData)
+        
         return async (dispatch, getState) => {
             try {
                 const respuesta = await axios.post(`http://localhost:4000/api/productos`, formData, {
