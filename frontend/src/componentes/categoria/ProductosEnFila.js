@@ -27,14 +27,15 @@ const ProductosEnFila = (props)=>{
       if(response.success) {
          return toast.success('Se agrego al carrito')
       }else{
-         return toast.warning('Este producto ya esta en el carrito')
+         return toast.success('Este producto ya esta en el carrito')
       }
   }
    return(
       <>
          {props.infoImportante.productosAMostrar.map(producto => {
             return(
-               // <div key={producto._id} className={props.infoImportante.rightIconIsClicked ? "list-card list-card-activa" : "list-card" }>
+               <>
+               {/* <div key={producto._id} className={props.infoImportante.rightIconIsClicked ? "list-card list-card-activa" : "list-card" }> */}
                <div key={producto._id} className="list-card" onMouseOver={(e)=>mostrarIconos(producto._id)} onMouseLeave={()=>setMouseIsOnCard(false)} >
                   <div className="contenedor-foto-listCard">
                     
@@ -53,16 +54,6 @@ const ProductosEnFila = (props)=>{
                            </div>
                            : null}
                      </div>
-<<<<<<< HEAD
-                     {(mouseIsOnCard & targetaHoveada === producto._id) ?
-                        <div className="contenedor-iconosDeImagen"> 
-                              <div className="l-contenedor-icono-de-imagen-1">
-                                 {/* <div className="l-subContenedor-icono-de-imagen"><Icon icon={searchOutlined} className="l-icono-de-imagen1"/></div> */}
-                                 <NavLink to={`/producto/${producto._id}`} className="l-subContenedor-icono-de-imagen" ><Icon icon={searchOutlined} className="l-icono-de-imagen1"/></NavLink>
-                              </div>
-                              <div className="l-contenedor-icono-de-imagen-2">
-                                 <div className="l-subContenedor-icono-de-imagen" onClick={()=> props.userLogged ? agregandoProducto(producto) : toast.warning("Inicie sesión para comprar")}><Icon icon={shoppingCart} className="l-icono-de-imagen2" /></div>
-=======
                      <div className={(mouseIsOnCard & targetaHoveada === producto._id) ? " foto-listCard-active" : "foto-listCard"}
                         style={{backgroundImage: `url('${producto.fotos[1]}')`}}>
                            {(mouseIsOnCard & (targetaHoveada === producto._id)) ?
@@ -74,7 +65,6 @@ const ProductosEnFila = (props)=>{
                                     <div className="l-contenedor-icono-de-imagen-2">
                                        <div className="l-subContenedor-icono-de-imagen" onClick={()=>agregandoProducto(producto)}><Icon icon={shoppingCart} className="l-icono-de-imagen2" /></div>
                                     </div>
->>>>>>> matu
                               </div>
                               : null
                            }
@@ -99,17 +89,20 @@ const ProductosEnFila = (props)=>{
 
                   </div>
                   <div className="contenedor-info-listCard">
-                     <h4 className="nombre-producto-listCard fontTitulos">{producto.nombre.replace(/\b\w/g, l => l.toUpperCase())}</h4>
+                     <h4 className="nombre-producto-listCard fontTitulos">{producto.nombre.toUpperCase()}</h4>
                      <div className="contenedor-descripcion">
-                        <p className="texto-descripcion fontTexto"><span className="titulo-descripcion fontTitulos">Descripcion: </span>{producto.descripcion} </p>
+                        <p className="texto-descripcion fontTexto"><span className="titulo-descripcion fontTitulos">Descripción: </span>{producto.descripcion} </p>
                      </div>
 
                      <div className="contenedor-infoTecnica">
-                        <p className="texto-infoTecnica fontTexto"><span className="tituloInfoTecnica-compIndividual fontTitulos">Dimensiones: </span>{producto.dimensiones}</p>
+                        <p className="texto-infoTecnica fontTexto"><span className="tituloInfoTecnica-compIndividual fontTitulos">{(producto.dimensiones.trim).length > 0 ? 'Dimensiones:' : ''} </span>{producto.dimensiones}</p>
                      </div>
                      <p className="precio-producto fontTexto">{producto.precio} ARS</p>
                   </div>
+                  
                </div>
+               <div className="l-borderBottom-card"></div>
+               </>
             )
          })}
          
