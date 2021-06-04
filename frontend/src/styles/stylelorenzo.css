@@ -76,25 +76,28 @@ border-spacing: 0;
 }
 
 .l-categorias-main-section {
-    min-height: 40vh;
-    width: 100%;
+    min-height: 80vh;
+    width: 90%;
+    margin: 0 auto;
     display: flex;
     margin-top: 50px;
     margin-bottom: 50px;
-    /* background: green; */
+    /* background: lightgreen; */
+    /* border: 1px solid green; */
 }
 
 .l-contenedor-menu-lateral {
-    width: 29%;
-    height: 40vh;
+    width: 25%;
+    /* height: 40vh; */
     /* background: green; */
     display: flex;
-    justify-content: flex-end;
+    /* justify-content: flex-start; */
 }
 
 .l-menu-lateral {
-    width: 18vw;
+    width: 100%;
     height: 30vh;
+    margin-right: 30px;
 }
 
 .l-contenedor-titulo-menu {
@@ -155,6 +158,12 @@ border-spacing: 0;
     flex-direction: column;
     margin-left: 30px;
     /* background: red; */
+}
+
+.l-contenedor-productos {
+    width: 75%;
+    /* background-color: lightblue; */
+    /* border: 1px solid lightblue; */
 }
 
 .l-productos-top-section {
@@ -286,12 +295,14 @@ border-spacing: 0;
 .contenedor-activo {
     opacity: 1;
     transition: all 1.1s ease;
+    display: flex;
+    justify-content: space-between;
 }
 
 .l-card {
-    width: 250px;
+    width: 22%;
     height: 450px;
-    margin-right: 40px;
+    /* margin-right: 3%; */
     /* transition:  all 1s ease; */
     /* opacity: 0; */
     /* border: 1px solid black; */
@@ -318,16 +329,7 @@ border-spacing: 0;
 }
 
 .l-foto-card {
-    /* width: 100%;
-    height: 72%;
-    background-position: center;
-    background-size: cover;
-    display: flex;
-    align-items: center;
-    justify-content: center; */
-    transition-duration: .7s ease;
-    opacity: 0;
-    /* display: none; */
+    transition-duration: .2s ease;
 }
 
 .grid-card-active {
@@ -341,7 +343,7 @@ border-spacing: 0;
     align-items: center;
     justify-content: center;
     opacity: 1;
-    transition: all .7s ease;
+    transition: all 1.5s ease;
     /* display: flex; */
 }
 
@@ -382,7 +384,7 @@ border-spacing: 0;
     justify-content: center;
     height: 40px;
     width: 40px;
-    transition: all .2s ease;
+    transition: all 500ms ease;
     /* justify-content: center; */
 }
 
@@ -437,13 +439,23 @@ border-spacing: 0;
 /* List Products */
 
 .list-card {
-    width: 100%;
-    height: 320px;
-    /* border: 1px solid black; */
+    width: 95%;
+    height: 250px;
     display: flex;
-    margin-bottom: 40px;
-    /* opacity: 0; */
-    /* transition: all 1s ease; */
+    margin: 0 auto;
+}
+
+.l-borderBottom-card {
+    border-bottom: 1px solid rgb(180, 180, 180);
+    width: 95%;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+
+.l-borderBottom-nombre {
+    border-bottom: 1px solid rgb(180, 180, 180);
+    width: 20%;
+    margin: 0 auto;
 }
 
 /* .list-card-activa {
@@ -461,6 +473,7 @@ border-spacing: 0;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
     /* position: relative; */
 }
 
@@ -469,17 +482,22 @@ border-spacing: 0;
 }
 
 .foto-listCard {
-    width: 100%;
+    transition-duration: .7s ease;
+    opacity: 0;
+}
+
+.foto-listCard-active {
+    position: absolute;
+    width: 80%;
     height: 75%;
-    /* background: url('https://casachula.com.ar/2242-large_default/camino-de-mesa-olivia.jpg'); */
     background-position: center;
     background-size: cover;
-    /* background: red; */
     display: flex;
     align-items: center;
     justify-content: center;
+    opacity: 1;
+    transition: all .7s ease;
 }
-
 
 .contenedor-info-listCard {
     /* width: 20%; */
@@ -490,9 +508,8 @@ border-spacing: 0;
 }
 
 .nombre-producto-listCard {
-    font-size: 22px;
+    font-size: 24px;
     margin-top: 40px;
-    text-decoration: underline;
 }
 
 .nombre-producto-listCard:hover {
@@ -506,11 +523,13 @@ border-spacing: 0;
 .titulo-descripcion {
     font-size: 19px;
     font-weight: bold;
+    color: rgb(78, 78, 78);
     /* font-style: italic; */
 }
 
 .texto-descripcion {
     font-size: 16px;
+    line-height: 1.5rem;
     /* font-style: italic; */
 }
 
@@ -529,10 +548,10 @@ border-spacing: 0;
 }
 
 .precio-producto{
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
     font-style: italic;
-    margin-top: 20px;
+    margin-top: 18px;
 }
 
 /* Componente de producto Individual */
@@ -596,6 +615,7 @@ border-spacing: 0;
 .contenedor-valoracionDeProducto {
     margin-top: 20px;
     display: flex;
+    align-items: center;
 }
 
 .barrita-divisora {
@@ -651,10 +671,11 @@ border-spacing: 0;
 }
 
 .contenedorDeFormularios {
-    width: 62%;
+    width: 58%;
     margin-left: 5%;
-    /* height: 100vh; */
+    margin-right: 5%;
     /* background-color: lightsteelblue; */
+    /* height: 100vh; */
     /* border:1px solid red; */
 }
 
@@ -809,11 +830,49 @@ border-spacing: 0;
 .direccionesFormContainer {
     display: flex;
     flex-direction: column;
-    margin-top: 20px;
-    /* padding-left: 30px; */
     width: 90%;
     margin: 40px auto;
 }
+
+.contenedor-input-nombreyDireccion {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.inputNombreNuevo {
+    width: 45%;
+    /* background-color: green; */
+}
+
+.inputDireccion {
+    width: 45%;
+    /* background-color: red; */
+}
+
+.label-infoExtra {
+    margin-top: 25px;
+    font-size: 15px;
+}
+
+.textArea-extraInfo {
+    margin-top: 10px;
+    font-size: 13px;
+    color: grey;
+    border: 1px solid black;
+    width: 60%;
+    height: 100px;
+    outline: none;
+    padding: 10px 10px;
+}
+
+.textArea-extraInfo:focus {
+    border: 2px solid black;
+    padding: 9px 9px;
+}
+
+
+
 
 .contenedor-input-direcciones {
     display: flex;
@@ -874,9 +933,15 @@ border-spacing: 0;
     color: red;
 }
 
+.contenedor-botonesAvanzar {
+    /* background-color: lightseagreen; */
+    display: flex;
+    justify-content: space-between;
+}
+
 .boton-continuar {
     margin-top: 20px;
-    align-self: flex-end;
+    /* align-self: flex-end; */
     width: 150px;
     height: 50px;
     display: flex;
@@ -891,7 +956,9 @@ border-spacing: 0;
 
 .boton-continuar:hover {
     cursor: pointer;
-    background: rgb(68, 68, 68);
+    background: rgb(255, 255, 255);
+    border: 1px solid black;
+    color: black;
 }
 
 .tituloMetodoEnvio-pasarelaDePago {
@@ -1057,3 +1124,57 @@ border-spacing: 0;
     margin-left: 20px;
 }
 
+
+
+
+@media (max-width: 1600px) {
+    .l-card {
+      height: 400px;
+    }
+}
+
+@media (max-width: 1400px) {
+    .l-card {
+      height: 350px;
+    }
+    .l-categorias-main-section{
+        width: 95%;
+    }
+}
+
+@media (max-width: 1300px){
+    .l-card {
+        width: 30%;
+        height: 450px;
+    }
+}
+
+/* @media (max-width: 1200px) {
+    .l-card {
+      height: 300px;
+    }
+} */
+
+@media (max-width: 1100px) {
+    .l-card {
+        width: 45%;
+    }
+}
+
+@media (max-width: 750px) {
+    .l-productos-top-section {
+        width: 100%;
+    }
+    .l-card {
+        width: 70%;
+        margin: 0 auto;
+    }
+
+}
+
+
+/* @media (max-width: 1000px) {
+    .l-card {
+      height: 230px;
+    }
+} */
