@@ -48,7 +48,7 @@ const HomeFiltroGrilla = (props) => {
                     return(
                         <div className="p-fotoProdFiltrado" style={{backgroundImage: `url(${item.fotos[0]})`}}>
                             <div className="p-capa">
-                                <h3 className="fontCursive">{item.nombre.charAt(0).toUpperCase() + item.nombre.slice(1, item.nombre.legth)}</h3>
+                                <h3 className="fontCursive">{item.nombre.charAt(0).toUpperCase() + item.nombre.slice(1, item.nombre.length)}</h3>
                                 <div className="p-contenedorIconosAcciones">
                                     <div className="l-contenedor-icono-de-imagen-1">
                                         <NavLink to={`/producto/${item._id}`} className="l-subContenedor-icono-de-imagen" ><Icon icon={searchOutlined} className="l-icono-de-imagen1"/></NavLink>
