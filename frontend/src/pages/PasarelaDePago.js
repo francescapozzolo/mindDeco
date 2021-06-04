@@ -7,6 +7,7 @@ import SeccionMetodoDeEnvio from '../componentes/pasarela de pago/SeccionMetodoD
 import SeccionMetodoDePago from '../componentes/pasarela de pago/SeccionMetodoDePago'
 import axios from 'axios'
 import carritoActions from '../redux/actions/carritoActions';
+import SeccionConfirmarCompra from '../componentes/pasarela de pago/SeccionConfirmarCompra';
 
 const PasarelaDePago = (props)=>{
    console.log(props)
@@ -57,6 +58,11 @@ const PasarelaDePago = (props)=>{
             {pasoDeCompra === "paso3-metodoDePago" && <SeccionMetodoDePago statesDelPadre={{metodoDePago, setMetodoDePago, datosDeTarjetaFueronPuestos, setPasoDeCompra}} />}
 
             {pasoDeCompra === "pasoOpcional-cargarDatosDeTargeta" && <CreditCard setPasoDeCompra={setPasoDeCompra}/>}
+
+            <p className="tituloEnvio-pasarelaDePago fontTitulos" >4. Confirmar Compra</p>
+            <div className="barraHorizontal-Pasarela"></div>
+            {pasoDeCompra === "paso4-confirmarCompra" && <SeccionConfirmarCompra statesDelPadre={{metodoDePago, setMetodoDePago, datosDeTarjetaFueronPuestos, setPasoDeCompra}} />}
+
 
 
          </div>

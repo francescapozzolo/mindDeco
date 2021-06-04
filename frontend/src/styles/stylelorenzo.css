@@ -966,7 +966,7 @@ border-spacing: 0;
 }
 
 .tituloMetodoEnvio-pasarelaDePago {
-    margin-top: 70px;
+    margin-top: 50px;
     font-size: 27px;
 }
 
@@ -981,10 +981,10 @@ border-spacing: 0;
 
 .seccion-metodoDeEnvio {
     /* background-color: lightslategrey; */
+    /* background-color: lightsalmon; */
     width: 70%;
     margin-left: 40px;
     height: 440px;
-    /* background-color: lightsalmon; */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -1003,10 +1003,6 @@ border-spacing: 0;
     border-left: 6px solid black;
 } */
 
-
-.contenedor-opcionesDeEnvio {
-    /* background-color: lightpink; */
-}
 
 .metodoDeEnvio{
     font-size: 20px;
@@ -1076,9 +1072,24 @@ border-spacing: 0;
 
 /* Metodo de pago posta */
 
+.seccion-metodoDePago{
+    width: 70%;
+    margin-left: 40px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: lightseagreen;
+}
+
+.contenedor-opcionesDePago{
+    background-color: lightgrey;
+    /* margin-left: 30px; */
+}
+
 .metodoDePago {
     font-size: 20px;
-    margin-left: 30px;
+    /* margin-left: 30px; */
     /* margin-top: 20px; */
     display: inline-block;
     width: 500px;
@@ -1094,6 +1105,11 @@ border-spacing: 0;
 
 .metodoDePago:hover {
     cursor: pointer;
+}
+
+.error-MetodoDePago{
+    color: red;
+    margin-top: 20px;
 }
 
 .credito {
@@ -1200,6 +1216,41 @@ border-spacing: 0;
     margin-top: 60px;
     /* background-color: red; */
 } 
+
+.contenedorDeTargetas {
+    width: 90%;
+    height: 500px;
+    border: 1px solid lightseagreen;
+    margin: 0 auto;
+}
+
+.targeta-confirmarCompra {
+    width: 600px;
+    height: 150px;
+    background-color: rgb(245,245,245);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.iconoDireccion-ConfirmarCompra {
+    width: 50px;
+    height: 50px;
+    background-color: black;
+}
+
+.contenedorDeDatos-ConfirmarCompra {
+    width: 70%;
+    height: 80%;
+    background-color: lightyellow;
+}
+
+.editarDirecciones {
+    
+}
+
+
+
 
 
 @media (max-width: 1600px) {

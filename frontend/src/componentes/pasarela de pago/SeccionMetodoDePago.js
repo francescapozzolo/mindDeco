@@ -19,7 +19,7 @@ const SeccionMetodoDePago = (props)=>{
       //    : alert('Por favor, seleccione un metodo de pago')
       metodoDePagoFueSeleccionado 
       ? props.statesDelPadre.setPasoDeCompra("pasoOpcional-cargarDatosDeTargeta")
-      : alert('Por favor, seleccione un metodo de pago')
+      : setMetodoElegido("ninguno")
    }
 
    const volver = ()=>{
@@ -27,13 +27,16 @@ const SeccionMetodoDePago = (props)=>{
    }
 
    return (
-      <>
-         <label className={metodoElegido === "tarjetaDeDebito" ? "metodoDePago pagoSeleccionado fontTexto" : "metodoDePago fontTexto"} onClick={()=>establecerMetodoDePago("tarjetaDeDebito")}><input type="radio" className="metodoDePagoOption" name="metodoDePago" value="targetaDeDebito"/>Tarjeta de Debito</label>
+      <div className="seccion-metodoDePago">
+         <div className="contenedor-opcionesDePago">
+            <label className={metodoElegido === "tarjetaDeDebito" ? "metodoDePago pagoSeleccionado fontTexto" : "metodoDePago fontTexto"} onClick={()=>establecerMetodoDePago("tarjetaDeDebito")}><input type="radio" className="metodoDePagoOption" name="metodoDePago" value="targetaDeDebito"/>Tarjeta de Debito</label>
 
-         <label className={metodoElegido === "tarjetaDeCredito" ? "metodoDePago credito pagoSeleccionado fontTexto" : "metodoDePago credito fontTexto"} onClick={()=>establecerMetodoDePago("tarjetaDeCredito")} ><input type="radio" className="metodoDePagoOption" name="metodoDePago" value="targetaDeCredito"/>Tarjeta de Credito</label>
+            <label className={metodoElegido === "tarjetaDeCredito" ? "metodoDePago credito pagoSeleccionado fontTexto" : "metodoDePago credito fontTexto"} onClick={()=>establecerMetodoDePago("tarjetaDeCredito")} ><input type="radio" className="metodoDePagoOption" name="metodoDePago" value="targetaDeCredito"/>Tarjeta de Credito</label>
 
-         <label className={metodoElegido === "efectivo" ? "metodoDePago efectivo pagoSeleccionado fontTexto" : "metodoDePago efectivo  fontTexto"} onClick={()=>establecerMetodoDePago("efectivo")}><input type="radio" className="metodoDePagoOption" name="metodoDePago" value="efectivo"/>Efectivo en puntos de pago</label>
+            <label className={metodoElegido === "efectivo" ? "metodoDePago efectivo pagoSeleccionado fontTexto" : "metodoDePago efectivo  fontTexto"} onClick={()=>establecerMetodoDePago("efectivo")}><input type="radio" className="metodoDePagoOption" name="metodoDePago" value="efectivo"/>Efectivo en puntos de pago</label>
 
+            { metodoElegido === "ninguno" &&  <p className="error-MetodoDePago fontTexto">Para continuar seleccione un metodo de Pago.</p>}
+         </div>
 
          <div className="contenedor-botonesAvanzar-metodoDeEnvio">
             <p className="boton-continuar fontTitulos" onClick={()=>volver()} >Volver</p>
@@ -42,7 +45,7 @@ const SeccionMetodoDePago = (props)=>{
 
          {/* <p className="boton-continuar botonDeMetodoDePago fontTitulos" onClick={()=>funcionContinuar()} >Continuar</p>    */}
 
-      </>
+      </div>
    )
 }
 

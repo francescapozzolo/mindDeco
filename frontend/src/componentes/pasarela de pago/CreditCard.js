@@ -42,15 +42,16 @@ export default class PaymentForm extends React.Component {
    funcionContinuar = ()=> {
     
     this.state.number === "" ? this.setState({inputsIncompletos: {number: true, helperText: "Por favor, Complete este campo"}})
-      : this.state.number.length > 16 ? this.setState({inputsIncompletos: {number: true, helperText: "Numero de tarjeta invalido"}})
-      : this.state.number.length < 16 ? this.setState({inputsIncompletos: {number: true, helperText: "Numero de tarjeta invalido"}})
+      // : this.state.number.length > 16 ? this.setState({inputsIncompletos: {number: true, helperText: "Numero de tarjeta invalido"}})
+      // : this.state.number.length < 16 ? this.setState({inputsIncompletos: {number: true, helperText: "Numero de tarjeta invalido"}})
       : this.state.name === "" ? this.setState({inputsIncompletos: {name: true, helperText: "Por favor, Complete este campo"}})
       : this.state.name.trim().indexOf(" ") === -1 ? this.setState({inputsIncompletos: {name: true, helperText: "Lo sentimos, Necesitamos su Nombre y Apellido"}})
       : this.state.expiry === "" ? this.setState({inputsIncompletos: {expiry: true, helperText: "Por favor, Complete este campo"}})
       : this.state.expiry.length > 5 ? this.setState({inputsIncompletos: {expiry: true, helperText: "Fecha no valida"}})
       : this.state.cvc === "" ? this.setState({inputsIncompletos: {cvc: true, helperText: "Por favor, Complete este campo"}})
       : this.state.dni === "" ? this.setState({inputsIncompletos: {dni: true, helperText: "Por favor, Complete este campo"}})
-      : alert('continuar para ya confirmar la compra')
+      : this.props.setPasoDeCompra("paso4-confirmarCompra")
+      // : alert('continuar para ya confirmar la compra')
 
     console.log(this.state)
   }
