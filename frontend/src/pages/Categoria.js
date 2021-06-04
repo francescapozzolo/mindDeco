@@ -20,44 +20,62 @@ const Categoria = (props)=>{
    const [leftIconIsClicked, setLeftIconIsClicked] = useState(true)
    const [todosLosProductos, setTodosLosProductos] = useState([])
    const [productosAMostrar, setProductosAMostrar] = useState([])
-   
+   const [subCategorias, setSubCategorias] = useState([])
+
    useEffect(()=>{
+      // console.log(categoriaSeleccionada)
       const categoriaSeleccionada = props.match.params.categoria
-      console.log(categoriaSeleccionada)
       const productosPorCategoria = props.todosLosProductos.filter(producto => producto.categoria === categoriaSeleccionada)
+      let hash = {};
+      let subsNoRep = productosPorCategoria.filter(o => hash[o.subcategoria] ? false : hash[o.subcategoria] = true);
+      setSubCategorias(subsNoRep)
       setTodosLosProductos(productosPorCategoria)
       setProductosAMostrar(productosPorCategoria)
    },[props.match.params.categoria])
    
-   console.log(todosLosProductos)
-   console.log(props.todosLosProductos)
+   console.log('Categoria.js ln:32')
+   // console.log(todosLosProductos)
+   // console.log(props.todosLosProductos)
 
-   const productosFiltradosAaZ = todosLosProductos.filter(function (producto, index) {
-      return todosLosProductos.indexOf(producto) === index;
+   const filtroSubCategoria = (subcategoria) =>{
+      let productosPorSubCategoria = null
+
+      if(subcategoria === 'todo'){
+         setProductosAMostrar(todosLosProductos)
+         return null
+      }
+      
+      productosPorSubCategoria = todosLosProductos.filter(producto => producto.subcategoria === subcategoria)
+      
+      setProductosAMostrar(productosPorSubCategoria)
+   }
+   
+   const productosFiltradosAaZ = productosAMostrar.filter(function (producto, index) {
+      return productosAMostrar.indexOf(producto) === index;
     }).sort((a, b) => {
       if (a.nombre < b.nombre) return -1;
       else if (a.nombre > b.nombre) return 1;
       // return 0;
    });
 
-   const productosFiltradosZaA = todosLosProductos.filter(function (producto, index) {
-      return todosLosProductos.indexOf(producto) === index;
+   const productosFiltradosZaA = productosAMostrar.filter(function (producto, index) {
+      return productosAMostrar.indexOf(producto) === index;
     }).sort((a, b) => {
       if (a.nombre < b.nombre) return 1;
       else if (a.nombre > b.nombre) return -1;
       // return 0;
    });
 
-   const productosFiltradosMenosPrecioAMas = todosLosProductos.filter(function (producto, index) {
-      return todosLosProductos.indexOf(producto) === index;
+   const productosFiltradosMenosPrecioAMas = productosAMostrar.filter(function (producto, index) {
+      return productosAMostrar.indexOf(producto) === index;
     }).sort((a, b) => {
       if (a.precio < b.precio) return -1;
       else if (a.precio > b.precio) return 1;
       // return 0;
    });
 
-   const productosFiltradosMasPrecioAMenos = todosLosProductos.filter(function (producto, index) {
-      return todosLosProductos.indexOf(producto) === index;
+   const productosFiltradosMasPrecioAMenos = productosAMostrar.filter(function (producto, index) {
+      return productosAMostrar.indexOf(producto) === index;
     }).sort((a, b) => {
       if (a.precio < b.precio) return 1;
       else if (a.precio > b.precio) return -1;
@@ -66,7 +84,6 @@ const Categoria = (props)=>{
 
 
    const filtroSelect = (valorDelFiltro)=> {
-      console.log(valorDelFiltro)
       valorDelFiltro === "NombreAaZ" 
          ? setProductosAMostrar(productosFiltradosAaZ)
       : valorDelFiltro === "NombreZaA"
@@ -79,6 +96,8 @@ const Categoria = (props)=>{
          && setProductosAMostrar(todosLosProductos)
    }
 
+
+
    const activarGridEnFila = () => {
       setLeftIconIsClicked(false)
       setRightIconIsClicked(true)
@@ -88,6 +107,7 @@ const Categoria = (props)=>{
       setRightIconIsClicked(false)
       setLeftIconIsClicked(true)
    }
+
 
    return (
       <>
@@ -105,11 +125,15 @@ const Categoria = (props)=>{
                   <div className="l-contenedor-opcion-por-categoria">
                      <div className="l-barra-horizontal-1"></div>
                      <div className="l-barra-horizontal-2"></div>
-                     
-                     <p className="l-opcion-por-categoria fontTitulos">Almohadones</p>
+                     <p onClick={() => filtroSubCategoria('todo')} className="l-opcion-por-categoria fontTitulos">Todas las categorias</p>
+                     {
+                        
+                        subCategorias.map(subCategoria =><p onClick={() => filtroSubCategoria(subCategoria.subcategoria)} className="l-opcion-por-categoria fontTitulos">{ subCategoria.subcategoria.charAt(0).toUpperCase() + subCategoria.subcategoria.slice(1, subCategoria.subcategoria.legth) }</p>)
+                     }
+                     {/* <p className="l-opcion-por-categoria fontTitulos">Almohadones</p>
                      <p className="l-opcion-por-categoria fontTitulos">Puff</p>
                      <p className="l-opcion-por-categoria fontTitulos">Mantas</p>
-                     <p className="l-opcion-por-categoria fontTitulos">Alfombras</p>
+                     <p className="l-opcion-por-categoria fontTitulos">Alfombras</p> */}
                   </div>
                </div>
             </div>   

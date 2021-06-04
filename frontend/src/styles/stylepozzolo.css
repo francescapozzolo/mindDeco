@@ -420,12 +420,10 @@ border-spacing: 0;
     overflow: hidden;
     width: 60vw;
     height: 80vh;
-    border-bottom: 2px solid white;
 }
 
 .p-seccionImpar{
     display: flex;
-    border-bottom: 1px solid white;
 }
 
 #p-seccion2{
@@ -446,15 +444,16 @@ border-spacing: 0;
 .p-contenedorDescripcionProd input, textarea{
     width: 90%;
     margin: 0.5rem 0;
-    padding: 5px;
+    padding: 8px;
     resize: none;
     border: 1px solid var(--mostaza);
-    border-radius: 5px;
-    color: var(--mostaza);
+    border-radius: 3px;
+    color: rgb(85, 85, 85);
 }
 
 .p-contenedorDescripcionProd textarea{
     height: 40vh;
+    padding: 8px;
 }
 
 .p-contenedorDescripcionProd input:focus, .p-contenedorDescripcionProd textarea:focus{
@@ -463,10 +462,12 @@ border-spacing: 0;
 
 .p-contenedorDescripcionProd button{
     padding: 10px;
-    background-color: white;
+    background-color: var(--negro);
     border: none;
     border: 5px;
-    border-radius: 8px;
+    border-radius: 3px;
+    color: white;
+    cursor: pointer;
 }
 
 #p-contenedorFotosChicas{
@@ -507,16 +508,26 @@ border-spacing: 0;
 }
 
 .p-formProdInd{
-    background-color: var(--negro);
+    background-color: var(--mostaza);
 }
 
-.p-formProdInd :first-child{
+/* .p-formProdInd :first-child{
     display: flex;
     align-self: flex-start;
-}
+} */
 
 .p-formProdInd  h2{
-    color: white;
     font-size: 2em;
     margin-left: 1.5rem;
+}
+
+.p-formProdInd h2:nth-child(2) {
+    font-size: 4em;
+    margin-left: 1.5rem;
+}
+
+.p-contenedorTitulosConsulta  {
+    width: 100%;
+    display: flex;
+    align-items: baseline;
 }

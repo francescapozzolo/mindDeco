@@ -103,6 +103,7 @@ const CrearProducto = (props) => {
         if(Object.values(nuevoProducto).some(value => value === "")){
             toast.info('Debes completar todos los campos')
         } else {
+<<<<<<< HEAD
         const formData = new FormData()
         formData.append('categoria', nuevoProducto.categoria) 
         formData.append('subcategoria', nuevoProducto.subcategoria)
@@ -116,6 +117,20 @@ const CrearProducto = (props) => {
         formData.append('foto', foto2.foto2)
         formData.append('foto', foto3.foto3)
         props.cargarNuevoProducto(formData)
+=======
+            const formData = new FormData()
+            formData.append('categoria', nuevoProducto.categoria) 
+            formData.append('subcategoria', nuevoProducto.subcategoria)
+            formData.append('articulo', nuevoProducto.articulo)
+            formData.append('nombre', nuevoProducto.nombre)
+            formData.append('descripcion', nuevoProducto.descripcion)
+            formData.append('precio', nuevoProducto.precio)
+            formData.append('stock', nuevoProducto.stock)
+            formData.append('dimensiones', nuevoProducto.dimensiones)
+            formData.append('fotos', fotos.fotos)
+            console.log(fotos)
+            props.cargarNuevoProducto(formData)
+>>>>>>> 28ffef9a194e00b3361cbf413c2e8c4fb112a0d4
             toast.info('Se ha cargado el nuevo producto')
         }
     }
@@ -199,6 +214,7 @@ const CrearProducto = (props) => {
                         <div>
                             <input type="file" accept="image/*" id='fotos'  name='file' onChange={cargarFoto1} ></input>
                         </div>
+<<<<<<< HEAD
                         <div>
                             <input type="file" accept="image/*" id='fotos'  name='file' onChange={cargarFoto2} ></input>
                         </div>
@@ -221,6 +237,22 @@ const CrearProducto = (props) => {
                     <div className="p-portaFoto" /*style={{backgroundImage: `url(${nuevoProducto.fotos[2]})`}}*/>
                         <input type="file" accept="image/*" className='p-agregarImg' name='images[]' onChange={cargarFoto3} ></input>
                     </div>
+=======
+                        {/* <div>
+                            <input type="file" accept="image/*" id='fotos'  name='file' onChange={cargarFoto} ></input>
+                        </div>
+                        <div>
+                            <input type="file" accept="image/*" id='fotos'  name='file' onChange={cargarFoto} ></input>
+                        </div> */}
+                    </div>
+                    
+                </div>
+                <div>
+                    {/* <div className="p-portaFoto" style={{backgroundImage: `url(${nuevoProducto.fotos[1]})`}}></div>
+                    <div className="p-portaFoto" style={{backgroundImage: `url(${nuevoProducto.fotos[2]})`}}></div>
+                    <div className="p-portaFoto" style={{backgroundImage: `url(${nuevoProducto.fotos[0]})`}}></div> */}
+                    
+>>>>>>> 28ffef9a194e00b3361cbf413c2e8c4fb112a0d4
                 </div>
             </div>
             <button className="fontTitulos botonCargaArticulos" onClick={cargarProducto}>CARGAR NUEVO PRODUCTO</button>
