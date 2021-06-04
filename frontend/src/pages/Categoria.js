@@ -38,14 +38,18 @@ const Categoria = (props)=>{
    // console.log(props.todosLosProductos)
 
    const filtroSubCategoria = (subcategoria) =>{
+      let productosPorSubCategoria = null
+
       if(subcategoria === 'todo'){
          setProductosAMostrar(todosLosProductos)
          return null
       }
-      const productosPorSubCategoria = todosLosProductos.filter(producto => producto.subcategoria === subcategoria)
+      
+      productosPorSubCategoria = todosLosProductos.filter(producto => producto.subcategoria === subcategoria)
+      
       setProductosAMostrar(productosPorSubCategoria)
    }
-
+   
    const productosFiltradosAaZ = productosAMostrar.filter(function (producto, index) {
       return productosAMostrar.indexOf(producto) === index;
     }).sort((a, b) => {
@@ -122,8 +126,9 @@ const Categoria = (props)=>{
                      <div className="l-barra-horizontal-1"></div>
                      <div className="l-barra-horizontal-2"></div>
                      <p onClick={() => filtroSubCategoria('todo')} className="l-opcion-por-categoria fontTitulos">Todas las categorias</p>
-                     { 
-                        subCategorias.map(subCategoria =><p onClick={() => filtroSubCategoria(subCategoria.subcategoria)} className="l-opcion-por-categoria fontTitulos">{subCategoria.subcategoria.replace(/\b\w/g, l => l.toUpperCase())}</p>)
+                     {
+                        
+                        subCategorias.map(subCategoria =><p onClick={() => filtroSubCategoria(subCategoria.subcategoria)} className="l-opcion-por-categoria fontTitulos">{ subCategoria.subcategoria.charAt(0).toUpperCase() + subCategoria.subcategoria.slice(1, subCategoria.subcategoria.legth) }</p>)
                      }
                      {/* <p className="l-opcion-por-categoria fontTitulos">Almohadones</p>
                      <p className="l-opcion-por-categoria fontTitulos">Puff</p>

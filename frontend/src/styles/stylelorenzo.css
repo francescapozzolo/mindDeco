@@ -76,7 +76,7 @@ border-spacing: 0;
 }
 
 .l-categorias-main-section {
-    min-height: 40vh;
+    min-height: 80vh;
     width: 90%;
     margin: 0 auto;
     display: flex;
@@ -329,8 +329,7 @@ border-spacing: 0;
 }
 
 .l-foto-card {
-    transition-duration: .7s ease;
-    opacity: 0;
+    transition-duration: .2s ease;
 }
 
 .grid-card-active {
@@ -344,7 +343,7 @@ border-spacing: 0;
     align-items: center;
     justify-content: center;
     opacity: 1;
-    transition: all .7s ease;
+    transition: all 1.5s ease;
     /* display: flex; */
 }
 
@@ -385,7 +384,7 @@ border-spacing: 0;
     justify-content: center;
     height: 40px;
     width: 40px;
-    transition: all .2s ease;
+    transition: all 500ms ease;
     /* justify-content: center; */
 }
 
@@ -440,13 +439,23 @@ border-spacing: 0;
 /* List Products */
 
 .list-card {
-    width: 100%;
-    height: 320px;
-    /* border: 1px solid black; */
+    width: 95%;
+    height: 250px;
     display: flex;
-    margin-bottom: 40px;
-    /* opacity: 0; */
-    /* transition: all 1s ease; */
+    margin: 0 auto;
+}
+
+.l-borderBottom-card {
+    border-bottom: 1px solid rgb(180, 180, 180);
+    width: 95%;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+
+.l-borderBottom-nombre {
+    border-bottom: 1px solid rgb(180, 180, 180);
+    width: 20%;
+    margin: 0 auto;
 }
 
 /* .list-card-activa {
@@ -479,7 +488,7 @@ border-spacing: 0;
 
 .foto-listCard-active {
     position: absolute;
-    width: 100%;
+    width: 80%;
     height: 75%;
     background-position: center;
     background-size: cover;
@@ -499,9 +508,8 @@ border-spacing: 0;
 }
 
 .nombre-producto-listCard {
-    font-size: 22px;
+    font-size: 24px;
     margin-top: 40px;
-    /* text-decoration: underline; */
 }
 
 
@@ -516,11 +524,13 @@ border-spacing: 0;
 .titulo-descripcion {
     font-size: 19px;
     font-weight: bold;
+    color: rgb(78, 78, 78);
     /* font-style: italic; */
 }
 
 .texto-descripcion {
     font-size: 16px;
+    line-height: 1.5rem;
     /* font-style: italic; */
 }
 
@@ -539,10 +549,10 @@ border-spacing: 0;
 }
 
 .precio-producto{
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
     font-style: italic;
-    margin-top: 20px;
+    margin-top: 18px;
 }
 
 /* Componente de producto Individual */
@@ -599,13 +609,14 @@ border-spacing: 0;
 }
 
 .nombreProducto-CompIndividual {
-    font-size: 24px;
+    font-size: 2.5rem;
     color: rgb(201, 182, 135);
 }
 
 .contenedor-valoracionDeProducto {
     margin-top: 20px;
     display: flex;
+    align-items: center;
 }
 
 .barrita-divisora {
@@ -617,17 +628,20 @@ border-spacing: 0;
 .opcion-AgregarOpinion {
     font-size: 16px;
     color: grey;
+    cursor: pointer;
 }
 
 .precioProducto-componenteIndividual {
     margin-top: 50px;
     /* margin-bottom: 20px; */
     font-size: 19px;
+    font-style: italic;
 }
 
 .descripcion-componenteIndividual{
     margin-top: 30px;
     font-size: 18px;
+    line-height: 1.8rem;
 }
 
 .tituloDescripcion-CompIndividual{
@@ -683,7 +697,7 @@ border-spacing: 0;
 }
 
 .estasComprando-text {
-    font-size: 30px;
+    font-size: 25px;
     margin-left: 30px;
     margin-top: 30px;
     margin-bottom: 40px;
@@ -692,16 +706,17 @@ border-spacing: 0;
 
 .productoAComprar {
     width: 90%;
-    height: 150px;
+    height: 120px;
     /* border: 1px solid lightgreen; */
     /* background-color: lightgreen; */
     margin: 20px auto;
     display: flex;
     align-items: center;
+    /* background-color: lightpink; */
 }
 
 .fotoDeProductoAComprar {
-    width: 140px;
+    width: 100px;
     height: 100%;
     /* border: 1px solid black; */
     background-size: cover;
@@ -723,17 +738,17 @@ border-spacing: 0;
 
 .nombre-productoAComprar {
     font-size: 22px;
-    margin-top: 10px;
+    /* margin-top: 10px; */
     /* margin-bottom: 40px; */
-    text-decoration: underline;
+    /* text-decoration: underline; */
 }
 .contenedor-UnidadesyPrecio {
     /* background-color: lightseagreen; */
-    height: 80px;
+    height: 70px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
 }
 
 .contenedor-infoDeProducto {
@@ -747,17 +762,21 @@ border-spacing: 0;
 
 .unidades-productoAComprar {
     /* margin-top: 40px; */
-    font-size: 20px;
+    font-size: 18px;
 }
 
-.subtotal-productoAComprar {
-    /* margin-top: 15px; */
-    font-size: 20px;
-    /* background-color: red; */
-}
+
 
 .fontSize20{
     font-size: 20px;
+}
+
+.fontSize18 {
+    font-size: 18px;
+}
+
+.fontSize16 {
+    font-size: 16px;
 }
 
 .barra-horizonta-aside {
@@ -962,22 +981,28 @@ border-spacing: 0;
     justify-content: space-between;
 }
 
+.seccion-metodoDeEnvio {
+    /* background-color: lightslategrey; */
+    width: 70%;
+    margin-left: 40px;
+}
+/* 
 .contenedorUnMetodo {
     width: 500px;
     height: 80px;
     border-radius: 5px;
     display: flex;
     align-items: center;
-    background-color: rgb(240, 240, 240);
+    background-color: green;
     margin-bottom: 20px;
     margin-left: 30px;
     box-shadow: 1px 4px 4px 0px rgba(104, 104, 104, 0.2);
     border-left: 6px solid black;
-}
+} */
 
 .metodoDeEnvio{
     font-size: 20px;
-    margin-left: 30px;
+    /* margin-left: 30px; */
     margin-top: 20px;
     display: inline-block;
     /* padding: 30px 270px 30px 40px; */
@@ -1026,6 +1051,14 @@ border-spacing: 0;
     margin-top: 50px !important;
 }
 
+.contenedor-botonesAvanzar-metodoDeEnvio {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 60px;
+    /* background-color: red; */
+} 
+
+
 
 /* Metodo de pago posta */
 
@@ -1072,52 +1105,105 @@ border-spacing: 0;
 }
 
 
+.contenedor-seccionCreditCard {
+    /* background-color: lightslategray; */
+    width: 800px;
+    margin-left: 50px;
+}
+
 #PaymentForm {
     /* background-color: red; */
     /* border: 1px solid rgb(189, 189, 189); */
     /* width: 1200px; */
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     justify-content: space-between;
     align-items: center;
+    /* margin-left: 50px; */
+    /* background-color: lightcyan; */
+    width: 100%;
+    /* height: 400px; */
+}
+
+.creditCard-example {
+    /* margin: 0px 0px !important; */
+    /* margin-top: 50px !important; */
 }
 
 .creditCard-form {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     /* margin-left: 40px; */
     /* margin-right: 40px; */
     /* background-color: lightgreen; */
-    width: 600px;
+    height: 250px;
+    width: 400px;
 }
 
 .creditCard-input {
-    padding-left: 20px;
+    /* padding-left: 20px; */
     width: 100%;
     height: 50px;
     border: 1px solid rgb(192, 192, 192);
     outline: none;
     border-radius: 2px;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
     /* transition: all .1s ease; */
     /* background-color: red; */
+}
+
+.creditCardInput1{
+    /* width: ; */
+    margin-bottom: 50px;
+    margin-left: 20px;
+    /* background-color: red; */
+}
+
+.inputExpiry {
+    width: 45%;
+}
+
+.inputCVC {
+    /* display: inline-block; */
+    width: 45%;
+    /* margin-left: 10%; */
 }
 
 .contenedor-expiryCVC {
     /* background-color: red; */
     display: flex;
+    justify-content: space-between;
 }
 
 .cvcInput {
     margin-left: 20px;
 }
 
-
+.contenedor-botonesContinuar-creditCard {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 60px;
+    /* background-color: red; */
+} 
 
 
 @media (max-width: 1600px) {
     .l-card {
       height: 400px;
+    }
+    .contenedorDeFormularios {
+        margin-left: 30px;
+    }
+    .contenedor-seccionCreditCard{
+        width: 100%;
+    }
+}
+
+@media (max-width: 1500px){
+    .productoAComprar {
+        width: 98%;
+        margin-left: 2%;
     }
 }
 
@@ -1128,6 +1214,17 @@ border-spacing: 0;
     .l-categorias-main-section{
         width: 95%;
     }
+    .contenedor-seccionCreditCard {
+        margin-left: 0px;
+    }
+    #PaymentForm{
+        flex-direction: column;
+        align-items: center;
+        /* background-color: lightpink; */
+    }
+    .creditCard-form {
+        margin-bottom: 40px;
+    }
 }
 
 @media (max-width: 1300px){
@@ -1137,11 +1234,12 @@ border-spacing: 0;
     }
 }
 
-/* @media (max-width: 1200px) {
+@media (max-width: 1200px) {
     .l-card {
       height: 300px;
     }
-} */
+
+}
 
 @media (max-width: 1100px) {
     .l-card {

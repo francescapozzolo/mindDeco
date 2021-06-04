@@ -187,8 +187,8 @@ h4.BPrecioProducto, h5.BDescripcionProducto{
 }
 
 .BImagenProducto{
-    width: 20vw;
-    height: 30vh;
+    width: 250px;
+    height: 180px;
     background-size: cover;
     background-position: center;
     margin-right: 5vw;
@@ -370,8 +370,7 @@ h4.BPrecioProducto, h5.BDescripcionProducto{
     background-color: red;
     border-radius: 100%;
     border-width: 1px;
-    width: 1.1rem;
+    width: 1.5rem;
+    height: 1.5rem;
     text-align: center;
-    font-weight: bold;
-    padding: 0.01rem;
 }

@@ -2,7 +2,7 @@ import VisibilityOffOutlinedIcon from '@material-ui/icons/VisibilityOffOutlined'
 import VisibilityOutlinedIcon from '@material-ui/icons/VisibilityOutlined'
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import VpnKeyIcon from '@material-ui/icons/VpnKey';
-import {useEffect, useState } from "react"
+import React,{useEffect, useState } from "react"
 import {connect} from "react-redux"
 import authActions from '../../redux/actions/authActions'
 import GoogleLogin from 'react-google-login'
@@ -10,10 +10,10 @@ import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import {NavLink} from 'react-router-dom'
 import GoogleButton from 'react-google-button'
-
+import { withRouter } from 'react-router-dom';
 
 const IniciarSesion = (props) => {
-    const [user, setUser] = useState({email: '', contraseña: ''})
+    const [user, setUser] = useState({email: '', password: ''})
     const [eye, setEye] = useState(false)
     useEffect (() =>{
         window.scrollTo(0,0)
@@ -29,11 +29,15 @@ const IniciarSesion = (props) => {
         e && e.preventDefault()
         let userGen = e ? user : googleUser
         if(Object.values(userGen).some(value => value === "")){
-            return toast.error('Fill in the fields')
+            return toast.error('Hay campos vacios')
         }
         const response = await props.logInUser(userGen)
-        if(response){
-            toast.error(response)
+        if(response.error){
+            toast.error(response.error)
+        }else{
+            toast.success(`Bienvenida/o ${response.respuesta.nombre}`)
+            console.log(props)
+            setTimeout(function(){ props.history.push('/') }, 3000);       
         }
         // else{
         //     toast.success('Welcome')
@@ -68,7 +72,7 @@ const IniciarSesion = (props) => {
                         <div className='BContainerPassword'>
                             <VpnKeyIcon className='BIcon'/>
                             <input type= {eye ? "text" : "password"} placeholder="Contraseña"
-                            onChange={readInputUser} value={user.contraseña} name="contraseña" />
+                            onChange={readInputUser} value={user.password} name="password" />
                             {eye ? <VisibilityOffOutlinedIcon className='BEye' onClick={()=>setEye(!eye)} /> : <VisibilityOutlinedIcon className='BEye' onClick={()=>setEye(!eye)}/>}
                         </div>
                         <button className='BButon BMarginGoogle' onClick={sendValueUser}>INGRESAR</button>
@@ -95,4 +99,4 @@ const mapDispatchToProps = {
     logInUser: authActions.logInUser 
 }
 
-export default connect(null ,mapDispatchToProps)(IniciarSesion)
+export default withRouter(connect(null ,mapDispatchToProps)(IniciarSesion))

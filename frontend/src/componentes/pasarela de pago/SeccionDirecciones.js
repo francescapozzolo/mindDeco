@@ -1,12 +1,19 @@
 import TextField from "@material-ui/core/TextField";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {NavLink} from 'react-router-dom'
 
 
 const SeccionDirecciones = (props)=>{
 
-   const [infoDelUsuario, setInfoDelUsuario] = useState({nombreyapellidos: '', direccion: '', codigoPostal: '', ciudad: '', provincia: '', telefono: ''})
-   const [inputsIncompletos, setInputsIncompletos] = useState({ nombreyapellidos: false, direccion: false, ciudad: false, codigoPostal: false, provincia:false, telefono: false })
+   const [infoDelUsuario, setInfoDelUsuario] = useState({nombreyapellidos: '', direccion: '', codigoPostal: '', ciudad: '', provincia: '', telefono: '', descripcionExtra: ""})
+   const [inputsIncompletos, setInputsIncompletos] = useState({ nombreyapellidos: false, direccion: false, ciudad: false, codigoPostal: false, provincia:false, telefono: false, helperInputNombre: "Complete este campo para continuar." })
+   // const [helperInputNombre, setHelperInputNombre] = useState("Complete este campo para continuar.")
+
+   useEffect(()=>{
+   if(localStorage.getItem("infoDeCompraDelUsuario")){
+      setInfoDelUsuario(JSON.parse(localStorage.getItem("infoDeCompraDelUsuario")))
+   }
+   },[])
 
    const leerInput = (campo, valorDelInput) => {
       setInfoDelUsuario({ ...infoDelUsuario, [campo]: valorDelInput })
@@ -14,18 +21,28 @@ const SeccionDirecciones = (props)=>{
       console.log(infoDelUsuario)
    }
 
+   const avanzar = ()=>{
+      props.setPasoDeCompra('paso2-metodoDeEnvio')
+      localStorage.setItem("infoDeCompraDelUsuario", JSON.stringify(infoDelUsuario))
+   }
+
    const continuar = () => {
       console.log(infoDelUsuario)
       infoDelUsuario.nombreyapellidos === "" ? setInputsIncompletos({...inputsIncompletos, nombreyapellidos: true})
+         : infoDelUsuario.nombreyapellidos.trim().indexOf(" ") === -1 ? setInputsIncompletos({...inputsIncompletos, nombreyapellidos: true, helperInputNombre: "Lo sentimos, Necesitamos su Nombre y Apellido"})
+         : infoDelUsuario.nombreyapellidos.indexOf(" ") === -1 ? setInputsIncompletos({...inputsIncompletos, nombreyapellidos: true, helperInputNombre: "Lo sentimos, Necesitamos su Nombre y Apellido"})
          : infoDelUsuario.direccion === "" ? setInputsIncompletos({...inputsIncompletos, direccion: true})
          : infoDelUsuario.ciudad === "" ? setInputsIncompletos({...inputsIncompletos, ciudad: true})
          : infoDelUsuario.codigoPostal === "" ? setInputsIncompletos({...inputsIncompletos, codigoPostal: true})
          : infoDelUsuario.provincia === "" ? setInputsIncompletos({...inputsIncompletos, provincia: true})
          : infoDelUsuario.telefono === "" ? setInputsIncompletos({...inputsIncompletos, telefono: true})
-         : props.setPasoDeCompra('paso2-metodoDeEnvio')
+         : avanzar()
+         // : props.setPasoDeCompra('paso2-metodoDeEnvio')
 
          console.log(inputsIncompletos)
    }
+
+
    // const continuar = () => {
       // infoDelUsuario.nombreyapellidos == "" ? setInputsIncompletos({...inputsIncompletos, nombreyapellidos: true}) : setInputsIncompletos({...inputsIncompletos}) 
       // infoDelUsuario.direccion === "" ? setInputsIncompletos({...inputsIncompletos, direccion: true}) : setInputsIncompletos({...inputsIncompletos})
@@ -46,93 +63,40 @@ const SeccionDirecciones = (props)=>{
          </div>
       
          <form className="direccionesFormContainer">
-            {/* <TextField error id="standard-error-helper-text" label="Nombre" defaultValue="Hello World" helperText="Complete este campo para continuar." /> */}
             <div className="contenedor-input-nombreyDireccion">
                {inputsIncompletos.nombreyapellidos 
-                  ? <TextField error helperText="Complete este campo para continuar." id="textField1" onChange={(e)=>leerInput("nombreyapellidos", e.target.value)} name="nombreyapellidos" id="standard-error-helper-text" className="inputNombreNuevo" label="Nombre y Apellidos"  />
-                  : <TextField id="standard-error-helper-text" className="inputNombreNuevo" onChange={(e)=>leerInput("nombreyapellidos", e.target.value)} name="nombreyapellidos" label="Nombre y Apellidos" />
+                  ? <TextField error helperText={inputsIncompletos.helperInputNombre} value={infoDelUsuario.nombreyapellidos} id="textField1" onChange={(e)=>leerInput("nombreyapellidos", e.target.value)} name="nombreyapellidos" className="inputNombreNuevo" label="Nombre y Apellidos"  />
+                  : <TextField className="inputNombreNuevo" value={infoDelUsuario.nombreyapellidos} onChange={(e)=>leerInput("nombreyapellidos", e.target.value)} name="nombreyapellidos" label="Nombre y Apellidos" />
                }
                {inputsIncompletos.direccion 
-                  ? <TextField error helperText="Complete este campo para continuar." id="textField1" onChange={(e)=>leerInput("direccion", e.target.value)} name="direccion" id="standard-error-helper-text" className="inputNombreNuevo" label="Direccion"  />
-                  : <TextField id="standard-error-helper-text" className="inputNombreNuevo" onChange={(e)=>leerInput("direccion", e.target.value)} name="direccion" label="Direccion" />
+                  ? <TextField error helperText="Complete este campo para continuar."  value={infoDelUsuario.direccion} onChange={(e)=>leerInput("direccion", e.target.value)} name="direccion" className="inputNombreNuevo" label="Direccion"  />
+                  : <TextField className="inputNombreNuevo" value={infoDelUsuario.direccion} onChange={(e)=>leerInput("direccion", e.target.value)} name="direccion" label="Direccion" />
                }
             </div>
             <div className="contenedor-input-nombreyDireccion">
                {inputsIncompletos.ciudad 
-                  ? <TextField error helperText="Complete este campo para continuar." id="textField1" onChange={(e)=>leerInput("ciudad", e.target.value)} name="ciudad" id="standard-error-helper-text" className="inputNombreNuevo" label="Ciudad"  />
-                  : <TextField id="standard-error-helper-text" className="inputNombreNuevo" onChange={(e)=>leerInput("ciudad", e.target.value)} name="ciudad" label="Ciudad" />
+                  ? <TextField error helperText="Complete este campo para continuar." value={infoDelUsuario.ciudad} onChange={(e)=>leerInput("ciudad", e.target.value)} name="ciudad"  className="inputNombreNuevo" label="Ciudad"  />
+                  : <TextField className="inputNombreNuevo" value={infoDelUsuario.ciudad} onChange={(e)=>leerInput("ciudad", e.target.value)} name="ciudad" label="Ciudad" />
                }
                {inputsIncompletos.codigoPostal 
-                  ? <TextField error helperText="Complete este campo para continuar." id="textField1" onChange={(e)=>leerInput("codigoPostal", e.target.value)} name="codigoPostal" id="standard-error-helper-text" className="inputNombreNuevo" label="Codigo Postal"  />
-                  : <TextField id="standard-error-helper-text" className="inputNombreNuevo" onChange={(e)=>leerInput("codigoPostal", e.target.value)} name="ciudad" label="Codigo Postal" />
+                  ? <TextField error helperText="Complete este campo para continuar." value={infoDelUsuario.codigoPostal} onChange={(e)=>leerInput("codigoPostal", e.target.value)} name="codigoPostal" className="inputNombreNuevo" label="Codigo Postal"  />
+                  : <TextField className="inputNombreNuevo" value={infoDelUsuario.codigoPostal} onChange={(e)=>leerInput("codigoPostal", e.target.value)} name="ciudad" label="Codigo Postal" />
                }
             </div>
             <div className="contenedor-input-nombreyDireccion">
                {inputsIncompletos.provincia 
-                  ? <TextField error helperText="Complete este campo para continuar." id="textField1" onChange={(e)=>leerInput("provincia", e.target.value)} name="provincia" id="standard-error-helper-text" className="inputNombreNuevo" label="Provincia"  />
-                  : <TextField id="standard-error-helper-text" className="inputNombreNuevo" onChange={(e)=>leerInput("provincia", e.target.value)} name="ciudad" label="Provincia" />
+                  ? <TextField error helperText="Complete este campo para continuar." value={infoDelUsuario.provincia} onChange={(e)=>leerInput("provincia", e.target.value)} name="provincia" className="inputNombreNuevo" label="Provincia"  />
+                  : <TextField className="inputNombreNuevo" value={infoDelUsuario.provincia} onChange={(e)=>leerInput("provincia", e.target.value)} name="ciudad" label="Provincia" />
                }
                {inputsIncompletos.telefono 
-                  ? <TextField error helperText="Complete este campo para continuar." id="textField1" onChange={(e)=>leerInput("telefono", e.target.value)} name="telefono" id="standard-error-helper-text" className="inputNombreNuevo" label="Telefono de Contacto"  />
-                  : <TextField id="standard-error-helper-text" className="inputNombreNuevo" onChange={(e)=>leerInput("telefono", e.target.value)} name="telefono" label="Telefono de Contacto" />
+                  ? <TextField error helperText="Complete este campo para continuar." value={infoDelUsuario.telefono} onChange={(e)=>leerInput("telefono", e.target.value)} name="telefono" className="inputNombreNuevo" label="Telefono de Contacto"  />
+                  : <TextField className="inputNombreNuevo" value={infoDelUsuario.telefono} onChange={(e)=>leerInput("telefono", e.target.value)} name="telefono" label="Telefono de Contacto" />
                }
-               {/* <TextField id="standard-error-helper-text" className="inputNombreNuevo" label="Provincia" defaultValue="" /> */}
-               {/* <TextField id="standard-error-helper-text" className="inputDireccion" label="Telefono de Contacto" defaultValue="" /> */}
             </div>
 
             <label className="label-infoExtra fontTexto">Indicaciones adicionales para el repartidor (opcional)</label>
-            <textarea className="textArea-extraInfo fontTexto" placeholder="Entre que calles, casa de que color, algun distintivo a la vista, etc..." ></textarea>
+            <textarea className="textArea-extraInfo fontTexto" value={infoDelUsuario.descripcionExtra} onChange={(e)=>leerInput("descripcionExtra", e.target.value )} placeholder="Entre que calles, casa de que color, algun distintivo a la vista, etc..." ></textarea>
 
-
-
-
-            {/* <div className="contenedor-input-direcciones">
-               <label className="texto-direcciones fontTexto">Nombre y Apellidos:</label>
-               <div className="subcontenedor-inputDirecciones">
-                  <input className="input-direcciones fontTexto" type="text" name="nombreyapellidos" onChange={(e)=>leerInput("nombreyapellidos", e.target.value)} />
-               </div>
-            </div> */}
-            
-            {/* <div className="contenedor-input-direcciones">
-               <label className="texto-direcciones fontTexto">Dirección:</label>
-               <div className="subcontenedor-inputDirecciones">
-                  <input className="input-direcciones fontTexto" type="text" name="direccion" onChange={(e)=>leerInput("direccion", e.target.value)} />
-               </div>
-            </div> */}
-
-            {/* <div className="contenedor-input-direcciones">
-               <label className="texto-direcciones fontTexto">Codigo Postal:</label>
-               <div className="subcontenedor-inputDirecciones">
-               <input className="input-direcciones fontTexto" type="text" name="codigoPostal" onChange={(e)=>leerInput("codigoPostal", e.target.value)} />
-               </div>
-            </div> */}
-            
-            {/* <div className="contenedor-input-direcciones">
-               <label className="texto-direcciones fontTexto">Ciudad:</label>
-               <div className="subcontenedor-inputDirecciones">
-               <input className="input-direcciones fontTexto" type="text" name="ciudad" onChange={(e)=>leerInput("ciudad", e.target.value)} />
-               </div>
-            </div> */}
-            
-            {/* <div className="contenedor-input-direcciones">
-               <label className="texto-direcciones fontTexto">Provincia:</label>
-               <div className="subcontenedor-inputDirecciones">
-               <input className="input-direcciones fontTexto" type="text" name="provincia" onChange={(e)=>leerInput("provincia", e.target.value)} />
-               </div>
-            </div> */}
-            
-            {/* <div className="contenedor-input-direcciones">
-               <label className="texto-direcciones fontTexto">Telefono:</label>
-               <div className="subcontenedor-inputDirecciones">
-               <input className="input-direcciones fontTexto" type="text" name="telefono" onChange={(e)=>leerInput("telefono", e.target.value)} /> */}
-                  {/* <p className="alerta alertaCompletarCampo fontTexto">*Debe completar este campo para continuar</p> */}
-               {/* </div> */}
-            {/* </div> */}
-            
-            {/* <div className="contenedor-input-direcciones">
-               <label className="texto-direcciones fontTexto">DNI:</label>
-               <input className="input-direcciones" type="text" />
-            </div> */}
             <div className="contenedor-botonesAvanzar">
                <NavLink to="/carrito">
                   <p className="boton-continuar fontTitulos">Volver</p>

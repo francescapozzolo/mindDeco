@@ -27,7 +27,7 @@ const ProductosEnGrilla = (props) => {
         if(response.success) {
             return toast.success('Se agrego al carrito')
         }else{
-           return toast.success('Este producto ya esta en el carrito')
+           return toast.warning('Este producto ya esta en el carrito')
         }
     }
     return (
@@ -61,7 +61,7 @@ const ProductosEnGrilla = (props) => {
                                             <NavLink to={`/producto/${producto._id}`} className="l-subContenedor-icono-de-imagen"><Icon icon={searchOutlined} className="l-icono-de-imagen1"/></NavLink>
                                         </div>
                                         <div className="l-contenedor-icono-de-imagen-2">
-                                            <div className="l-subContenedor-icono-de-imagen" onClick={()=>agregandoProducto(producto)}><Icon icon={shoppingCart} className="l-icono-de-imagen2" /></div>
+                                            <div className="l-subContenedor-icono-de-imagen" onClick={()=> props.userLogged ? agregandoProducto(producto) : toast.warning("Inicie sesión para comprar")}><Icon icon={shoppingCart} className="l-icono-de-imagen2" /></div>
                                         </div>
                                     </div>
                                     : null
@@ -70,7 +70,7 @@ const ProductosEnGrilla = (props) => {
                         </div>
                         <div className="l-nombre-y-precio">
                             <p className="l-nombre-producto fontTexto">{producto.nombre.replace(/\b\w/g, l => l.toUpperCase())}</p>
-                            <p className="l-precio-producto fontTexto">{producto.precio}</p>
+                            <p className="l-precio-producto fontTexto">${producto.precio}</p>
                         </div>
                     </div>
                     )})}

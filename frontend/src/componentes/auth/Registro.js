@@ -14,6 +14,7 @@ import VisibilityOutlinedIcon from '@material-ui/icons/VisibilityOutlined'
 import VpnKeyIcon from '@material-ui/icons/VpnKey';
 import PermIdentityIcon from '@material-ui/icons/PermIdentity';
 import PublicIcon from '@material-ui/icons/Public';
+import { withRouter } from 'react-router-dom';
 
 const Registro = (props) => {
    
@@ -43,9 +44,7 @@ const Registro = (props) => {
         if(Object.values(usuarioGenerico).some(value => value === "")){
             return toast.error('Hay campos vacios')
         }
-        console.log(usuarioGenerico)
         const response = await props.createUser(usuarioGenerico)
-        console.log(response)
         if(response){
             if(response.controllers){
                 if(response.controllers === "There was an error in the user engraving. Retry"){
@@ -57,9 +56,8 @@ const Registro = (props) => {
                 return {...prevState, [error.context.label]: error.message}
              }))
         }else{
-            toast.success(`Welcome ${usuarioGenerico.nombre}`)
-            setTimeout(function(){ props.history.push('/') }, 5000);
-            
+            toast.success(`Bienvenida/o ${usuarioGenerico.nombre}`)
+            setTimeout(function(){ props.history.push('/') }, 3000);
         }
     }
     const responseGoogle = (response) => {
@@ -138,5 +136,4 @@ const mapDispatchToProps ={
  
    }
    
-   
-   export default connect (null , mapDispatchToProps)(Registro)
+export default withRouter(connect (null , mapDispatchToProps)(Registro))
