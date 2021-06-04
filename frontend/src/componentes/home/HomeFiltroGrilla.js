@@ -46,7 +46,7 @@ const HomeFiltroGrilla = (props) => {
             <div id="p-contenedorProdFiltrados">
                 {array.slice(0,5).map(item => {
                     return(
-                        <div className="p-fotoProdFiltrado" style={{backgroundImage: `url(${item.fotos[0]})`}}>
+                        <div className="p-fotoProdFiltrado" style={{backgroundImage: `url(${item.fotos[0].includes('https') ? item.fotos[0] :'/fotos/'+item.fotos[0]})`}}>
                             <div className="p-capa">
                                 <h3 className="fontCursive">{item.nombre.charAt(0).toUpperCase() + item.nombre.slice(1, item.nombre.legth)}</h3>
                                 <div className="p-contenedorIconosAcciones">
