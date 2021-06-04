@@ -38,7 +38,7 @@ const ProductosEnGrilla = (props) => {
                     <div key={producto._id} className="l-card" onMouseOver={(e)=>mostrarIconos(producto._id)} onMouseLeave={()=>setMouseIsOnCard(false)}>
                         <div className="l-contenedor-foto">
                             {/* <div className="l-foto-card" style={{backgroundImage: `url('${(mouseIsOnCard & (targetaHoveada === producto._id)) ? producto.fotos[1] : producto.fotos[0] }')`}}> */}
-                            <div className={!(mouseIsOnCard & targetaHoveada === producto._id) ? "l-foto-card grid-card-active" : "l-foto-card"} style={{backgroundImage: `url("/fotos/${producto.fotos[0]}")`}}>
+                            <div className={!(mouseIsOnCard & targetaHoveada === producto._id) ? "l-foto-card grid-card-active" : "l-foto-card"} style={{backgroundImage: `url(${producto.fotos[0].includes('https') ? producto.fotos[0] :'/fotos/'+producto.fotos[0]})`}}>
                                 {(mouseIsOnCard & (targetaHoveada === producto._id)) ?
                                     <div className="contenedor-iconosDeImagen"> 
                                         <div className="l-contenedor-icono-de-imagen-1">
@@ -54,7 +54,7 @@ const ProductosEnGrilla = (props) => {
                                 }
                             </div>
                             <div className={(mouseIsOnCard & targetaHoveada === producto._id) ? "l-foto-card grid-card-active" : "l-foto-card"}
-                            style={{backgroundImage: `url(${producto.fotos[1].includes('https') ? producto.fotos[1] : '/fotos/' + producto.fotos[1]} )`}}>
+                            style={{backgroundImage: `url(${producto.fotos[1].includes('https') ? producto.fotos[1] :'/fotos/'+producto.fotos[1]})`}}>
                                 {(mouseIsOnCard & (targetaHoveada === producto._id)) ?
                                     <div className="contenedor-iconosDeImagen"> 
                                         <div className="l-contenedor-icono-de-imagen-1">
@@ -70,7 +70,7 @@ const ProductosEnGrilla = (props) => {
                             </div>
                         </div>
                         <div className="l-nombre-y-precio">
-                            <p className="l-nombre-producto fontTexto">{producto.nombre.replace(/\b\w/g, l => l.toUpperCase())}</p>
+                            <p className="l-nombre-producto fontTexto">{producto.nombre.charAt(0).toUpperCase() + producto.nombre.slice(1, producto.nombre.legth)}</p>
                             <p className="l-precio-producto fontTexto">${producto.precio}</p>
                         </div>
                     </div>
