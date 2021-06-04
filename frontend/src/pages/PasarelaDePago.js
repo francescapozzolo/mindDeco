@@ -7,6 +7,7 @@ import SeccionMetodoDeEnvio from '../componentes/pasarela de pago/SeccionMetodoD
 import SeccionMetodoDePago from '../componentes/pasarela de pago/SeccionMetodoDePago'
 import axios from 'axios'
 import carritoActions from '../redux/actions/carritoActions';
+import SeccionConfirmarCompra from '../componentes/pasarela de pago/SeccionConfirmarCompra';
 
 const PasarelaDePago = (props)=>{
    console.log(props)
@@ -18,9 +19,11 @@ const PasarelaDePago = (props)=>{
    const [precioTotal, setPrecioTotal] = useState(0)
 
    useEffect(()=>{
-
+      console.log(props.userLogged)
       const cargarProductosAComprar = async()=>{
-         if (props.userLogged ){
+         if (props.userLogged){
+            console.log("hay un usuario logeado")
+
             const respuesta = await props.obtenerProductos(props.userLogged)
             console.log(respuesta.carrito)
             setProductosAComprar(respuesta.carrito)
@@ -34,7 +37,7 @@ const PasarelaDePago = (props)=>{
          }
       }      
       cargarProductosAComprar()
-   },[])
+   },[props])
 
 
 
@@ -54,7 +57,12 @@ const PasarelaDePago = (props)=>{
             <div className="barraHorizontal-Pasarela"></div>
             {pasoDeCompra === "paso3-metodoDePago" && <SeccionMetodoDePago statesDelPadre={{metodoDePago, setMetodoDePago, datosDeTarjetaFueronPuestos, setPasoDeCompra}} />}
 
-            {pasoDeCompra === "pasoOpcional-cargarDatosDeTargeta" && <CreditCard/>}
+            {pasoDeCompra === "pasoOpcional-cargarDatosDeTargeta" && <CreditCard setPasoDeCompra={setPasoDeCompra}/>}
+
+            <p className="tituloEnvio-pasarelaDePago fontTitulos" >4. Confirmar Compra</p>
+            <div className="barraHorizontal-Pasarela"></div>
+            {pasoDeCompra === "paso4-confirmarCompra" && <SeccionConfirmarCompra statesDelPadre={{metodoDePago, setMetodoDePago, datosDeTarjetaFueronPuestos, setPasoDeCompra}} />}
+
 
 
          </div>
@@ -74,15 +82,15 @@ const PasarelaDePago = (props)=>{
                               <div className="contenedor-UnidadesyPrecio">
                                  <div className="contenedor-infoDeProducto">
                                     <p className="unidades-productoAComprar fontTexto"> Unidades: </p>
-                                    <p className="fontTexto fontSize20">{producto.cantidad}</p>
+                                    <p className="fontTexto fontSize18">{producto.cantidad}</p>
                                  </div>
                                  <div className="contenedor-infoDeProducto">
-                                    <p className="fontSize20 fontTexto"> Valor por Unidad: </p>
-                                    <p className="fontTexto fontSize20">{producto.idProducto.precio} ARS</p>
+                                    <p className="fontSize18 fontTexto"> Valor por Unidad: </p>
+                                    <p className="fontTexto fontSize18">$ {producto.idProducto.precio}</p>
                                  </div>
                                  <div className="contenedor-infoDeProducto">
-                                    <p className="subtotal-productoAComprar fontNegrita fontTexto"> Subtotal:</p>
-                                    <p className="fontTexto fontNegrita fontSize20">{producto.idProducto.precio * producto.cantidad} ARS</p> 
+                                    <p className="fontSize18 fontNegrita fontTexto"> Subtotal:</p>
+                                    <p className="fontTexto fontNegrita fontSize18">$ {producto.idProducto.precio * producto.cantidad}</p> 
                                  </div>
                               </div>
                            </div>
@@ -101,7 +109,7 @@ const PasarelaDePago = (props)=>{
                   </div>
                   <div className="subcontenedor-envioYTotal">
                      <p className="fontSize25 fontTexto">Total:</p>
-                     <p className="fontSize25 fontTexto">{precioTotal} ARS</p>
+                     <p className="fontSize25 fontTexto">$ {precioTotal}</p>
                   </div>
                </div>
 
