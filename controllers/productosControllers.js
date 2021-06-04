@@ -11,22 +11,53 @@ const productosControllers = {
     },
 
     cargarProductos: async (req, res) => {
-        console.log(req.body)
-        console.log(req.files)
-
         let  {categoria, subcategoria, articulo, nombre, descripcion, precio, stock, dimensiones} = req.body
-        let {fotos} = req.files
+        let fotos =req.files.foto
+        let foto1 =req.files.foto[0]
+        let foto2 =req.files.foto[1]
+        let foto3 =req.files.foto[2]
+        console.log(foto1)
+
         let respuesta
         let error
-        let nuevoProducto
 
+        const nuevoProducto = new Producto({categoria, subcategoria, articulo, nombre, descripcion, precio, stock, dimensiones})
+        const {_id} = nuevoProducto
+
+        const fileName1 = _id + "a." + foto1.name.split(".")[foto1.name.split(".").length-1]
+        const ruta1 = `${__dirname}../../frontend/public/fotos/${fileName1}`
+
+        const fileName2 = _id + "b." + foto2.name.split(".")[foto2.name.split(".").length-1]
+        const ruta2 = `${__dirname}../../frontend/public/fotos/${fileName2}`
+
+        const fileName3 = _id + "c." + foto3.name.split(".")[foto3.name.split(".").length-1]
+        const ruta3 = `${__dirname}../../frontend/public/fotos/${fileName3}`
+
+        foto1.mv(ruta1, err => {
+            if(err){
+                console.log(err)
+            }
+        })
+
+        foto2.mv(ruta2, err => {
+            if(err){
+                console.log(err)
+            }
+        })
+
+        foto3.mv(ruta3, err => {
+            if(err){
+                console.log(err)
+            }
+        })
+
+        nuevoProducto.fotos = [fileName1, fileName2, fileName3]
+        console.log(nuevoProducto)
         try{
-            nuevoProducto = new Producto({categoria, subcategoria, articulo, nombre, descripcion, precio, stock, dimensiones})
-            const {_id} = nuevoProducto
-            const fileName = _id + "." + fotos.name.split(".")[fotos.name.split(".").length-1]
-            const ruta = `${__dirname}/fotos/${fileName}`  
-            // nuevoProducto.fotos[0] = '/fotos/' + fileName
-            nuevoProducto.fotos[0] = '/fotos/' + fileName
+        
+
+
+            
             await nuevoProducto.save()
             fotos.mv(ruta, err => {
                 console.log(err)
@@ -36,7 +67,7 @@ const productosControllers = {
                 res.json({success: true})
             })
             
-            respuesta = nuevoProducto
+        //     respuesta = nuevoProducto
         }
         catch(error) {
             error = 'Algo salió mal, intente nuevamente'

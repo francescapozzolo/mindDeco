@@ -35,7 +35,7 @@ const favoritear = () => {
    return (
       <div id="p-contenedorPrincipalProducto">
          <div className="p-seccionImpar">
-            <div className="p-contenedorFotoProdInv"  style={{backgroundImage: `url("/fotos/${producto.fotos[0]}")`}}>
+            <div className="p-contenedorFotoProdInv"  style={{backgroundImage: `url(${producto.fotos[0].includes('https') ? producto.fotos[0] :'/fotos/'+producto.fotos[0]})`}}>
             </div>
             <div className="p-contenedorDescripcionProd">
                <p className="p-descripcionDivision fontTitulos">{producto.categoria.toUpperCase()}<span className="barrita-divisora">|</span> {producto.subcategoria.toUpperCase()} <span className="barrita-divisora">|</span> {producto.articulo.toUpperCase()}</p>
@@ -44,7 +44,7 @@ const favoritear = () => {
             </div>
          </div>
          <div id="p-seccion2">
-            <div className="p-contenedorFotoProdInv"  style={{backgroundImage: `url("/fotos/${producto.fotos[1]}")`}}>
+            <div className="p-contenedorFotoProdInv"  style={{backgroundImage: `url(${producto.fotos[1].includes('https') ? producto.fotos[1] :'/fotos/'+producto.fotos[1]})`}}>
             </div>
             <div className="p-contenedorDescripcionProd">
                <div className="l-contenedor-icono-de-imagen-2 p-iconoCarrito">
@@ -70,14 +70,14 @@ const favoritear = () => {
                   </div>
                </div>
                <div id="p-contenedorFotosChicas">
-                  <div style={{backgroundImage: `url("/fotos/${producto.fotos[0]}")`}}></div>
-                  <div style={{backgroundImage: `url("/fotos/${producto.fotos[1]}")`}}></div>
-                  <div style={{backgroundImage: `url("/fotos/${producto.fotos[2]}")`}}></div>
+                  <div style={{backgroundImage: `url(${producto.fotos[0].includes('https') ? producto.fotos[0] :'/fotos/'+producto.fotos[0]})`}}></div>
+                  <div style={{backgroundImage: `url(${producto.fotos[1].includes('https') ? producto.fotos[1] :'/fotos/'+producto.fotos[1]})`}}></div>
+                  <div style={{backgroundImage: `url(${producto.fotos[2].includes('https') ? producto.fotos[2] :'/fotos/'+producto.fotos[2]})`}}></div>
                </div>
             </div>
          </div>
          <div className="p-seccionImpar p-formProdInd">
-            <div className="p-contenedorFotoProdInv"  style={{backgroundImage: `url("/fotos/${producto.fotos[2]}")`}}>
+            <div className="p-contenedorFotoProdInv"  style={{backgroundImage: `url(${producto.fotos[2].includes('https') ? producto.fotos[2] :'/fotos/'+producto.fotos[2]})`}}>
             </div>
             <div className="p-contenedorDescripcionProd"> 
                   <div>
