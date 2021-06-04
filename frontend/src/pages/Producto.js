@@ -31,10 +31,11 @@ const favoritear = () => {
    setProdFavoriteado(!prodFavoriteado)
 }
 
+
    return (
       <div id="p-contenedorPrincipalProducto">
          <div className="p-seccionImpar">
-            <div className="p-contenedorFotoProdInv"  style={{backgroundImage: `url(${producto.fotos[0]})`}}>
+            <div className="p-contenedorFotoProdInv"  style={{backgroundImage: `url("/fotos/${producto.fotos[0]}")`}}>
             </div>
             <div className="p-contenedorDescripcionProd">
                <p className="p-descripcionDivision fontTitulos">{producto.categoria.toUpperCase()}<span className="barrita-divisora">|</span> {producto.subcategoria.toUpperCase()} <span className="barrita-divisora">|</span> {producto.articulo.toUpperCase()}</p>
@@ -43,7 +44,7 @@ const favoritear = () => {
             </div>
          </div>
          <div id="p-seccion2">
-            <div className="p-contenedorFotoProdInv"  style={{backgroundImage: `url(${producto.fotos[1]})`}}>
+            <div className="p-contenedorFotoProdInv"  style={{backgroundImage: `url("/fotos/${producto.fotos[1]}")`}}>
             </div>
             <div className="p-contenedorDescripcionProd">
                <div className="l-contenedor-icono-de-imagen-2 p-iconoCarrito">
@@ -69,18 +70,18 @@ const favoritear = () => {
                   </div>
                </div>
                <div id="p-contenedorFotosChicas">
-                  <div style={{backgroundImage: `url(${producto.fotos[0]})`}}></div>
-                  <div style={{backgroundImage: `url(${producto.fotos[1]})`}}></div>
-                  <div style={{backgroundImage: `url(${producto.fotos[2]})`}}></div>
+                  <div style={{backgroundImage: `url("/fotos/${producto.fotos[0]}")`}}></div>
+                  <div style={{backgroundImage: `url("/fotos/${producto.fotos[1]}")`}}></div>
+                  <div style={{backgroundImage: `url("/fotos/${producto.fotos[2]}")`}}></div>
                </div>
             </div>
          </div>
          <div className="p-seccionImpar p-formProdInd">
-            <div className="p-contenedorFotoProdInv"  style={{backgroundImage: `url(${producto.fotos[2]})`}}>
+            <div className="p-contenedorFotoProdInv"  style={{backgroundImage: `url("/fotos/${producto.fotos[2]}")`}}>
             </div>
             <div className="p-contenedorDescripcionProd"> 
-                  <div className="p-contenedorTitulosConsulta">
-                     <h2 className="fontTitulos">Escribinos </h2><h2 className="fontCursive">tu consulta</h2>
+                  <div>
+                     <h2 className="fontTitulos">Envíanos </h2><h2 className="fontCursive">tu consulta</h2>
                   </div>
                   <input type="text" className="fontTexto" placeholder="Ingresá tu mail" ></input>
                   <input type="text" className="fontTexto" placeholder="Ingresá tu nombre"></input>
