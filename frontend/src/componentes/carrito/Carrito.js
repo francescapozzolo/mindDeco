@@ -41,7 +41,6 @@ const Carrito = (props) => {
             <div className='BContainerProductos'>
                 {
                     carrito.map(producto => {
-                    
                         precioTotal +=  producto.cantidad*producto.idProducto.precio
                         articulosTotales += producto.cantidad
                         return <Producto producto={producto} borrarProducto={borrarProducto} modificaProducto={modificaProducto} loading={loading}/>
