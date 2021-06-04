@@ -80,11 +80,11 @@ const PasarelaDePago = (props)=>{
                                  </div>
                                  <div className="contenedor-infoDeProducto">
                                     <p className="fontSize18 fontTexto"> Valor por Unidad: </p>
-                                    <p className="fontTexto fontSize18">{producto.idProducto.precio} ARS</p>
+                                    <p className="fontTexto fontSize18">$ {producto.idProducto.precio}</p>
                                  </div>
                                  <div className="contenedor-infoDeProducto">
                                     <p className="fontSize18 fontNegrita fontTexto"> Subtotal:</p>
-                                    <p className="fontTexto fontNegrita fontSize18">{producto.idProducto.precio * producto.cantidad} ARS</p> 
+                                    <p className="fontTexto fontNegrita fontSize18">$ {producto.idProducto.precio * producto.cantidad}</p> 
                                  </div>
                               </div>
                            </div>
@@ -103,7 +103,7 @@ const PasarelaDePago = (props)=>{
                   </div>
                   <div className="subcontenedor-envioYTotal">
                      <p className="fontSize25 fontTexto">Total:</p>
-                     <p className="fontSize25 fontTexto">{precioTotal} ARS</p>
+                     <p className="fontSize25 fontTexto">$ {precioTotal}</p>
                   </div>
                </div>
 

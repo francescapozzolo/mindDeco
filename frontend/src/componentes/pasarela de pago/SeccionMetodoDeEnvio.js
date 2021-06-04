@@ -27,7 +27,7 @@ const SeccionMetodoDeEnvio = (props)=>{
             <label for="3" className={metodoSeleccionado === "envioOpcion3" ? "metodoDeEnvio metodoSeleccionado fontTexto" : "metodoDeEnvio fontTexto"} onClick={()=>setMetodoSeleccionado("envioOpcion3")}><input type="radio" id="3" className="metodoDePagoOption" name="metodoDeEnvio" value="retiroEnCorreo"/>Retiro en Correo mas Cercano</label>
          </div>
 
-            { metodoSeleccionado === "ninguno" &&  <p className="error-MetodoDeEnvio fontTexto">Para continuar seleccione un metodo de Envio.</p>}
+         { metodoSeleccionado === "ninguno" &&  <p className="error-MetodoDeEnvio fontTexto">Para continuar seleccione un metodo de Envio.</p>}
 
          <div className="contenedor-botonesAvanzar-metodoDeEnvio">
             <p className="boton-continuar fontTitulos" onClick={()=>volver()} >Volver</p>
