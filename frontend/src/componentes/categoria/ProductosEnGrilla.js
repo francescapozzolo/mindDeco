@@ -30,19 +30,15 @@ const ProductosEnGrilla = (props) => {
            return toast.warning('Este producto ya esta en el carrito')
         }
     }
+
     return (
         <>    
             {props.infoImportante.productosAMostrar.map(producto =>{
                 return(
                     <div key={producto._id} className="l-card" onMouseOver={(e)=>mostrarIconos(producto._id)} onMouseLeave={()=>setMouseIsOnCard(false)}>
                         <div className="l-contenedor-foto">
-<<<<<<< HEAD
                             {/* <div className="l-foto-card" style={{backgroundImage: `url('${(mouseIsOnCard & (targetaHoveada === producto._id)) ? producto.fotos[1] : producto.fotos[0] }')`}}> */}
-                            <div className={!(mouseIsOnCard & targetaHoveada === producto._id) ? "l-foto-card grid-card-active" : "l-foto-card"} style={{backgroundImage: `url('/fotos/${producto.fotos[0]}')`}}>
-=======
-                            {console.log(producto)}
-                            <div className={!(mouseIsOnCard & targetaHoveada === producto._id) ? "l-foto-card grid-card-active" : "l-foto-card"} style={{backgroundImage: `url('${producto.fotos[0]}')`}}>
->>>>>>> 28ffef9a194e00b3361cbf413c2e8c4fb112a0d4
+                            <div className={!(mouseIsOnCard & targetaHoveada === producto._id) ? "l-foto-card grid-card-active" : "l-foto-card"} style={{backgroundImage: `url(${producto.fotos[0].includes('https') ? producto.fotos[0] : '/fotos/' + producto.fotos[0]} )`}}>
                                 {(mouseIsOnCard & (targetaHoveada === producto._id)) ?
                                     <div className="contenedor-iconosDeImagen"> 
                                         <div className="l-contenedor-icono-de-imagen-1">
@@ -58,7 +54,7 @@ const ProductosEnGrilla = (props) => {
                                 }
                             </div>
                             <div className={(mouseIsOnCard & targetaHoveada === producto._id) ? "l-foto-card grid-card-active" : "l-foto-card"}
-                            style={{backgroundImage: `url('/fotos/${producto.fotos[1]}')`}}>
+                            style={{backgroundImage: `url(${producto.fotos[1].includes('https') ? producto.fotos[1] : '/fotos/' + producto.fotos[1]} )`}}>
                                 {(mouseIsOnCard & (targetaHoveada === producto._id)) ?
                                     <div className="contenedor-iconosDeImagen"> 
                                         <div className="l-contenedor-icono-de-imagen-1">

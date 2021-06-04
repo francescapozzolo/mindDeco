@@ -11,7 +11,6 @@ const productosControllers = {
     },
 
     cargarProductos: async (req, res) => {
-<<<<<<< HEAD
         let  {categoria, subcategoria, articulo, nombre, descripcion, precio, stock, dimensiones} = req.body
         let fotos =req.files.foto
         let foto1 =req.files.foto[0]
@@ -19,13 +18,6 @@ const productosControllers = {
         let foto3 =req.files.foto[2]
         console.log(foto1)
 
-=======
-        console.log(req.body)
-        console.log(req.files)
-
-        let  {categoria, subcategoria, articulo, nombre, descripcion, precio, stock, dimensiones} = req.body
-        let {fotos} = req.files
->>>>>>> 28ffef9a194e00b3361cbf413c2e8c4fb112a0d4
         let respuesta
         let error
 
@@ -62,27 +54,11 @@ const productosControllers = {
         nuevoProducto.fotos = [fileName1, fileName2, fileName3]
         console.log(nuevoProducto)
         try{
-<<<<<<< HEAD
         
 
 
             
-=======
-            nuevoProducto = new Producto({categoria, subcategoria, articulo, nombre, descripcion, precio, stock, dimensiones})
-            const {_id} = nuevoProducto
-            const fileName = _id + "." + fotos.name.split(".")[fotos.name.split(".").length-1]
-            const ruta = `${__dirname}/fotos/${fileName}`  
-            // nuevoProducto.fotos[0] = '/fotos/' + fileName
-            nuevoProducto.fotos[0] = '/fotos/' + fileName
->>>>>>> 28ffef9a194e00b3361cbf413c2e8c4fb112a0d4
             await nuevoProducto.save()
-            fotos.mv(ruta, err => {
-                console.log(err)
-                if (err) {
-                    return res.json({success: false, respuesta: "Hubo un error al grabar el archivo"})
-                }
-                res.json({success: true})
-            })
             
         //     respuesta = nuevoProducto
         }
