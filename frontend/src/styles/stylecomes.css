@@ -134,7 +134,6 @@ a:hover {
 }
 
 .c-footerContainer {
-	height: 60vh;
 	background-color: var(--negro);
 }
 
@@ -208,7 +207,7 @@ a:hover {
 	border: 1px solid rgb(75, 75, 75);
 	color: white;
 	padding-left: 6px;
-	padding-top: 4px;
+	padding-top: 10px;
 	padding-bottom: 4px;
 	border-radius: 2px;
 	width: 80%;
@@ -239,17 +238,13 @@ a:hover {
 .c-footerInnerInfoContainer {
 	display: flex;
 	flex-direction: column;
-	margin-top: 3vh;
+	margin-top: 2vh;
 }
 
 .c-footerInnerInfoContainer>span {
 	margin-bottom: 3vh;
 	color: gray;
 	font-size: .9rem;
-}
-
-.c-footerFooterContainer {
-	height: 15vh;
 }
 
 .c-footerImageLogo {
@@ -290,6 +285,9 @@ a:hover {
 
 .c-cantidadesCarrito {
 	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	left: 32px;
-	top: 6px;
+	top: 4px;
 }

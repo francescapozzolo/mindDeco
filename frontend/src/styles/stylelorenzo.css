@@ -76,7 +76,7 @@ border-spacing: 0;
 }
 
 .l-categorias-main-section {
-    min-height: 40vh;
+    min-height: 80vh;
     width: 90%;
     margin: 0 auto;
     display: flex;
@@ -329,8 +329,7 @@ border-spacing: 0;
 }
 
 .l-foto-card {
-    transition-duration: .7s ease;
-    opacity: 0;
+    transition-duration: .2s ease;
 }
 
 .grid-card-active {
@@ -344,7 +343,7 @@ border-spacing: 0;
     align-items: center;
     justify-content: center;
     opacity: 1;
-    transition: all .7s ease;
+    transition: all 1.5s ease;
     /* display: flex; */
 }
 
@@ -385,7 +384,7 @@ border-spacing: 0;
     justify-content: center;
     height: 40px;
     width: 40px;
-    transition: all .2s ease;
+    transition: all 500ms ease;
     /* justify-content: center; */
 }
 
@@ -440,13 +439,23 @@ border-spacing: 0;
 /* List Products */
 
 .list-card {
-    width: 100%;
-    height: 320px;
-    /* border: 1px solid black; */
+    width: 95%;
+    height: 250px;
     display: flex;
-    margin-bottom: 40px;
-    /* opacity: 0; */
-    /* transition: all 1s ease; */
+    margin: 0 auto;
+}
+
+.l-borderBottom-card {
+    border-bottom: 1px solid rgb(180, 180, 180);
+    width: 95%;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+
+.l-borderBottom-nombre {
+    border-bottom: 1px solid rgb(180, 180, 180);
+    width: 20%;
+    margin: 0 auto;
 }
 
 /* .list-card-activa {
@@ -479,7 +488,7 @@ border-spacing: 0;
 
 .foto-listCard-active {
     position: absolute;
-    width: 100%;
+    width: 80%;
     height: 75%;
     background-position: center;
     background-size: cover;
@@ -499,9 +508,8 @@ border-spacing: 0;
 }
 
 .nombre-producto-listCard {
-    font-size: 22px;
+    font-size: 24px;
     margin-top: 40px;
-    text-decoration: underline;
 }
 
 .nombre-producto-listCard:hover {
@@ -515,11 +523,13 @@ border-spacing: 0;
 .titulo-descripcion {
     font-size: 19px;
     font-weight: bold;
+    color: rgb(78, 78, 78);
     /* font-style: italic; */
 }
 
 .texto-descripcion {
     font-size: 16px;
+    line-height: 1.5rem;
     /* font-style: italic; */
 }
 
@@ -538,10 +548,10 @@ border-spacing: 0;
 }
 
 .precio-producto{
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
     font-style: italic;
-    margin-top: 20px;
+    margin-top: 18px;
 }
 
 /* Componente de producto Individual */
@@ -605,6 +615,7 @@ border-spacing: 0;
 .contenedor-valoracionDeProducto {
     margin-top: 20px;
     display: flex;
+    align-items: center;
 }
 
 .barrita-divisora {
