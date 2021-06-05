@@ -444,3 +444,15 @@ float: left;
 .BWidthGrilla{
     width: 100%;
 }
+
+.BFjala{
+    font-family: 'Fjalla One', sans-serif;
+}
+
+.BSwalIcon{
+    display: none;
+}
+
+.BTitleSwal{
+    line-height: 2.5rem;
+}
