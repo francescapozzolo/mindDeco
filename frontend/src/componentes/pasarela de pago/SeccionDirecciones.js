@@ -27,7 +27,7 @@ const SeccionDirecciones = (props)=>{
    }
 
    const continuar = () => {
-      console.log(infoDelUsuario)
+      // console.log(infoDelUsuario)
       infoDelUsuario.nombreyapellidos === "" ? setInputsIncompletos({...inputsIncompletos, nombreyapellidos: true})
          : infoDelUsuario.nombreyapellidos.trim().indexOf(" ") === -1 ? setInputsIncompletos({...inputsIncompletos, nombreyapellidos: true, helperInputNombre: "Lo sentimos, Necesitamos su Nombre y Apellido"})
          : infoDelUsuario.nombreyapellidos.indexOf(" ") === -1 ? setInputsIncompletos({...inputsIncompletos, nombreyapellidos: true, helperInputNombre: "Lo sentimos, Necesitamos su Nombre y Apellido"})

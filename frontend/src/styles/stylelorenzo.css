@@ -1499,7 +1499,7 @@ border-spacing: 0;
         height: 85px;
     }
     .texto-valorPorUnidad{
-        /* background: green; */
+        background: rgba(0, 0, 0, 0.281);
         width: 100px;
     }
 

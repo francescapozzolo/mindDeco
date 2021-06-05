@@ -37,7 +37,7 @@ const PasarelaDePago = (props)=>{
    },[props])
 
 
-   console.log(infoDelUsuario)
+   // console.log(infoDelUsuario)
    return( 
       <div className="contenedorGeneral-pagina-pasarelaDePago">
          <div className="contenedorDeFormularios">

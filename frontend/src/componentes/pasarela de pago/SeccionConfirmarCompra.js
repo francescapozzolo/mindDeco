@@ -56,9 +56,6 @@ const SeccionConfirmarCompra = (props)=>{
      })
    }
 
-   // const limpiarCarrito = async() => {
-   // }
-
    const volver = ()=>{
       props.statesDelPadre.setPasoDeCompra("paso3-metodoDePago")
    }
@@ -115,7 +112,7 @@ const SeccionConfirmarCompra = (props)=>{
                </div>
                <div className="contenedorDeDatos-ConfirmarCompra">
                   <p className="direccionDeEntrega-confirmarCompra fontTexto">{metodoDePagoAMostrar}</p>
-                  <p className="info-confirmarCompra fontTexto fontSize15">Solamente en sucursales abiertas</p>
+                  {infoDelUsuario.metodoDePago === "efectivo" &&  <p className="info-confirmarCompra fontTexto fontSize15">Solamente en sucursales abiertas</p>}
                   {/* <p className="info-confirmarCompra fontTexto">Mateo Lorenzo - 11 4039-2404</p> */}
                </div>
                <p className="textoModificar fontTexto" onClick={()=>modificarMetodoDePago()}>Modificar</p>
