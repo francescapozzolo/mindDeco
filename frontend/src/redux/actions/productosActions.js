@@ -10,6 +10,7 @@ const productosActions = {
                         type: 'OBTENER_PRODUCTOS',
                         payload: respuesta.data.respuesta
                     })
+                    return respuesta.data.respuesta
                 } else {
                     alert('Algo salio mal y seras redigirido a la pagina inicial')
                 }                
