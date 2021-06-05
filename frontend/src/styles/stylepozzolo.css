@@ -66,23 +66,38 @@ border-spacing: 0;
     align-items: center;
     width: 100%;
     padding: 20px;
+    background-color: var(--mostaza);
 }
 
-
-#selectoresCategorias{
-    width: 65%;
+.p-contenedorTitCargaProd{
+    font-size: 3rem;
     display: flex;
     flex-direction: row;
-    align-self: flex-end;
+    width: 80%;
+    margin: 5vh 0 5vh -20vh;
+    align-items: center;
+}
+
+.p-contenedorTitCargaProd :last-child{
+    font-size: 4rem;
+}
+
+#selectoresCategorias{
+    display: flex;
+    flex-direction: column;
     justify-content: space-between;
+    width: 50%;
+    border-right: 1px solid black;
 }
 
 #selectoresCategorias >select{
-    width: 33%;
-    margin: 0 5px;
-    padding: 2px;
+    width: 80%;
+    margin: 5vh;
+    padding: 5px;
 }
+
 #contenedorInputsCargaProductos{
+
     margin-top: 8px;
     width: 95%;
     display: flex;
@@ -91,7 +106,8 @@ border-spacing: 0;
 }
 
 #subcontenedorInputsCargaProductos{
-    width: 80%;
+    margin-left: 5vw;
+    width: 50%;
 }
 
 .inputCargaProductos{
@@ -100,37 +116,58 @@ border-spacing: 0;
     justify-content: space-between;
     align-items: center;
     margin: 2vh 0;
+
+}
+
+.inputCargaProductos > input, select{
+    width: 50%;
+    padding: 5px;
+    outline: none;
+    border: none;
+    border-radius: 8px;
 }
 
 .inputCargaProductos > input{
-    width: 50%;
-    padding: 3px;
+    width: 60%;
 }
 
 .p-portaFoto{
     width: 15vw;
     height: 20vh;
     margin: 2vh 0;
-    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-position: center;
-    background-repeat: no-repeat;
     background-size: cover;
+    background-repeat: no-repeat;
+    border: 1px solid white;
+}
+
+.p-contenedorInpFiles{
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    max-height: 30vh;
+    overflow: hidden;
+    margin: 5vh auto;
+    /* border-top: 1px solid black;
+    border-bottom: 1px solid black; */
 }
 
 .botonCargaArticulos{
     padding: 5px;
 }
 
-/* .p-agregarImg{
+.p-agregarImg{
     display: none;
-} */
+}
 
-.p-iconoCamara{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.p-labelForCam{
+    cursor: pointer;
+    padding: 100%;
 }
 
 /*PAGINA INICIO*/

@@ -75,14 +75,14 @@ const usuariosControllers = {
 
         res.json({
             success: !error ? true : false,
-            respuesta: !error && {token: respuesta, nombre: userExist.nombre, apellido: userExist.apellido, email: userExist.email, carrito: userExist.carrito},
+            respuesta: !error && {token: respuesta, nombre: userExist.nombre, apellido: userExist.apellido, email: userExist.email, carrito: userExist.carrito, administrador: userExist.administrador},
             error: error
         })
       
     },
 
     loginForzado: async (req, res) => {
-        res.json({success: true, respuesta: { nombre: req.user.nombre, apellido: req.user.apellido, email: req.user.email, carrito: req.user.carrito}})
+        res.json({success: true, respuesta: { nombre: req.user.nombre, apellido: req.user.apellido, email: req.user.email, carrito: req.user.carrito, administrador: req.user.administrador}})
     }
 }
 
