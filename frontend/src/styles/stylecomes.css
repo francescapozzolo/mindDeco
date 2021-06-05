@@ -294,3 +294,7 @@ a:hover {
 	left: 32px;
 	top: 4px;
 }
+
+.ant-dropdown-menu-item, .ant-dropdown-menu-submenu-title {
+    padding: 3px 5px 0px 5px !important;
+}
