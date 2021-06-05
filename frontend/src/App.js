@@ -47,7 +47,7 @@ const App = ({userLogged, logInForced, obtenerProductos}) => {
             <Route path="/categoria/:categoria" component={Categoria}/>
             {(userLogged && userLogged.administrador) &&<Route path="/administrador" component={Administrador} />}
             <Route path="/registro" component={Registro}/>
-            <Route path="/carrito" component={Carrito}/>
+            {userLogged && <Route path="/carrito" component={Carrito}/>}
             <Route path="/producto/:id" component={Producto} />
             <Route path="/comprar" component={PasarelaDePago} />
             <Redirect to='/'/>

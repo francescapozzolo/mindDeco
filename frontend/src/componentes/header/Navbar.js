@@ -64,7 +64,7 @@ const Navbar = (props) => {
                   <div className="c-logoNavbar"></div>
                 </Link>
 
-                <div className="c-iconsContainer">
+                <div className="c-iconsContainer" style={{width: !props.userLogged && '9%'}}>
                     {props.userLogged && props.userLogged.administrador
                     ?
                     <>
@@ -88,7 +88,7 @@ const Navbar = (props) => {
                     <Dropdown overlay={MenuAccount} placement="bottomCenter" arrow>
                         <PersonIcon style={{fontSize: 32}} />
                     </Dropdown>
-                    <div className="relative">
+                    <div className="relative" style={{display: !props.userLogged && 'none'}}>
                         <Link to='/carrito' style={{color: 'white'}}><ShoppingCartRoundedIcon style={{fontSize: 30}} /></Link>                         
                         <div className={`${ articulosTotales ? "c-cantidadesCarrito BCirculoRojo" : "" }`}>{articulosTotales ? articulosTotales : null}</div>
                     </div>

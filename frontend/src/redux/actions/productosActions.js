@@ -68,6 +68,7 @@ const productosActions = {
                         'Content-Type': 'multipart/form-data'
                     } 
                 })
+                console.log(respuesta.data)
                 
             }
             catch(error){

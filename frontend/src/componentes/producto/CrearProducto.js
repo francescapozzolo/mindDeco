@@ -130,7 +130,6 @@ const CrearProducto = (props) => {
             const imageUrl = URL.createObjectURL(imageFile);
             switch(e.target.name){
                 case 'image1': 
-                console.log('hola')
                     setFileUrl1(imageUrl)
                     cargarFoto1(e)
                     break

@@ -448,6 +448,9 @@ border-spacing: 0;
 }
 
 /*PAGINA PROD IND*/
+.p-iconoCarrito{
+    cursor: pointer;
+}
 
 .p-contenedorFotoProdInv{
     background-attachment: fixed;
@@ -567,4 +570,166 @@ border-spacing: 0;
     width: 100%;
     display: flex;
     align-items: baseline;
+}
+
+/*RESPONSIVE HOME*/
+@media (max-width: 1100px) {
+    #p-parallax > h2{
+        font-size: 5rem;
+    }
+
+    #p-granContenedorGridFrases >h2{
+        font-size: 5.5rem;
+    }
+}
+
+@media (max-width: 955px) {
+    #p-parallax > h2{
+        font-size: 4rem;
+    }
+
+    #p-granContenedorGridFrases >h2{
+        font-size: 4.5rem;
+    }
+
+    .p-fotoProdFiltrado{
+        background-size: 250%;
+    }
+}
+
+@media (max-width: 800px) {
+    #p-parallax > h2{
+        font-size: 3.5rem;
+    }
+
+    #p-granContenedorGridFrases{
+        margin-top: 3rem;
+    }
+
+    #p-granContenedorGridFrases >h2{
+        font-size: 3.5rem;
+    }
+
+    .p-fotoProdFiltrado{
+        background-size: 250%;
+    }
+
+    #p-contenedorTitFiltroGrilla h2{
+        font-size: 1rem;
+        margin-bottom: 0;
+    }
+
+    #p-contenedorGrid{
+        grid-template-columns: 2;
+        grid-row: 3;
+    }
+
+    #p-contenedorGrid :first-child{
+        grid-column: 1/3;
+        grid-row: 1/3;
+    }
+
+    #p-contenedorGrid :nth-child(2){
+        grid-column: 1/3;
+        grid-row: 3/4;
+    }
+}
+
+@media (max-width: 670px) {
+
+    .p-contenedorImg{
+        width: 48%;
+        margin-bottom: 5vh;
+        height: 60%;
+    }
+
+    #p-contenedorFotosCategorias{
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    #p-parallax > h2{
+        font-size: 2.5rem;
+    }
+
+    #p-granContenedorGridFrases >h2{
+        font-size: 2rem;
+    }
+
+    .p-fotoProdFiltrado{
+        height: 30vh;
+    }
+
+    .p-capa h3{
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 500px) {
+    #p-parallax > h2{
+        font-size: 2rem;
+    }
+
+    #p-granContenedorGridFrases >h2{
+        font-size: 1.4rem;
+        letter-spacing: 0.8rem;
+    }
+
+    #p-contenedorTitFiltroGrilla h2{
+        font-size: 0.7rem;
+        padding: 2vh;
+    }
+
+    #p-contenedorProdFiltrados{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .p-fotoProdFiltrado{
+        width: 48%;
+        margin-bottom: 2vh;
+        height: 25vh;
+    }
+
+    #p-contenedorProdFiltrados :last-child{
+        display: none;
+    }
+}
+
+@media (max-width: 400px){
+    #p-ContenedorHomeGrillaCategorias{
+        margin-top: 10vh;
+    }
+
+    .p-titGrillaCategoriaHome{
+        font-size: 1.3rem;
+    }
+
+    .p-FotoCategoria p{
+        font-size: 2.5rem;
+    }
+
+    #p-parallax h2{
+        font-size: 1.6rem;
+    }
+
+    #p-contenedorTitFiltroGrilla h2{
+        font-size: 0.5rem;
+    }
+
+    #p-granContenedorGridFrases >h2{
+        font-size: 1rem;
+        letter-spacing: 0.6rem;
+    }
+
+    #p-contenedorGrid{
+        display: flex;
+        flex-direction: column;
+        height: 110vh;
+    }
+
+    #p-contenedorGrid>div{
+        height: 50vh;
+    }
 }

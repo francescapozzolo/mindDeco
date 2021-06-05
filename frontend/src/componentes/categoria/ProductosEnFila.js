@@ -39,7 +39,7 @@ const ProductosEnFila = (props)=>{
                   <div className="contenedor-foto-listCard">
                     
 
-                     <div className={!(mouseIsOnCard & targetaHoveada === producto._id) ? " foto-listCard-active" : "foto-listCard"} style={{backgroundImage: `url(${producto.fotos[0].includes('https') ? producto.fotos[0] :'/fotos/'+producto.fotos[0]})`}}>
+                     <div className={!(mouseIsOnCard & targetaHoveada === producto._id) ? " foto-listCard-active" : "foto-listCard"} style={{backgroundImage: `url(${producto.fotos[0]})`}}>
                         {(mouseIsOnCard & (targetaHoveada === producto._id)) 
                            ?  <div className="contenedor-iconosDeImagen"> 
                                  <div className="l-contenedor-icono-de-imagen-1">
@@ -53,7 +53,7 @@ const ProductosEnFila = (props)=>{
                            : null}
                      </div>
                      <div className={(mouseIsOnCard & targetaHoveada === producto._id) ? " foto-listCard-active" : "foto-listCard"}
-                        style={{backgroundImage: `url(${producto.fotos[1].includes('https') ? producto.fotos[1] :'/fotos/'+producto.fotos[1]})`}}>
+                        style={{backgroundImage: `url(${producto.fotos[1]})`}}>
                            {(mouseIsOnCard & (targetaHoveada === producto._id)) ?
                               <div className="contenedor-iconosDeImagen"> 
                                     <div className="l-contenedor-icono-de-imagen-1">

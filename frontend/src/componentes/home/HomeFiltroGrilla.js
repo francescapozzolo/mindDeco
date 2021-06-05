@@ -7,6 +7,8 @@ import { Icon } from '@iconify/react';
 import { NavLink } from 'react-router-dom';
 
 import productosActions from '../../redux/actions/productosActions'
+import carritoActions from '../../redux/actions/carritoActions';
+import { toast } from 'react-toastify';
 
 const HomeFiltroGrilla = (props) => {
 
@@ -44,7 +46,15 @@ const HomeFiltroGrilla = (props) => {
         }
     }
 
-   
+    const agregandoProducto = async (producto) => {
+        const response = await props.agregarProductoAlCarrito(props.userLogged, producto)
+        if(response.success) {
+           return toast.success('Se agrego al carrito')
+        }else{
+           return toast.success('Este producto ya esta en el carrito')
+        }
+     }
+
     return (
         <div id="p-contenedorFiltroGrilla">
             <div id="p-contenedorTitFiltroGrilla" className="fontTitulos">
@@ -64,7 +74,7 @@ const HomeFiltroGrilla = (props) => {
                                                 <NavLink to={`/producto/${item._id}`} className="l-subContenedor-icono-de-imagen" ><Icon icon={searchOutlined} className="l-icono-de-imagen1"/></NavLink>
                                             </div>
                                             <div className="l-contenedor-icono-de-imagen-2">
-                                                <div className="l-subContenedor-icono-de-imagen"><Icon icon={shoppingCart} className="l-icono-de-imagen2" /></div>
+                                                <div className="l-subContenedor-icono-de-imagen" onClick={()=>agregandoProducto(item)}><Icon icon={shoppingCart} className="l-icono-de-imagen2" /></div>
                                             </div>
                                         </div>
                                     </div>
@@ -78,12 +88,14 @@ const HomeFiltroGrilla = (props) => {
 
 const mapStateToProps = state => {
     return {
-        todosLosProductos: state.productosReducer.todosLosProductos
+        todosLosProductos: state.productosReducer.todosLosProductos,
+        userLogged: state.authReducer.userLogged
     }
 }
 
 const mapDispatchToProps = {
-    obtenerLosProductos: productosActions.obtenerLosProductos
+    obtenerLosProductos: productosActions.obtenerLosProductos,
+    agregarProductoAlCarrito: carritoActions.agregarProductoAlCarrito
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomeFiltroGrilla)
