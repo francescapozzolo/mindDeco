@@ -33,27 +33,27 @@ const CrearProducto = (props) => {
         {categoria: 'living', subcategorias: [
             {subcategoria: 'muebles', articulos: ['sillones', 'mesas centro', 'mesas auxiliares', 'estanterias', 'cabinets', 'consolas', 'espejos', 'muebles TV']}, 
             {subcategoria:'textil', articulos:  ['almohadones', 'puff', 'mantas', 'alfombras']}, 
-            {subcategoria:'decoracion', articulos:  ['espejos', 'objetos', 'alfombras']}]
+            {subcategoria:'decoración', articulos:  ['espejos', 'objetos', 'alfombras']}]
         },
         {categoria:'cocina & comedor', subcategorias: [
             {subcategoria: 'muebles', articulos: ['mesas', 'sillas', 'barras', 'banquetas', 'estanterias', 'cabinets']}, 
             {subcategoria: 'textil', articulos: ['repasadores', 'manteles + servilletas' , 'delantales']}, 
-            {subcategoria: 'decoracion', articulos: ['pared', 'objetos']}, 
+            {subcategoria: 'decoración', articulos: ['pared', 'objetos']}, 
             {subcategoria: 'vajilla', articulos: ['platos', 'bandejas', 'la hora del té', 'copas y vasos']}]
         }, 
         {categoria:'dormitorio', subcategorias: [
             {subcategoria: 'muebles', articulos: ['escritorio', 'sillas', 'biblioteca', 'comoda', 'respaldares', 'mesa de luz', 'mueble tv']}, 
             {subcategoria: 'textil', articulos: ['puff', 'almohadones', 'mantas', 'alfombras', 'cubre edredon']}, 
-            {subcategoria: 'decoracion', articulos: ['pared', 'objetos']}]
+            {subcategoria: 'decoración', articulos: ['pared', 'objetos']}]
         }, 
         {categoria:'baños', subcategorias: [
             {subcategoria: 'textil', articulos: ['cortinas', 'alfombras']}, 
-            {subcategoria: 'decoracion', articulos: ['pared', 'objetos']}]
+            {subcategoria: 'decoración', articulos: ['pared', 'objetos']}]
         }, 
         {categoria:'jardin', subcategorias: [
             {subcategoria: 'muebles', articulos: ['mesas comedor', 'sillas', 'barras', 'banquetas', 'camastros', 'mesas centro']}, 
             {subcategoria: 'textil', articulos: ['almohadones', 'puff']}, 
-            {subcategoria: 'decoracion', articulos: ['pared', 'objetos', 'plantas']}]}
+            {subcategoria: 'decoración', articulos: ['pared', 'objetos', 'plantas']}]}
     ]
 
     const leerInput = (e)  => {

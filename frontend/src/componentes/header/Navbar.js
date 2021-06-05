@@ -50,7 +50,7 @@ const Navbar = (props) => {
           <Menu.Item>
             <div className="c-inputHeader">
               {props.userLogged ? <Link to='/' onClick={()=>{
-                toast.success('Se ah cerrado sesion')
+                toast.success('Se ha cerrado sesion')
                 props.logOutUser()
                 }}>CERRAR SESION</Link> : <Link to='/ingreso'>INICIAR SESION</Link>}
             </div>
@@ -118,11 +118,15 @@ const Navbar = (props) => {
                         <PersonIcon className='BCursorPointer' style={{fontSize: 32}} />
                     </Dropdown>
                     
-                    <div className="relative" style={{display: !props.userLogged && 'none'}}>
-                        <Link to='/carrito' style={{color: 'white'}}><ShoppingCartRoundedIcon style={{fontSize: 30}} /></Link>                         
-                        <div className={`${ articulosTotales ? "c-cantidadesCarrito BCirculoRojo" : "" }`}>{articulosTotales ? articulosTotales : null}</div>
-                        <div></div>
-                    </div>
+                    {
+                         !props.userLogged
+                         ? <div></div>
+                         : <div className="relative">
+                              <Link to='/carrito' style={{color: 'white'}}><ShoppingCartRoundedIcon style={{fontSize: 30}} /></Link>                         
+                              <div className={`${ articulosTotales ? "c-cantidadesCarrito BCirculoRojo" : "" }`}>{articulosTotales ? articulosTotales : null}</div>
+                              <div></div>
+                        </div>
+                    } 
                     </>
                     }
                 </div>
