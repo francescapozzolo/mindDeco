@@ -91,8 +91,8 @@ const agregandoProducto = async (producto) => {
             <div className="p-contenedorFotoProdInv"  style={{backgroundImage: `url(${producto.fotos[2]})`}}>
             </div>
             <div className="p-contenedorDescripcionProd"> 
-                  <div className="p-contenedorTitulosConsulta">
-                     <h2 className="fontTitulos">Escribinos </h2><h2 className="fontCursive">tu consulta</h2>
+                  <div>
+                     <h2 className="fontTitulos">Envíanos </h2><h2 className="fontCursive">tu consulta</h2>
                   </div>
                   <input type="text" className="fontTexto" placeholder="Ingresá tu mail" ></input>
                   <input type="text" className="fontTexto" placeholder="Ingresá tu nombre"></input>

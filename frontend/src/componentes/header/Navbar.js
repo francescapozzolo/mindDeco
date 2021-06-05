@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import LocalMallRoundedIcon from '@material-ui/icons/LocalMallRounded';
 import ShoppingCartRoundedIcon from '@material-ui/icons/ShoppingCartRounded';
 import PersonIcon from '@material-ui/icons/Person';
+import { ToastContainer, toast } from 'react-toastify'
+
 import { Menu, Dropdown } from "antd";
 import authActions from '../../redux/actions/authActions'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
@@ -47,7 +49,10 @@ const Navbar = (props) => {
         <Menu>
           <Menu.Item>
             <div className="c-inputHeader">
-              {props.userLogged ? <Link to='/' onClick={()=>props.logOutUser()}>CERRAR SESION</Link> : <Link to='/ingreso'>INICIAR SESION</Link>}
+              {props.userLogged ? <Link to='/' onClick={()=>{
+                toast.success('Se ah cerrado sesion')
+                props.logOutUser()
+                }}>CERRAR SESION</Link> : <Link to='/ingreso'>INICIAR SESION</Link>}
             </div>
           </Menu.Item>
           <Menu.Item>
@@ -100,10 +105,10 @@ const Navbar = (props) => {
                     :
                     <>
                     <Dropdown overlay={MenuOrdenes} placement="bottomCenter" arrow>
-                        <LocalMallRoundedIcon  style={{fontSize: 30}} />
+                        <LocalMallRoundedIcon className='BCursorPointer' style={{fontSize: 30}} />
                     </Dropdown>
                     <Dropdown overlay={MenuAccount} placement="bottomCenter" arrow>
-                        <PersonIcon style={{fontSize: 32}} />
+                        <PersonIcon className='BCursorPointer' style={{fontSize: 32}} />
                     </Dropdown>
                     <div className="relative" style={{display: !props.userLogged && 'none'}}>
                         <Link to='/carrito' style={{color: 'white'}}><ShoppingCartRoundedIcon style={{fontSize: 30}} /></Link>                         
