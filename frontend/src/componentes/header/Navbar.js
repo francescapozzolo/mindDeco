@@ -27,6 +27,13 @@ const Navbar = (props) => {
     if(props.userLogged){
       props.userLogged.carrito.map(producto => articulosTotales += producto.cantidad)
     }
+
+    if(props.userLogged){
+      if(props.userLogged.carrito.length === 0){
+        articulosTotales = 0
+      }
+    }
+
     const MenuAccount = (
         <Menu>
           <Menu.Item>
@@ -57,6 +64,7 @@ const Navbar = (props) => {
       </Menu>
       )
 
+      console.log(articulosTotales)
     return (
         <div className="c-navbarContainer">
             <div className="c-innerNavbarContainer">

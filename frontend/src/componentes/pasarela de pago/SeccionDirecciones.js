@@ -4,8 +4,8 @@ import {NavLink} from 'react-router-dom'
 
 
 const SeccionDirecciones = (props)=>{
-
-   const [infoDelUsuario, setInfoDelUsuario] = useState({nombreyapellidos: '', direccion: '', codigoPostal: '', ciudad: '', provincia: '', telefono: '', descripcionExtra: ""})
+   const {infoDelUsuario, setInfoDelUsuario} = props.statesDelPadre
+   // const [infoDelUsuario, setInfoDelUsuario] = useState({nombreyapellidos: '', direccion: '', codigoPostal: '', ciudad: '', provincia: '', telefono: '', descripcionExtra: ""})
    const [inputsIncompletos, setInputsIncompletos] = useState({ nombreyapellidos: false, direccion: false, ciudad: false, codigoPostal: false, provincia:false, telefono: false, helperInputNombre: "Complete este campo para continuar." })
    // const [helperInputNombre, setHelperInputNombre] = useState("Complete este campo para continuar.")
 
@@ -18,12 +18,12 @@ const SeccionDirecciones = (props)=>{
    const leerInput = (campo, valorDelInput) => {
       setInfoDelUsuario({ ...infoDelUsuario, [campo]: valorDelInput })
       setInputsIncompletos({...inputsIncompletos, [campo]: false})
-      console.log(infoDelUsuario)
    }
 
    const avanzar = ()=>{
-      props.setPasoDeCompra('paso2-metodoDeEnvio')
+      props.statesDelPadre.setPasoDeCompra('paso2-metodoDeEnvio')
       localStorage.setItem("infoDeCompraDelUsuario", JSON.stringify(infoDelUsuario))
+      // localStorage.setItem("pasoDeCompra", "paso2-metodoDeEnvio")
    }
 
    const continuar = () => {
@@ -38,23 +38,8 @@ const SeccionDirecciones = (props)=>{
          : infoDelUsuario.telefono === "" ? setInputsIncompletos({...inputsIncompletos, telefono: true})
          : avanzar()
          // : props.setPasoDeCompra('paso2-metodoDeEnvio')
-
          console.log(inputsIncompletos)
    }
-
-
-   // const continuar = () => {
-      // infoDelUsuario.nombreyapellidos == "" ? setInputsIncompletos({...inputsIncompletos, nombreyapellidos: true}) : setInputsIncompletos({...inputsIncompletos}) 
-      // infoDelUsuario.direccion === "" ? setInputsIncompletos({...inputsIncompletos, direccion: true}) : setInputsIncompletos({...inputsIncompletos})
-      // infoDelUsuario.codigoPostal === "" ? setInputsIncompletos({...inputsIncompletos, codigoPostal: true}) : setInputsIncompletos({...inputsIncompletos})
-      // infoDelUsuario.ciudad === "" ? setInputsIncompletos({...inputsIncompletos, ciudad: true}) : setInputsIncompletos({...inputsIncompletos})
-      // infoDelUsuario.provincia === "" ? setInputsIncompletos({...inputsIncompletos, provincia: true}) : setInputsIncompletos({...inputsIncompletos})
-      // infoDelUsuario.telefono === "" ? setInputsIncompletos({...inputsIncompletos, telefono: true}) : setInputsIncompletos({...inputsIncompletos})
-      // props.setPasoDeCompra('paso2-metodoDeEnvio')
-      // console.log(infoDelUsuario)
-      // console.log(inputsIncompletos)
-   // }
-
    return (
       <>
 

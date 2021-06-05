@@ -8,31 +8,28 @@ import SeccionMetodoDePago from '../componentes/pasarela de pago/SeccionMetodoDe
 import axios from 'axios'
 import carritoActions from '../redux/actions/carritoActions';
 import SeccionConfirmarCompra from '../componentes/pasarela de pago/SeccionConfirmarCompra';
+import PagoEnEfectivo from '../componentes/pasarela de pago/PagoEnEfectivo';
 
 const PasarelaDePago = (props)=>{
-   console.log(props)
    // const [metodoSeleccionado, setMetodoSeleccionado] = useState("")
    const [pasoDeCompra, setPasoDeCompra] = useState('paso1-direcciones')
-   const [metodoDePago, setMetodoDePago] = useState("")
+   // const [metodoDePago, setMetodoDePago] = useState("")
    const [datosDeTarjetaFueronPuestos, setDatosDeTarjetaFueronPuestos] = useState(false)
    const [productosAComprar, setProductosAComprar] = useState([])
    const [precioTotal, setPrecioTotal] = useState(0)
+   const [infoDelUsuario, setInfoDelUsuario] = useState({nombreyapellidos: '', direccion: '', codigoPostal: '', ciudad: '', provincia: '', telefono: '', descripcionExtra: '', metodoDeEnvio: '', metodoDePago: '', pagoEnEfectivo: false, pagoConTarjeta: false})
+
 
    useEffect(()=>{
-      console.log(props.userLogged)
       const cargarProductosAComprar = async()=>{
          if (props.userLogged){
-            console.log("hay un usuario logeado")
-
             const respuesta = await props.obtenerProductos(props.userLogged)
-            console.log(respuesta.carrito)
             setProductosAComprar(respuesta.carrito)
             let precioAPagar = 0 
-            respuesta.carrito.map(producto=> {
-               console.log(producto.idProducto.precio)
-               precioAPagar = precioAPagar + producto.idProducto.precio * producto.cantidad
-               console.log(precioAPagar)
-            }) 
+            respuesta.carrito.map(producto => precioAPagar = precioAPagar + producto.idProducto.precio * producto.cantidad) 
+            // if(precioAPagar.length > 3){
+
+            // }
             setPrecioTotal(precioAPagar)
          }
       }      
@@ -40,28 +37,31 @@ const PasarelaDePago = (props)=>{
    },[props])
 
 
-
+   console.log(infoDelUsuario)
    return( 
       <div className="contenedorGeneral-pagina-pasarelaDePago">
          <div className="contenedorDeFormularios">
 
             <p className="tituloDirecciones-pasarelaDePago fontTitulos" >1. Direcciones</p>
             <div className="barraHorizontal-Pasarela"></div>
-            {pasoDeCompra === "paso1-direcciones" && <SeccionDirecciones setPasoDeCompra={setPasoDeCompra}/> }            
+            {pasoDeCompra === "paso1-direcciones" && <SeccionDirecciones statesDelPadre={{setPasoDeCompra, infoDelUsuario, setInfoDelUsuario}}/> }            
+            {/* {pasoDeCompra === "paso1-direcciones" && <SeccionDirecciones setPasoDeCompra={setPasoDeCompra}/> }             */}
 
             <p className="tituloMetodoEnvio-pasarelaDePago fontTitulos" >2. Metodo de Envio</p>
             <div className="barraHorizontal-Pasarela"></div>
-            {pasoDeCompra === "paso2-metodoDeEnvio" && <SeccionMetodoDeEnvio setPasoDeCompra={setPasoDeCompra} />}
+            {pasoDeCompra === "paso2-metodoDeEnvio" && <SeccionMetodoDeEnvio statesDelPadre={{setPasoDeCompra, infoDelUsuario, setInfoDelUsuario}} />}
+            {/* {pasoDeCompra === "paso2-metodoDeEnvio" && <SeccionMetodoDeEnvio setPasoDeCompra={setPasoDeCompra} />} */}
 
             <p className="tituloEnvio-pasarelaDePago fontTitulos" >3. Metodo de Pago</p>
             <div className="barraHorizontal-Pasarela"></div>
-            {pasoDeCompra === "paso3-metodoDePago" && <SeccionMetodoDePago statesDelPadre={{metodoDePago, setMetodoDePago, datosDeTarjetaFueronPuestos, setPasoDeCompra}} />}
+            {pasoDeCompra === "paso3-metodoDePago" && <SeccionMetodoDePago statesDelPadre={{infoDelUsuario, setInfoDelUsuario, datosDeTarjetaFueronPuestos, setPasoDeCompra}} />}
 
-            {pasoDeCompra === "pasoOpcional-cargarDatosDeTargeta" && <CreditCard setPasoDeCompra={setPasoDeCompra}/>}
+            {pasoDeCompra === "pasoOpcional-pagoEnEfectivo" && <PagoEnEfectivo statesDelPadre={{setPasoDeCompra, infoDelUsuario, setInfoDelUsuario}}/>}
+            {pasoDeCompra === "pasoOpcional-pagarConTarjeta" && <CreditCard statesDelPadre={{setPasoDeCompra, infoDelUsuario, setInfoDelUsuario}}/>}
 
             <p className="tituloEnvio-pasarelaDePago fontTitulos" >4. Confirmar Compra</p>
             <div className="barraHorizontal-Pasarela"></div>
-            {pasoDeCompra === "paso4-confirmarCompra" && <SeccionConfirmarCompra statesDelPadre={{metodoDePago, setMetodoDePago, datosDeTarjetaFueronPuestos, setPasoDeCompra}} />}
+            {pasoDeCompra === "paso4-confirmarCompra" && <SeccionConfirmarCompra statesDelPadre={{setPasoDeCompra, infoDelUsuario, precioTotal, productosAComprar}} />}
 
 
 
@@ -85,8 +85,8 @@ const PasarelaDePago = (props)=>{
                                     <p className="fontTexto fontSize18">{producto.cantidad}</p>
                                  </div>
                                  <div className="contenedor-infoDeProducto">
-                                    <p className="fontSize18 fontTexto"> Valor por Unidad: </p>
-                                    <p className="fontTexto fontSize18">$ {producto.idProducto.precio}</p>
+                                    <p className="fontSize18 fontTexto texto-valorPorUnidad"> Valor por Unidad: </p>
+                                    <p className="fontTexto fontSize18 valorProducto ">$ {producto.idProducto.precio}</p>
                                  </div>
                                  <div className="contenedor-infoDeProducto">
                                     <p className="fontSize18 fontNegrita fontTexto"> Subtotal:</p>
