@@ -19,14 +19,30 @@ const Navbar = (props) => {
   //   } 
   // },[])
 
-  // if (props.userLogged.carrito != null){ 
-  //   articulosTotales = 0
-  //   props.userLogged.carrito.map(producto => articulosTotales += producto.cantidad)
-  // }
-    
+    // useEffect(()=>{
+    //   console.log('Soy el NavBar y me renderice')
+    //   if(props.userLogged){
+    //     console.log(props.userLogged)
+    //   }
+    //   if(props.userLogged){
+    //     if (props.userLogged.carrito != null){ 
+    //       articulosTotales = 0
+    //       props.userLogged.carrito.map(producto => articulosTotales += producto.cantidad)
+    //     }
+    //   }  
+    // },[props.userLogged])
+
     if(props.userLogged){
-      props.userLogged.carrito.map(producto => articulosTotales += producto.cantidad)
+      if (props.userLogged.carrito != null){ 
+        articulosTotales = 0
+        props.userLogged.carrito.map(producto => articulosTotales += producto.cantidad)
+      }
     }
+    
+    // if(props.userLogged){
+    //   props.userLogged.carrito.map(producto => articulosTotales += producto.cantidad)
+    // }
+
     const MenuAccount = (
         <Menu>
           <Menu.Item>
@@ -57,6 +73,7 @@ const Navbar = (props) => {
       </Menu>
       )
 
+      console.log(articulosTotales)
     return (
         <div className="c-navbarContainer">
             <div className="c-innerNavbarContainer">
