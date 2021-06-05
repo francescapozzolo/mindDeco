@@ -151,7 +151,9 @@ h4.BPrecioProducto, h5.BDescripcionProducto{
     border: 2px solid transparent;
     border-color: var(--negro);
 }
-
+.BCursorPointer{
+    cursor: pointer;
+}
 .BButon:hover{
     background-color: #fff;
     color: var(--negro);
