@@ -76,7 +76,7 @@ const PasarelaDePago = (props)=>{
                   return(
                      <div key={producto._id} >
                         <div className="productoAComprar">
-                           <div className="fotoDeProductoAComprar" style={{backgroundImage: `url(${producto.idProducto.fotos[0].includes('https') ? producto.idProducto.fotos[0] :'/fotos/'+producto.idProducto.fotos[0]})`}}></div>
+                           <div className="fotoDeProductoAComprar" style={{backgroundImage: `url(${producto.idProducto.fotos[0]})`}}></div>
                            <div className="infoProductoAComprar">
                               <p className="nombre-productoAComprar fontTitulos">{producto.idProducto.nombre.charAt(0).toUpperCase() + producto.idProducto.nombre.slice(1) }</p>
                               <div className="contenedor-UnidadesyPrecio">

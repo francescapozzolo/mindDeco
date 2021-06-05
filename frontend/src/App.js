@@ -23,7 +23,6 @@ import "./styles/stylepozzolo.css"
 import "antd/dist/antd.css";
 
 
-
 const App = ({userLogged, logInForced, obtenerProductos}) => {
   const [carrito, setCarrito] = useState(null)
   useEffect(()=>{
@@ -36,6 +35,7 @@ const App = ({userLogged, logInForced, obtenerProductos}) => {
       logInForced(userForced)
     }
   },[userLogged, logInForced]) 
+ console.log(userLogged)
     return(
       <>
         <ToastContainer/>
@@ -45,9 +45,9 @@ const App = ({userLogged, logInForced, obtenerProductos}) => {
             <Route path="/ingreso" component={Ingreso}/>
             <Route exact path="/" component={Inicio}/>
             <Route path="/categoria/:categoria" component={Categoria}/>
-            <Route path="/administrador" component={Administrador} />
+            {(userLogged && userLogged.administrador) &&<Route path="/administrador" component={Administrador} />}
             <Route path="/registro" component={Registro}/>
-            <Route path="/carrito" component={Carrito}/>
+            {userLogged && <Route path="/carrito" component={Carrito}/>}
             <Route path="/producto/:id" component={Producto} />
             <Route path="/comprar" component={PasarelaDePago} />
             <Redirect to='/'/>
@@ -58,11 +58,11 @@ const App = ({userLogged, logInForced, obtenerProductos}) => {
     )
   }
 
-const mapStateToProps = state =>{
-  return{
-    userLogged: state.userLogged
+  const mapStateToProps = state => {
+    return {
+      userLogged: state.authReducer.userLogged
+    }
   }
-}
 
 const mapDispatchToProps = {
   logInForced : authActions.logInForced,

@@ -33,7 +33,7 @@ const Producto = (props) => {
 
     return (
         <div className='BContainerProducto'>
-            <div className='BImagenProducto' style={{backgroundImage:`url(${props.producto.idProducto.fotos[0].includes('https') ? props.producto.idProducto.fotos[0] :'/fotos/'+props.producto.idProducto.fotos[0]})`}}></div>
+            <div className='BImagenProducto' style={{backgroundImage:`url(${props.producto.idProducto.fotos[0]})`}}></div>
             <div className='BProductoContenido'>
                 <div className='BContainerTituloProducto'>
                     <h3 className='BTituloProducto'>{props.producto.idProducto.nombre.charAt(0).toUpperCase() + props.producto.idProducto.nombre.slice(1, props.producto.idProducto.nombre.legth)}</h3>

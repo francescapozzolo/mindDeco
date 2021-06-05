@@ -168,6 +168,10 @@ a:hover {
 	grid-template-columns: repeat(5, 1fr);
 }
 
+.c-footerInfoContainer :first-child{
+	margin-bottom: 10px;
+}
+
 .c-footerTextareaContainer {
 	border: 1px solid gray;
 }
@@ -196,7 +200,6 @@ a:hover {
 	resize: none;
 	border: 1px solid rgb(75, 75, 75);
 	border-radius: 2px;
-	margin-top: 10px;
 	padding-left: 6px;
 	padding-top: 4px;
 	width: 80%;

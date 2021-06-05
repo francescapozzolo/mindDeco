@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import GridFrases from '../componentes/home/GridFrases'
 import HomeCarruselPrincipal from '../componentes/home/HomeCarruselPrincipal'
 import HomeFiltroGrilla from '../componentes/home/HomeFiltroGrilla'
@@ -10,9 +11,9 @@ const Inicio = () => {
     return (
         <div id="pContenedorInicio">
             <div className="wtsp">
-            <a href={url} target="_blank"> 
-            <div  style = {{backgroundImage:`url(${fotoW})`,width:"4vw",height:"8vh",margin:"1vh",backgroundSize:"cover",zIndex:1000}} ></div>
-            </a> 
+            <Link to={url} target="_blank" > 
+                <div style={{backgroundImage:`url(${fotoW})`,width:"4vw",height:"8vh",margin:"1vh",backgroundSize:"cover",zIndex:1000}} ></div>
+            </Link>
         
             </div>
             <HomeCarruselPrincipal />
