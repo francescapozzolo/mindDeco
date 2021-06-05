@@ -61,10 +61,10 @@ const agregandoProducto = async (producto) => {
                <div className="l-contenedor-icono-de-imagen-2 p-iconoCarrito">
                      <div className="l-subContenedor-icono-de-imagen" onClick={()=>agregandoProducto(producto)}><Icon icon={shoppingCart} className="l-icono-de-imagen2 p-iconoCarrito" /></div>
                </div>
-               <p className="precioProducto-componenteIndividual fontTexto">Precio: ARS {producto.precio}</p>
+               <p className="precioProducto-componenteIndividual fontTexto">Precio: ${producto.precio}</p>
                <div className="contenedor-valoracionDeProducto"> 
                   <div><StarIcon /><StarIcon /><StarIcon /><StarIcon /><StarIcon /></div>
-                  <p className="opcion-AgregarOpinion fontTexto"><span className="barrita-divisora">|</span> Agregar una opinion</p>
+                  <p className="opcion-AgregarOpinion fontTexto"><span className="barrita-divisora">|</span> Agregar una opinión</p>
                </div>
                <div className="p-contenedorIconosAcciones">
                   <div>
