@@ -15,6 +15,28 @@
     font-weight: bold;
 }
 
+.fontSize13 {
+    font-size: 13px;
+}
+
+.fontSize16 {
+    font-size: 16px;
+}
+
+.fontSize18 {
+    font-size: 18px;
+}
+
+.fontSize20{
+    font-size: 20px;
+}
+
+
+.fontSize25 {
+    font-size: 22px;
+}
+
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -122,14 +144,16 @@ border-spacing: 0;
     cursor: pointer;
 }
 
-/* .l-contenedor-opcion-por-categoria{ */
+.l-contenedor-opcion-por-categoria{ 
     /* background: lightskyblue; */
-/* } */
-
-.l-contenedor-opcion-por-categoria:hover {
     cursor: pointer;
-    /* background: rgb(248, 248, 248); */
+
 }
+
+/* .l-contenedor-opcion-por-categoria:hover {
+    cursor: pointer;
+    background: rgb(248, 248, 248);
+} */
 
 .l-barra-horizontal-1 {
     width: 100%;
@@ -675,6 +699,7 @@ border-spacing: 0;
     width: 58%;
     margin-left: 5%;
     margin-right: 5%;
+    margin-bottom: 120px;
     /* background-color: lightsteelblue; */
     /* height: 100vh; */
     /* border:1px solid red; */
@@ -725,7 +750,7 @@ border-spacing: 0;
     margin-left: 25px;
     display: flex;
     flex-direction: column;
-    flex: 1;
+    width: 380px;
     height: 100%;
     justify-content: space-between;
     /* border: 1px solid lightgrey; */
@@ -758,6 +783,7 @@ border-spacing: 0;
     justify-content: space-between;
 }
 
+
 .unidades-productoAComprar {
     /* margin-top: 40px; */
     font-size: 18px;
@@ -765,17 +791,7 @@ border-spacing: 0;
 
 
 
-.fontSize20{
-    font-size: 20px;
-}
 
-.fontSize18 {
-    font-size: 18px;
-}
-
-.fontSize16 {
-    font-size: 16px;
-}
 
 .barra-horizonta-aside {
     width: 60%;
@@ -798,10 +814,6 @@ border-spacing: 0;
     /* background-color: red; */
     display: flex;
     justify-content: space-between;
-}
-
-.fontSize25 {
-    font-size: 22px;
 }
 
 
@@ -1001,7 +1013,7 @@ border-spacing: 0;
     margin-left: 30px;
     box-shadow: 1px 4px 4px 0px rgba(104, 104, 104, 0.2);
     border-left: 6px solid black;
-} */
+ } */
 
 
 .metodoDeEnvio{
@@ -1010,7 +1022,7 @@ border-spacing: 0;
     margin-top: 20px;
     display: inline-block;
     /* padding: 30px 270px 30px 40px; */
-    width: 500px;
+    width: 700px;
     height: 80px;
     display: flex;
     align-items: center;
@@ -1022,6 +1034,7 @@ border-spacing: 0;
 
 .metodoDeEnvio:hover {
     cursor: pointer;
+    background-color: rgb(230, 230, 230);
 }
 
 .error-MetodoDeEnvio{
@@ -1032,7 +1045,6 @@ border-spacing: 0;
 .metodoSeleccionado {
     border-left: 6px solid black;
     padding-left: 24px;
-    background-color: rgb(230, 230, 230);
 }
 
 .metodoDePagoLabel {
@@ -1051,6 +1063,42 @@ border-spacing: 0;
     background-color: black;
 }
 
+.contenedor-debitCardIcon {
+    background: rgb(252, 252, 252);
+    color: rgb(61, 137, 250);
+    border-radius: 100%;
+    padding: 9px 11px;
+    margin-right: 20px;
+}
+
+.creditCard-icon{
+    font-size: 30px;
+}
+
+.contenedor-creditCardicon {
+    background: rgb(252, 252, 252);
+    border-radius: 100%;
+    padding: 6px 8px;
+    margin-right: 20px;
+}
+
+.debitCard-icon {
+    font-size: 35px;
+    color: rgb(36, 122, 250);
+}
+
+.contenedor-cashIcon {
+    background: rgb(252, 252, 252);
+    border-radius: 100%;
+    padding: 8px 9px;
+    margin-right: 15px;
+}
+
+.cashIcon {
+    color: rgb(59, 137, 255);
+    font-size: 30px;
+}
+
 .tituloEnvio-pasarelaDePago {
     margin-top: 50px;
     font-size: 27px;
@@ -1063,9 +1111,6 @@ border-spacing: 0;
 .contenedor-botonesAvanzar-metodoDeEnvio {
     display: flex;
     justify-content: space-between;
-    /* align-self: flex-end; */
-    /* margin-top: 50px; */
-    /* background-color: red; */
 } 
 
 
@@ -1089,15 +1134,12 @@ border-spacing: 0;
 
 .metodoDePago {
     font-size: 20px;
-    /* margin-left: 30px; */
-    /* margin-top: 20px; */
     display: inline-block;
-    width: 500px;
+    width: 700px;
     height: 80px;
     display: flex;
     align-items: center;
     padding-left: 30px;
-    /* border-radius: 5px; */
     box-shadow: 1px 4px 4px 0px rgba(104, 104, 104, 0.2);
     background-color: rgb(240, 240, 240);
     border-bottom: 1px solid rgb(180, 180, 180);
@@ -1105,6 +1147,7 @@ border-spacing: 0;
 
 .metodoDePago:hover {
     cursor: pointer;
+    background-color: rgb(230, 230, 230);
 }
 
 .error-MetodoDePago{
@@ -1124,7 +1167,8 @@ border-spacing: 0;
 .pagoSeleccionado {
     border-left: 5px solid black;
     padding-left: 25px;
-    background-color: rgb(230, 230, 230);
+    /* background-color: rgb(230, 230, 230); */
+    /* background: red; */
     /* border-radius: 5px 0px 0px 5px; */
 }
 
@@ -1135,6 +1179,49 @@ border-spacing: 0;
 }
 
 
+
+
+
+
+
+
+
+
+/* Seccion Metodo de pago en Efectivo */
+
+.seccion-PagoEnEfectivo {
+    width: 70%;
+    margin-left: 40px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* background: blue; */
+}
+
+.contenedor-opcionesDePagoEnEfectivo{
+    /* background: lightskyblue; */
+    /* margin-left: 40px; */
+    width: 700px;
+}
+
+.opcionProvincia {
+    border-bottom: none;
+}
+
+.contenedor-botonesAvanzar-metodoDePagoEfectivo {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+
+
+
+
+
+
 .contenedor-seccionCreditCard {
     /* background-color: lightslategray; */
     width: 800px;
@@ -1142,16 +1229,16 @@ border-spacing: 0;
 }
 
 #PaymentForm {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
     /* background-color: red; */
     /* border: 1px solid rgb(189, 189, 189); */
     /* width: 1200px; */
-    display: flex;
     /* flex-direction: column; */
-    justify-content: space-between;
-    align-items: center;
     /* margin-left: 50px; */
     /* background-color: lightcyan; */
-    width: 100%;
     /* height: 400px; */
 }
 
@@ -1220,38 +1307,120 @@ border-spacing: 0;
 .contenedorDeTargetas {
     width: 90%;
     height: 500px;
-    border: 1px solid lightseagreen;
+    /* border: 1px solid lightseagreen; */
     margin: 0 auto;
 }
 
 .targeta-confirmarCompra {
+    margin-top: 10px;
     width: 600px;
-    height: 150px;
+    min-height: 100px;
     background-color: rgb(245,245,245);
-    border-radius: 10px;
+    border-radius: 7px;
     display: flex;
     align-items: center;
 }
 
+.contenedorIconoDireccion-ConfirmarCompra {
+    /* height: 50px; */
+    /* width: 5px; */
+    padding: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border-radius: 100%;
+    margin: 0px 30px;
+}
+
 .iconoDireccion-ConfirmarCompra {
-    width: 50px;
-    height: 50px;
-    background-color: black;
+    /* width: 50px; */
+    /* height: 50px; */
+    /* background-color: black; */
+    /* margin: 0px 30px; */
+    font-size: 27px;
+    color: rgb(52,131,250);
 }
 
 .contenedorDeDatos-ConfirmarCompra {
     width: 70%;
     height: 80%;
-    background-color: lightyellow;
+    /* background-color: lightyellow; */
+    /* padding-left: 30px; */
+    margin: 20px 0;
 }
 
-.editarDirecciones {
-    
+.texto-detalleDeLaEntrega {
+    font-size: 14px;
+    margin-top: 40px;
+}
+
+.direccionDeEntrega-confirmarCompra {
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+
+.info-confirmarCompra {
+    font-size: 13px;
+    margin-top: 5px;
+    color: grey;
+}
+
+.textoModificar {
+    margin-right: 30px;
+    color: #3483fa;
+    font-size: 14px;
+}
+
+.textoModificar:hover {
+    cursor: pointer;
+}
+
+.modMetodoDeEntrega {
+    font-size: 14px;
+    color: #3483fa;
+    width: 175px;
+}
+.modMetodoDeEntrega:hover {
+    cursor: pointer;
 }
 
 
+.texto-DetalleDelPago {
+    font-size: 14px;
+    margin-top: 40px;
+}
 
+.contenedor-botonesComprar {
+    margin-top: 20px;
+    width: 600px;
+    display: flex;
+    justify-content: space-between;
+}
 
+.botonComprar-confirmarCompra {
+    margin-top: 20px;
+    width: 150px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(52,131,250);
+    /* background-color: rgb(201, 182, 135); */
+    color: white;
+    font-size: 17px;
+    letter-spacing: 1px;
+    transition: all .3s ease;
+}
+
+.botonComprar-confirmarCompra:hover {
+    cursor: pointer;
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(52,131,250);
+    color: rgb(52,131,250);
+    /* border: 1px solid rgb(201, 182, 135); */
+    /* color: rgb(201, 182, 135); */
+}
 
 @media (max-width: 1600px) {
     .l-card {
@@ -1259,6 +1428,7 @@ border-spacing: 0;
     }
     .contenedorDeFormularios {
         margin-left: 30px;
+        margin-bottom: 120px;
     }
     .contenedor-seccionCreditCard{
         width: 100%;
@@ -1274,6 +1444,10 @@ border-spacing: 0;
     .contenedorLateral{
         width: 40%;
         margin-right: 2%;
+    }
+    .infoProductoAComprar{
+        /* background: red; */
+        width: 70%;
     }
 }
 
@@ -1297,6 +1471,7 @@ border-spacing: 0;
     }
     .contenedorDeFormularios {
         margin-right: 3%;
+        margin-bottom: 120px;
     }
 }
 
@@ -1318,9 +1493,23 @@ border-spacing: 0;
     .l-card {
         width: 45%;
     }
+    
+}
+
+@media (max-width: 1000px){
     .contenedor-UnidadesyPrecio{
         height: 85px;
     }
+    .texto-valorPorUnidad{
+        background: rgba(0, 0, 0, 0.281);
+        width: 100px;
+    }
+
+    .valorProducto {
+        /* background: red; */
+        /* width: 70px; */
+        /* display: flex; */
+    } 
 }
 
 @media (max-width: 750px) {
