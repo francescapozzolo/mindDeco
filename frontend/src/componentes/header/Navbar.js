@@ -104,15 +104,24 @@ const Navbar = (props) => {
                     </>
                     :
                     <>
-                    <Dropdown overlay={MenuOrdenes} placement="bottomCenter" arrow>
-                        <LocalMallRoundedIcon className='BCursorPointer' style={{fontSize: 30}} />
-                    </Dropdown>
+                   
+                       {
+                         !props.userLogged
+                         ? <div></div>
+                         : 
+                         <Dropdown overlay={MenuOrdenes} placement="bottomCenter" arrow>
+                            <LocalMallRoundedIcon className='BCursorPointer' style={{fontSize: 30}}/>
+                         </Dropdown>
+                       }                      
+
                     <Dropdown overlay={MenuAccount} placement="bottomCenter" arrow>
                         <PersonIcon className='BCursorPointer' style={{fontSize: 32}} />
                     </Dropdown>
+                    
                     <div className="relative" style={{display: !props.userLogged && 'none'}}>
                         <Link to='/carrito' style={{color: 'white'}}><ShoppingCartRoundedIcon style={{fontSize: 30}} /></Link>                         
                         <div className={`${ articulosTotales ? "c-cantidadesCarrito BCirculoRojo" : "" }`}>{articulosTotales ? articulosTotales : null}</div>
+                        <div></div>
                     </div>
                     </>
                     }

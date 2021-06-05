@@ -37,7 +37,7 @@ const Producto = (props) => {
             <div className='BProductoContenido'>
                 <div className='BContainerTituloProducto'>
                     <h3 className='BTituloProducto'>{props.producto.idProducto.nombre.charAt(0).toUpperCase() + props.producto.idProducto.nombre.slice(1, props.producto.idProducto.nombre.legth)}</h3>
-                    <h4 className='BPrecioProducto'>{props.producto.idProducto.precio + ' ARS'}</h4>
+                    <h4 className='BPrecioProducto'>${props.producto.idProducto.precio}</h4>
                     {/* <h5 className='BDescripcionProducto'>{props.producto.idProducto.dimensiones ? 'Dimensión: '+ props.producto.idProducto.dimensiones : null}</h5> */}
                 </div>
                 <div className='BContainerNumeric'>
@@ -58,7 +58,7 @@ const Producto = (props) => {
                         } 
                     />
                 </div>
-                <h3 className='BTotalProducto'>{props.producto.cantidad*props.producto.idProducto.precio + ' ARS'} </h3>
+                <h3 className='BTotalProducto'>${props.producto.cantidad*props.producto.idProducto.precio} </h3>
                 <CloseIcon className="BIconoClose" onClick={borrarProducto}/>
             </div>
             <ToastContainer/>

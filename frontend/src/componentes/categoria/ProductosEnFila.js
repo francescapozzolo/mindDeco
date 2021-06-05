@@ -76,7 +76,7 @@ const ProductosEnFila = (props)=>{
                      <div className="contenedor-infoTecnica">
                         <p className="texto-infoTecnica fontTexto"><span className="tituloInfoTecnica-compIndividual fontTitulos">{(producto.dimensiones.trim).length > 0 ? 'Dimensiones:' : ''} </span>{producto.dimensiones}</p>
                      </div>
-                     <p className="precio-producto fontTexto">{producto.precio} ARS</p>
+                     <p className="precio-producto fontTexto">${producto.precio}</p>
                   </div>
                   
                </div>

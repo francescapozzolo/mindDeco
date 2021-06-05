@@ -62,7 +62,7 @@ const Carrito = (props) => {
                     </div>
                     <div className='BTableroFilas BMargginBoton'>
                         <h3>{articulosTotales+' artículos'}</h3>
-                        <h3>{precioTotal + ' ARS'}</h3>
+                        <h3>${precioTotal}</h3>
                     </div>
                     <hr />
                     <h3 className='BMarginTop BCodigoPromocional' onClick={()=> setOpen(!open)}>¿Tienes un código promocional?</h3>
@@ -75,7 +75,7 @@ const Carrito = (props) => {
                     
                     <div className='BTableroFilas BTableroTotal'>
                         <h3>Total</h3>
-                        <h3 className='BBold'>{precioTotal + ' ARS'}</h3>
+                        <h3 className='BBold'>${precioTotal}</h3>
                     </div>
                 </div>
                     

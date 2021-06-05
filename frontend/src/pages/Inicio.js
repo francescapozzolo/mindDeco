@@ -11,8 +11,8 @@ const Inicio = () => {
     return (
         <div id="pContenedorInicio">
             <div className="wtsp">
-            <Link to={url} target="_blank" > 
-                <div style={{backgroundImage:`url(${fotoW})`,width:"4vw",height:"8vh",margin:"1vh",backgroundSize:"cover",zIndex:1000}} ></div>
+            <Link to={{pathname: url}} target="_blank" > 
+                <div style={{backgroundImage:`url(${fotoW})`, width:"4vw",height:"8vh",margin:"4vh",backgroundSize:"cover",zIndex:1000}} ></div>
             </Link>
         
             </div>
