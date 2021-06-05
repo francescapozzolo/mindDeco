@@ -173,7 +173,7 @@ const CrearProducto = (props) => {
                     {categorias.map(categoria => {
                         return(
                             <>
-                                <option key={categoria.categoria} value={categoria.categoria}>{categoria.categoria.charAt(0).toUpperCase() + categoria.categoria.slice(1, categoria.categoria.legth)}</option>
+                                <option key={categoria.categoria} value={categoria.categoria}>{categoria.categoria.charAt(0).toUpperCase() + categoria.categoria.slice(1, categoria.categoria.length)}</option>
                             </>
                         )
                     })}
@@ -183,7 +183,7 @@ const CrearProducto = (props) => {
                     {arraySubcategorias.map(subcategoria => {
                         return ( 
                             <>
-                                <option value={subcategoria.subcategoria} name={'subcategoria'}>{subcategoria.subcategoria.charAt(0).toUpperCase() + subcategoria.subcategoria.slice(1, subcategoria.subcategoria.legth)}</option>
+                                <option value={subcategoria.subcategoria} name={'subcategoria'}>{subcategoria.subcategoria.charAt(0).toUpperCase() + subcategoria.subcategoria.slice(1, subcategoria.subcategoria.length)}</option>
                             </>
                         )
                     })

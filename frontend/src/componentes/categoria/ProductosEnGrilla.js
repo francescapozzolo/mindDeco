@@ -30,6 +30,7 @@ const ProductosEnGrilla = (props) => {
            return toast.warning('Este producto ya esta en el carrito')
         }
     }
+
     return (
         <>    
             {props.infoImportante.productosAMostrar.map(producto =>{

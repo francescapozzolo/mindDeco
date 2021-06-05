@@ -122,14 +122,16 @@ border-spacing: 0;
     cursor: pointer;
 }
 
-/* .l-contenedor-opcion-por-categoria{ */
+.l-contenedor-opcion-por-categoria{ 
     /* background: lightskyblue; */
-/* } */
-
-.l-contenedor-opcion-por-categoria:hover {
     cursor: pointer;
-    /* background: rgb(248, 248, 248); */
+
 }
+
+/* .l-contenedor-opcion-por-categoria:hover {
+    cursor: pointer;
+    background: rgb(248, 248, 248);
+} */
 
 .l-barra-horizontal-1 {
     width: 100%;
