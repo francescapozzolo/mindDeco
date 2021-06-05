@@ -9,9 +9,7 @@ const Inicio = () => {
     var url= "https://wa.link/p58nd1"
     return (
         <div id="pContenedorInicio">
-            
             <div className="wtsp">
-            
             <a href={url} target="_blank"> 
             <div  style = {{backgroundImage:`url(${fotoW})`,width:"4vw",height:"8vh",margin:"1vh",backgroundSize:"cover",zIndex:1000}} ></div>
             </a> 

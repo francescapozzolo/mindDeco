@@ -6,7 +6,7 @@ import productosActions from '../../redux/actions/productosActions'
 const HomeGrillaCategorias = (props) => {
 
     const filtrarSubcategorias = (subcategoria) => {
-        props.fetchearSubcategorias(subcategoria) 
+        props.fetchearSubcategorias(subcategoria)
     }
 
     return (
