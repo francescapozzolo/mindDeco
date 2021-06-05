@@ -17,8 +17,8 @@ const SeccionConfirmarCompra = (props)=>{
    const [iconoDetalleDelPago, setIconoDetalleDelPago] = useState('')
 
    useEffect(()=>{
-      console.log(props)
-      console.log(precioTotal)
+      // console.log(props)
+      // console.log(precioTotal)
       if(infoDelUsuario.envioElegido === "recibirCompra"){
          setMetodoDeEnvioAMostrar("Recibir en Domicilio")
       }else if(infoDelUsuario.envioElegido === "retiroPorSucursal"){
@@ -49,11 +49,12 @@ const SeccionConfirmarCompra = (props)=>{
    },[])
 
    const confirmarCompra = ()=>{
+      productosAComprar.map(producto => {
+         return props.vaciarCarrito(props.userLogged, producto)
+      })
      alert('Felicitaciones! Su compra fue realizada con Exito') 
      localStorage.removeItem("infoDeCompraDelUsuario")
-     productosAComprar.map(producto => {
-        props.borrarProducto(props.userLogged, producto)
-     })
+   //   props.vaciarCarrito(props.userLogged)
    }
 
    const volver = ()=>{
@@ -135,7 +136,7 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = {
-   borrarProducto: carritoActions.borrarProducto
+   vaciarCarrito: carritoActions.vaciarCarrito
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SeccionConfirmarCompra)

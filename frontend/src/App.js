@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import Inicio from './pages/Inicio'
 import { ToastContainer } from 'react-toastify'
 import {BrowserRouter, Redirect, Route, Switch} from 'react-router-dom'
@@ -24,7 +24,7 @@ import "antd/dist/antd.css";
 
 
 const App = ({userLogged, logInForced, obtenerProductos}) => {
-  const [carrito, setCarrito] = useState(null)
+
   useEffect(()=>{
     if (!userLogged && localStorage.getItem('token')) {
       const userData = JSON.parse(localStorage.getItem('userLogged'))
@@ -35,12 +35,11 @@ const App = ({userLogged, logInForced, obtenerProductos}) => {
       logInForced(userForced)
     }
   },[userLogged, logInForced]) 
- console.log(userLogged)
     return(
       <>
         <ToastContainer/>
         <BrowserRouter>
-        <Header carrito={carrito}/>
+        <Header />
           <Switch>
             <Route path="/ingreso" component={Ingreso}/>
             <Route exact path="/" component={Inicio}/>

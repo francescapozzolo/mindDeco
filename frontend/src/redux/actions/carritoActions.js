@@ -54,7 +54,6 @@ const carritoActions = {
     borrarProducto:(user, producto) => {
         return async (dispatch, getState) => {
             try{
-                console.log('user',user)
                 const response = await axios.put('http://localhost:4000/api/borrarProducto',{producto},{
                     headers: {
                         'Authorization': 'Bearer '+user.token
@@ -70,7 +69,28 @@ const carritoActions = {
                 console.log(error)
             }
         }       
-    }
+    },
+    vaciarCarrito:(user,producto) => {
+        return async (dispatch, getState) => {
+            try{
+                console.log('user',user)
+                const response = await axios.put('http://localhost:4000/api/vaciarCarrito',{producto},{
+                    headers: {
+                        'Authorization': 'Bearer '+user.token
+                    }
+                })
+                // console.log('ln: 13', response.data.respuesta )
+                dispatch({
+                    type: 'LOG_USER',
+                    payload: response.data.success ? {...response.data.respuesta, token: user.token} : null
+                })
+                return response.data.respuesta
+            }catch(error){
+                console.log(error)
+            }
+        }       
+    },
+
 }
 
 export default carritoActions

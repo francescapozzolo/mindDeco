@@ -8,7 +8,7 @@ import mailActions from '../redux/actions/mailActions';
 import { toast } from 'react-toastify'
 
 const Header = (props) => {
-console.log(props)
+
   const [isModalVisible, setIsModalVisible] = useState(false)
   const [mail, setMail] = useState({email: '', nombre: ''})
   const [completo, setCompleto] = useState(false)
