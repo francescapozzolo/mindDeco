@@ -440,3 +440,35 @@ float: left;
             transform: scale3D(0, 0, 1);
 } 
 }
+
+@media only screen and (min-device-width : 350px) and (max-device-width : 800px) {
+    .BContainerRegistro{
+        display:flex;
+        flex-direction: column-reverse;
+        width: 160vh;
+        margin:6vh;
+    }
+    .BImagenRegistro{
+        height: 45vh;
+        width: 80vw;
+        margin: 4vh;
+    }
+    .botones-cd{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 1vh;
+    }
+    .BContainerContenido{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .BContainerPrincipal{
+        width: 150vh;
+    }
+    .nuevosClientes-cd{
+        margin: 3vh;
+    }
+}
