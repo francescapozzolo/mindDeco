@@ -4,9 +4,9 @@ import carritoActions from "../redux/actions/carritoActions"
 import Modal from 'react-modal'
 
 const CarroCompras = (props) => {
-    // useEffect(()=>{
-        
-    // },[])
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
     return (
         <div>
             <Modal

@@ -23,6 +23,7 @@ const Categoria = (props)=>{
    const [subCategorias, setSubCategorias] = useState([])
 
    useEffect(()=>{
+      window.scrollTo(0, 0)
       // console.log(categoriaSeleccionada)
       const categoriaSeleccionada = props.match.params.categoria
       const productosPorCategoria = props.todosLosProductos.filter(producto => producto.categoria === categoriaSeleccionada)
@@ -33,9 +34,7 @@ const Categoria = (props)=>{
       setProductosAMostrar(productosPorCategoria)
    },[props.match.params.categoria])
    
-   console.log('Categoria.js ln:32')
-   // console.log(todosLosProductos)
-   // console.log(props.todosLosProductos)
+   
 
    const filtroSubCategoria = (subcategoria) =>{
       let productosPorSubCategoria = null

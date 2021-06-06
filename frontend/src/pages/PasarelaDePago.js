@@ -11,6 +11,7 @@ import SeccionConfirmarCompra from '../componentes/pasarela de pago/SeccionConfi
 import PagoEnEfectivo from '../componentes/pasarela de pago/PagoEnEfectivo';
 
 const PasarelaDePago = (props)=>{
+
    // const [metodoSeleccionado, setMetodoSeleccionado] = useState("")
    const [pasoDeCompra, setPasoDeCompra] = useState('paso1-direcciones')
    // const [metodoDePago, setMetodoDePago] = useState("")
@@ -21,6 +22,7 @@ const PasarelaDePago = (props)=>{
 
 
    useEffect(()=>{
+      window.scrollTo(0, 0)
       const cargarProductosAComprar = async()=>{
          if (props.userLogged){
             const respuesta = await props.obtenerProductos(props.userLogged)

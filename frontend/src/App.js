@@ -34,8 +34,7 @@ const App = ({userLogged, logInForced, obtenerProductos}) => {
       }
       logInForced(userForced)
     }
-  },[userLogged, logInForced]) 
- console.log(userLogged)
+  },[userLogged, logInForced])
     return(
       <>
         <ToastContainer/>

@@ -17,6 +17,7 @@ const Producto = (props)=>{
    const [prodFavoriteado, setProdFavoriteado] = useState(false)
    
    useEffect(()=> {
+      window.scrollTo(0, 0)
       setProducto(props.todosLosProductos.find(producto => producto._id === idProducto))
    }, [])
   

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import GridFrases from '../componentes/home/GridFrases'
 import HomeCarruselPrincipal from '../componentes/home/HomeCarruselPrincipal'
@@ -6,6 +6,9 @@ import HomeFiltroGrilla from '../componentes/home/HomeFiltroGrilla'
 import HomeGrillaCategorias from '../componentes/home/HomeGrillaCategorias'
 
 const Inicio = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
     var fotoW = "https://i.imgur.com/sStQFQV.png"
     var url= "https://wa.link/p58nd1"
     return (
