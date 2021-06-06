@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import {connect} from "react-redux"
 import carritoActions from "../redux/actions/carritoActions"
 import Modal from 'react-modal'

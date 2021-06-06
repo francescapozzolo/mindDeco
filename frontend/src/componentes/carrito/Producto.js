@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import {connect} from "react-redux"
 import carritoActions from "../../redux/actions/carritoActions"
-import authActions from "../../redux/actions/authActions"
 import CloseIcon from '@material-ui/icons/Close';
 import NumericInput from 'react-numeric-input'
 import Swal from 'sweetalert2'

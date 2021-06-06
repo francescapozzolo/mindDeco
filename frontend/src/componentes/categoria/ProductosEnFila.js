@@ -1,8 +1,5 @@
-import React, { useEffect } from 'react'
-import { Icon, InlineIcon } from '@iconify/react';
-import sharpGridView from '@iconify-icons/ic/sharp-grid-view';
-import menuIcon from '@iconify-icons/icomoon-free/menu';
-import roundMenu from '@iconify-icons/ic/round-menu';
+import React from 'react'
+import { Icon } from '@iconify/react';
 import { useState } from 'react';
 import searchOutlined from '@iconify-icons/ant-design/search-outlined';
 // import cartIcon from '@iconify-icons/topcoat/cart';

@@ -7,11 +7,10 @@ import { Icon } from '@iconify/react';
 import { NavLink } from 'react-router-dom';
 import productosActions from '../../redux/actions/productosActions'
 import carritoActions from '../../redux/actions/carritoActions';
-import { ToastContainer, toast } from 'react-toastify'
+import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
 const HomeFiltroGrilla = (props) => {
-    console.log(props)
 
     const [array, setArray] = useState([])
 
@@ -71,7 +70,7 @@ const HomeFiltroGrilla = (props) => {
             <div id="p-contenedorProdFiltrados">
                 {array.slice(0,5).map(item => {
                     return(
-                        <div className="p-fotoProdFiltrado" style={{backgroundImage: `url(${item.fotos[0]})`}}>
+                        <div key={item._id} className="p-fotoProdFiltrado" style={{backgroundImage: `url(${item.fotos[0]})`}}>
                             <div className="p-capa">
                                 <h3 className="fontCursive">{item.nombre.charAt(0).toUpperCase() + item.nombre.slice(1, item.nombre.legth)}</h3>
                                 <div className="p-contenedorIconosAcciones">

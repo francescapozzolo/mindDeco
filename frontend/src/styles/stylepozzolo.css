@@ -235,7 +235,6 @@ border-spacing: 0;
     filter: brightness(70%);
     width: 100%;
     height: 100%;
-    position: relative;
 }
 
 .p-contenedorImg{
@@ -477,6 +476,7 @@ border-spacing: 0;
     align-items: center;
     text-align:justify;
     margin: 0 5vw;
+    padding: 3vh 0;
 }
 
 .p-contenedorDescripcionProd input, textarea{
@@ -528,10 +528,15 @@ border-spacing: 0;
     border: 0;
 }
 
+.nombreProducto-CompIndividual{
+    text-align: center;
+}
+
 .p-descripcionDivision{
     font-size: 1em;
     font-weight: bold;
     margin-bottom: 2rem;
+    text-align: center;
 }
 
 .p-contenedorIconosAcciones{
@@ -671,6 +676,80 @@ border-spacing: 0;
         margin-left: 0;
         width: 90%;
     }
+
+    .p-descripcionDivision{
+        text-align: center;
+        line-height: 1.5em;
+    }
+
+    .nombreProducto-CompIndividual{
+        text-align: center;
+    }
+
+    .contenedor-valoracionDeProducto{
+        flex-direction: column;
+    }
+
+    .contenedor-valoracionDeProducto  .barrita-divisora{
+        display: none;
+    }
+
+    .p-contenedorDescripcionProd textarea{
+        height: 30vh;
+    }
+
+    .l-categorias-main-section{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .l-contenedor-menu-lateral{
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .l-contenedor-opcion-por-categoria{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .l-contenedor-opcion-por-categoria p {
+        width: 30%;
+        font-size: 0.7rem;
+        text-align: center;
+    }
+
+    .l-contenedor-opcion-por-categoria :first-child{
+        font-size: 0.6rem;
+    }
+
+    .l-menu-lateral{
+        height: 100%;
+    }
+
+    .l-contenedor-productos{
+        width: 95%;
+    }
+
+    .l-card{
+        width: 95%;
+    }
+
+    .list-card{
+        height: 100vh;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 3vh;
+    }
+
+    .contenedor-foto-listCard{
+        width: 100%;
+    }
 }
 
 @media (max-width: 670px) {
@@ -714,8 +793,36 @@ border-spacing: 0;
     .p-contenedorTitCargaProd{
         margin: 0 0 0 -12vw;
     }
+
+    .p-formProdInd h2:nth-child(2){
+        font-size: 2rem;
+    }
+
+    .p-formProdInd h2{
+        font-size: 1.5rem;
+        margin-left: 0;
+    }
+
+    .BContainerContenido{
+        flex-direction: column;
+    }
+
+    .BContainerTitulos div, .BContainerContenido div, .BContainerContenido form{
+        width: 90%;
+    }
+
+    .nuevosClientes-cd{
+        margin-bottom: 3vh;
+    }
+
+    .BButon{
+        width: 30vw;
+    }
 }
 @media (max-width: 500px) {
+    .BContainerPrincipal{
+        margin: 3vh 0;
+    }
     #p-parallax > h2{
         font-size: 2rem;
     }
@@ -767,6 +874,56 @@ border-spacing: 0;
 
     .p-contenedorTitCargaProd{
         margin: 0 0 3vh -5vw
+    }
+
+    .p-seccionImpar{
+        flex-direction: column;
+        align-items: center;
+        height: 100%;
+        padding-bottom: 3vh;
+    }
+
+    .p-contenedorFotoProdInv{
+        width: 100%;
+        height: 30vh;
+        margin-bottom: 3vh;
+    }
+
+    #p-seccion2{
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 3vh;
+    }
+
+    .p-contenedorDescripcionProd{
+        width: 100%;
+    }
+
+    #p-contenedorFotosChicas{
+        width: 60%;
+        margin-top: 3vh;
+    }
+
+    .contenedor-valoracionDeProducto{
+        flex-direction: row;
+    }
+    
+    .contenedor-valoracionDeProducto  .barrita-divisora{
+        display: flex;
+    }
+
+    .p-titEnvianosConsulta{
+        width: 100%;
+        display: flex;
+    }
+
+    .descripcion-componenteIndividual{
+        padding: 0 3vw;
+    }
+
+    #p-contenedorFotosChicas > div{
+        width: 18vw;
+        height: 18vw;
     }
 }
 
@@ -824,6 +981,22 @@ border-spacing: 0;
 
     .inputCargaProductos > input{
         font-size: 0.5em;
+    }
+
+    .contenedor-valoracionDeProducto{
+        flex-direction: column;
+    }
+
+    .contenedor-valoracionDeProducto .barrita-divisora{
+        display: none;
+    }
+
+    .descripcion-componenteIndividual{
+        text-align: center;
+    }
+
+    .BButon{
+        width: 45vw;
     }
 }
 

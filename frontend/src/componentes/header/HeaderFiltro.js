@@ -1,5 +1,5 @@
 import {connect} from "react-redux"
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import Categoria from './Categoria'
 
 import productosActions from '../../redux/actions/productosActions'

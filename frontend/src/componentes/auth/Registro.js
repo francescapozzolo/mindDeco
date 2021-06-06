@@ -5,7 +5,7 @@ import  GoogleLogin  from 'react-google-login';
 import { connect } from 'react-redux'
 import authActions from '../../redux/actions/authActions'
 import GoogleButton from 'react-google-button'
-import { ToastContainer, toast } from 'react-toastify'
+import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import {NavLink} from 'react-router-dom'
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
@@ -117,7 +117,7 @@ const Registro = (props) => {
                     clientId="687710738267-6envati0vqengfok9k0eqgbo9k5jf9j9.apps.googleusercontent.com"
                     buttonText="Registrar con Google"
                     render={renderProps => (
-                        <GoogleButton buttonText="Registrar con Google" className='btn-google' onClick={renderProps.onClick} disabled={renderProps.disabled} label="Registrar con Google"></GoogleButton>
+                        <GoogleButton  className='btn-google' onClick={renderProps.onClick} disabled={renderProps.disabled} label="Registrar con Google"></GoogleButton>
                     )}
                     onSuccess={responseGoogle}
                     onFailure={responseGoogle}

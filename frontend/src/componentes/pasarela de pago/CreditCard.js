@@ -38,7 +38,6 @@ export default class PaymentForm extends React.Component {
     //     this.state.expiry.trim().length === 1 && this.setState({[name]: value, inputsIncompletos: {[name]: false}, expiry: e.target.value + "/"})
     //   }
     // }
-    console.log(this.state)
     
     this.props.statesDelPadre.setInfoDelUsuario({ ...this.props.statesDelPadre.infoDelUsuario, pagoConTarjeta: {...this.props.statesDelPadre.infoDelUsuario.pagoConTarjeta, [name]: e.target.value}, pagoEnEfectivo: false})
 
@@ -74,7 +73,6 @@ export default class PaymentForm extends React.Component {
       : this.state.cvc === "" ? this.setState({inputsIncompletos: {cvc: true, helperText: "Por favor, Complete este campo"}})
       : this.state.dni === "" ? this.setState({inputsIncompletos: {dni: true, helperText: "Por favor, Complete este campo"}})
       : this.avanzar()
-    console.log(this.state)
   }
 
     funcionVolver = ()=>{
