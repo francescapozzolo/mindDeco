@@ -80,6 +80,10 @@ const enviarMail = (e) => {
     setMail({destinatario: '', nombre: '', cuerpo: ''})
 }
 
+if(producto){
+   props.history.push('/categoria')
+}
+
    return (
       <div id="p-contenedorPrincipalProducto">
          <div className="p-seccionImpar">
