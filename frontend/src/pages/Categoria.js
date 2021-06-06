@@ -29,15 +29,15 @@ const Categoria = (props)=>{
       let subsNoRep = []
       if(subCategoriasHome.includes(categoriaSeleccionada)){
          productosPorCategoria = props.todosLosProductos.filter(producto => producto.subcategoria === categoriaSeleccionada)
-         // if(productosPorCategoria.length === 0) {
-         //    props.history.push('/')
-         // }
+         if(productosPorCategoria.length === 0) {
+            props.history.push('/')
+         }
       }else{
          productosPorCategoria = props.todosLosProductos.filter(producto => producto.categoria === categoriaSeleccionada)
          subsNoRep = productosPorCategoria.filter(o => hash[o.subcategoria] ? false : hash[o.subcategoria] = true);
-         // if(productosPorCategoria.length === 0) {
-         //    props.history.push('/')
-         // }
+         if(productosPorCategoria.length === 0) {
+            props.history.push('/')
+         }
       }
       setSubCategorias(subsNoRep)
       setTodosLosProductos(productosPorCategoria)
