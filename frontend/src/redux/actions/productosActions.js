@@ -40,6 +40,24 @@ const productosActions = {
         }
     },
 
+    obtenerProductoPorId: (id) => {
+        return async(dispatch, getState) => {
+            try {
+                const respuesta = await axios.get(`http://localhost:4000/api/producto/${id}`)
+                if(respuesta.data.success) {
+
+                    console.log(respuesta.data.respuesta)
+                    return respuesta.data.respuesta
+                } else {
+                    alert('Algo salio mal y seras redigirido a la pagina inicial')
+                }    
+            } catch (error) {
+                console.log(error)
+                alert('Error interno del servidor, intente nuevamente en un momento')
+            }
+        }
+    },
+
     obtenerProductosPorSubcategoria: (subcategoria) => {
         return async (dispatch, getState) => {
             try {
@@ -60,7 +78,6 @@ const productosActions = {
     },
 
     cargarNuevoProducto: (formData) => {
-        
         return async (dispatch, getState) => {
             try {
                 const respuesta = await axios.post(`http://localhost:4000/api/productos`, formData, {
@@ -72,8 +89,7 @@ const productosActions = {
                     type: 'AGREGAR_PRODUCTO',
                     payload: respuesta.data.respuesta
                 })
-                return respuesta.data
-                
+                return respuesta.data                
             }
             catch(error){
                 console.log(error)

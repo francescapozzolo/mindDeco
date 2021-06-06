@@ -71,7 +71,6 @@ const SeccionConfirmarCompra = (props)=>{
       productosAComprar.map(producto => {
          return props.vaciarCarrito(props.userLogged, producto)
       })
-     alert('Felicitaciones! Su compra fue realizada con Exito') 
       success() 
      localStorage.removeItem("infoDeCompraDelUsuario")
    }

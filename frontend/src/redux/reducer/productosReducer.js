@@ -21,7 +21,7 @@ const productosReducer = (state = initialState, action) => {
                 ...state,
                 productosSubategoria: action.payload,
             }
-        case 'PRODUCTOS_SUBCATEGORIA':
+        case 'AGREGAR_PRODUCTO':
             return {
                 ...state,
                 todosLosProductos: [...state.todosLosProductos, action.payload.respuesta]
