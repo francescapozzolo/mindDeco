@@ -13,6 +13,7 @@ const carritoActions = {
                     type: 'LOG_USER',
                     payload: {...response.data.respuesta, token: user.token}
                 })
+                console.log(response)
                 return response.data
             }catch(error){
                 console.log(error)

@@ -126,7 +126,7 @@ const Registro = (props) => {
                </div>
                 
             </form>
-            <div className='BImagenRegistro' style={{backgroundImage:'url("https://i.pinimg.com/originals/88/bb/b4/88bbb465eaa3069b572ef96a1134f9ed.jpg")'}}>  
+            <div className='BImagenRegistro' style={{backgroundImage:'url("/assets/1.jpg")'}}>  
             </div>
         </div>
     )
