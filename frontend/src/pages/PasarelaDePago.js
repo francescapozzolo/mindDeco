@@ -27,17 +27,12 @@ const PasarelaDePago = (props)=>{
             setProductosAComprar(respuesta.carrito)
             let precioAPagar = 0 
             respuesta.carrito.map(producto => precioAPagar = precioAPagar + producto.idProducto.precio * producto.cantidad) 
-            // if(precioAPagar.length > 3){
-
-            // }
             setPrecioTotal(precioAPagar)
          }
       }      
       cargarProductosAComprar()
    },[props])
 
-
-   // console.log(infoDelUsuario)
    return( 
       <div className="contenedorGeneral-pagina-pasarelaDePago">
          <div className="contenedorDeFormularios">
@@ -62,9 +57,6 @@ const PasarelaDePago = (props)=>{
             <p className="tituloEnvio-pasarelaDePago fontTitulos" >4. Confirmar Compra</p>
             <div className="barraHorizontal-Pasarela"></div>
             {pasoDeCompra === "paso4-confirmarCompra" && <SeccionConfirmarCompra statesDelPadre={{setPasoDeCompra, infoDelUsuario, precioTotal, productosAComprar}} />}
-
-
-
          </div>
 
          <div className="contenedorLateral">

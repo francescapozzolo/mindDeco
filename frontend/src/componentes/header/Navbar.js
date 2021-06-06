@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import LocalMallRoundedIcon from '@material-ui/icons/LocalMallRounded';
 import ShoppingCartRoundedIcon from '@material-ui/icons/ShoppingCartRounded';
 import PersonIcon from '@material-ui/icons/Person';
 import { toast } from 'react-toastify'
@@ -36,21 +35,6 @@ const Navbar = (props) => {
         </Menu>
       )
 
-    const MenuOrdenes = (
-      <Menu>
-        <Menu.Item  key="3">
-          <div className="c-inputHeader">
-            <Link to='/'>MIS PEDIDOS</Link>
-          </div>
-        </Menu.Item>
-        <Menu.Item  key="4">
-          <div className="c-inputHeader">
-            <Link to='/'>INFORMACION PERSONAL</Link>
-          </div>
-        </Menu.Item>
-      </Menu>
-      )
-
     return (
         <div className="c-navbarContainer">
             <div className="c-innerNavbarContainer">
@@ -76,27 +60,18 @@ const Navbar = (props) => {
                     :
                     <>
                    
-                       {
-                         !props.userLogged
-                         ? <div></div>
-                         : 
-                         <Dropdown overlay={MenuOrdenes} placement="bottomCenter" arrow>
-                            <LocalMallRoundedIcon className='BCursorPointer' style={{fontSize: 30}}/>
-                         </Dropdown>
-                       }                      
-
                     <Dropdown overlay={MenuAccount} placement="bottomCenter" arrow>
-                        <PersonIcon className='BCursorPointer' style={{fontSize: 32}} />
+                      <PersonIcon className='BCursorPointer c-IconPerson' style={{fontSize: 34}} />
                     </Dropdown>
                     
                     {
-                         !props.userLogged
-                         ? <div></div>
-                         : <div className="relative">
-                              <Link to='/carrito' style={{color: 'white'}}><ShoppingCartRoundedIcon style={{fontSize: 30}} /></Link>                         
-                              <div className={`${ articulosTotales ? "c-cantidadesCarrito BCirculoRojo" : "" }`}>{articulosTotales ? articulosTotales : null}</div>
-                              <div></div>
-                        </div>
+                      !props.userLogged
+                      ? <div></div>
+                      : <div className="relative">
+                          <Link to='/carrito' style={{color: 'white'}}><ShoppingCartRoundedIcon className='c-IconCart' style={{fontSize: 30}} /></Link>                         
+                          <div className={`${ articulosTotales ? "c-cantidadesCarrito BCirculoRojo" : "" }`}>{articulosTotales ? articulosTotales : null}</div>
+                          <div></div>
+                      </div>
                     } 
                     </>
                     }

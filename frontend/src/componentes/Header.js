@@ -31,7 +31,7 @@ const Header = (props) => {
     setIsModalVisible(true);
     props.mandarMail(mail)
     setIsModalVisible(false);
-    toast.success('Gracias por suscribirte a nuestro Newsletter!!')
+    toast.success('Gracias por suscribirte a nuestro newsletter!')
   };
 
   const handleCancel = () => {

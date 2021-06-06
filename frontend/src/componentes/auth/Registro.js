@@ -68,29 +68,29 @@ const Registro = (props) => {
    
     return (
         <div className='BContainerContenido BContainerRegistro'>
-            <form>
+            <form className="c-formRegistro">
                 {/* <h1>Create una cuenta:</h1> */}
                 <div className='BContainerPassword'>
                     <PermIdentityIcon className='BIcon'/>
-                    <input type="text"  placeholder="Por favor, ingrese su nombre"
+                    <input type="text"  placeholder="Tu nombre"
                     onChange={leerInput} value={usuario.nombre} name="nombre" />
                     {errores.nombre ? <h6 className='BErrores'>{errores.nombre}</h6> : null} 
                 </div>
                 <div className='BContainerPassword'>
                     <PermIdentityIcon className='BIcon'/>
-                    <input type="text"  placeholder="Por favor, ingrese su apellido"
+                    <input type="text"  placeholder="Tu apellido"
                     onChange={leerInput} value={usuario.apellido} name="apellido" />
                     {errores.apellido ? <h6 className='BErrores'>{errores.apellido}</h6> : null} 
                 </div>
                 <div className='BContainerPassword'>
                     <MailOutlineIcon className='BIcon'/>
-                    <input type="text"  placeholder="Por favor, ingrese su dirección de correo electrónico"
+                    <input type="text"  placeholder="Tu correo electrónico"
                     onChange={leerInput} value={usuario.email} name="email" />
                     {errores.email ? <h6 className='BErrores'>{errores.email}</h6> : null} 
                 </div>
                 <div className='BContainerPassword'>
                     <VpnKeyIcon className='BIcon'/>
-                    <input type= {eye ? "text" : "password"}  placeholder="Por favor, ingrese su contraseña"
+                    <input type= {eye ? "text" : "password"}  placeholder="Tu contraseña"
                     onChange={leerInput} value={usuario.password} name="password" />
                     {eye ? <VisibilityOffOutlinedIcon className='BEye' onClick={()=>setEye(!eye)} /> : <VisibilityOutlinedIcon className='BEye' onClick={()=>setEye(!eye)}/>}
                     {errores.password ? <h6 className='BErrores'>{errores.password}</h6> : null} 
@@ -107,17 +107,20 @@ const Registro = (props) => {
                 </div>
                <div className="botones-cd">
                <div>
-                    <button className='BButon' onClick={enviarFormulario}>REGISTRARSE</button>
+                    <button className='BButon BButonRegistro' onClick={enviarFormulario}>REGISTRARSE</button>
                 </div>
-                <div className='BContainerIniciar'>
-                    <h6>¿Usted ya tiene cuenta?  </h6><NavLink to='/ingreso'><button className='BButon'>INICIAR SESION</button></NavLink>
-                </div>
-                    <h6 className='BGoogle'>O registrese con Google</h6>
+
+                <NavLink to='/ingreso'>
+                    <div className='BContainerIniciar'>
+                        <button className='BButon BButonRegistro'>YA ESTOY REGISTRADO</button>
+                    </div>
+                </NavLink>
+                        
                 <GoogleLogin
                     clientId="687710738267-6envati0vqengfok9k0eqgbo9k5jf9j9.apps.googleusercontent.com"
                     buttonText="Registrar con Google"
                     render={renderProps => (
-                        <GoogleButton  className='btn-google' onClick={renderProps.onClick} disabled={renderProps.disabled} label="Registrar con Google"></GoogleButton>
+                        <GoogleButton buttonText="REGISTRO CON GOOGLE" className='btn-google' onClick={renderProps.onClick} disabled={renderProps.disabled} label="REGISTRO CON GOOGLE"></GoogleButton>
                     )}
                     onSuccess={responseGoogle}
                     onFailure={responseGoogle}
