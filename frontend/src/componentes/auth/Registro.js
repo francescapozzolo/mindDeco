@@ -117,7 +117,7 @@ const Registro = (props) => {
                 </NavLink>
                         
                 <GoogleLogin
-                    clientId="687710738267-6envati0vqengfok9k0eqgbo9k5jf9j9.apps.googleusercontent.com"
+                    clientId="687710738267-u7vhsurru0vso24f0vclhghbvro81mfa.apps.googleusercontent.com"
                     buttonText="Registrar con Google"
                     render={renderProps => (
                         <GoogleButton buttonText="REGISTRO CON GOOGLE" className='btn-google' onClick={renderProps.onClick} disabled={renderProps.disabled} label="REGISTRO CON GOOGLE"></GoogleButton>

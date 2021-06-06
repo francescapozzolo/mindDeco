@@ -78,7 +78,7 @@ const IniciarSesion = (props) => {
                        <div className="botones-cd">
                        <button className='BButon BButonRegistro BMarginGoogle' onClick={sendValueUser}>INGRESAR</button>
                         <GoogleLogin
-                            clientId="687710738267-6envati0vqengfok9k0eqgbo9k5jf9j9.apps.googleusercontent.com"
+                            clientId="687710738267-u7vhsurru0vso24f0vclhghbvro81mfa.apps.googleusercontent.com"
                             render={renderProps => (
                                 <GoogleButton className='btn-google' onClick={renderProps.onClick} disabled={renderProps.disabled} label="Ingresa con Google">Ingresa con Google</GoogleButton>
                             )}
