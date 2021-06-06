@@ -8,14 +8,16 @@ import StarIcon from '@material-ui/icons/Star';
 import { Icon } from '@iconify/react';
 import shoppingCart from '@iconify-icons/la/shopping-cart'; 
 import carritoActions from "../redux/actions/carritoActions";
-import { ToastContainer, toast } from 'react-toastify'
+import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import mailActions from "../redux/actions/mailActions";
 
 const Producto = (props)=>{
    const [producto, setProducto] = useState(null)
    const idProducto = props.match.params.id
    const [prodLikeado, setProdLikeado] = useState(false)
    const [prodFavoriteado, setProdFavoriteado] = useState(false)
+   const [mail, setMail] = useState({destinatario: '', nombre: '', asunto: 'consulta', cuerpo: ''})
    
    useEffect(()=> {
       setProducto(props.todosLosProductos.find(producto => producto._id === idProducto))
@@ -47,6 +49,20 @@ const agregandoProducto = async (item) => {
    }
 }
 
+const leerInput = (e, campo) => {
+    setMail({
+        ...mail, 
+        [campo]: e.target.value
+    })
+}
+
+const enviarMail = (e) => {
+    e.preventDefault()
+    props.mandarMail(mail)
+    toast.warning('Tu consulta ha sido enviada!')
+    setMail({destinatario: '', nombre: '', cuerpo: ''})
+}
+
    return (
       <div id="p-contenedorPrincipalProducto">
          <div className="p-seccionImpar">
@@ -68,7 +84,7 @@ const agregandoProducto = async (item) => {
                <p className="precioProducto-componenteIndividual fontTexto">Precio: ${producto.precio}</p>
                <div className="contenedor-valoracionDeProducto"> 
                   <div><StarIcon /><StarIcon /><StarIcon /><StarIcon /><StarIcon /></div>
-                  <p className="opcion-AgregarOpinion fontTexto"><span className="barrita-divisora">|</span></p><label className="fontTexto p-agregarOpinion" for="inputMail">Agregar una opinión</label> 
+                  <p className="opcion-AgregarOpinion fontTexto"><span className="barrita-divisora">|</span></p><label className="fontTexto p-agregarOpinion" htmlFor="inputMail">Agregar una opinión</label> 
                </div>
                <div className="p-contenedorIconosAcciones">
                   <div>
@@ -95,13 +111,13 @@ const agregandoProducto = async (item) => {
             <div className="p-contenedorFotoProdInv"  style={{backgroundImage: `url(${producto.fotos[2]})`}}>
             </div>
             <div className="p-contenedorDescripcionProd"> 
-                  <div>
-                     <h2 className="fontTitulos">Envíanos </h2><h2 className="fontCursive">tu consulta</h2>
+                  <div className="p-titEnvianosConsulta">
+                     <h2 className="fontTitulos p-envianos">Envíanos </h2><h2 className="fontCursive p-tuConsulta">tu consulta</h2>
                   </div>
-                  <input type="text" id="inputMail" className="fontTexto" placeholder="Ingresá tu mail" ></input>
-                  <input type="text" className="fontTexto" placeholder="Ingresá tu nombre"></input>
-                  <textarea className="fontTexto" placeholder="Ingresá tu consulta"></textarea>
-                  <button className="fontTitulos">ENVIAR CONSULTA</button>
+                  <input type="text" id="inputMail" className="fontTexto" placeholder="Ingresá tu mail" name="destinatario" value={mail.destinatario} onChange={(e)=>leerInput(e, 'destinatario')}></input>
+                  <input type="text" className="fontTexto" placeholder="Ingresá tu nombre" name="nombre" value={mail.nombre} onChange={(e)=>leerInput(e, 'nombre')}></input>
+                  <textarea className="fontTexto" placeholder="Ingresá tu consulta" name="cuerpo" value={mail.cuerpo} onChange={(e)=>leerInput(e, 'cuerpo')}></textarea>
+                  <button className="fontTitulos" onClick={enviarMail}>ENVIAR CONSULTA</button>
             </div>
          </div>
       </div>
@@ -116,7 +132,8 @@ const mapStateToProps = (state)=>{
 }
 
 const mapDispatchToProps ={
-   agregarProductoAlCarrito: carritoActions.agregarProductoAlCarrito
+   agregarProductoAlCarrito: carritoActions.agregarProductoAlCarrito,
+   mandarMail: mailActions.mandarMail
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Producto)

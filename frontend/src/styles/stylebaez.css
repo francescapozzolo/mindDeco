@@ -150,7 +150,7 @@ h4.BPrecioProducto, h5.BDescripcionProducto{
     background-color: var(--negro);
     border: 2px solid transparent;
     border-color: var(--negro);
-    width: 12vw;
+    width: 20vw;
 }
 .BCursorPointer{
     cursor: pointer;
@@ -458,7 +458,7 @@ float: left;
     line-height: 2.5rem;
 }
 
-@media only screen and (min-device-width : 350px) and (max-device-width : 800px) {
+/* @media only screen and (min-device-width : 350px) and (max-device-width : 800px) {
     .BContainerRegistro{
         display:flex;
         flex-direction: column-reverse;
@@ -488,4 +488,8 @@ float: left;
     .nuevosClientes-cd{
         margin: 3vh;
     }
-}
+
+    .BButon{
+        width: 27vw;
+    }
+} */

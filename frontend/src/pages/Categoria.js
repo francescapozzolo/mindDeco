@@ -3,10 +3,7 @@ import sharpGridView from '@iconify-icons/ic/sharp-grid-view';
 import menuIcon from '@iconify-icons/icomoon-free/menu';
 import roundMenu from '@iconify-icons/ic/round-menu';
 import { useEffect, useState } from 'react';
-import searchOutlined from '@iconify-icons/ant-design/search-outlined';
 // import cartIcon from '@iconify-icons/topcoat/cart';
-import shoppingCart from '@iconify-icons/la/shopping-cart'; 
-import CarroCompras from './CarroCompras'
 import ProductosEnGrilla from '../componentes/categoria/ProductosEnGrilla'
 import ProductosEnFila from '../componentes/categoria/ProductosEnFila'
 import {connect} from "react-redux"

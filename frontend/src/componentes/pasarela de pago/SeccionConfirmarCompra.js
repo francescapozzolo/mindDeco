@@ -1,22 +1,20 @@
 import React, { useEffect, useState } from 'react'
-import { Icon, InlineIcon } from '@iconify/react';
+import { Icon } from '@iconify/react';
 import locationIcon from '@iconify-icons/carbon/location';
 import truckIcon from '@iconify-icons/bi/truck';
 import { NavLink } from 'react-router-dom';
-import creditCard2Front from '@iconify-icons/bi/credit-card-2-front';
 import creditCard from '@iconify-icons/mdi-light/credit-card';
-import moneyBill from '@iconify-icons/uil/money-bill';
 import moneyIcon from '@iconify-icons/carbon/money';
 import carritoActions from '../../redux/actions/carritoActions'
 import { connect } from 'react-redux';
-import { Modal, Button, Space } from 'antd';
+import { Modal } from 'antd';
 
 const SeccionConfirmarCompra = (props)=>{
-   const {infoDelUsuario, precioTotal, productosAComprar} = props.statesDelPadre
+   const {infoDelUsuario, /*precioTotal*/ productosAComprar} = props.statesDelPadre
    const [metodoDeEnvioAMostrar, setMetodoDeEnvioAMostrar] = useState('')
    const [metodoDePagoAMostrar, setMetodoDePagoAMostrar] = useState('')
    const [iconoDetalleDelPago, setIconoDetalleDelPago] = useState('')
-   const [visible, setVisible] = useState(false);
+   // const [visible, setVisible] = useState(false);
 
    useEffect(()=>{
       // console.log(props)

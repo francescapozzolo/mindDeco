@@ -1,9 +1,9 @@
 import {useState} from 'react'
-import CreditCard from './CreditCard'
-import { Icon, InlineIcon } from '@iconify/react';
+// import CreditCard from './CreditCard'
+import { Icon } from '@iconify/react';
 import creditCard2Front from '@iconify-icons/bi/credit-card-2-front';
 import creditCard from '@iconify-icons/mdi-light/credit-card';
-import moneyBill from '@iconify-icons/uil/money-bill';
+// import moneyBill from '@iconify-icons/uil/money-bill';
 // import { Icon, InlineIcon } from '@iconify/react';
 import moneyIcon from '@iconify-icons/carbon/money';
 
@@ -22,7 +22,6 @@ const SeccionMetodoDePago = (props)=>{
    }
 
    const funcionContinuar = ()=>{
-      console.log(metodoElegido)
       !metodoDePagoFueSeleccionado 
       ? setMetodoElegido("ninguno")
       :  metodoElegido === "efectivo" 

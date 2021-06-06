@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import LocalMallRoundedIcon from '@material-ui/icons/LocalMallRounded';
 import ShoppingCartRoundedIcon from '@material-ui/icons/ShoppingCartRounded';
 import PersonIcon from '@material-ui/icons/Person';
-import { ToastContainer, toast } from 'react-toastify'
-
+import { toast } from 'react-toastify'
 import { Menu, Dropdown } from "antd";
 import authActions from '../../redux/actions/authActions'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
@@ -21,7 +20,7 @@ const Navbar = (props) => {
 
     const MenuAccount = (
         <Menu>
-          <Menu.Item>
+          <Menu.Item key="1">
             <div className="c-inputHeader">
               {props.userLogged ? <Link to='/' onClick={()=>{
                 toast.success('Se ha cerrado sesion')
@@ -29,7 +28,7 @@ const Navbar = (props) => {
                 }}>CERRAR SESION</Link> : <Link to='/ingreso'>INICIAR SESION</Link>}
             </div>
           </Menu.Item>
-          <Menu.Item>
+          <Menu.Item  key="2">
             <div className="c-inputHeader">
             {props.userLogged ? null : <Link to='/registro'>REGISTRARSE</Link>}
             </div>
@@ -39,12 +38,12 @@ const Navbar = (props) => {
 
     const MenuOrdenes = (
       <Menu>
-        <Menu.Item>
+        <Menu.Item  key="3">
           <div className="c-inputHeader">
             <Link to='/'>MIS PEDIDOS</Link>
           </div>
         </Menu.Item>
-        <Menu.Item>
+        <Menu.Item  key="4">
           <div className="c-inputHeader">
             <Link to='/'>INFORMACION PERSONAL</Link>
           </div>
@@ -69,11 +68,10 @@ const Navbar = (props) => {
                       <Tooltip title="Cargar productos" placement="top-end">
                         <Link to='/administrador' style={{fontSize: 20, color: 'white'}}><FontAwesomeIcon icon={faMarker}/></Link>
                       </Tooltip>
-                      <Tooltip title="Usuario verificado" placement="top-end">
                         <Dropdown overlay={MenuAccount} placement="bottomCenter" arrow>
                           <FontAwesomeIcon icon={faUserShield} style={{fontSize: 22}} />
                         </Dropdown>
-                      </Tooltip>
+              
                     </>
                     :
                     <>

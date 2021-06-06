@@ -38,7 +38,6 @@ const SeccionDirecciones = (props)=>{
          : infoDelUsuario.telefono === "" ? setInputsIncompletos({...inputsIncompletos, telefono: true})
          : avanzar()
          // : props.setPasoDeCompra('paso2-metodoDeEnvio')
-         console.log(inputsIncompletos)
    }
    return (
       <>

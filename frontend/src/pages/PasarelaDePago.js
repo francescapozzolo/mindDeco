@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import CreditCard from '../componentes/pasarela de pago/CreditCard'
-import TextField from "@material-ui/core/TextField";
 import SeccionDirecciones from '../componentes/pasarela de pago/SeccionDirecciones'
 import SeccionMetodoDeEnvio from '../componentes/pasarela de pago/SeccionMetodoDeEnvio'
 import SeccionMetodoDePago from '../componentes/pasarela de pago/SeccionMetodoDePago'
-import axios from 'axios'
 import carritoActions from '../redux/actions/carritoActions';
 import SeccionConfirmarCompra from '../componentes/pasarela de pago/SeccionConfirmarCompra';
 import PagoEnEfectivo from '../componentes/pasarela de pago/PagoEnEfectivo';
@@ -103,16 +101,16 @@ const PasarelaDePago = (props)=>{
                      )
                   })
                : 
-                     <div class="sk-cube-grid">
-                        <div class="sk-cube sk-cube1"></div>
-                        <div class="sk-cube sk-cube2"></div>
-                        <div class="sk-cube sk-cube3"></div>
-                        <div class="sk-cube sk-cube4"></div>
-                        <div class="sk-cube sk-cube5"></div>
-                        <div class="sk-cube sk-cube6"></div>
-                        <div class="sk-cube sk-cube7"></div>
-                        <div class="sk-cube sk-cube8"></div>
-                        <div class="sk-cube sk-cube9"></div>
+                     <div className="sk-cube-grid">
+                        <div className="sk-cube sk-cube1"></div>
+                        <div className="sk-cube sk-cube2"></div>
+                        <div className="sk-cube sk-cube3"></div>
+                        <div className="sk-cube sk-cube4"></div>
+                        <div className="sk-cube sk-cube5"></div>
+                        <div className="sk-cube sk-cube6"></div>
+                        <div className="sk-cube sk-cube7"></div>
+                        <div className="sk-cube sk-cube8"></div>
+                        <div className="sk-cube sk-cube9"></div>
                     </div>
                }
 

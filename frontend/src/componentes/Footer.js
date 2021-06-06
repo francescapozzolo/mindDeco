@@ -5,9 +5,10 @@ import FacebookIcon from '@material-ui/icons/Facebook';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import { connect } from 'react-redux';
 import mailActions from '../redux/actions/mailActions';
+import { toast } from 'react-toastify';
 
 const Footer = (props) => {
-    const [mail, setMail] = useState({destinatario: '', asunto: '', cuerpo: ''})
+    const [mail, setMail] = useState({destinatario: '', nombre: '', asunto: 'consulta', cuerpo: ''})
 
     const leerInput = (e, campo) => {
         setMail({
@@ -19,7 +20,8 @@ const Footer = (props) => {
     const enviarMail = (e) => {
         e.preventDefault()
         props.mandarMail(mail)
-        setMail({destinatario: '', cuerpo: '', asunto: ''})
+        toast.warning('Tu consulta ha sido enviada!')
+        setMail({destinatario: '', nombre: '', cuerpo: ''})
     }
     var urlF = "https://www.facebook.com/MindDeco-101996075438128"
     var urlI= "https://www.instagram.com/mind_deco_home/?utm_medium=copy_link"
@@ -30,8 +32,8 @@ const Footer = (props) => {
                 <div className="c-footerMenu">
                     <span className="c-footerTitle">CONTACTO</span>
                     <div className="c-footerInnerInfoContainer">
-                        <input id="c-footerInput" name="destinatario" value={mail.destinatario} placeholder="Correo electronico" onChange={(e)=>leerInput(e, 'destinatario')}></input>
-                        <input id="c-footerInput" name="asunto" value={mail.asunto} placeholder="Nombre" onChange={(e)=>leerInput(e, 'asunto')}></input>
+                        <input className="c-footerInput" name="destinatario" value={mail.destinatario} placeholder="Correo electronico" onChange={(e)=>leerInput(e, 'destinatario')}></input>
+                        <input className="c-footerInput" name="nombre" value={mail.nombre} placeholder="Nombre" onChange={(e)=>leerInput(e, 'nombre')}></input>
                         <textarea id="c-footerTextarea" name="cuerpo" value={mail.cuerpo} placeholder="Mensaje" onChange={(e)=>leerInput(e, 'cuerpo')}/>
                         <span id="c-footerSubmit" onClick={enviarMail}>ENVIAR</span>
                     </div>
@@ -74,10 +76,10 @@ const Footer = (props) => {
                         </div>
                         <div style={{marginTop: 20}} className="c-footerContactContainer">
                             
-                        <a href={urlF} target="_blank">      
+                        <a href={urlF} target="_blank" rel="noreferrer">      
                             <FacebookIcon style={{fontSize: 32}} />
                         </a> 
-                        <a href={urlI} target="_blank">      
+                        <a href={urlI} target="_blank" rel="noreferrer">      
                             <InstagramIcon style={{fontSize: 32, marginLeft: 10}} />
                         </a> 
                            

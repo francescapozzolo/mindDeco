@@ -163,7 +163,7 @@ const CrearProducto = (props) => {
             <div id="contenedorInputsCargaProductos">
             <div id="selectoresCategorias">
                 <select name='categoria' onChange={(e)=>acciones(e, 'categoria')} className="fontTexto">
-                    <option name='categoria' selected disabled>Elija la subategoría</option>
+                    <option name='categoria' selected disabled>Elija la subcategoría</option>
                     {categorias.map(categoria => {
                         return(
                             <>
@@ -177,7 +177,7 @@ const CrearProducto = (props) => {
                     {arraySubcategorias.map(subcategoria => {
                         return ( 
                             <>
-                                <option value={subcategoria.subcategoria} name={'subcategoria'}>{subcategoria.subcategoria.charAt(0).toUpperCase() + subcategoria.subcategoria.slice(1, subcategoria.subcategoria.length)}</option>
+                                <option key={subcategoria.subcategoria} value={subcategoria.subcategoria} name={'subcategoria'}>{subcategoria.subcategoria.charAt(0).toUpperCase() + subcategoria.subcategoria.slice(1, subcategoria.subcategoria.length)}</option>
                             </>
                         )
                     })
@@ -188,7 +188,7 @@ const CrearProducto = (props) => {
                     {arrayArticulos.map(articulo => {
                         return ( 
                             <>
-                                <option value={articulo} name={'subcategoria'}>{articulo.charAt(0).toUpperCase() + articulo.slice(1, articulo.legth)}</option>
+                                <option key={articulo} value={articulo} name={'subcategoria'}>{articulo.charAt(0).toUpperCase() + articulo.slice(1, articulo.legth)}</option>
                             </>
                         )
                     })
@@ -197,27 +197,27 @@ const CrearProducto = (props) => {
             </div>
                 <div id="subcontenedorInputsCargaProductos">
                     <div className="inputCargaProductos fontTitulos">
-                        <label for='nombre'>NOMBRE PRODUCTO</label>
+                        <label htmlFor='nombre'>NOMBRE PRODUCTO</label>
                         <input className="fontTexto" type="text" id='nombre' value={nuevoProducto.nombre} name='nombre' onChange={leerInput} placeholder="Ingresá el nombre del producto"></input>
                     </div>
                     <div className="inputCargaProductos fontTitulos">
-                        <label for='descripcion'>DESCRIPCIÓN PRODUCTO</label>
+                        <label htmlFor='descripcion'>DESCRIPCIÓN PRODUCTO</label>
                         <input className="fontTexto" type="text" id='descripcion' value={nuevoProducto.descripcion} name='descripcion' onChange={leerInput} placeholder="Ingresá una descripción"></input>
                     </div>
                     <div className="inputCargaProductos fontTitulos">
-                        <label for='precio'>PRECIO</label>
+                        <label htmlFor='precio'>PRECIO</label>
                         <input className="fontTexto" type="number" id='precio' value={nuevoProducto.precio} name='precio' onChange={leerInput} placeholder="Ingresá el precio del prodcuto"></input>
                     </div>
                     <div className="inputCargaProductos fontTitulos">
-                        <label for='stock'>UNIDADES EN STOCK</label>
+                        <label htmlFor='stock'>UNIDADES EN STOCK</label>
                         <input className="fontTexto" type="number" id='stock' value={nuevoProducto.stock} name='stock' onChange={leerInput} placeholder="Ingresá la cantidad de stock"></input>
                     </div>
                     <div className="inputCargaProductos fontTitulos">
-                        <label for='dimensiones'>DIMENSIONES</label>
+                        <label htmlFor='dimensiones'>DIMENSIONES</label>
                         <input className="fontTexto" type="text" id='dimensiones' value={nuevoProducto.dimensiones} name='dimensiones' onChange={leerInput} placeholder="Ingresá las dimensiones del producto"></input>
                     </div>
                     <div className="inputCargaProductos fontTitulos">
-                        <label for='descuento'>PORCENTAJE DE DESCUENTO</label>
+                        <label htmlFor='descuento'>PORCENTAJE DE DESCUENTO</label>
                         <input className="fontTexto" type="number" id='descuento' value={nuevoProducto.descuento} name='descuento' onChange={leerInput} placeholder="Ingresá el porcentaje de descuento"></input>
                     </div> 
                     {/* <div className="inputCargaProductos fontTitulos">
@@ -237,19 +237,19 @@ const CrearProducto = (props) => {
             </div>
             <div className="p-contenedorInpFiles">
                 <div style={{backgroundImage: `url('${fileUrl1}')`, height: '100%'}} className="p-portaFoto">
-                    <label for="fileFoto1" className="p-labelForCam">
+                    <label htmlFor="fileFoto1" className="p-labelForCam">
                         <AddAPhotoIcon fontSize="large"/>
                     </label>
                     <input type="file" id="fileFoto1" accept="image/*" className='p-agregarImg'  name='image1' onChange={(e)=> procesarImagen(e)} ></input>
                 </div>
                 <div className="p-portaFoto" style={{backgroundImage: `url('${fileUrl2}')`, height: '100%'}}>
-                    <label for="fileFoto2" className="p-labelForCam">
+                    <label htmlFor="fileFoto2" className="p-labelForCam">
                         <AddAPhotoIcon fontSize="large"/>
                     </label>
                     <input type="file"  id="fileFoto2" accept="image/*" className='p-agregarImg'  name='image2' onChange={(e)=> procesarImagen(e)} ></input>
                 </div>
                 <div className="p-portaFoto" style={{backgroundImage: `url('${fileUrl3}')`, height: '100%'}}>
-                    <label for="fileFoto3" className="p-labelForCam">
+                    <label htmlFor="fileFoto3" className="p-labelForCam">
                         <AddAPhotoIcon fontSize="large"/>
                     </label>
                     <input type="file"  id="fileFoto3" accept="image/*" className='p-agregarImg' name='image3' onChange={(e)=> procesarImagen(e)} ></input>

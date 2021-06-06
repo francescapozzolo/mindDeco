@@ -10,7 +10,7 @@ import { toast } from 'react-toastify'
 const Header = (props) => {
 
   const [isModalVisible, setIsModalVisible] = useState(false)
-  const [mail, setMail] = useState({email: '', nombre: '', asunto: 'newsletter'})
+  const [mail, setMail] = useState({destinatario: '', nombre: '', asunto: 'newsletter'})
   const [completo, setCompleto] = useState(false)
 
   useEffect(() => {
@@ -80,8 +80,8 @@ const Header = (props) => {
             >
                 <p className="fontTitulos">SE EL PRIMERO AHORA</p>
                 <p className="fontTexto" style={{fontSize: '1rem', marginTop: '1vh', marginBottom: '1vh'}}>Suscríbase para recibir las últimas noticias y tendencias en decoración</p>
-                <Input className="fontTexto p-inputNewsletter" name="nombre" value={mail.nombre} onChange={leerInput} type="text" placeholder="Ingresa tu nombre" />
-                <Input className="fontTexto p-inputNewsletter" name="email" value={mail.email} onChange={leerInput}type="text" placeholder="tumail@gmail.com" />
+                <Input className="fontTexto p-inputNewsletter" name="destinatario" value={mail.destinatario} onChange={leerInput} type="text" placeholder="tumail@gmail.com" />
+                <Input className="fontTexto p-inputNewsletter" name="nombre" value={mail.nombre} onChange={leerInput}type="text" placeholder="Ingresá tu nombre" />
         </Modal>
         <HeaderCarrusel />
         <Navbar carrito={props.carrito}/>

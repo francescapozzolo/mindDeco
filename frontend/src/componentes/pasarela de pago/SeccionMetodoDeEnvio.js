@@ -9,7 +9,6 @@ const SeccionMetodoDeEnvio = (props)=>{
    const establecerMetodoDeEnvio = (envioElegido)=>{
       setMetodoSeleccionado(envioElegido)
       setInfoDelUsuario({...infoDelUsuario, envioElegido})
-      console.log(metodoSeleccionado)
    }
 
    const funcionContinuar = ()=>{
@@ -23,11 +22,11 @@ const SeccionMetodoDeEnvio = (props)=>{
    return(
       <div className="seccion-metodoDeEnvio">
          <div className="contenedor-opcionesDeEnvio">
-            <label for="1" className={metodoSeleccionado === "recibirCompra" ? "metodoDeEnvio metodoSeleccionado fontTexto" : "metodoDeEnvio fontTexto"} onClick={()=>establecerMetodoDeEnvio("recibirCompra")}><input type="radio" id="1" className="metodoDePagoOption" name="metodoDeEnvio" />Recibir Compra</label>
+            <label htmlFor="1" className={metodoSeleccionado === "recibirCompra" ? "metodoDeEnvio metodoSeleccionado fontTexto" : "metodoDeEnvio fontTexto"} onClick={()=>establecerMetodoDeEnvio("recibirCompra")}><input type="radio" id="1" className="metodoDePagoOption" name="metodoDeEnvio" />Recibir Compra</label>
                
-            <label for="2" className={metodoSeleccionado === "retiroPorSucursal" ? "metodoDeEnvio metodoSeleccionado fontTexto" : "metodoDeEnvio fontTexto"} onClick={()=>establecerMetodoDeEnvio("retiroPorSucursal")}><input type="radio" id="2" className="metodoDePagoOption" name="metodoDeEnvio"/>Retiro en Sucursal</label>
+            <label htmlFor="2" className={metodoSeleccionado === "retiroPorSucursal" ? "metodoDeEnvio metodoSeleccionado fontTexto" : "metodoDeEnvio fontTexto"} onClick={()=>establecerMetodoDeEnvio("retiroPorSucursal")}><input type="radio" id="2" className="metodoDePagoOption" name="metodoDeEnvio"/>Retiro en Sucursal</label>
             
-            <label for="3" className={metodoSeleccionado === "retiroPorCorreo" ? "metodoDeEnvio metodoSeleccionado fontTexto" : "metodoDeEnvio fontTexto"} onClick={()=>establecerMetodoDeEnvio("retiroPorCorreo")}><input type="radio" id="3" className="metodoDePagoOption" name="metodoDeEnvio" />Retiro por Correo Argentino</label>
+            <label htmlFor="3" className={metodoSeleccionado === "retiroPorCorreo" ? "metodoDeEnvio metodoSeleccionado fontTexto" : "metodoDeEnvio fontTexto"} onClick={()=>establecerMetodoDeEnvio("retiroPorCorreo")}><input type="radio" id="3" className="metodoDePagoOption" name="metodoDeEnvio" />Retiro por Correo Argentino</label>
          </div>
 
          { metodoSeleccionado === "ninguno" &&  <p className="error-MetodoDeEnvio fontTexto">Para continuar seleccione un metodo de Envio.</p>}
