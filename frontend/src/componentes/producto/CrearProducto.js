@@ -15,9 +15,9 @@ const CrearProducto = (props) => {
         precio: '',
         stock: '',
         dimensiones: '',
-        // fotos: '',
+        descuento: ''
     })
-    // const [foto, setFoto] = useState()
+
     const [arraySubcategorias, setArraySubcategorias] = useState([])
     const [arrayArticulos, setArrayArticulos] = useState([])
     const [habilitarSubcategoria, setHabilitarSubcategoria] = useState(false)
@@ -87,21 +87,8 @@ const CrearProducto = (props) => {
         setHabilitarArticulos(true)
     }
 
-    // const leerInputFoto = (e) => {
-    //     setFoto(e.target.value)
-    // }
 
-    // const agregarFoto = (event) => {
-    //     event.preventDefault()
-    //     if(foto) {setNuevoProducto({
-    //         ...nuevoProducto,
-    //         fotos: [...nuevoProducto.fotos,foto]
-    //     })  
-    //     setFoto('')
-    //     }
-    // }
-
-    const cargarProducto = (event) => {
+    const cargarProducto = async (event) => {
         event.preventDefault()
         if(Object.values(nuevoProducto).some(value => value === "")){
             toast.info('Debes completar todos los campos')
@@ -118,10 +105,18 @@ const CrearProducto = (props) => {
         formData.append('foto', foto1.foto1)
         formData.append('foto', foto2.foto2)
         formData.append('foto', foto3.foto3)
-        props.cargarNuevoProducto(formData)
-            toast.info('Se ha cargado el nuevo producto')
+
+        const respuesta = await props.cargarNuevoProducto(formData)
+            if(respuesta.success){
+                toast.info('Se ha cargado el nuevo producto')
+                setNuevoProducto({categoria: '',subcategoria: '',articulo: '',nombre: '', descripcion: '',precio: '',  stock: '',dimensiones: '', descuento: ''})
+                setFileUrl1(null)
+                setFileUrl2(null)
+                setFileUrl3(null)
+            }
+            
         }
-        setNuevoProducto({categoria: '',subcategoria: '',articulo: '',nombre: '', descripcion: '',precio: '',  stock: '',dimensiones: ''})
+       
     }
 
     const procesarImagen = (e) => {
@@ -223,7 +218,7 @@ const CrearProducto = (props) => {
                     </div>
                     <div className="inputCargaProductos fontTitulos">
                         <label for='descuento'>PORCENTAJE DE DESCUENTO</label>
-                        <input className="fontTexto" type="number" id='descuento' value={nuevoProducto.unidadesStock} name='descuento' onChange={leerInput} placeholder="Ingresá el porcentaje de descuento"></input>
+                        <input className="fontTexto" type="number" id='descuento' value={nuevoProducto.descuento} name='descuento' onChange={leerInput} placeholder="Ingresá el porcentaje de descuento"></input>
                     </div> 
                     {/* <div className="inputCargaProductos fontTitulos">
                         <label for='fotos'>FOTOS</label>
@@ -241,19 +236,19 @@ const CrearProducto = (props) => {
                 </div>
             </div>
             <div className="p-contenedorInpFiles">
-                <div style={{backgroundImage: `url('${fileUrl1}')`, height: '100%', maxWidth: '30%'}} className="p-portaFoto">
+                <div style={{backgroundImage: `url('${fileUrl1}')`, height: '100%'}} className="p-portaFoto">
                     <label for="fileFoto1" className="p-labelForCam">
                         <AddAPhotoIcon fontSize="large"/>
                     </label>
                     <input type="file" id="fileFoto1" accept="image/*" className='p-agregarImg'  name='image1' onChange={(e)=> procesarImagen(e)} ></input>
                 </div>
-                <div className="p-portaFoto" style={{backgroundImage: `url('${fileUrl2}')`, height: '100%', maxWidth: '30%'}}>
+                <div className="p-portaFoto" style={{backgroundImage: `url('${fileUrl2}')`, height: '100%'}}>
                     <label for="fileFoto2" className="p-labelForCam">
                         <AddAPhotoIcon fontSize="large"/>
                     </label>
                     <input type="file"  id="fileFoto2" accept="image/*" className='p-agregarImg'  name='image2' onChange={(e)=> procesarImagen(e)} ></input>
                 </div>
-                <div className="p-portaFoto" style={{backgroundImage: `url('${fileUrl3}')`, height: '100%', maxWidth: '30%'}}>
+                <div className="p-portaFoto" style={{backgroundImage: `url('${fileUrl3}')`, height: '100%'}}>
                     <label for="fileFoto3" className="p-labelForCam">
                         <AddAPhotoIcon fontSize="large"/>
                     </label>

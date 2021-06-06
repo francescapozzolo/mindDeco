@@ -150,6 +150,7 @@ h4.BPrecioProducto, h5.BDescripcionProducto{
     background-color: var(--negro);
     border: 2px solid transparent;
     border-color: var(--negro);
+    width: 12vw;
 }
 .BCursorPointer{
     cursor: pointer;
@@ -325,7 +326,7 @@ h4.BPrecioProducto, h5.BDescripcionProducto{
 
 .BContainerIniciar{
     align-items: center;
-    width: 40%;
+    width: 50%
 }
 
 .BContainerIniciar h6{

@@ -8,7 +8,8 @@ import StarIcon from '@material-ui/icons/Star';
 import { Icon } from '@iconify/react';
 import shoppingCart from '@iconify-icons/la/shopping-cart'; 
 import carritoActions from "../redux/actions/carritoActions";
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 const Producto = (props)=>{
    const [producto, setProducto] = useState(null)
@@ -33,15 +34,18 @@ const favoritear = () => {
    setProdFavoriteado(!prodFavoriteado)
 }
 
-const agregandoProducto = async (producto) => {
-   const response = await props.agregarProductoAlCarrito(props.userLogged, producto)
-   if(response.success) {
-      return toast.success('Se agrego al carrito')
-   }else{
-      return toast.success('Este producto ya esta en el carrito')
+const agregandoProducto = async (item) => {
+   if(props.userLogged){
+       const response = await props.agregarProductoAlCarrito(props.userLogged, item)
+       if(response && response.success) {
+           return toast.success('Se agrego al carrito')
+       }else{
+           return toast.success('Este producto ya esta en el carrito')
+       }
+   } else {
+       return toast.success('Debe iniciar sesión para poder comprar')
    }
 }
-
 
    return (
       <div id="p-contenedorPrincipalProducto">
@@ -64,7 +68,7 @@ const agregandoProducto = async (producto) => {
                <p className="precioProducto-componenteIndividual fontTexto">Precio: ${producto.precio}</p>
                <div className="contenedor-valoracionDeProducto"> 
                   <div><StarIcon /><StarIcon /><StarIcon /><StarIcon /><StarIcon /></div>
-                  <p className="opcion-AgregarOpinion fontTexto"><span className="barrita-divisora">|</span> Agregar una opinión</p>
+                  <p className="opcion-AgregarOpinion fontTexto"><span className="barrita-divisora">|</span></p><label className="fontTexto p-agregarOpinion" for="inputMail">Agregar una opinión</label> 
                </div>
                <div className="p-contenedorIconosAcciones">
                   <div>
@@ -94,7 +98,7 @@ const agregandoProducto = async (producto) => {
                   <div>
                      <h2 className="fontTitulos">Envíanos </h2><h2 className="fontCursive">tu consulta</h2>
                   </div>
-                  <input type="text" className="fontTexto" placeholder="Ingresá tu mail" ></input>
+                  <input type="text" id="inputMail" className="fontTexto" placeholder="Ingresá tu mail" ></input>
                   <input type="text" className="fontTexto" placeholder="Ingresá tu nombre"></input>
                   <textarea className="fontTexto" placeholder="Ingresá tu consulta"></textarea>
                   <button className="fontTitulos">ENVIAR CONSULTA</button>

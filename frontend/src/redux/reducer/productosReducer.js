@@ -21,6 +21,11 @@ const productosReducer = (state = initialState, action) => {
                 ...state,
                 productosSubategoria: action.payload,
             }
+        case 'PRODUCTOS_SUBCATEGORIA':
+            return {
+                ...state,
+                todosLosProductos: [...state.todosLosProductos, action.payload.respuesta]
+            }
         default:
             return state
     }

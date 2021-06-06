@@ -56,8 +56,9 @@ let respuestaConsulta= `
 const mailControllers = {
 
     enviarMail: (req, res) => {
+
         const {destinatario, asunto, cuerpo} = req.body
-        console.log(req.body)
+
         let mailOptions = {
             from: 'mindDeco',
             to: destinatario, 
