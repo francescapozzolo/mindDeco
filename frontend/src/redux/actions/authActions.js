@@ -5,7 +5,7 @@ const authActions = {
     createUser: (user) => {
         return async (dispatch, getState) => {
             try{
-                const response = await axios.post('http://localhost:4000/api/usuario/registrarse', user)
+                const response = await axios.post('https://minddeco.herokuapp.com/api/usuario/registrarse', user)
                 if(!response.data.success){
                     return response.data.errores
                 }
@@ -22,7 +22,7 @@ const authActions = {
     logInUser: (user) => {
         return async(dispatch, getState) => {
             try{
-                const response = await axios.post('http://localhost:4000/api/usuario/loguearse', user)
+                const response = await axios.post('https://minddeco.herokuapp.com/api/usuario/loguearse', user)
                 if(!response.data.success){
                     return response.data
                 }
@@ -49,7 +49,7 @@ const authActions = {
         
         return async (dispatch, getState) => {
             try {
-                const respuesta = await axios.get('http://localhost:4000/api/usuario/loginforzado', {
+                const respuesta = await axios.get('https://minddeco.herokuapp.com/api/usuario/loginforzado', {
                     headers: {
                         'Authorization': 'Bearer '+user.token
                     }

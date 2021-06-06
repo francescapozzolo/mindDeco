@@ -5,7 +5,7 @@ const mailActions = {
     mandarMail: (mail) => {
         return async (dispatch, getState) => {
             try{
-                const response = await axios.post('http://localhost:4000/api/mensaje', mail)
+                const response = await axios.post('https://minddeco.herokuapp.com/api/mensaje', mail)
                 if(!response.data.success){
                     toast.success('Su mail fue enviado con éxito')
                 }

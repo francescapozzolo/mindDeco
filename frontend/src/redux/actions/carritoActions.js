@@ -4,7 +4,7 @@ const carritoActions = {
     agregarProductoAlCarrito: (user, producto) => {
         return async (dispatch, getState) => {
             try{
-                const response = await axios.put('http://localhost:4000/api/carrito',{producto},{
+                const response = await axios.put('https://minddeco.herokuapp.com/api/carrito',{producto},{
                     headers: {
                         'Authorization': 'Bearer '+user.token
                     }
@@ -22,7 +22,7 @@ const carritoActions = {
     modificarProducto: (user, producto, cantidad) => {
         return async (dispatch, getState) => {
             try{
-                const response = await axios.put('http://localhost:4000/api/modificarCantidadProducto',{producto, cantidad},{
+                const response = await axios.put('https://minddeco.herokuapp.com/api/modificarCantidadProducto',{producto, cantidad},{
                     headers: {
                         'Authorization': 'Bearer '+user.token
                     }
@@ -40,7 +40,7 @@ const carritoActions = {
     obtenerProductos: (user) => {
         return async (dispatch, getState) => {
             try{
-                const response = await axios.get('http://localhost:4000/api/obtenerProductos',{
+                const response = await axios.get('https://minddeco.herokuapp.com/api/obtenerProductos',{
                     headers: {
                         'Authorization': 'Bearer '+user.token
                     }
@@ -54,7 +54,7 @@ const carritoActions = {
     borrarProducto:(user, producto) => {
         return async (dispatch, getState) => {
             try{
-                const response = await axios.put('http://localhost:4000/api/borrarProducto',{producto},{
+                const response = await axios.put('https://minddeco.herokuapp.com/api/borrarProducto',{producto},{
                     headers: {
                         'Authorization': 'Bearer '+user.token
                     }
@@ -73,7 +73,7 @@ const carritoActions = {
     vaciarCarrito:(user,producto) => {
         return async (dispatch, getState) => {
             try{
-                const response = await axios.put('http://localhost:4000/api/vaciarCarrito',{producto},{
+                const response = await axios.put('https://minddeco.herokuapp.com/api/vaciarCarrito',{producto},{
                     headers: {
                         'Authorization': 'Bearer '+user.token
                     }
