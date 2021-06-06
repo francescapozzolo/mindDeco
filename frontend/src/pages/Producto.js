@@ -12,6 +12,8 @@ import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import mailActions from "../redux/actions/mailActions";
 
+import productosActions from "../redux/actions/productosActions";
+
 const Producto = (props)=>{
    const [producto, setProducto] = useState(null)
    const idProducto = props.match.params.id
@@ -21,16 +23,30 @@ const Producto = (props)=>{
    
    useEffect(()=> {
       window.scrollTo(0, 0)
-      setProducto(props.todosLosProductos.find(producto => producto._id === idProducto))
+      setearProducto()
    }, [])
+
+   const setearProducto = async () => {
+      const respuesta = await props.obtenerProductoPorId(idProducto)
+      setProducto(respuesta)
+   }
   
-if(!producto){
-   return <h2>Loading</h2>
-}
+   if(!producto){
+      return <div className="sk-cube-grid">
+               <div className="sk-cube sk-cube1"></div>
+               <div className="sk-cube sk-cube2"></div>
+               <div className="sk-cube sk-cube3"></div>
+               <div className="sk-cube sk-cube4"></div>
+               <div className="sk-cube sk-cube5"></div>
+               <div className="sk-cube sk-cube6"></div>
+               <div className="sk-cube sk-cube7"></div>
+               <div className="sk-cube sk-cube8"></div>
+               <div className="sk-cube sk-cube9"></div>
+         </div>
+   }
 
 const likear = () => {
    setProdLikeado(!prodLikeado)
-
 }
 
 const favoritear = () => {
@@ -138,7 +154,8 @@ const mapStateToProps = (state)=>{
 
 const mapDispatchToProps ={
    agregarProductoAlCarrito: carritoActions.agregarProductoAlCarrito,
-   mandarMail: mailActions.mandarMail
+   mandarMail: mailActions.mandarMail,
+   obtenerProductoPorId: productosActions.obtenerProductoPorId,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Producto)

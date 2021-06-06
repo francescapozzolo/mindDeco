@@ -21,16 +21,13 @@ const HomeCarruselPrincipal = () => {
     return (
         <Carousel autoplay  id="pCarruselPrincipal">
             <div className="p-containerTextSlider">
-                <div className="p-fotoSlider" style={{contentStyle, backgroundImage: 'url("https://i.imgur.com/FBYXjNl.jpg-")'}} ></div>
+                <div className="p-fotoSlider" style={{contentStyle, backgroundImage: 'url("https://i.imgur.com/LVo8R1u.jpg")'}}></div>
             </div>
             <div className="p-containerTextSlider">
                 <div className="p-fotoSlider" style={{contentStyle, backgroundImage: 'url("https://i.imgur.com/OXX1FwM.jpg")'}}></div>
             </div>
             <div className="p-containerTextSlider">
                 <div className="p-fotoSlider" style={{contentStyle, backgroundImage: 'url("https://i.imgur.com/VMXPXI9.png-")'}}></div>
-            </div>
-            <div className="p-containerTextSlider">
-                <div className="p-fotoSlider" style={{contentStyle, backgroundImage: 'url("https://i.imgur.com/USHCIXY.jpg-")'}}></div>
             </div>
         </Carousel>
     )
