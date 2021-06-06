@@ -10,7 +10,7 @@ import carritoActions from '../redux/actions/carritoActions';
 import SeccionConfirmarCompra from '../componentes/pasarela de pago/SeccionConfirmarCompra';
 import PagoEnEfectivo from '../componentes/pasarela de pago/PagoEnEfectivo';
 
-const PasarelaDePago = (props)=>{
+const PasarelaDePago = (props) => {
    // const [metodoSeleccionado, setMetodoSeleccionado] = useState("")
    const [pasoDeCompra, setPasoDeCompra] = useState('paso1-direcciones')
    // const [metodoDePago, setMetodoDePago] = useState("")
@@ -21,7 +21,7 @@ const PasarelaDePago = (props)=>{
 
 
    useEffect(()=>{
-      const cargarProductosAComprar = async()=>{
+      const cargarProductosAComprar = async () =>{
          if (props.userLogged){
             const respuesta = await props.obtenerProductos(props.userLogged)
             setProductosAComprar(respuesta.carrito)

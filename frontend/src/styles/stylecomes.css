@@ -90,12 +90,12 @@ a:hover {
 }
 
 .c-logoNavbar {
-	background-image: url('../assets/logomind.png');
+	background-image: url('https://i.imgur.com/cWjgx1t.png');
 	background-position: center;
 	background-size: contain;
 	background-repeat: no-repeat;
-	width: 13vw;
-	height: 8vh;
+	width: 250px;
+	height: 80px;
 	cursor: pointer;
 }
 
@@ -104,7 +104,7 @@ a:hover {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
-	width: 225px;
+	width: 90px;
 	align-items: flex-end;
 	color: white;
 	padding-bottom: 20;
@@ -297,4 +297,68 @@ a:hover {
 
 .ant-dropdown-menu-item, .ant-dropdown-menu-submenu-title {
     padding: 3px 5px 0px 5px !important;
+}
+
+@media (max-width: 768px) {
+	.c-iconsContainer {
+		margin-bottom: 10px;
+	}
+
+	.c-headerFiltroContainer {
+		width: 95vw;
+	}
+
+	.c-categoriaSpan {
+		font-size: 0.9rem;
+	}
+
+	.c-logoNavbar {
+		width: 200px;
+		height: 60px;
+	}
+}
+
+@media (max-width: 500px) {
+	.c-IconPerson {
+		margin-bottom: 2px;
+		font-size: 29px !important;
+	}
+
+	.c-IconCart {
+		font-size: 24px !important;
+	}
+
+	.spanHeaderSlider {
+		font-size: 0.8rem;
+	}
+
+	.c-navbarContainer {
+		height: 10vh;
+	}
+
+	.c-iconsContainer {
+		align-items: center;
+		margin-bottom: 0px;
+		margin-top: 20px;
+		width: 65px;
+	}
+
+	.c-headerFiltroContainer {
+		width: 100vw;
+	}
+
+	.c-categoriaSpan {
+		font-size: 0.7rem;
+	}
+
+	.c-logoNavbar {
+		width: 150px;
+		height: 60px;
+	}
+	
+
+}
+
+@media (max-width: 1100px) {
+
 }

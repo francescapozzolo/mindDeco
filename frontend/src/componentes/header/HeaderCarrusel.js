@@ -17,13 +17,13 @@ const HeaderCarrusel = () => {
     return (
         <Carousel autoplay dots={false  }>
             <div className="c-containerTextSlider">
-                <span style={contentStyle}>3, 6 Y 12 CUOTAS SIN INTERÉS</span>
+                <span style={contentStyle} className="spanHeaderSlider">3, 6 Y 12 CUOTAS SIN INTERÉS</span>
             </div>
             <div className="c-containerTextSlider">
-                <span style={contentStyle}>-20% TRANSFERENCIA</span>
+                <span style={contentStyle} className="spanHeaderSlider">-20% TRANSFERENCIA</span>
             </div>
             <div className="c-containerTextSlider">
-                <span style={contentStyle}>ENVÍO GRATIS A TODO EL TERRITORIO NACIONAL</span>
+                <span style={contentStyle} className="spanHeaderSlider">ENVÍO GRATIS A TODO EL TERRITORIO NACIONAL</span>
             </div>
         </Carousel>
     )
