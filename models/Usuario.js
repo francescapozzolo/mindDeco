@@ -9,7 +9,7 @@ const usuarioSchema = new mongoose.Schema({
         administrador: {type: Boolean, default: false},
         google: {type: Boolean, default: false},
         carrito: [{idProducto:{type: mongoose.Types.ObjectId, ref: 'product'}, cantidad: {type: Number, default: 1}}],
-        favoritos: [{type: mongoose.Types.ObjectId, ref: 'product'}]
+        favoritos: [{type: mongoose.Types.ObjectId, ref: 'product'}],
 })
      
 const Usuario = mongoose.model('user', usuarioSchema)

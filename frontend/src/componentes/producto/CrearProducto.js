@@ -15,9 +15,9 @@ const CrearProducto = (props) => {
         precio: '',
         stock: '',
         dimensiones: '',
-        // fotos: '',
+        descuento: ''
     })
-    // const [foto, setFoto] = useState()
+
     const [arraySubcategorias, setArraySubcategorias] = useState([])
     const [arrayArticulos, setArrayArticulos] = useState([])
     const [habilitarSubcategoria, setHabilitarSubcategoria] = useState(false)
@@ -25,32 +25,35 @@ const CrearProducto = (props) => {
     const [foto1, setFoto1] = useState({foto1: ''})
     const [foto2, setFoto2] = useState({foto2: ''})
     const [foto3, setFoto3] = useState({foto2: ''})
+    const [fileUrl1, setFileUrl1] = useState(null)
+    const [fileUrl2, setFileUrl2] = useState(null)
+    const [fileUrl3, setFileUrl3] = useState(null)
     
     const categorias = [
         {categoria: 'living', subcategorias: [
             {subcategoria: 'muebles', articulos: ['sillones', 'mesas centro', 'mesas auxiliares', 'estanterias', 'cabinets', 'consolas', 'espejos', 'muebles TV']}, 
             {subcategoria:'textil', articulos:  ['almohadones', 'puff', 'mantas', 'alfombras']}, 
-            {subcategoria:'decoracion', articulos:  ['espejos', 'objetos', 'alfombras']}]
+            {subcategoria:'decoración', articulos:  ['espejos', 'objetos', 'alfombras']}]
         },
         {categoria:'cocina & comedor', subcategorias: [
             {subcategoria: 'muebles', articulos: ['mesas', 'sillas', 'barras', 'banquetas', 'estanterias', 'cabinets']}, 
             {subcategoria: 'textil', articulos: ['repasadores', 'manteles + servilletas' , 'delantales']}, 
-            {subcategoria: 'decoracion', articulos: ['pared', 'objetos']}, 
+            {subcategoria: 'decoración', articulos: ['pared', 'objetos']}, 
             {subcategoria: 'vajilla', articulos: ['platos', 'bandejas', 'la hora del té', 'copas y vasos']}]
         }, 
         {categoria:'dormitorio', subcategorias: [
             {subcategoria: 'muebles', articulos: ['escritorio', 'sillas', 'biblioteca', 'comoda', 'respaldares', 'mesa de luz', 'mueble tv']}, 
             {subcategoria: 'textil', articulos: ['puff', 'almohadones', 'mantas', 'alfombras', 'cubre edredon']}, 
-            {subcategoria: 'decoracion', articulos: ['pared', 'objetos']}]
+            {subcategoria: 'decoración', articulos: ['pared', 'objetos']}]
         }, 
         {categoria:'baños', subcategorias: [
             {subcategoria: 'textil', articulos: ['cortinas', 'alfombras']}, 
-            {subcategoria: 'decoracion', articulos: ['pared', 'objetos']}]
+            {subcategoria: 'decoración', articulos: ['pared', 'objetos']}]
         }, 
         {categoria:'jardin', subcategorias: [
             {subcategoria: 'muebles', articulos: ['mesas comedor', 'sillas', 'barras', 'banquetas', 'camastros', 'mesas centro']}, 
             {subcategoria: 'textil', articulos: ['almohadones', 'puff']}, 
-            {subcategoria: 'decoracion', articulos: ['pared', 'objetos', 'plantas']}]}
+            {subcategoria: 'decoración', articulos: ['pared', 'objetos', 'plantas']}]}
     ]
 
     const leerInput = (e)  => {
@@ -84,21 +87,8 @@ const CrearProducto = (props) => {
         setHabilitarArticulos(true)
     }
 
-    // const leerInputFoto = (e) => {
-    //     setFoto(e.target.value)
-    // }
 
-    // const agregarFoto = (event) => {
-    //     event.preventDefault()
-    //     if(foto) {setNuevoProducto({
-    //         ...nuevoProducto,
-    //         fotos: [...nuevoProducto.fotos,foto]
-    //     })  
-    //     setFoto('')
-    //     }
-    // }
-
-    const cargarProducto = (event) => {
+    const cargarProducto = async (event) => {
         event.preventDefault()
         if(Object.values(nuevoProducto).some(value => value === "")){
             toast.info('Debes completar todos los campos')
@@ -115,8 +105,40 @@ const CrearProducto = (props) => {
         formData.append('foto', foto1.foto1)
         formData.append('foto', foto2.foto2)
         formData.append('foto', foto3.foto3)
-        props.cargarNuevoProducto(formData)
-            toast.info('Se ha cargado el nuevo producto')
+
+        const respuesta = await props.cargarNuevoProducto(formData)
+            if(respuesta.success){
+                toast.info('Se ha cargado el nuevo producto')
+                setNuevoProducto({categoria: '',subcategoria: '',articulo: '',nombre: '', descripcion: '',precio: '',  stock: '',dimensiones: '', descuento: ''})
+                setFileUrl1(null)
+                setFileUrl2(null)
+                setFileUrl3(null)
+            }
+            
+        }
+       
+    }
+
+    const procesarImagen = (e) => {
+        if(e){
+            const imageFile = e.target.files[0];
+            const imageUrl = URL.createObjectURL(imageFile);
+            switch(e.target.name){
+                case 'image1': 
+                    setFileUrl1(imageUrl)
+                    cargarFoto1(e)
+                    break
+                case 'image2':
+                    setFileUrl2(imageUrl)
+                    cargarFoto2(e)
+                    break
+                case 'image3':
+                    setFileUrl3(imageUrl)
+                    cargarFoto3(e)
+                    break
+                default: 
+                return null 
+            }
         }
     }
 
@@ -132,15 +154,20 @@ const CrearProducto = (props) => {
         setFoto3({foto3: e.target.files[0]})
     }
 
+    
     return (
         <form id='formularioCargaProducto'>
+            <div className="p-contenedorTitCargaProd">
+                <h2 className="fontTitulos">Cargar nuevo </h2><span>-</span><h2 className="fontCursive"> producto</h2>
+            </div>
+            <div id="contenedorInputsCargaProductos">
             <div id="selectoresCategorias">
                 <select name='categoria' onChange={(e)=>acciones(e, 'categoria')} className="fontTexto">
                     <option name='categoria' selected disabled>Elija la subategoría</option>
                     {categorias.map(categoria => {
                         return(
                             <>
-                                <option key={categoria.categoria} value={categoria.categoria}>{categoria.categoria.charAt(0).toUpperCase() + categoria.categoria.slice(1, categoria.categoria.legth)}</option>
+                                <option key={categoria.categoria} value={categoria.categoria}>{categoria.categoria.charAt(0).toUpperCase() + categoria.categoria.slice(1, categoria.categoria.length)}</option>
                             </>
                         )
                     })}
@@ -150,7 +177,7 @@ const CrearProducto = (props) => {
                     {arraySubcategorias.map(subcategoria => {
                         return ( 
                             <>
-                                <option value={subcategoria.subcategoria} name={'subcategoria'}>{subcategoria.subcategoria.charAt(0).toUpperCase() + subcategoria.subcategoria.slice(1, subcategoria.subcategoria.legth)}</option>
+                                <option value={subcategoria.subcategoria} name={'subcategoria'}>{subcategoria.subcategoria.charAt(0).toUpperCase() + subcategoria.subcategoria.slice(1, subcategoria.subcategoria.length)}</option>
                             </>
                         )
                     })
@@ -168,7 +195,6 @@ const CrearProducto = (props) => {
                 }
                 </select>
             </div>
-            <div id="contenedorInputsCargaProductos">
                 <div id="subcontenedorInputsCargaProductos">
                     <div className="inputCargaProductos fontTitulos">
                         <label for='nombre'>NOMBRE PRODUCTO</label>
@@ -192,7 +218,7 @@ const CrearProducto = (props) => {
                     </div>
                     <div className="inputCargaProductos fontTitulos">
                         <label for='descuento'>PORCENTAJE DE DESCUENTO</label>
-                        <input className="fontTexto" type="number" id='descuento' value={nuevoProducto.unidadesStock} name='descuento' onChange={leerInput} placeholder="Ingresá el porcentaje de descuento"></input>
+                        <input className="fontTexto" type="number" id='descuento' value={nuevoProducto.descuento} name='descuento' onChange={leerInput} placeholder="Ingresá el porcentaje de descuento"></input>
                     </div> 
                     {/* <div className="inputCargaProductos fontTitulos">
                         <label for='fotos'>FOTOS</label>
@@ -208,19 +234,25 @@ const CrearProducto = (props) => {
                     </div> */}
                     
                 </div>
-                <div>
-                    <div className="p-portaFoto" /*style={{backgroundImage: `url(${nuevoProducto.fotos[0]})`}}*/>
-                        <div>
-
-                        </div>
-                        <input type="file" accept="image/*" className='p-agregarImg'  name='images[]' onChange={cargarFoto1} ></input>
-                    </div>
-                    <div className="p-portaFoto" /*style={{backgroundImage: `url(${nuevoProducto.fotos[1]})`}}*/>
-                        <input type="file" accept="image/*" className='p-agregarImg'  name='images[]' onChange={cargarFoto2} ></input>
-                    </div>
-                    <div className="p-portaFoto" /*style={{backgroundImage: `url(${nuevoProducto.fotos[2]})`}}*/>
-                        <input type="file" accept="image/*" className='p-agregarImg' name='images[]' onChange={cargarFoto3} ></input>
-                    </div>
+            </div>
+            <div className="p-contenedorInpFiles">
+                <div style={{backgroundImage: `url('${fileUrl1}')`, height: '100%'}} className="p-portaFoto">
+                    <label for="fileFoto1" className="p-labelForCam">
+                        <AddAPhotoIcon fontSize="large"/>
+                    </label>
+                    <input type="file" id="fileFoto1" accept="image/*" className='p-agregarImg'  name='image1' onChange={(e)=> procesarImagen(e)} ></input>
+                </div>
+                <div className="p-portaFoto" style={{backgroundImage: `url('${fileUrl2}')`, height: '100%'}}>
+                    <label for="fileFoto2" className="p-labelForCam">
+                        <AddAPhotoIcon fontSize="large"/>
+                    </label>
+                    <input type="file"  id="fileFoto2" accept="image/*" className='p-agregarImg'  name='image2' onChange={(e)=> procesarImagen(e)} ></input>
+                </div>
+                <div className="p-portaFoto" style={{backgroundImage: `url('${fileUrl3}')`, height: '100%'}}>
+                    <label for="fileFoto3" className="p-labelForCam">
+                        <AddAPhotoIcon fontSize="large"/>
+                    </label>
+                    <input type="file"  id="fileFoto3" accept="image/*" className='p-agregarImg' name='image3' onChange={(e)=> procesarImagen(e)} ></input>
                 </div>
             </div>
             <button className="fontTitulos botonCargaArticulos" onClick={cargarProducto}>CARGAR NUEVO PRODUCTO</button>

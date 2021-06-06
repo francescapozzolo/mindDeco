@@ -6,6 +6,10 @@ import Producto from './Producto';
 import LocalShippingIcon from '@material-ui/icons/LocalShipping';
 import ForumIcon from '@material-ui/icons/Forum';
 import RedeemIcon from '@material-ui/icons/Redeem';
+import { NavLink } from 'react-router-dom';
+
+
+
 const Carrito = (props) => {
     const [carrito, setCarrito] = useState([])
     const [open, setOpen] = useState(false)
@@ -19,6 +23,7 @@ const Carrito = (props) => {
     const productos = async () => {
         if(props.userLogged){
             const array = await props.obtenerProductos(props.userLogged)
+            console.log(array)
             setCarrito(array.carrito)
         }else{
             props.history.push('/')
@@ -35,17 +40,30 @@ const Carrito = (props) => {
     const borrarProducto = async (producto) => {
         const response = await props.borrarProducto(props.userLogged, producto)
         setCarrito(response.carrito)
-    } 
+    }
     return (
         <div className='BContainerCarrito'>
             <div className='BContainerProductos'>
                 {
+                    carrito.length ? 
                     carrito.map(producto => {
                         precioTotal +=  producto.cantidad*producto.idProducto.precio
                         articulosTotales += producto.cantidad
                         return <Producto producto={producto} borrarProducto={borrarProducto} modificaProducto={modificaProducto} loading={loading}/>
                         
-                })
+                }) :
+
+                    <div class="sk-cube-grid">
+                        <div class="sk-cube sk-cube1"></div>
+                        <div class="sk-cube sk-cube2"></div>
+                        <div class="sk-cube sk-cube3"></div>
+                        <div class="sk-cube sk-cube4"></div>
+                        <div class="sk-cube sk-cube5"></div>
+                        <div class="sk-cube sk-cube6"></div>
+                        <div class="sk-cube sk-cube7"></div>
+                        <div class="sk-cube sk-cube8"></div>
+                        <div class="sk-cube sk-cube9"></div>
+                    </div>
                 }
             </div>
             <div className='BTableroCarrito'>
@@ -56,7 +74,7 @@ const Carrito = (props) => {
                     </div>
                     <div className='BTableroFilas BMargginBoton'>
                         <h3>{articulosTotales+' artículos'}</h3>
-                        <h3>{precioTotal + ' ARS'}</h3>
+                        <h3>${precioTotal}</h3>
                     </div>
                     <hr />
                     <h3 className='BMarginTop BCodigoPromocional' onClick={()=> setOpen(!open)}>¿Tienes un código promocional?</h3>
@@ -69,10 +87,14 @@ const Carrito = (props) => {
                     
                     <div className='BTableroFilas BTableroTotal'>
                         <h3>Total</h3>
-                        <h3 className='BBold'>{precioTotal + ' ARS'}</h3>
+                        <h3 className='BBold'>${precioTotal}</h3>
                     </div>
                 </div>
-                <button className='BButon'>COMPRAR</button>
+                    
+                <NavLink to="/comprar" >
+                    <button className='BButon'>COMPRAR</button>
+                </NavLink>
+
                 <div>
                     <div className="BContainerTableroFondo">
                      <h3 className='BTableroFondo'><LocalShippingIcon className='BIconTablero'/> Política de Envío</h3>

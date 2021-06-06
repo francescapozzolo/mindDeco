@@ -13,6 +13,7 @@ const carritoActions = {
                     type: 'LOG_USER',
                     payload: {...response.data.respuesta, token: user.token}
                 })
+                console.log(response)
                 return response.data
             }catch(error){
                 console.log(error)
@@ -60,7 +61,7 @@ const carritoActions = {
                         'Authorization': 'Bearer '+user.token
                     }
                 })
-                console.log('ln: 13', response.data.respuesta )
+                // console.log('ln: 13', response.data.respuesta )
                 dispatch({
                     type: 'LOG_USER',
                     payload: response.data.success ? {...response.data.respuesta, token: user.token} : null

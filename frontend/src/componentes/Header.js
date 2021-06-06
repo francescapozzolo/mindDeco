@@ -2,15 +2,15 @@ import React, { useEffect, useState } from 'react'
 import HeaderCarrusel from './header/HeaderCarrusel'
 import HeaderFiltro from './header/HeaderFiltro'
 import Navbar from './header/Navbar'
-import { Modal, Input, Alert } from 'antd';
+import { Modal, Input } from 'antd';
 import { connect } from 'react-redux';
 import mailActions from '../redux/actions/mailActions';
 import { toast } from 'react-toastify'
 
 const Header = (props) => {
-console.log(props)
+
   const [isModalVisible, setIsModalVisible] = useState(false)
-  const [mail, setMail] = useState({email: '', nombre: ''})
+  const [mail, setMail] = useState({email: '', nombre: '', asunto: 'newsletter'})
   const [completo, setCompleto] = useState(false)
 
   useEffect(() => {
@@ -44,6 +44,8 @@ console.log(props)
         [e.target.name]: e.target.value
     })
   }
+
+
 
   return (
     <>

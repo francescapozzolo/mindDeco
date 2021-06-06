@@ -39,6 +39,10 @@ const IniciarSesion = (props) => {
             console.log(props)
             setTimeout(function(){ props.history.push('/') }, 3000);       
         }
+        // else{
+        //     toast.success('Welcome')
+        //     setTimeout(function(){ props.history.push('/') }, 5000);       
+        // }
     }
     
     const responseGoogle = (response) => {

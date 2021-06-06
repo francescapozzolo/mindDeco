@@ -31,7 +31,7 @@ const Footer = (props) => {
                     <span className="c-footerTitle">CONTACTO</span>
                     <div className="c-footerInnerInfoContainer">
                         <input id="c-footerInput" name="destinatario" value={mail.destinatario} placeholder="Correo electronico" onChange={(e)=>leerInput(e, 'destinatario')}></input>
-                        <input id="c-footerInput" name="asunto" value={mail.asunto} placeholder="asunto" onChange={(e)=>leerInput(e, 'asunto')}></input>
+                        <input id="c-footerInput" name="asunto" value={mail.asunto} placeholder="Nombre" onChange={(e)=>leerInput(e, 'asunto')}></input>
                         <textarea id="c-footerTextarea" name="cuerpo" value={mail.cuerpo} placeholder="Mensaje" onChange={(e)=>leerInput(e, 'cuerpo')}/>
                         <span id="c-footerSubmit" onClick={enviarMail}>ENVIAR</span>
                     </div>

@@ -6,7 +6,7 @@ import productosActions from '../../redux/actions/productosActions'
 const HomeGrillaCategorias = (props) => {
 
     const filtrarSubcategorias = (subcategoria) => {
-        props.fetchearSubcategorias(subcategoria) 
+        props.fetchearSubcategorias(subcategoria)
     }
 
     return (
@@ -22,7 +22,7 @@ const HomeGrillaCategorias = (props) => {
                 <div className="p-contenedorImg" onClick={() => {filtrarSubcategorias('vajilla')}}>
                     <Link to="/categoria/vajilla" className="p-FotoCategoria" id="p-vajilla" style={{backgroundImage: 'url("./assets/vajilla.jpg")'}}><p className="fontCursive">Vajilla</p></Link>
                 </div>
-                <div className="p-contenedorImg" onClick={() => {filtrarSubcategorias('decoracion')}}>
+                <div className="p-contenedorImg" onClick={() => {filtrarSubcategorias('decoración')}}>
                     <Link to="/categoria/decoracion" className="p-FotoCategoria" id="p-decoracion"  style={{backgroundImage: 'url("./assets/jardin1.jpg")'}}><p className="fontCursive">Decoración</p></Link>
                 </div>
             </div>
