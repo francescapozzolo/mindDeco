@@ -55,7 +55,7 @@ const IniciarSesion = (props) => {
         
             <div className='BContainerPrincipal'>
                 <div className='BContainerContenido'>
-                    <div>
+                    <div className="nuevosClientes-cd">
                         <h2>NUEVOS CLIENTES</h2>
                         <p>Al crear una cuenta en nuestra tienda, podrá desplazarse más rápidamente por el proceso de pago, almacenar múltiples direcciones de envío, ver y realizar un seguimiento de sus pedidos en su cuenta y mucho más</p>
                         <NavLink to='/registro'><button className='BButon'>CREA UNA CUENTA</button></NavLink>
@@ -75,7 +75,8 @@ const IniciarSesion = (props) => {
                             onChange={readInputUser} value={user.password} name="password" />
                             {eye ? <VisibilityOffOutlinedIcon className='BEye' onClick={()=>setEye(!eye)} /> : <VisibilityOutlinedIcon className='BEye' onClick={()=>setEye(!eye)}/>}
                         </div>
-                        <button className='BButon BMarginGoogle' onClick={sendValueUser}>INGRESAR</button>
+                       <div className="botones-cd">
+                       <button className='BButon BMarginGoogle' onClick={sendValueUser}>INGRESAR</button>
                         <GoogleLogin
                             clientId="687710738267-6envati0vqengfok9k0eqgbo9k5jf9j9.apps.googleusercontent.com"
                             render={renderProps => (
@@ -87,6 +88,7 @@ const IniciarSesion = (props) => {
                             cookiePolicy={'single_host_origin'}
                             className='BBotonGoogle'
                         />
+                       </div>
                     </form>
                 </div>
                 <ToastContainer />

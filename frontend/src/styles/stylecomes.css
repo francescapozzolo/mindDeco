@@ -90,12 +90,12 @@ a:hover {
 }
 
 .c-logoNavbar {
-	background-image: url('../assets/logo.png');
+	background-image: url('../assets/logomind.png');
 	background-position: center;
 	background-size: contain;
 	background-repeat: no-repeat;
-	width: 325px;
-	height: 85px;
+	width: 13vw;
+	height: 8vh;
 	cursor: pointer;
 }
 
