@@ -586,6 +586,17 @@ border-spacing: 0;
     -moz-box-shadow: 2px 2px 9px -2px rgba(25,29,31,0.5);
 }
 
+#formInicioSesion {
+	width: 50%;
+}
+
+.p-titEnvianosConsulta {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
 /*RESPONSIVE HOME*/
 @media (max-width: 1100px) {
     #p-parallax > h2{
@@ -706,6 +717,7 @@ border-spacing: 0;
     .l-contenedor-menu-lateral{
         width: 100%;
         margin-right: 0;
+        min-height: 4vh !important;
     }
 
     .l-contenedor-opcion-por-categoria{
@@ -733,6 +745,7 @@ border-spacing: 0;
 
     .l-contenedor-productos{
         width: 95%;
+        margin-top: 30px;
     }
 
     .l-card{
@@ -749,6 +762,25 @@ border-spacing: 0;
 
     .contenedor-foto-listCard{
         width: 100%;
+    }
+
+    
+    .p-titEnvianosConsulta {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .p-formProdInd h2:nth-child(2) {
+        font-size: 3em !important;
+        margin-left: 0px !important;
+    }
+    .p-tuConsulta {
+        font-size: 3em !important;
+        margin-left: 0px !important;
+    }
+
+    .p-envianos {
+        margin-left: 0px !important;
     }
 }
 
@@ -783,6 +815,12 @@ border-spacing: 0;
 }
 
 @media (max-width: 600px){
+
+    .BContainerPrincipal{
+        margin-top: 0px !important;
+        margin-bottom: 0px !important;
+    }
+    
     .inputCargaProductos label{
         font-size: 0.6rem;
     }
@@ -812,17 +850,24 @@ border-spacing: 0;
     }
 
     .nuevosClientes-cd{
-        margin-bottom: 3vh;
+        width: 50%;
+    }
+
+    .botones-cd {
+        width: 100% !important;
     }
 
     .BButon{
         width: 30vw;
     }
+
+    
+    #formInicioSesion {
+        width: 100%;
+        margin-top: 8vh;
+    }
 }
 @media (max-width: 500px) {
-    .BContainerPrincipal{
-        margin: 3vh 0;
-    }
     #p-parallax > h2{
         font-size: 2rem;
     }
@@ -1036,3 +1081,5 @@ border-spacing: 0;
         width: 50vw;
     }
 }
+
+

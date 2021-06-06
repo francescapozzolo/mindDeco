@@ -34,11 +34,7 @@ const App = ({userLogged, logInForced, obtenerProductos}) => {
       }
       logInForced(userForced)
     }
-<<<<<<< HEAD
   },[userLogged, logInForced])
-=======
-  },[userLogged, logInForced]) 
->>>>>>> 5f9520e18db8333b16421de6dde3f3a0b8bbf075
     return(
       <>
         <ToastContainer/>

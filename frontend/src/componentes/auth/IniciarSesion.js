@@ -62,7 +62,7 @@ const IniciarSesion = (props) => {
                         
                     </div>
                     
-                    <form>
+                    <form id="formInicioSesion">
                         <h2>INGRESE A SU CUENTA</h2>
                         <div className='BContainerPassword'>
                             <MailOutlineIcon className='BIcon'/>
@@ -76,7 +76,7 @@ const IniciarSesion = (props) => {
                             {eye ? <VisibilityOffOutlinedIcon className='BEye' onClick={()=>setEye(!eye)} /> : <VisibilityOutlinedIcon className='BEye' onClick={()=>setEye(!eye)}/>}
                         </div>
                        <div className="botones-cd">
-                       <button className='BButon BMarginGoogle' onClick={sendValueUser}>INGRESAR</button>
+                       <button className='BButon BButonRegistro BMarginGoogle' onClick={sendValueUser}>INGRESAR</button>
                         <GoogleLogin
                             clientId="687710738267-6envati0vqengfok9k0eqgbo9k5jf9j9.apps.googleusercontent.com"
                             render={renderProps => (

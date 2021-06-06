@@ -20,12 +20,9 @@ const Categoria = (props)=>{
    const [subCategorias, setSubCategorias] = useState([])
 
    useEffect(()=>{
-<<<<<<< HEAD
       window.scrollTo(0, 0)
       // console.log(categoriaSeleccionada)
-=======
       const subCategoriasHome = ['textil', 'muebles', 'vajilla', 'decoracion']
->>>>>>> 5f9520e18db8333b16421de6dde3f3a0b8bbf075
       const categoriaSeleccionada = props.match.params.categoria
       let productosPorCategoria = []
       let hash = {};
@@ -40,12 +37,7 @@ const Categoria = (props)=>{
       setTodosLosProductos(productosPorCategoria)
       setProductosAMostrar(productosPorCategoria)
    },[props.match.params.categoria])
-<<<<<<< HEAD
    
-   
-=======
->>>>>>> 5f9520e18db8333b16421de6dde3f3a0b8bbf075
-
    const filtroSubCategoria = (subcategoria) =>{
       let productosPorSubCategoria = null
 

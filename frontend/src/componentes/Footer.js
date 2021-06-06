@@ -75,23 +75,12 @@ const Footer = (props) => {
                             <span>+54 11 4055 8500</span>
                         </div>
                         <div style={{marginTop: 20}} className="c-footerContactContainer">
-<<<<<<< HEAD
-                            
-                        <a href={urlF} target="_blank" rel="noreferrer">      
-                            <FacebookIcon style={{fontSize: 32}} />
-                        </a> 
-                        <a href={urlI} target="_blank" rel="noreferrer">      
-                            <InstagramIcon style={{fontSize: 32, marginLeft: 10}} />
-                        </a> 
-                           
-=======
                             <a href={urlF} target="_blank">      
                                 <FacebookIcon style={{fontSize: 32}} />
                             </a> 
                             <a href={urlI} target="_blank">      
                                 <InstagramIcon style={{fontSize: 32, marginLeft: 10, marginBottom: 18}} />
                             </a> 
->>>>>>> dani
                         </div>
                     </div>
                 </div>
