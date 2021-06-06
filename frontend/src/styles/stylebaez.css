@@ -63,8 +63,8 @@ table {
     margin: 10vh 0px;
 }
 .BContainerContenido{
-    margin: 5vh 5vw;
-    padding-right: 5vw;
+    margin: 8vh auto !important;
+    width: 80%;
 }
 .BContainerCarrito{
     margin: 5vh 3vw;
@@ -129,11 +129,11 @@ h4.BPrecioProducto, h5.BDescripcionProducto{
     font-weight:bold;
     font-size: 1.5vw;
 }
-.BContainerTitulos div, .BContainerContenido div, .BContainerContenido form{
+.BContainerTitulos div{
     width: 50%;
 }
 .BContainerPassword{
-    width: 100%!important;
+    width: 100% !important;
     position: relative;
 }
 .BButon{
@@ -150,8 +150,22 @@ h4.BPrecioProducto, h5.BDescripcionProducto{
     background-color: var(--negro);
     border: 2px solid transparent;
     border-color: var(--negro);
-    width: 12vw;
+    width: 190px;
 }
+
+
+.btn-google {
+    font-family: 'Fjalla One', sans-serif !important;
+    font-size: 12px !important;
+    font-weight: 400 !important;
+    width: 190px !important;
+    letter-spacing: .1em !important;
+}
+
+.btn-google span {
+    margin-left: -40px;
+}
+
 .BCursorPointer{
     cursor: pointer;
 }
@@ -314,7 +328,7 @@ h4.BPrecioProducto, h5.BDescripcionProducto{
 }
 .BImagenRegistro{
     width: 40%!important;
-    height:90vh;
+    height: 77vh;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -322,6 +336,7 @@ h4.BPrecioProducto, h5.BDescripcionProducto{
 
 .BContainerRegistro{
     justify-content: space-between;
+    margin: 0 auto;
 }
 
 .BContainerIniciar{
@@ -334,7 +349,7 @@ h4.BPrecioProducto, h5.BDescripcionProducto{
     font-family: 'Monserrat', sans-serif;
 }
 
-.BGoogle, .BErrores{
+.BErrores{
     font-family: 'Monserrat', sans-serif;
 }
 
@@ -458,34 +473,21 @@ float: left;
     line-height: 2.5rem;
 }
 
-@media only screen and (min-device-width : 350px) and (max-device-width : 800px) {
-    .BContainerRegistro{
-        display:flex;
-        flex-direction: column-reverse;
-        width: 160vh;
-        margin:6vh;
-    }
-    .BImagenRegistro{
-        height: 45vh;
-        width: 80vw;
-        margin: 4vh;
-    }
-    .botones-cd{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin: 1vh;
-    }
-    .BContainerContenido{
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-    }
-    .BContainerPrincipal{
-        width: 150vh;
-    }
-    .nuevosClientes-cd{
-        margin: 3vh;
-    }
+.BButon {
+    width: 100%;
+    height: 50px;
+}
+
+.btn-google {
+    width: 100% !important;
+}
+
+.botones-cd {
+    width: 100%;
+}
+
+.BContainerIniciar{
+    width: 100% !important;
+    margin-bottom: 0px !important;
+    padding-bottom: 0px !important;
 }
