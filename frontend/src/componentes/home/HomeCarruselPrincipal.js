@@ -24,10 +24,10 @@ const HomeCarruselPrincipal = () => {
                 <div className="p-fotoSlider" style={{contentStyle, backgroundImage: 'url("./assets/port.jpg")'}}></div>
             </div>
             <div className="p-containerTextSlider">
-                <div className="p-fotoSlider" style={{contentStyle, backgroundImage: 'url("https://i.imgur.com/OXX1FwM.jpg")'}}></div>
+                <div className="p-fotoSlider" style={{contentStyle, backgroundImage: 'url("./assets/port2.jpg")'}}></div>
             </div>
             <div className="p-containerTextSlider">
-                <div className="p-fotoSlider" style={{contentStyle, backgroundImage: 'url("https://i.imgur.com/VMXPXI9.png-")'}}></div>
+                <div className="p-fotoSlider" style={{contentStyle, backgroundImage: 'url("./assets/port3.jpg")'}}></div>
             </div>
         </Carousel>
     )
