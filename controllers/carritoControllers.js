@@ -45,6 +45,16 @@ const carritoControllers = {
             res.json({respuesta: 'An error has occurred'})           
             console.log(error)
         }
+    },
+    vaciarCarrito: async (req, res) => {
+        try{
+            const usuario = await Usuario.findOneAndUpdate({_id:req.user._id},{$pull: { 'carrito': {_id: req.body.producto._id} }}, {new: true}).populate({ path:"carrito", populate:{ path:"idProducto" } })
+            usuario.carrito = []
+            res.json({success: true, respuesta: usuario})
+        }catch(error){
+            res.json({respuesta: 'An error has occurred'})           
+            console.log(error)
+        }
     }
 
 }

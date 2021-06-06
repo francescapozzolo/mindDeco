@@ -68,7 +68,11 @@ const productosActions = {
                         'Content-Type': 'multipart/form-data'
                     } 
                 })
-                console.log(respuesta.data)
+                dispatch({
+                    type: 'AGREGAR_PRODUCTO',
+                    payload: respuesta.data.respuesta
+                })
+                return respuesta.data
                 
             }
             catch(error){

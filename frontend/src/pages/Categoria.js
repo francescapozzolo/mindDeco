@@ -23,18 +23,31 @@ const Categoria = (props)=>{
    const [subCategorias, setSubCategorias] = useState([])
 
    useEffect(()=>{
+<<<<<<< HEAD
       window.scrollTo(0, 0)
       // console.log(categoriaSeleccionada)
+=======
+      const subCategoriasHome = ['textil', 'muebles', 'vajilla', 'decoracion']
+>>>>>>> 5f9520e18db8333b16421de6dde3f3a0b8bbf075
       const categoriaSeleccionada = props.match.params.categoria
-      const productosPorCategoria = props.todosLosProductos.filter(producto => producto.categoria === categoriaSeleccionada)
+      let productosPorCategoria = []
       let hash = {};
-      let subsNoRep = productosPorCategoria.filter(o => hash[o.subcategoria] ? false : hash[o.subcategoria] = true);
+      let subsNoRep = []
+      if(subCategoriasHome.includes(categoriaSeleccionada)){
+         productosPorCategoria = props.todosLosProductos.filter(producto => producto.subcategoria === categoriaSeleccionada)
+      }else{
+         productosPorCategoria = props.todosLosProductos.filter(producto => producto.categoria === categoriaSeleccionada)
+         subsNoRep = productosPorCategoria.filter(o => hash[o.subcategoria] ? false : hash[o.subcategoria] = true);
+      }
       setSubCategorias(subsNoRep)
       setTodosLosProductos(productosPorCategoria)
       setProductosAMostrar(productosPorCategoria)
    },[props.match.params.categoria])
+<<<<<<< HEAD
    
    
+=======
+>>>>>>> 5f9520e18db8333b16421de6dde3f3a0b8bbf075
 
    const filtroSubCategoria = (subcategoria) =>{
       let productosPorSubCategoria = null
@@ -106,15 +119,19 @@ const Categoria = (props)=>{
       setRightIconIsClicked(false)
       setLeftIconIsClicked(true)
    }
-
-
+   let condicion = true
+   const subCategoriasHome = ['textil', 'muebles', 'vajilla', 'decoracion']
+   if(subCategoriasHome.includes(props.match.params.categoria)){
+      condicion = false
+   }
    return (
       <>
          
          <section className="l-categorias-main-section">
             
             {/* Menu lateral */}
-            <div className="l-contenedor-menu-lateral">
+            {
+               condicion ? <div className="l-contenedor-menu-lateral">
                <div className="l-menu-lateral">
                   <div className="l-contenedor-titulo-menu">
                      <p className="l-titulo-menuLateral fontTitulos">CATEGORIAS</p>
@@ -135,9 +152,11 @@ const Categoria = (props)=>{
                      <p className="l-opcion-por-categoria fontTitulos">Alfombras</p> */}
                   </div>
                </div>
-            </div>   
+            </div> : null  
+            }
+            
 
-            <div className="l-contenedor-productos">
+            <div className={condicion ? "l-contenedor-productos" : "BWidthGrilla"}>
 
                {/* Filtro por select */}
                <div className="l-productos-top-section">

@@ -105,7 +105,8 @@ const Registro = (props) => {
                     </select>
                     {errores.provincia ? <h6 className='BErrores'>{errores.provincia}</h6> : null} 
                 </div>
-                <div>
+               <div className="botones-cd">
+               <div>
                     <button className='BButon' onClick={enviarFormulario}>REGISTRARSE</button>
                 </div>
                 <div className='BContainerIniciar'>
@@ -122,9 +123,10 @@ const Registro = (props) => {
                     onFailure={responseGoogle}
                     cookiePolicy={'single_host_origin'}
                 />   
+               </div>
                 
             </form>
-            <div className='BImagenRegistro' style={{backgroundImage:'url("https://i.pinimg.com/originals/88/bb/b4/88bbb465eaa3069b572ef96a1134f9ed.jpg")'}}>  
+            <div className='BImagenRegistro' style={{backgroundImage:'url("/assets/1.jpg")'}}>  
             </div>
         </div>
     )

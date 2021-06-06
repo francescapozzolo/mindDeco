@@ -110,6 +110,7 @@ border-spacing: 0;
 
 .l-contenedor-menu-lateral {
     width: 25%;
+    min-height: 40vh;
     /* height: 40vh; */
     /* background: green; */
     display: flex;
@@ -1422,6 +1423,77 @@ border-spacing: 0;
     /* color: rgb(201, 182, 135); */
 }
 
+
+
+
+
+/* Modal de finalizar compra */
+
+.contenedor-modal-ConfirmarCompra {
+    /* background: green; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* font-size: 30px; */
+}
+
+.contenedor-tituloModalCompra {
+    background: rgb(25,29,31);
+    /* background-color: rgb(52,131,250); */
+    /* background-color: rgb(201,182,135); */
+    position: absolute;
+    width: 100%;
+    left: 0px;
+    top: 0px;
+    height: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+}
+
+.titulo-ModalCompra {
+    font-size: 35px;
+    text-align: center;
+    /* width: 100%; */
+    /* height: 30%; */
+    /* display: flex; */
+    /* align-items: center; */
+    /* position:absolute; */
+    /* left: 0px; */
+    /* top: 0px; */
+    /* padding-left: 25%; */
+    /* background: rgb(25,29,31); */
+    /* margin-bottom: 30px; */
+    color: rgb(201,182,135);
+    /* color: white; */
+}
+
+.contenedorTextoModalCompra {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 100px;
+    /* background: red; */
+}
+
+.textoModalCompra1 {
+    font-size: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    /* background: green; */
+}
+
+.textoModalCompra2 {
+    font-size: 23px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-weight: bold;
+    /* margin-left:auto; */
+    /* margin-right:auto; */
+}
+
+
 @media (max-width: 1600px) {
     .l-card {
       height: 400px;
@@ -1485,6 +1557,18 @@ border-spacing: 0;
 @media (max-width: 1200px) {
     .l-card {
       height: 300px;
+    }
+    .contenedorTextoModalCompra {
+        display: flex;
+        flex-direction: column;
+        /* width: 100%; */
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 130px;
+        text-align: center;
+        /* background-color: red; */
+        /* margin-left: 0px !important; */
+        /* background: red; */
     }
 
 }

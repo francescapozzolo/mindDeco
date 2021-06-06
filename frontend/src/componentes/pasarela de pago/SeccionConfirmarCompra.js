@@ -9,16 +9,18 @@ import moneyBill from '@iconify-icons/uil/money-bill';
 import moneyIcon from '@iconify-icons/carbon/money';
 import carritoActions from '../../redux/actions/carritoActions'
 import { connect } from 'react-redux';
+import { Modal, Button, Space } from 'antd';
 
 const SeccionConfirmarCompra = (props)=>{
    const {infoDelUsuario, precioTotal, productosAComprar} = props.statesDelPadre
    const [metodoDeEnvioAMostrar, setMetodoDeEnvioAMostrar] = useState('')
    const [metodoDePagoAMostrar, setMetodoDePagoAMostrar] = useState('')
    const [iconoDetalleDelPago, setIconoDetalleDelPago] = useState('')
+   const [visible, setVisible] = useState(false);
 
    useEffect(()=>{
-      console.log(props)
-      console.log(precioTotal)
+      // console.log(props)
+      // console.log(precioTotal)
       if(infoDelUsuario.envioElegido === "recibirCompra"){
          setMetodoDeEnvioAMostrar("Recibir en Domicilio")
       }else if(infoDelUsuario.envioElegido === "retiroPorSucursal"){
@@ -48,12 +50,32 @@ const SeccionConfirmarCompra = (props)=>{
       // if(infoDelUsuario)
    },[])
 
+   function success() {
+      Modal.success({
+        content: (
+           <div className="contenedor-modal-ConfirmarCompra">
+              <div className="contenedor-tituloModalCompra">
+               <h1 className="titulo-ModalCompra fontTitulos">Compra realizada con Exito!</h1>
+              </div>
+               <div className="contenedorTextoModalCompra">
+                  <p className="textoModalCompra1 fontTexto">Gracias por confiar en nostros!</p>
+                  <p className="textoModalCompra2 fontTexto">Mientras preparamos su entrega puede continuar navegando por nuestras extensas categorias!</p>
+               </div>
+           </div>
+        ),
+        width: '40%',
+        
+      //   height: '800px' 
+      });
+    }
+
    const confirmarCompra = ()=>{
+      productosAComprar.map(producto => {
+         return props.vaciarCarrito(props.userLogged, producto)
+      })
      alert('Felicitaciones! Su compra fue realizada con Exito') 
+      success() 
      localStorage.removeItem("infoDeCompraDelUsuario")
-     productosAComprar.map(producto => {
-        props.borrarProducto(props.userLogged, producto)
-     })
    }
 
    const volver = ()=>{
@@ -122,6 +144,24 @@ const SeccionConfirmarCompra = (props)=>{
                <NavLink to="/">
                   <p className="botonComprar-confirmarCompra fontTitulos" onClick={()=>confirmarCompra()}>Comprar!</p>
                </NavLink>
+
+               {/* Probando Modals */}
+               {/* <Button onClick={success}>Success</Button> */}
+               {/* <Button type="primary" onClick={() => setVisible(true)}>
+                  Open Modal of 1000px width
+               </Button> */}
+               {/* <Modal
+                  title="Modal 1000px width"
+                  centered
+                  visible={visible}
+                  onOk={() => setVisible(false)}
+                  onCancel={() => setVisible(false)}
+                  width={600}
+               >
+                  <p>some contents...</p>
+                  <p>some contents...</p>
+                  <p>some contents...</p>
+               </Modal> */}
             </div>
          </div>
       </>
@@ -135,7 +175,7 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = {
-   borrarProducto: carritoActions.borrarProducto
+   vaciarCarrito: carritoActions.vaciarCarrito
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SeccionConfirmarCompra)

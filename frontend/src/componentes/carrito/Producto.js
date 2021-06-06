@@ -13,19 +13,61 @@ const Producto = (props) => {
         Swal.fire({
             title: '¿Esta seguro que quiere eliminar este producto?',
             text: "No podra revertir esta accion!",
-            icon: 'warning',
+            // icon: 'warning',
             showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
+            confirmButtonColor: '#C9B687',
+            cancelButtonColor: '#C9B687',
             confirmButtonText: 'Borrar',
-            cancelButtonText: 'Cancelar'
+            cancelButtonText: 'Cancelar',
+            customClass: {
+                container: 'BFjala',
+                popup: '...',
+                header: '...',
+                title: 'BTitleSwal',
+                closeButton: '...',
+                icon: 'BSwalIcon',
+                image: '...',
+                content: '...',
+                htmlContainer: '...',
+                input: '...',
+                inputLabel: '...',
+                validationMessage: '...',
+                actions: '...',
+                confirmButton: 'BButon',
+                denyButton: '...',
+                cancelButton: 'BButon',
+                loader: '...',
+                footer: '....'
+              }
           }).then((result) => {
             if (result.isConfirmed) {
                 props.borrarProducto(props.producto)
-                Swal.fire(
-                    'Borrado!',
-                    'Su producto a sido borrado.',
-                    'Exito'
+            Swal.fire({
+                title:'Borrado!',
+                text:'Su producto ha sido borrado.',
+                confirmButtonText:'Volver al carrito',
+                confirmButtonColor: '#C9B687',
+                customClass: {
+                    container: 'BFjala',
+                    popup: '...',
+                    header: '...',
+                    title: '...',
+                    closeButton: '...',
+                    icon: 'BSwalIcon',
+                    image: '...',
+                    content: '...',
+                    htmlContainer: '...',
+                    input: '...',
+                    inputLabel: '...',
+                    validationMessage: '...',
+                    actions: '...',
+                    confirmButton: 'BButon',
+                    denyButton: '...',
+                    cancelButton: 'BButon',
+                    loader: '...',
+                    footer: '....'
+                  }
+            }
                 )
             }
           })

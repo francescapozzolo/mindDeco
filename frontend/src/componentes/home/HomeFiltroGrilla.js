@@ -5,12 +5,13 @@ import searchOutlined from '@iconify-icons/ant-design/search-outlined';
 import shoppingCart from '@iconify-icons/la/shopping-cart'; 
 import { Icon } from '@iconify/react';
 import { NavLink } from 'react-router-dom';
-
 import productosActions from '../../redux/actions/productosActions'
 import carritoActions from '../../redux/actions/carritoActions';
-import { toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 const HomeFiltroGrilla = (props) => {
+    console.log(props)
 
     const [array, setArray] = useState([])
 
@@ -46,14 +47,18 @@ const HomeFiltroGrilla = (props) => {
         }
     }
 
-    const agregandoProducto = async (producto) => {
-        const response = await props.agregarProductoAlCarrito(props.userLogged, producto)
-        if(response.success) {
-           return toast.success('Se agrego al carrito')
-        }else{
-           return toast.success('Este producto ya esta en el carrito')
+    const agregandoProducto = async (item) => {
+        if(props.userLogged){
+            const response = await props.agregarProductoAlCarrito(props.userLogged, item)
+            if(response && response.success) {
+                return toast.success('Se agrego al carrito')
+            }else{
+                return toast.warning('Este producto ya esta en el carrito')
+            }
+        } else {
+            return toast.warning('Debe iniciar sesión para poder comprar')
         }
-     }
+    }
 
     return (
         <div id="p-contenedorFiltroGrilla">

@@ -150,6 +150,7 @@ h4.BPrecioProducto, h5.BDescripcionProducto{
     background-color: var(--negro);
     border: 2px solid transparent;
     border-color: var(--negro);
+    width: 12vw;
 }
 .BCursorPointer{
     cursor: pointer;
@@ -325,7 +326,7 @@ h4.BPrecioProducto, h5.BDescripcionProducto{
 
 .BContainerIniciar{
     align-items: center;
-    width: 40%;
+    width: 50%
 }
 
 .BContainerIniciar h6{
@@ -439,4 +440,52 @@ float: left;
     -webkit-transform: scale3D(0, 0, 1);
             transform: scale3D(0, 0, 1);
 } 
+}
+
+.BWidthGrilla{
+    width: 100%;
+}
+
+.BFjala{
+    font-family: 'Fjalla One', sans-serif;
+}
+
+.BSwalIcon{
+    display: none;
+}
+
+.BTitleSwal{
+    line-height: 2.5rem;
+}
+
+@media only screen and (min-device-width : 350px) and (max-device-width : 800px) {
+    .BContainerRegistro{
+        display:flex;
+        flex-direction: column-reverse;
+        width: 160vh;
+        margin:6vh;
+    }
+    .BImagenRegistro{
+        height: 45vh;
+        width: 80vw;
+        margin: 4vh;
+    }
+    .botones-cd{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 1vh;
+    }
+    .BContainerContenido{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .BContainerPrincipal{
+        width: 150vh;
+    }
+    .nuevosClientes-cd{
+        margin: 3vh;
+    }
 }
