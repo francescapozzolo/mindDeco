@@ -55,7 +55,7 @@ const Header = (props) => {
             onCancel={handleCancel}
             width={800} 
             bodyStyle={{
-                backgroundImage: 'url("https://i.imgur.com/7AbpRmq.png-")',
+                backgroundImage: 'url("../assets/imgBgNews.png")',
                 height: '60vh', 
                 backgroundPosition: 'center',
                 backgroundRepeat:'no-repeat',
