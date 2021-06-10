@@ -1,9 +1,6 @@
 # MIND DECO
 Mind Deco es un e-commerce realizado para satisfacer las necesidades de toda persona que le guste comprar cosas de decoración y uso en el hogar, en el cual encontraran articulos de todo tipo y gusto.
 
-# Enlace a página hosteada
-https://minddeco.herokuapp.com/
-
 # Trabajo realizado
 Aplicación web cien por ciento adaptable a cualquier resolución de pantalla desarrollada como parte del programa de programacion web Full Stack MERN realizado en MindHub, siguiendo buenas prácticas y metodologias ágiles para la elaboracion de la misma, consume y realiza peticiones a una API creada por el equipo para crear y obtener articulos.
 
@@ -29,3 +26,6 @@ npm install
 * **Camila Domato** - [Camila](https://github.com/camiladomato)
 * **Kevin Baez** - [Kevin](https://github.com/soykevinkalen)
 * **Daniel Comes** - [Daniel](https://github.com/Danielcomes92)
+
+# Enlace a página hosteada
+https://minddeco.herokuapp.com/
