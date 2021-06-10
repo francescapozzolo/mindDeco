@@ -11,10 +11,10 @@ npm install
 ```
 
 # Construido con 🛠️
-* [React](https://es.reactjs.org/) - Lenguaje de Frontend
+* [React](https://es.reactjs.org/) - Librería de Frontend
 * [Antd](https://ant.design/) - Librería de estilos
 * [Redux](https://es.redux.js.org/) - Librería para manejo del estado
-* [Node](https://nodejs.org/es/) - Lenguaje de Backend
+* [Node](https://nodejs.org/es/) - Entorno en tiempo de ejecución multiplataforma
 * [Express](https://expressjs.com/es/) - Framework para Backend
 * [MongoDB](https://www.mongodb.com/) - Base de datos
 * [Mongoose](https://mongoosejs.com/) - Framework para modelado de base de datos
@@ -25,7 +25,6 @@ npm install
 * **Mateo Lorenzo** - [Mateo](https://github.com/MatuMto)
 * **Camila Domato** - [Camila](https://github.com/camiladomato)
 * **Kevin Baez** - [Kevin](https://github.com/soykevinkalen)
-* **Daniel Comes** - [Daniel](https://github.com/Danielcomes92)
 
 # Enlace a página hosteada
 https://minddeco.herokuapp.com/
