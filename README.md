@@ -18,6 +18,8 @@ npm install
 * [Express](https://expressjs.com/es/) - Framework para Backend
 * [MongoDB](https://www.mongodb.com/) - Base de datos
 * [Mongoose](https://mongoosejs.com/) - Framework para modelado de base de datos
+* [JSON Web Token](https://jwt.io/) - Librería para proteger datos del usuario
+* [Bcryptjs](https://www.npmjs.com/package/bcryptjs) - Libreria para encriptar la contraseña del usuario
 
 # Autores ✒️
 * **Daniel Comes** - [Daniel](https://github.com/Danielcomes92)
