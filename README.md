@@ -24,7 +24,7 @@ npm install
 # Autores ✒️
 * **Daniel Comes** - [Daniel](https://github.com/Danielcomes92)
 * **Francesca Pozzolo** - [Francesca](https://github.com/francescapozzolo)
-* **Mateo Lorenzo** - [Mateo](https://github.com/MatuMto)
+* **Mateo Lorenzo** - [Mateo](https://github.com/mateoLorenzo)
 * **Camila Domato** - [Camila](https://github.com/camiladomato)
 * **Kevin Baez** - [Kevin](https://github.com/soykevinkalen)
 
